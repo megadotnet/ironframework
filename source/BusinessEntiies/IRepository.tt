@@ -1,0 +1,1160 @@
+﻿<#@ template language="C#" debug="true" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ output extension=".cs"#>
+<#// This needs to be set to the .edmx file that you want to process.
+string edmxFile = FindEDMXFileName(); // @"Model1.edmx";
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+MetadataTools ef = new MetadataTools(this);
+CodeRegion region = new CodeRegion(this);
+#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IRepository.cs" company="Megadonet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   a interface of data acccess repository.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+
+    using IronFramework.Utility.UI;
+
+    /// <summary>
+    /// a interface of data acccess repository.
+    /// </summary>
+    /// <typeparam name="T">entity</typeparam>
+    public interface IRepository<T>
+    {
+        #region Public Methods
+
+        /// <summary>
+        /// Adds the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        void Add(T entity);
+
+        /// <summary>
+        /// Get all dataset
+        /// </summary>
+        /// <returns>
+        /// collection of entits
+        /// </returns>
+        IEnumerable<T> All();
+
+        /// <summary>
+        /// Attaches the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        void Attach(T entity);
+
+        /// <summary>
+        /// Deletes the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        void Delete(T entity);
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <param name="expression">
+        /// The expression.
+        /// </param>
+        /// <returns>
+        /// IEmunerable entites
+        /// </returns>
+        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
+
+        /// <summary>
+        /// Finds the specified where expression
+        /// </summary>
+        /// <typeparam name="K">
+        /// K is Key type of sort column  
+        /// </typeparam>
+        /// <param name="whereExpression">
+        /// The where expression.
+        /// </param>
+        /// <param name="orderexpression">
+        /// The orderexpression.
+        /// </param>
+        /// <param name="pageIndex">
+        /// Index of the page.
+        /// </param>
+        /// <param name="pageSize">
+        /// Size of the page.
+        /// </param>
+        /// <returns>
+        /// List of entitis 
+        /// </returns>
+        PagedList<T> Find<K>(
+            Expression<Func<T, bool>> whereExpression, 
+            Expression<Func<T, K>> orderexpression, 
+            int? pageIndex, 
+            int pageSize);
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        void Save();
+
+        /// <summary>
+        /// Singles the specified where.
+        /// </summary>
+        /// <param name="where">
+        /// The where.
+        /// </param>
+        /// <returns>
+        /// Single entity
+        /// </returns>
+        T Single(Expression<Func<T, bool>> where);
+
+        #endregion
+    }
+}<#
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(edmxFile);
+EntityContainer container = ItemCollection.GetItems<EntityContainer>().FirstOrDefault();
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{;
+    fileManager.StartNewFile(entity.Name + "Repository.Generated.cs"); #>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
+// Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The <#=code.Escape(entity)#> repository.
+//   This file is auto generated and will be overwritten as soon as the template is executed
+//   Do not modify this file...
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
+namespace <#= code.VsNamespaceSuggestion() #>
+{  
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    using BusinessEntiies;
+
+    using IronFramework.Utility.UI;
+ 
+	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Repository
+	{
+		private IRepository<<#=code.Escape(entity)#>> _repository {get;set;}
+		public IRepository<<#=code.Escape(entity)#>> Repository
+		{
+			get { return _repository; }
+			set { _repository = value; }
+		}
+		
+		public <#=code.Escape(entity)#>Repository(IRepository<<#=code.Escape(entity)#>> repository)
+    	{
+    		Repository = repository;
+    	}
+		
+		/// <summary>
+        /// Alls enties 
+        /// </summary>
+        /// <returns>Alls enties</returns>
+		public IEnumerable<<#=code.Escape(entity)#>> All()
+		{
+			return Repository.All();
+		}
+
+		 /// <summary>
+        /// Adds the specified entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+		public void Add(<#=code.Escape(entity)#> entity)
+		{
+			Repository.Add(entity);
+		}
+		
+		 /// <summary>
+        /// Attaches the specified entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+		public void Attach(<#=code.Escape(entity)#> entity)
+		{
+		    Repository.Attach(entity);
+		}
+		
+		/// <summary>
+        /// Deletes the specified entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+		public void Delete(<#=code.Escape(entity)#> entity)
+		{
+			Repository.Delete(entity);
+		}
+
+		/// <summary>
+        /// Saves this instance.
+        /// </summary>
+		public void Save()
+		{
+			Repository.Save();
+		}
+	}
+}<#	
+	if(!DoesFileExist(entity.Name + "Repository.cs"))
+	{
+		fileManager.StartNewFile(entity.Name + "Repository.cs");
+		#>using System;
+using System.Linq;
+using System.Collections.Generic;
+	
+namespace <#= code.VsNamespaceSuggestion() #>
+{   
+	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Repository
+	{
+		// Add your own data access methods.
+		// This file should not get overridden
+	}
+}<#
+	}
+	else
+	{
+		fileManager.StartNewFile(entity.Name + "Repository.cs");
+		this.Write(OutputFile(entity.Name + "Repository.cs"));
+	}
+}
+
+fileManager.StartNewFile("IUnitOfWork.cs");
+#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IUnitOfWork.cs" company="Megdotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   IUnitOfWork
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+
+    /// <summary>
+    /// IUnitOfWork interface
+    /// </summary>
+    public interface IUnitOfWork
+    {
+        #region Public Methods
+
+        /// <summary>
+        /// The save.
+        /// </summary>
+        void Save();
+
+        #endregion
+    }
+
+    /// <summary>
+    /// IObjectContext interface
+    /// </summary>
+    public interface IObjectContext : IDisposable
+    {
+	    /// <summary>
+        /// Gets or sets a value indicating whether [lazy loading enabled].
+        /// </summary>
+        /// <value><c>true</c> if [lazy loading enabled]; otherwise, <c>false</c>.</value>
+        bool LazyLoadingEnabled {get;set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [proxy creation enabled].
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if [proxy creation enabled]; otherwise, <c>false</c>.
+        /// </value>
+        bool ProxyCreationEnabled { get; set; }
+
+        #region Public Methods
+
+        /// <summary>
+        /// The change object state.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        /// <param name="entityState">
+        /// The entity state.
+        /// </param>
+        void ChangeObjectState(object entity, EntityState entityState);
+
+        /// <summary>
+        /// The create object set.
+        /// </summary>
+        /// <typeparam name="T">
+        /// </typeparam>
+        /// <returns>
+        /// IObjectSet generic T
+        /// </returns>
+        IObjectSet<T> CreateObjectSet<T>() where T : class;
+
+		    /// <summary>
+        /// Executes the function or sproc
+        /// </summary>
+        /// <param name="functionName">Name of the function.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>affect rows</returns>
+        int ExecuteFunction(string functionName, params ObjectParameter[] parameters);
+        
+        /// <summary>
+        /// ExecuteStoreCommand
+        /// </summary>
+        /// <param name="commandText">sqltest</param>
+        /// <param name="parameters">parameters</param>
+        /// <returns>affect rows</returns>
+        int ExecuteStoreCommand(string commandText, params object[] parameters);
+
+        /// <summary>
+        /// The save changes.
+        /// </summary>
+        void SaveChanges();
+
+        #endregion
+    }
+
+    /// <summary>
+    /// ObjectContextAdapter
+    /// </summary>
+    public class ObjectContextAdapter : IObjectContext
+    {
+        #region Constants and Fields
+
+        /// <summary>
+        /// The object context.
+        /// </summary>
+        private readonly ObjectContext _context;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectContextAdapter"/> class.
+        /// </summary>
+        /// <param name="dbcontext">
+        /// The dbcontext.
+        /// </param>
+        public ObjectContextAdapter(DbContext dbcontext)
+        {
+            this._context = (dbcontext as IObjectContextAdapter).ObjectContext;
+        }
+
+        #endregion
+
+        #region Implemented Interfaces
+
+        #region IDisposable
+
+        /// <summary>
+        /// The dispose.
+        /// </summary>
+        public void Dispose()
+        {
+            this._context.Dispose();
+        }
+
+        #endregion
+
+        #region IObjectContext
+
+		    /// <summary>
+        /// Gets or sets a value indicating whether [lazy loading enabled].
+        /// </summary>
+        /// <value><c>true</c> if [lazy loading enabled]; otherwise, <c>false</c>.</value>
+        public bool LazyLoadingEnabled
+        {
+            get
+            {
+                return this._context.ContextOptions.LazyLoadingEnabled;
+            }
+            set
+            {
+                this._context.ContextOptions.LazyLoadingEnabled = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [proxy creation enabled].
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if [proxy creation enabled]; otherwise, <c>false</c>.
+        /// </value>
+        public bool ProxyCreationEnabled
+        {
+            get
+            {
+                return this._context.ContextOptions.ProxyCreationEnabled;
+            }
+            set
+            {
+                this._context.ContextOptions.ProxyCreationEnabled = value;
+            }
+        }
+
+        /// <summary>
+        /// Changes the state of the object.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        /// <param name="entityState">
+        /// State of the entity.
+        /// </param>
+        public void ChangeObjectState(object entity, EntityState entityState)
+        {
+            this._context.ObjectStateManager.ChangeObjectState(entity, entityState);
+        }
+
+        /// <summary>
+        /// Creates the object set.
+        /// </summary>
+        /// <typeparam name="T">
+        /// </typeparam>
+        /// <returns>
+        /// </returns>
+        public IObjectSet<T> CreateObjectSet<T>() where T : class
+        {
+            return this._context.CreateObjectSet<T>();
+        }
+
+		    /// <summary>
+        /// Executes the function.
+        /// </summary>
+        /// <param name="functionName">Name of the function.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>affect rows</returns>
+        public int ExecuteFunction(string functionName, params ObjectParameter[] parameters)
+        {
+            return this._context.ExecuteFunction(functionName, parameters);
+        }
+        
+        /// <summary>
+        /// ExecuteStoreCommand
+        /// </summary>
+        /// <param name="commandText">sqltest</param>
+        /// <param name="parameters">parameters</param>
+        /// <returns>affect rows</returns>
+        public int ExecuteStoreCommand(string commandText, params object[] parameters)
+        {
+            return this._context.ExecuteStoreCommand(commandText, parameters);
+        }
+
+        /// <summary>
+        /// Saves the changes.
+        /// </summary>
+        public void SaveChanges()
+        {
+            this._context.SaveChanges();
+        }
+
+        #endregion
+
+        #endregion
+    }
+}<#	fileManager.StartNewFile("RepositoryIQueryableExtensions.cs");
+#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="RepositoryIQueryableExtensions.cs" company="Megdotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The repository i queryable extensions.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System.Data.Objects;
+    using System.Linq;
+
+    using IronFramework.Utility.UI;
+
+    /// <summary>
+    /// The repository i queryable extensions.
+    /// </summary>
+    public static class RepositoryIQueryableExtensions
+    {
+        #region Public Methods
+
+        /// <summary>
+        /// The include.
+        /// </summary>
+        /// <param name="source">
+        /// The source.
+        /// </param>
+        /// <param name="path">
+        /// The path.
+        /// </param>
+        /// <typeparam name="T">entities
+        /// </typeparam>
+        /// <returns>
+        ///  as queryable entities
+        /// </returns>
+        public static IQueryable<T> Include<T>(this IQueryable<T> source, string path)
+        {
+            var objectQuery = source as ObjectQuery<T>;
+            if (objectQuery != null)
+            {
+                return objectQuery.Include(path);
+            }
+
+            return source;
+        }
+
+        /// <summary>
+        /// The to paged list.
+        /// </summary>
+        /// <param name="allItems">
+        /// The all items.
+        /// </param>
+        /// <param name="pageIndex">
+        /// The page index.
+        /// </param>
+        /// <param name="pageSize">
+        /// The page size.
+        /// </param>
+        /// <typeparam name="T">entities
+        /// </typeparam>
+        /// <returns>
+        /// Paged list of entities
+        /// </returns>
+        public static PagedList<T> ToPagedList<T>(this IQueryable<T> allItems, int? pageIndex, int pageSize)
+        {
+            int truePageIndex = pageIndex ?? 0;
+            int itemIndex = (truePageIndex - 1) * pageSize;
+            IQueryable<T> pageOfItems = allItems.Skip(itemIndex).Take(pageSize);
+            return new PagedList<T>(pageOfItems, truePageIndex, pageSize, allItems.Count());
+        }
+
+        #endregion
+    }
+}<# fileManager.StartNewFile("EFRepository.cs");
+#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EFRepository.cs" company="Megadotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   EFRepository
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Objects;
+    using System.Linq;
+    using System.Linq.Expressions;
+
+    using IronFramework.Utility.UI;
+
+    /// <summary>
+    /// EFRepository
+    /// </summary>
+    /// <typeparam name="T">entity</typeparam>
+    public class EFRepository<T> : IRepository<T>
+        where T : class
+    {
+        #region Constants and Fields
+
+        /// <summary>
+        /// The _object context.
+        /// </summary>
+        private readonly IObjectContext _objectContext;
+
+        /// <summary>
+        /// The _objectset.
+        /// </summary>
+        private readonly IObjectSet<T> _objectset;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EFRepository{T}"/> class. 
+        /// Initializes a new instance of the <see cref="EFRepository&lt;T&gt;"/> class.
+        /// </summary>
+        /// <param name="objectContext">
+        /// The object context.
+        /// </param>
+        public EFRepository(IObjectContext objectContext)
+        {
+            this._objectset = objectContext.CreateObjectSet<T>();
+            this._objectContext = objectContext;
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the object set.
+        /// </summary>
+        /// <value>The object set.</value>
+        private IObjectSet<T> ObjectSet
+        {
+            get
+            {
+                return this._objectset;
+            }
+        }
+
+        #endregion
+
+        #region Implemented Interfaces
+
+        #region IRepository<T>
+
+        /// <summary>
+        /// Adds the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        public void Add(T entity)
+        {
+            this.ObjectSet.AddObject(entity);
+        }
+
+        /// <summary>
+        /// Alls this instance.
+        /// </summary>
+        /// <returns>
+        /// collection of entities
+        /// </returns>
+        public virtual IEnumerable<T> All()
+        {
+            return this.ObjectSet.AsQueryable();
+        }
+
+        /// <summary>
+        /// Attaches the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        public void Attach(T entity)
+        {
+            this.ObjectSet.Attach(entity);
+        }
+
+        /// <summary>
+        /// Deletes the specified entity.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        public void Delete(T entity)
+        {
+            this.ObjectSet.DeleteObject(entity);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <param name="expression">
+        /// The expression.
+        /// </param>
+        /// <returns>
+        /// colloection of entities
+        /// </returns>
+        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        {
+            return this.ObjectSet.Where(expression);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K">
+        /// Order by column
+        /// </typeparam>
+        /// <param name="expression">
+        /// The expression.
+        /// </param>
+        /// <param name="orderExpression">
+        /// The order expression.
+        /// </param>
+        /// <param name="pageIndex">
+        /// Index of the page.
+        /// </param>
+        /// <param name="pageSize">
+        /// Size of the page.
+        /// </param>
+        /// <returns>
+        /// Entities paged list
+        /// </returns>
+        public PagedList<T> Find<K>(
+            Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, int? pageIndex, int pageSize)
+        {
+            if (expression == null)
+            {
+                return this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToPagedList(pageIndex, pageSize);
+            }
+
+            return this.ObjectSet.Where(expression).OrderBy(orderExpression).AsQueryable().ToPagedList(
+                pageIndex, pageSize);
+        }
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        public void Save()
+        {
+            this._objectContext.SaveChanges();
+        }
+
+        /// <summary>
+        /// Singles the specified where.
+        /// </summary>
+        /// <param name="where">
+        /// The where.
+        /// </param>
+        /// <returns>
+        /// single entity
+        /// </returns>
+        public T Single(Expression<Func<T, bool>> where)
+        {
+            return this.ObjectSet.SingleOrDefault(where);
+        }
+
+        #endregion
+
+        #endregion
+    }
+}<#fileManager.StartNewFile("EFUnitOfWork.cs");
+#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EFUnitOfWork.cs" company="Megadotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   EFUnitOfWork
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System;
+
+    /// <summary>
+    /// EFUnitOfWork
+    /// </summary>
+    public class EFUnitOfWork : IUnitOfWork, IDisposable
+    {
+        #region Constants and Fields
+
+        /// <summary>
+        /// The _object context.
+        /// </summary>
+        private readonly IObjectContext _objectContext;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EFUnitOfWork"/> class.
+        /// </summary>
+        /// <param name="objectContext">
+        /// The object context.
+        /// </param>
+        public EFUnitOfWork(IObjectContext objectContext)
+        {
+            this._objectContext = objectContext;
+        }
+
+        #endregion
+
+        #region Implemented Interfaces
+
+        #region IDisposable
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            if (this._objectContext != null)
+            {
+                this._objectContext.Dispose();
+            }
+
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
+
+        #region IUnitOfWork
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        public void Save()
+        {
+            this._objectContext.SaveChanges();
+        }
+
+        #endregion
+
+        #endregion
+    }
+}
+<#fileManager.StartNewFile("RepositoryHelper.cs");
+#>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="RepositoryHelper.cs" company="Megadotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The repository helper.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+	public static class RepositoryHelper
+	{
+		public static IRepository<T> GetRepository<T>()
+		{
+			return ObjectFactory.GetInstance<IRepository<T>>();
+		}
+
+        public static IUnitOfWork GetUnitOfWork()
+        {
+            return ObjectFactory.GetInstance<IUnitOfWork, IObjectContext>(GetDbContext());
+        }
+		
+		public static IUnitOfWork GetUnitOfWork(IObjectContext objectcontext)
+		{
+			return ObjectFactory.GetInstance<IUnitOfWork,IObjectContext>(objectcontext);
+		}		
+		
+	    public static IObjectContext GetDbContext()
+		{
+			return ObjectFactory.GetInstance<IObjectContext>();
+		}	
+		
+		<# foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{; #>
+
+		public static <#=code.Escape(entity)#>Repository Get<#=code.Escape(entity)#>Repository()
+		{
+			return ObjectFactory.GetInstance<<#=code.Escape(entity)#>Repository>();
+		}
+		
+		public static <#=code.Escape(entity)#>Repository Get<#=code.Escape(entity)#>Repository(IObjectContext objectcontext)
+        {
+            return ObjectFactory.GetInstance<<#=code.Escape(entity)#>Repository, IObjectContext>(objectcontext);
+        }
+
+<# } #>
+    }
+}
+<#fileManager.StartNewFile("ObjectFactory.cs");
+#>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ObjectFactory.cs" company="Megadotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   ObjectFactory
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>
+{
+    using System.Data.Entity;
+
+    using BusinessEntiies;
+
+    using DataAccessObject.Repositories;
+
+    using Microsoft.Practices.Unity;
+    
+    /// <summary>
+    /// ObjectFactory
+    /// </summary>
+    public class ObjectFactory
+    {
+       private static IUnityContainer container;
+
+       static ObjectFactory()
+       {
+            container = new UnityContainer();
+			container.RegisterType<IUnitOfWork, EFUnitOfWork>();
+		    container.RegisterType< <#= code.VsNamespaceSuggestion() #>.Repositories.IStoredProcedureFunctionsDAO, <#= code.VsNamespaceSuggestion() #>.Repositories.StoredProcedureFunctionsDAO>();
+			container.RegisterType<DbContext, <#=code.Escape(container)#>>(new InjectionConstructor());
+            container.RegisterType<IObjectContext, ObjectContextAdapter>();
+		<# foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{; #>
+            container.RegisterType<IRepository<<#=code.Escape(entity)#>>,EFRepository<<#=code.Escape(entity)#>>>();	
+<# } #>
+        }
+         
+       /// <summary>
+       /// Gets the instance.
+       /// </summary>
+       /// <typeparam name="T"></typeparam>
+       /// <returns></returns>
+        public static T GetInstance<T>()
+        {
+            return container.Resolve<T>();
+        }
+
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="U"></typeparam>
+        /// <param name="u">The u.</param>
+        /// <returns></returns>
+        public static T GetInstance<T, U>(U u)
+        {
+           return container.Resolve<T>(new DependencyOverride<U>(u));
+        }
+
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="U"></typeparam>
+        /// <typeparam name="Y"></typeparam>
+        /// <param name="u">The u.</param>
+        /// <param name="y">The y.</param>
+        /// <returns></returns>
+        public static T GetInstance<T, U, Y>(U u, Y y)
+        {
+            return container.Resolve<T>(new DependencyOverride<U>(u), new DependencyOverride<Y>(y));
+        }
+
+    }
+	
+}<#fileManager.StartNewFile("IStoredProcedureFunctionsDAO.cs");
+#>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IStoredProcedureFunctionsDAO.cs" company="Megadotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The i stored procedure functions dao.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>.Repositories
+{
+    using System;
+
+     /// <summary>
+    /// The interface of stored procedure functions data access object
+    /// </summary>
+    public interface IStoredProcedureFunctionsDAO
+    {
+   
+<#   region.Begin("Function Imports");
+
+		foreach (EdmFunction edmFunction in container.FunctionImports)
+		{
+			var parameters = FunctionImportParameter.Create(edmFunction.Parameters, code, ef);
+			string paramList = String.Join(", ", parameters.Select(p => p.FunctionParameterType + " " + p.FunctionParameterName).ToArray());
+			string returnTypeElement = "int";
+			if (edmFunction.ReturnParameter == null)
+			{
+#>
+
+	    void <#=code.Escape(edmFunction)#>(<#=paramList#>);
+<#
+			}
+			else
+			{
+				returnTypeElement = code.Escape(ef.GetElementType(edmFunction.ReturnParameter.TypeUsage));
+#>
+
+	    ObjectResult<<#=returnTypeElement#>> <#=code.Escape(edmFunction)#>(<#=paramList#>);
+
+<#
+			}
+		}
+		
+		region.End();
+
+#> 
+    }
+}
+<#fileManager.StartNewFile("StoredProcedureFunctionsDAO.Generated.cs");
+#>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="StoredProcedureFunctionsDAO.cs" company="Megdotnet">
+//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The stored procedure functions dao.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= code.VsNamespaceSuggestion() #>.Repositories
+{
+    using System;
+    using System.Data.Objects;
+
+    /// <summary>
+    /// The stored procedure functions dao.
+    /// </summary>
+    public partial class StoredProcedureFunctionsDAO : IStoredProcedureFunctionsDAO
+    {
+	    private readonly IObjectContext  dbObjectcontext;
+	   
+        public StoredProcedureFunctionsDAO(IObjectContext  _dbObjectcontext)
+        {
+            dbObjectcontext = _dbObjectcontext;
+        }
+
+
+     <#
+        region.Begin("Function Imports");
+
+		foreach (EdmFunction edmFunction in container.FunctionImports)
+		{
+			var parameters = FunctionImportParameter.Create(edmFunction.Parameters, code, ef);
+			string paramList = String.Join(", ", parameters.Select(p => p.FunctionParameterType + " " + p.FunctionParameterName).ToArray());
+			string returnTypeElement = "int";
+			if (edmFunction.ReturnParameter == null)
+			{
+#>
+
+	<#=Accessibility.ForMethod(edmFunction)#> void <#=code.Escape(edmFunction)#>(<#=paramList#>)
+	{
+<#
+			}
+			else
+			{
+				returnTypeElement = code.Escape(ef.GetElementType(edmFunction.ReturnParameter.TypeUsage));
+#>
+
+	<#=Accessibility.ForMethod(edmFunction)#> ObjectResult<<#=returnTypeElement#>> <#=code.Escape(edmFunction)#>(<#=paramList#>)
+	{
+<#
+			}
+
+			foreach (var parameter in parameters)
+			{
+				if (!parameter.NeedsLocalVariable)
+				{
+					continue;
+				}
+#>
+		ObjectParameter <#=parameter.LocalVariableName#>;
+		if (<#=parameter.IsNullableOfT ? parameter.FunctionParameterName + ".HasValue" : parameter.FunctionParameterName + " != null"#>)
+		{
+			<#=parameter.LocalVariableName#> = new ObjectParameter("<#=parameter.EsqlParameterName#>", <#=parameter.FunctionParameterName#>);
+		}
+		else
+		{
+			<#=parameter.LocalVariableName#> = new ObjectParameter("<#=parameter.EsqlParameterName#>", typeof(<#=parameter.RawClrTypeName#>));
+		}
+		
+<#
+			}
+			if (edmFunction.ReturnParameter == null)
+			{
+#>
+		     dbObjectcontext.ExecuteFunction("<#=edmFunction.Name#>"<#=code.StringBefore(", ", String.Join(", ", parameters.Select(p => p.ExecuteParameterName).ToArray()))#>);
+	}
+<#
+			}
+			else
+			{
+#>
+		return dbObjectcontext.ExecuteFunction<<#=returnTypeElement#>>("<#=edmFunction.Name#>"<#=code.StringBefore(", ", String.Join(", ", parameters.Select(p => p.ExecuteParameterName).ToArray()))#>);
+	}
+<#
+			}
+		}
+		region.End();
+
+#>
+    }
+}
+<#if(!DoesFileExist("StoredProcedureFunctionsDAO.cs"))
+	{
+		fileManager.StartNewFile("StoredProcedureFunctionsDAO.cs");
+#>using System;
+namespace <#= code.VsNamespaceSuggestion() #>.Repositories
+{
+    public partial class StoredProcedureFunctionsDAO : IStoredProcedureFunctionsDAO
+    {
+    }
+}<#
+	}
+	else
+	{
+		fileManager.StartNewFile("StoredProcedureFunctionsDAO.cs");
+		this.Write(OutputFile("StoredProcedureFunctionsDAO.cs"));
+	}
+#><#	fileManager.Process();
+#>
+
+
+<#+
+
+bool DoesFileExist(string filename)
+{			
+	return File.Exists(Path.Combine(GetCurrentDirectory(),filename));	
+}
+
+string OutputFile(string filename)
+{
+	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentDirectory(),filename)))
+	{
+		string contents = sr.ReadToEnd();
+		return contents;
+	}
+}
+
+string GetCurrentDirectory()
+{
+	string executingDirectoryName = "";
+	string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();
+	if (String.IsNullOrEmpty(stackTraceFileName))
+	{
+		throw new ArgumentException("No value was specified for the 'directoryName' configuration parameter" +
+			", and we could not figure out the file name from the stack trace (most likely because of running " +
+			"the template with debug='False' specified in the <\u0023@ template \u0023> directive.");
+	}
+	else
+	{		
+		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
+	}	
+	return executingDirectoryName;
+}
+
+string FindEDMXFileName()
+{
+	string edmxFile = "";
+				
+	string[] entityFrameworkFiles = Directory.GetFiles(GetCurrentDirectory(), "*.edmx");
+	if(entityFrameworkFiles.Length > 0)
+		edmxFile = entityFrameworkFiles[0];
+	
+	return edmxFile;
+}
+#>

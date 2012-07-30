@@ -1,0 +1,1985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="41d5f77e-0058-468e-9169-eb7c4ab8cf0b" name="BusinessObject" linkedPackageId="cc9a4ebd-2010-440d-8241-412074685fdd" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="95b21e37-de5d-46b3-914b-a354813a90a1" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="b778b9b7-4302-4a56-bdee-c52d354f2af5" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="98a2ce5d-cb99-4472-a1c2-31a89d08a731">
+          <propertyInstance Id="a01d5068-f4be-4ef3-a50a-a10f0de7748c" name="BaseName">
+            <elementDefinition Id="b2d04285-e606-4266-96c8-edb37e281f12" />
+          </propertyInstance>
+          <elementDefinition Id="6a9da0a2-ff45-447a-a4a7-253c5490889d" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="27fec448-27fe-4f4f-b2b2-e6d067fde962">
+          <propertyInstance Id="f1de4336-4d5c-4a35-81a7-e6cd50d4e34d" name="ClrAttributes">
+            <elementDefinition Id="634d44eb-86f1-461b-9a91-03669d287aba" />
+          </propertyInstance>
+          <elementDefinition Id="ae949635-ca03-4e97-a51c-91a8dce30dc0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d0e578b2-e401-48df-9190-daff64108a0f">
+          <propertyInstance Id="1337f9cf-9bba-4e25-a0a7-f5717de09465" name="Usings" value="Testoo">
+            <elementDefinition Id="8ebed3f8-65bd-4c46-921c-51630aa6f34a" />
+          </propertyInstance>
+          <elementDefinition Id="2336c36d-60c9-45b5-b17b-981aaa8f45d2" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="7fe0581d-6289-46d5-9df4-05c876e6bcd1" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="dfc992a6-9582-4ac5-8994-d73264fc29fc" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="e223d745-041f-41b7-b527-f7a8cae22766">
+          <propertyInstance Id="8f173cd9-50e4-4976-ae47-fe031cd28540" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="e3fd2030-9531-4881-a6a1-48294cc4ff05" />
+          </propertyInstance>
+          <elementDefinition Id="31670fb8-7ff8-41d4-a278-2a8ebb16f908" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f0f8854e-5da6-4f3f-980b-2b37c3983af5">
+          <propertyInstance Id="6ad93ca2-7e6b-4728-a620-f91e1b1e8dec" name="TemplateFilePath" value="ClassTemplate=D:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\ClassTemplate.t4|EnumTemplate=D:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\EnumTemplate.t4|InterfaceTemplate=D:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\InterfaceTemplate.t4|StructTemplate=D:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="780ef62d-9b9d-4977-8db8-805164db6c23" />
+          </propertyInstance>
+          <elementDefinition Id="8e64eaef-afcd-44cc-9001-54aa94f05d69" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3a899577-f9b9-451b-806c-96494fd24598">
+          <propertyInstance Id="d358f74a-9ee5-4b2d-abee-4e1394727c0a" name="ProjectPath" value="ClassTemplate=..\IronModelingProjectLib\IronModelingProjectLib.csproj|EnumTemplate=..\IronModelingProjectLib\IronModelingProjectLib.csproj|InterfaceTemplate=..\IronModelingProjectLib\IronModelingProjectLib.csproj|StructTemplate=..\IronModelingProjectLib\IronModelingProjectLib.csproj">
+            <elementDefinition Id="1bb02df5-4908-4452-9bde-215d0e530eab" />
+          </propertyInstance>
+          <elementDefinition Id="3c75d0ad-ae12-4cec-b3fe-26093c6ff16a" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b6c3bf4d-2948-4326-b438-f791665e10ee">
+          <propertyInstance Id="6e12f4af-3e76-4340-90ea-d391c1352294" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="79e032c9-7728-4f4f-b029-b8a0746b47b9" />
+          </propertyInstance>
+          <elementDefinition Id="b3286ada-b3fe-4f0e-90ba-8e5d3aee8674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a48ba068-274b-4a53-945b-15737033ccaa">
+          <propertyInstance Id="191e1261-c15a-4ec0-9cda-801bbb868dc1" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="c2b4cd3b-324f-4e1a-8f30-bb3870688747" />
+          </propertyInstance>
+          <elementDefinition Id="b3ff9605-e351-440a-b211-cf030546060a" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c4dc9275-1a86-4973-b1e8-6ae8ab47e5e0">
+          <propertyInstance Id="1cca2ff9-4655-490d-8199-3168d635a3b5" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="82f14a12-b489-4df8-bb8e-c10867377fc0" />
+          </propertyInstance>
+          <elementDefinition Id="1cc947e6-c666-48c2-9db0-7487a167d909" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="13f5aafd-0890-4e08-b28a-28e18148c940">
+          <propertyInstance Id="7d94bd76-6e16-4af2-9e0d-cdf6ade50e35" name="Parameters">
+            <elementDefinition Id="5417776e-c6a5-4ce7-9eee-197131936eba" />
+          </propertyInstance>
+          <elementDefinition Id="aa68606a-77c5-44e7-95ad-8bae6a5d51d6" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="ab5dbce6-60d3-4454-8601-a726c4324732" name="IEmployeeBusinessObject" isAbstract="false" isLeaf="false">
+        <referencesInternal>
+          <reference Id="d2de2a17-63c6-437c-bd48-648503a3ad33" handle="viewcode://./CodeSchema_Interface?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject" tag="ViewCode">
+            <elementDefinition Id="4e32da78-bbbb-4214-96ec-3d6d156e7977" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="566c72f7-6ed2-4355-bc92-4a5e63cdba36" name="interface" profile="CSharpProfile">
+            <elementDefinition Id="c875227a-f9da-4720-830c-c997ad890bce" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5e6a38b9-7f69-4e97-8d8b-0057b15a75c4">
+                <propertyInstance Id="1ab895c3-929d-4e75-bab3-374deab76f7b" name="ClrAttributes">
+                  <elementDefinition Id="0bea045c-c133-4ee1-80af-3b4545cecf70" />
+                </propertyInstance>
+                <elementDefinition Id="23cbd141-6ee0-4d96-9f95-430438952fb0" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="edf53d12-b1ac-4fb8-b7ba-3b9c0638c93d">
+                <propertyInstance Id="00c28cff-8b63-457b-875e-ff87ec490b7c" name="IsPartial" value="false">
+                  <elementDefinition Id="8cfa57a1-716f-4b0f-9935-33b80445bb80" />
+                </propertyInstance>
+                <elementDefinition Id="0c498870-42ed-4457-9792-d54ad8c22efa" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="8f0ee0ec-c0eb-4a70-b249-6b05d5025134">
+                <propertyInstance Id="17ed13a6-29de-403b-a2ee-d18d20b5b207" name="IsUnsafe" value="false">
+                  <elementDefinition Id="f922fcce-177f-4bed-950b-c1caf6e99d56" />
+                </propertyInstance>
+                <elementDefinition Id="02d92911-1677-4674-93e2-60c4e0695802" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="e7b16731-f9a9-43e0-b1b9-58d19071be78">
+                <propertyInstance Id="96871515-88e6-4f26-82ac-229e22b5648d" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="33430ab2-98cb-4123-a47d-e6071dc7035f" />
+                </propertyInstance>
+                <elementDefinition Id="a6ddebd6-c9d7-4646-a289-b6bd8fd3c0b4" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="4f051776-23a0-478a-810c-8c43c013f8eb" />
+        <ownedOperations>
+          <operation Id="016e2f42-4851-4a1b-8485-86dcaf86acbf" name="AttachEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="564188e9-ae37-48ec-a133-9db048c8c239" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="64f2a131-ec45-416e-ac20-ee4e20ace589" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="cd952708-7744-4a50-82d2-14310b7216aa" name="method" profile="CSharpProfile">
+                <elementDefinition Id="5c8cf608-df59-4222-bcc2-c7c81189567f" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0f0f9f75-48eb-43f7-b0d2-1682078e945d">
+                    <propertyInstance Id="dac6f26a-758a-4778-9c7f-b3591e40d28e" name="ClrAttributes">
+                      <elementDefinition Id="aab9e27b-a5ee-4073-a433-159727c9f713" />
+                    </propertyInstance>
+                    <elementDefinition Id="27da5c47-c33e-4a0d-9e22-f265e9724631" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="db49f9a7-1fc9-43ed-b76c-2697e3369669">
+                    <propertyInstance Id="507fad4b-091a-4ab2-aa49-17f92d38a481" name="IsPartial" value="false">
+                      <elementDefinition Id="fa773ba7-5cad-4805-b50e-57fed9f04649" />
+                    </propertyInstance>
+                    <elementDefinition Id="ae19cd9c-409d-49ba-a46f-6d849a3ec0d8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="efd747d0-092d-44bc-950e-12b26f2502de">
+                    <propertyInstance Id="51dbee48-234a-4a35-a782-959f1d9a7fe6" name="IsUnsafe" value="false">
+                      <elementDefinition Id="e2d9b8ea-72d3-4e14-9aa6-dbe2e4d871b8" />
+                    </propertyInstance>
+                    <elementDefinition Id="51aac2c6-c426-4848-9a1f-1d4bd97dd97d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b49f877f-ac8b-46fc-af9c-806f6f6132cc">
+                    <propertyInstance Id="3bb9d5c0-0bab-4497-b2e1-088fc410fc31" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="7163cf36-3acf-4046-83e6-77d1baa31920" />
+                    </propertyInstance>
+                    <elementDefinition Id="d59e0f91-747e-4af7-a7a5-71f6c2067cfe" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="74adc6ba-18db-48c0-8890-ee3b0ac8c6f7">
+                    <propertyInstance Id="3a345212-8338-4536-9ff9-35d8f67ee6db" name="params" value="false">
+                      <elementDefinition Id="d842b2f0-e96d-4ba7-859a-83404fb714c5" />
+                    </propertyInstance>
+                    <elementDefinition Id="2cfd8f76-b692-40bb-8048-3567fb6fdae0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="bf19f3c6-e04f-4f55-82e4-06c20982d91d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="01bd9345-dd88-41fe-b5b7-e86d410bd967" direction="Return">
+                  <elementDefinition Id="e0bb5fbc-be7e-42ca-891d-02b5cbecfeb5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c8d46897-f352-4e1d-a778-61377b2f1dab" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="d58042a0-09ec-44d7-9672-3b88eb06dfc4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="02196b85-c10d-4eed-aaaf-bc1f29eabe0e" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="c8d66e62-10d5-4225-ad7d-1edb37943db8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="7ea4b110-940f-47af-be22-ac6a1c2c710b" name="CreateEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="33fdf7b4-d3db-434b-a8b6-37574eeeac9b" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="c74f9220-757c-44f8-a573-478e9f0d86ea" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="61b147e5-8d84-4971-9030-846e11fea2e0" name="method" profile="CSharpProfile">
+                <elementDefinition Id="f21b48c1-b81e-4c00-8f1a-f485a9015870" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d1a1f10f-d3b4-457d-9e57-09f573da200e">
+                    <propertyInstance Id="feb2b77c-0a16-44a3-b8f3-1f776d46804d" name="ClrAttributes">
+                      <elementDefinition Id="0c8c054b-336c-4d2e-9eb0-86f10d19ed32" />
+                    </propertyInstance>
+                    <elementDefinition Id="ddab9b6e-f35a-480d-95b6-c0c8b1cbc7f0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f3eef336-69ae-4195-bdc4-43a218819876">
+                    <propertyInstance Id="31aa8334-833b-4e4b-adf8-ff5ab161951f" name="IsPartial" value="false">
+                      <elementDefinition Id="eeb5531a-6b2f-4375-9475-ded8cc08172f" />
+                    </propertyInstance>
+                    <elementDefinition Id="6cf7b53a-50c0-4a5b-ab08-846057ad97c0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fc6d9668-6691-4b07-8d27-980d77a447d7">
+                    <propertyInstance Id="dd3165fa-2043-4162-a553-4aec0dc32c9b" name="IsUnsafe" value="false">
+                      <elementDefinition Id="d03751bc-0417-4636-b950-c3c4453c5243" />
+                    </propertyInstance>
+                    <elementDefinition Id="edc318b9-ced9-410c-936a-c1cdd7d316d4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="484b7364-9bdc-45df-9fcf-e1ad49336d66">
+                    <propertyInstance Id="11ca444a-556b-4660-b427-59aa14f9728e" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="f4d09f8f-a4c2-4861-8f89-3a44fc0eaff8" />
+                    </propertyInstance>
+                    <elementDefinition Id="f0df053d-4ae4-4a2e-8fc2-067301f1f981" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d0a3c721-533e-4af9-86e4-0dce5530ad92">
+                    <propertyInstance Id="f6345255-8532-48f6-acc6-968b7bc6a3a8" name="params" value="false">
+                      <elementDefinition Id="377febde-81f1-4f4f-bbc2-8a15386fe873" />
+                    </propertyInstance>
+                    <elementDefinition Id="001efe2e-60b0-4910-9bab-30edffb12d8b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="b3b420b9-c93a-4af8-9035-2be073abbd93" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6fbf2e39-5c54-45c1-b6e3-5b0571fda9ff" direction="Return">
+                  <elementDefinition Id="a42bb91d-3f79-455e-837c-6555dffe5efb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="62164962-4b98-4ab8-9e21-3dfc858b3028" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="be871abe-caf2-4b13-bfad-3b324837b9d1" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="d99baa36-807a-4383-8ae7-b3151fcadd5e" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ed0d15a4-60ad-492c-b0f7-86d2babb7a4d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c4cefda4-e964-4e84-89cc-fd7151ad3582" name="DelEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="f996cef7-1168-46fc-8b51-1b100517c052" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="9de426f0-8375-4d98-8051-f1d1000efbf3" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6f917980-453d-4486-a000-77d1ab20f5a8" name="method" profile="CSharpProfile">
+                <elementDefinition Id="77d11ba7-8093-4209-93f7-acd456ebb1a4" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3679492a-9ec2-49bd-91be-b47fad83db23">
+                    <propertyInstance Id="e723d5f1-8379-4162-94a1-21559f01ea09" name="ClrAttributes">
+                      <elementDefinition Id="31bd2514-2b03-4f70-85b3-fa4e61ac3f6b" />
+                    </propertyInstance>
+                    <elementDefinition Id="78669082-c216-4c41-a3c2-ae438efb3feb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="87518c8c-efe3-48a4-91bb-4d1a49c5fd84">
+                    <propertyInstance Id="aac3a33f-d49f-4585-a4af-6a4f3dae7da6" name="IsPartial" value="false">
+                      <elementDefinition Id="a07594f4-0a8f-4caf-bed7-3830eedb342c" />
+                    </propertyInstance>
+                    <elementDefinition Id="601036b5-183c-408b-9748-f27e8f5221b8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4e3f0e73-c99b-4afb-ad12-e6c2ca1f8697">
+                    <propertyInstance Id="ce0e840d-8237-4be5-8865-f0091e2098e9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="04385225-6c37-498b-b4aa-af0680371029" />
+                    </propertyInstance>
+                    <elementDefinition Id="4d5d988f-4680-466f-9355-7b8eea3461b3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a0ee0204-6562-4433-8743-c273303c0ad3">
+                    <propertyInstance Id="dd8391df-7400-45a0-8a31-1de443dafd04" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="77194534-2dba-47bb-aee7-07e7b85a9d47" />
+                    </propertyInstance>
+                    <elementDefinition Id="42b2c128-6fcf-43f4-9953-f23e68492db7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="22f24789-39f3-4788-94cc-1b7112a921c2">
+                    <propertyInstance Id="2df6985e-370e-48ac-9199-fa94b0f9ed51" name="params" value="false">
+                      <elementDefinition Id="7d94afb4-c70c-4b2f-afda-db2994f0486e" />
+                    </propertyInstance>
+                    <elementDefinition Id="29f79b36-ea12-4997-9f56-3062988790c8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="6819db76-e01b-4d27-bd1b-8bfcee1f644e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="953abf7a-a5f6-4b78-908f-61e461d76d7e" direction="Return">
+                  <elementDefinition Id="e02ba7f1-ebe5-4b24-8865-f8dcc3901f5b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ea4681c3-07fa-43e0-b654-cfe101ed54de" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="c3e37df3-6b58-4efe-9b92-51707d5c59ae" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="1c7e1a4a-af03-40e8-94e4-2390a29779a4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="7a0935a1-f4ff-449d-a569-ff4e746f733d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c31746df-874d-4769-98eb-59987db1aa49" name="FindByTitle" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="e5f8a095-1567-4c98-9f88-c163c6c668b8" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="96330835-4c36-4a22-bb28-716c7e1c6219" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="e78a1d76-8552-4b77-bdc0-0cdb44bac463" name="method" profile="CSharpProfile">
+                <elementDefinition Id="f82237fa-2102-49ef-9d71-479000440a40" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a1a0b35a-4bf9-4509-b54d-564b2e3baf40">
+                    <propertyInstance Id="dc88cd80-add7-4478-9a78-9a1a8c096dbc" name="ClrAttributes">
+                      <elementDefinition Id="95f14db5-3ec9-477a-bc55-31972c0a7757" />
+                    </propertyInstance>
+                    <elementDefinition Id="57a526bc-0e0b-4e1c-8efe-ecbd1f4a8296" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a3cc6006-4838-45cb-a02e-1831072aa0e7">
+                    <propertyInstance Id="a6f1e386-0585-4f20-bc13-72388ff104fc" name="IsPartial" value="false">
+                      <elementDefinition Id="87f0343e-e146-4b7b-8135-30fa8e843423" />
+                    </propertyInstance>
+                    <elementDefinition Id="11531bce-8cf6-4337-9b52-108013012f04" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6779e631-4651-433d-84b2-d4544951d8ed">
+                    <propertyInstance Id="8c45364e-a847-4b7d-aa1f-b30043a17f0e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="408bcc74-0f34-47a5-bda6-e769f3481957" />
+                    </propertyInstance>
+                    <elementDefinition Id="0fe510e0-bc75-4a14-b10a-affaa6edc240" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d7656a88-9eab-4fc6-a720-35ee71693e62">
+                    <propertyInstance Id="3e4ebce9-4e86-48a8-a79a-3458f5b1ba47" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="ed5f196d-b432-44e9-99a2-ddf7d18aebcc" />
+                    </propertyInstance>
+                    <elementDefinition Id="fb3243df-0ecd-4800-bda9-735601f4e63b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ff78cf95-7f03-425d-9c77-d0ce4171d13c">
+                    <propertyInstance Id="5fc2fd49-0dcd-44bd-8936-c396f5accf19" name="params" value="false">
+                      <elementDefinition Id="b27f4f6c-0817-4b15-bdd8-6591040d93df" />
+                    </propertyInstance>
+                    <elementDefinition Id="83ecde66-aa5b-4a32-ad0d-845371d74d78" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="2a62c474-9980-4c4c-9fb1-34e8cca78df8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="13bcd3aa-133f-4e93-a8dd-40773a26bcee" direction="Return">
+                  <elementDefinition Id="cd3ec50f-0260-40c8-af6b-393117a8e01e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="45b1cdb6-06ed-4ba7-82fa-c711f55cbc59" LastKnownName="PagedList&lt;Employee&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3709c1b0-2d57-4795-9bcf-3536d80ee7b5" name="title" direction="In">
+                  <referencesInternal>
+                    <reference Id="0e44b183-4664-42d4-9c17-4cda8baf1bfb" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=title" tag="ViewCode">
+                      <elementDefinition Id="9a22eea8-8934-4f0c-aca2-2de93a4da9fb" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="087e416f-badf-4281-9635-f18d8b380619" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="856a4f70-b50f-42c3-92cc-8b8e1e8b99ae" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3b2393d1-d9b0-46ab-895f-e75fd10f245a" name="pageIndex" direction="In">
+                  <referencesInternal>
+                    <reference Id="bca1aaff-a10c-4dca-bec0-a511b209a2b9" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageIndex" tag="ViewCode">
+                      <elementDefinition Id="00a9d0a8-365a-479a-8597-6c9fae4d9d1d" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="7b60b569-5b8e-4a15-9d6e-5b3fe22bb723" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bbebf800-3b69-457d-8dff-b04b62e1b77f" LastKnownName="Nullable&lt;Int32&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d9afc115-7249-4a41-a0c3-3e746762017d" name="pageSize" direction="In">
+                  <referencesInternal>
+                    <reference Id="cca15fcd-5273-4026-bb2c-9280254ffbd2" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageSize" tag="ViewCode">
+                      <elementDefinition Id="f6780208-f23d-42a4-b400-d8338ed7100b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="6cb03d07-1df6-44c7-ac40-24244e8a6922" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fb542590-968e-4143-917d-7ab1e51a991d" name="GetEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="87333b27-033d-4837-a6f6-0dab5cfda8b4" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=GetEmployee OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="8359698a-c685-4229-bc37-9f39e59c1818" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="bd1e33fd-a4b0-4d78-b2ad-a761e4b7b770" name="method" profile="CSharpProfile">
+                <elementDefinition Id="20a7a253-a4b7-4dfd-aa22-e3cdc86fc67f" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="69fe9c18-5f8a-4ffc-a973-71d9b2f884d6">
+                    <propertyInstance Id="d214e1e0-a3a2-4a4e-9465-2d6ba07951af" name="ClrAttributes">
+                      <elementDefinition Id="b8c05a6c-0e27-419b-96ad-5dceb1727320" />
+                    </propertyInstance>
+                    <elementDefinition Id="f414239b-a1ca-457d-8aa1-aee7ba24fc9c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="71ea770e-b03c-4e0f-b05d-377028743790">
+                    <propertyInstance Id="32108d43-107b-4e3d-9f22-44a796251e01" name="IsPartial" value="false">
+                      <elementDefinition Id="7e28a953-4bed-45f0-ad15-9be35fd3bc47" />
+                    </propertyInstance>
+                    <elementDefinition Id="8744325f-7a99-450e-bb83-7ffd1c6f8337" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ff947128-2eba-4df7-88b4-b39a83077e22">
+                    <propertyInstance Id="c2ad381c-4ac0-4bec-94b0-e907c14ca38d" name="IsUnsafe" value="false">
+                      <elementDefinition Id="5a778f59-cd39-4a17-b1fc-dd6fde2da8c8" />
+                    </propertyInstance>
+                    <elementDefinition Id="3ef53809-02ab-4e9e-8291-2ccc28263e70" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5d32e4d9-53cb-4300-9b14-ca6774583732">
+                    <propertyInstance Id="cd1b1f4a-cf59-4817-a341-a7d0d0e7d98a" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9e946d29-6652-4c0e-81c4-0b8accc58aa6" />
+                    </propertyInstance>
+                    <elementDefinition Id="a5d4d915-6c5b-48ea-bc3f-af694408c35e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c6eef1d1-dc8e-4cf0-87f4-ac4fbdaf6c0c">
+                    <propertyInstance Id="90254eb5-b48a-4b64-b972-9dac5cb06af1" name="params" value="false">
+                      <elementDefinition Id="6f142bd3-9683-496d-8d58-000b957865d0" />
+                    </propertyInstance>
+                    <elementDefinition Id="52c1b764-d2fc-40a5-ba4b-12c633ea1b3f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="8020f3f2-89da-4c40-ad40-f2728c63831c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="96aab221-dcf4-4f6a-9507-0916485a0b3f" direction="Return">
+                  <elementDefinition Id="8743aaeb-3edf-41cc-b19d-bc8908de6e62" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5d0993de-3101-4890-b6ea-ec4493fdc0c4" name="pid" direction="In">
+                  <referencesInternal>
+                    <reference Id="6b48be33-8833-4d55-b868-bfb31e7b7279" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=GetEmployee OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pid" tag="ViewCode">
+                      <elementDefinition Id="83e93276-cc44-4ad5-ae5d-5c3c29f86e70" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="c8a061e0-7cbf-4131-af9a-bbaf837b3929" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f3261613-6e2f-45ed-87ca-3d908f8471a3" name="UpdateEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="2e4178a5-a16c-423d-87b1-258cacd36751" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="c0d46073-4a8e-4f39-a22f-5e7a457abf42" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="824a7eb9-c146-4988-b90c-d927da0ddb22" name="method" profile="CSharpProfile">
+                <elementDefinition Id="17a1a168-f4e2-4990-beac-18a0b16d3584" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ba2a78b7-a1c4-465a-bd83-c66840a6519f">
+                    <propertyInstance Id="0f89fd2d-defc-4558-857f-cafdae67738a" name="ClrAttributes">
+                      <elementDefinition Id="c9df4396-3d8b-4cfd-a012-8d8f273fc3c0" />
+                    </propertyInstance>
+                    <elementDefinition Id="7c8eba34-784a-4270-93c2-56c1ece6310f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7f8d9411-58fe-48ce-92fd-dbed7cd8d0d5">
+                    <propertyInstance Id="4f1a190f-c6bb-424c-9908-715d0e55bcc6" name="IsPartial" value="false">
+                      <elementDefinition Id="8fa24369-7ad7-491b-a0a0-2a96a1211c88" />
+                    </propertyInstance>
+                    <elementDefinition Id="dc04dc4b-fc33-4d5f-8194-aeeda51cfc8a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2a60cf0f-4298-4fb2-ba3f-dc2a717c0156">
+                    <propertyInstance Id="9fdfb1ad-2843-4720-87d4-d8218cc2122e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="c619c76a-01b7-48e3-961d-1b49f9a10fc3" />
+                    </propertyInstance>
+                    <elementDefinition Id="d19ef0b5-c932-4c59-8dd0-2a8c093b6721" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="33ad9743-5fc1-469b-ad79-79d58ef0c36a">
+                    <propertyInstance Id="4d9c83ef-9bab-49a0-8b1d-8df65f885a84" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="b18cb01b-4e70-4211-9988-3ec12dbfcadc" />
+                    </propertyInstance>
+                    <elementDefinition Id="03736f7b-a99c-4ddc-8531-c38d2ee31f69" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="945b70d5-a398-4bad-8c77-2041e4f63eab">
+                    <propertyInstance Id="ec100244-f677-4dbf-9fff-873d37d70265" name="params" value="false">
+                      <elementDefinition Id="62e081c2-9a70-42aa-bc2c-c962ca3b76e1" />
+                    </propertyInstance>
+                    <elementDefinition Id="4539e539-7c34-44cf-b48a-cbda40c86e61" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="d6eb1c29-666f-4ec3-ad0d-f0ab8dd75f60" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="be837cf5-ea40-4e37-935c-ce536637e777" direction="Return">
+                  <elementDefinition Id="0a81c52a-aaf9-4247-8775-108d63262da9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8a707288-5d5f-42a9-92eb-8f60089f7c4a" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="30a16fd0-2723-4855-a187-e2dce122f18f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="e3ddfe59-d798-4821-9e49-a049d82d5217" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="da00ba89-e595-4929-9bc2-2ddd4f5d4bc6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="bbd9a286-3049-4c13-80fb-9cb048ed1f34" name="UpdateEmployee2" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="7186090c-fe2b-410a-8226-8b4edc3e0bfa" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="69b2b2e3-48e3-44ed-96ff-8b44e08c59cd" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3d226ad1-06a2-43c9-add8-6c3a9a67b0dd" name="method" profile="CSharpProfile">
+                <elementDefinition Id="6090230a-e127-43fe-ba75-8d619187909b" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2e9f05bf-dcb2-4419-9840-0e2b33ad76a7">
+                    <propertyInstance Id="2088f2cd-4c32-4390-baf0-a5858398b984" name="ClrAttributes">
+                      <elementDefinition Id="996b8837-daca-458a-a5f8-8519d72d0150" />
+                    </propertyInstance>
+                    <elementDefinition Id="dca426fd-9e88-45cc-b4aa-b3402333b299" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a1444276-7229-4603-9188-a9bed8923240">
+                    <propertyInstance Id="8fc5f386-bba3-4c5b-8f39-9e8d9d334b53" name="IsPartial" value="false">
+                      <elementDefinition Id="ba11714d-404a-4e5d-a376-c4ecf8351403" />
+                    </propertyInstance>
+                    <elementDefinition Id="7ab9596d-6e77-4a82-ab87-c1521dde5450" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="85074c3c-814c-48b7-ba74-69d4d2167485">
+                    <propertyInstance Id="9671b282-2e52-4d9d-b531-33120d25501e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="5f508784-183e-4461-9cf3-2602bd5f2f1c" />
+                    </propertyInstance>
+                    <elementDefinition Id="da174c14-eae6-4875-9f18-328f549148f0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="47e23a20-4103-4964-b1ba-c8d8d2cc8385">
+                    <propertyInstance Id="44f34c0d-ba8f-4435-a893-1b0e17e71762" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="ea3e6546-0e8a-4f7d-a054-27c7903bff2b" />
+                    </propertyInstance>
+                    <elementDefinition Id="3f60e80d-e0be-4383-bec9-c32bec5afbae" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7dcb9c2d-8a75-4760-a85f-a22f22a97dae">
+                    <propertyInstance Id="d90a3678-8bba-4afd-ab81-64303f8c8915" name="params" value="false">
+                      <elementDefinition Id="6b92db21-d88d-4127-a6bd-fa92670e1bc9" />
+                    </propertyInstance>
+                    <elementDefinition Id="d526b046-8f1e-43d5-9a0a-3007b5d28b0c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="808346c1-49a4-4670-baf6-657145678229" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6ab01795-db12-4345-8af3-1cbc262f3b00" direction="Return">
+                  <elementDefinition Id="c49457e4-ab12-47a6-952a-3025183aa195" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="91f338f8-8ad7-49dc-a4fe-aea789749a96" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="699807ac-c561-4037-842e-20a840fc3ccb" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="f2f449b6-597b-4ad0-af94-918195c15616" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="fa8cf22b-19b3-4bc4-8af4-3af02d4d4475" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6ce29a96-93d4-4949-a8fa-228f436dd497" name="GetAllEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="10fbd29f-75db-4c79-acda-a913bfb0cf6f" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=GetAllEmployee" tag="ViewCode">
+                <elementDefinition Id="7e0400ef-ebf6-4fdd-b0ae-53fb2bdd8023" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="461fa4f6-f5c3-4711-9405-72784d0a3bea" name="method" profile="CSharpProfile">
+                <elementDefinition Id="adec5f86-3efa-4d39-adbe-d852ab7685a8" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="99f1c7b4-b5b3-4d8f-a890-0158cdf012db">
+                    <propertyInstance Id="86b3a366-ddf3-4ed3-84b3-8a1c24fdd9bb" name="ClrAttributes">
+                      <elementDefinition Id="3a67bc55-f635-48a3-a66b-ead3e4fe8a43" />
+                    </propertyInstance>
+                    <elementDefinition Id="a69d6359-bb83-4633-a4c1-01ed4d53b5b2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d724758f-e541-4017-9305-4820e1f04a65">
+                    <propertyInstance Id="45eedc1d-63b4-4515-8535-3304a2cccacb" name="IsPartial" value="false">
+                      <elementDefinition Id="b36eeef1-4e8b-4a94-b79b-7d1fcf12ba39" />
+                    </propertyInstance>
+                    <elementDefinition Id="8fe2b84e-062c-41be-a336-aafffcaa8634" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cecf87b8-a8e4-4bb7-afac-18fb21c41e1a">
+                    <propertyInstance Id="92655c61-5d3e-4977-8323-180569df27ff" name="IsUnsafe" value="false">
+                      <elementDefinition Id="870471a7-52aa-419e-a37c-a895598928ad" />
+                    </propertyInstance>
+                    <elementDefinition Id="2c01dc54-541f-4eee-840b-18412f561b77" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6613d747-af54-4a68-8fa2-828bddc93eb9">
+                    <propertyInstance Id="ccca54eb-695f-4e3f-8f3f-516e6ee47733" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="0ef3e181-f17d-452b-88e0-9c9a8db42060" />
+                    </propertyInstance>
+                    <elementDefinition Id="ccfeccd6-0b93-4d4f-ac7d-22499692129b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="113bf17e-252e-4abd-9af4-4a981ed0df84">
+                    <propertyInstance Id="58f1eb58-a71a-4c09-a0fd-61a93ddb6d30" name="params" value="false">
+                      <elementDefinition Id="66a0d61f-754d-49b2-ba4f-81d074770fe0" />
+                    </propertyInstance>
+                    <elementDefinition Id="9b8e7e44-f325-4698-983f-bd6ee79425ec" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="66f14338-2c6a-4161-9670-3efa1ff37a2d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b37d27d4-3e2d-4859-b76c-4b96fa6e1759" direction="Return">
+                  <elementDefinition Id="7162d5f9-1750-4e39-a8e3-fe7e23fcc019" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8f884956-d2b1-4f85-8937-dd7870866af4" LastKnownName="IQueryable&lt;Employee&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntiies::Employee">
+        <elementDefinition Id="16836b86-6db1-450b-839b-d01a41943b81" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="45b1cdb6-06ed-4ba7-82fa-c711f55cbc59" name="PagedList&lt;Employee&gt;" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::Utility::UI::PagedList&lt;Employee&gt;">
+        <elementDefinition Id="af9c893e-adc8-4290-be17-de574aea67be" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="856a4f70-b50f-42c3-92cc-8b8e1e8b99ae" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bbebf800-3b69-457d-8dff-b04b62e1b77f" name="Nullable&lt;Int32&gt;" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::System::Nullable&lt;Int32&gt;">
+        <elementDefinition Id="68bbd6f0-0b90-448c-93fe-aebb19caf627" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8f884956-d2b1-4f85-8937-dd7870866af4" name="IQueryable&lt;Employee&gt;" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::System::Linq::IQueryable&lt;Employee&gt;">
+        <elementDefinition Id="b11b1811-1bb0-4997-809a-8cd89b896d31" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2eb067bf-23ff-4462-abfe-122f12057611" name="ContactBusinessObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="46b464ac-110b-4ad9-93ce-dfa7ac921fc1" handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject" tag="ViewCode">
+            <elementDefinition Id="bfebb175-af36-47b8-8bca-9de107bbda16" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="50d9decc-e63f-4a2a-920a-8d393ef899e9" name="class" profile="CSharpProfile">
+            <elementDefinition Id="93af8904-3b74-4a60-8dc9-e51222b9d710" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5f70b191-fd85-450c-a145-48df82d2a809">
+                <propertyInstance Id="6cfa9342-772d-4ded-9167-271815cbbf7f" name="ClrAttributes">
+                  <elementDefinition Id="c2a3b70e-0fb5-476f-a815-e92e1ff9baed" />
+                </propertyInstance>
+                <elementDefinition Id="5abc4b04-d1cb-4459-8312-789d70c9e7ec" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="a50592e0-1d8b-4ccc-b866-86d7af2b0aec">
+                <propertyInstance Id="a044cfb7-cb91-4255-a5d4-3a491dd296c7" name="IsPartial" value="false">
+                  <elementDefinition Id="2154dffc-468b-4023-928d-d490121af0ca" />
+                </propertyInstance>
+                <elementDefinition Id="c40cc8b4-3dd0-4095-a43f-9e9720eca0db" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="44771f54-1b72-4b8b-b452-b78b056298fe">
+                <propertyInstance Id="01c4e457-481f-47bf-9aaa-a9978e088871" name="IsStatic" value="False">
+                  <elementDefinition Id="f9f6bbd7-e3a0-4534-ae35-ddd555b826d1" />
+                </propertyInstance>
+                <elementDefinition Id="3d62ec95-4ff7-4d07-95c7-3d3a474b05cb" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="1bf9de1a-62c7-48ce-9ded-fa0ed57d0dda">
+                <propertyInstance Id="36df9af8-98ee-4f8f-bd0b-d44321a13803" name="IsUnsafe" value="false">
+                  <elementDefinition Id="086d2d88-8929-4a7e-b93f-8463a113d8f4" />
+                </propertyInstance>
+                <elementDefinition Id="0306f7c7-6fd6-450d-999b-7d43534a45ec" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="fdc8a0c4-49d4-421f-a40a-750c94278e67">
+                <propertyInstance Id="71b09d77-2f84-4ba3-b15b-36c3e00e787a" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="7f98f129-ebe8-48e4-ae9c-fd6a9473c47f" />
+                </propertyInstance>
+                <elementDefinition Id="2f1f7531-6a80-4199-9401-a77cf45afeaf" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="8b1310ef-0019-443d-b9c5-ca8dd04b07c2" />
+        <suppliersInternal>
+          <interfaceRealization Id="9f34daf6-7e77-4b89-bfa6-4c1227a20ed8">
+            <interfaceMoniker Id="2031d7aa-5bf4-4252-91e3-17ddbe4e15f4" LastKnownName="IContactBusinessObject" />
+            <elementDefinition Id="040882c8-5f0b-48fd-b33f-f1a4c695f950" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="6ecb3f64-2008-4008-9d7d-e94f361fc383" name="contactRepository" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="94ae6f71-ff86-4d6b-bd5c-92e4f69629ee" handle="viewcode://./CodeSchema_Field?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject Member=contactRepository" tag="ViewCode">
+                <elementDefinition Id="151acb34-1dd5-4114-8853-6ec79b9a1151" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="5c1511d2-a71c-49f4-9db6-dd99e6e25a00" name="field" profile="CSharpProfile">
+                <elementDefinition Id="1c18cda7-ff5e-44cc-b3b8-53f19f4d17c0" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="834bfe6e-1cb2-42e6-98f3-8ca92a02d219">
+                    <propertyInstance Id="121f95ad-9dbe-44ac-a3c8-d074f42507fd" name="ClrAttributes">
+                      <elementDefinition Id="6f54394e-ff51-4f40-b487-b372f65d3302" />
+                    </propertyInstance>
+                    <elementDefinition Id="9c916152-6285-42de-9e70-cc5e6a7009f1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="860bc4c0-8235-4eb3-af36-9ec4c7241ae0">
+                    <propertyInstance Id="e610ece6-2e1b-4daa-9f1b-5709aa852481" name="IsConst" value="false">
+                      <elementDefinition Id="36e08113-e1ea-42bc-8cd9-389e394369f3" />
+                    </propertyInstance>
+                    <elementDefinition Id="92eb3360-c9fa-4c52-ba79-a8f266b51842" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1a15e86d-1b63-4575-8c84-3685e709f565">
+                    <propertyInstance Id="8fdfeb26-5245-42ac-bcf9-62597353640c" name="IsNullable" value="false">
+                      <elementDefinition Id="9e83a4b2-93d6-4426-b62e-3683615f32a2" />
+                    </propertyInstance>
+                    <elementDefinition Id="de78776c-29bc-47a0-8448-adba85c0c60c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0fec2fc4-8dbf-4008-b5fd-615ee993c67f">
+                    <propertyInstance Id="0535aa19-55e0-478c-b3b5-324c64c02638" name="IsVolatile" value="false">
+                      <elementDefinition Id="d20fcaf8-77f4-46a1-b559-f22da2b1c65f" />
+                    </propertyInstance>
+                    <elementDefinition Id="617d4ee1-c0e1-456c-a70a-fedaec5d1acb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7f8aa385-1a31-4f09-815d-ab27aac0a5b9">
+                    <propertyInstance Id="c0da1064-7d8f-410a-a04b-eb033abef3bc" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="54c22c92-691f-4b62-ac01-c35241501730" />
+                    </propertyInstance>
+                    <elementDefinition Id="e56d7dc6-2751-4905-90f7-a644cbe97051" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="516395ee-f328-4d2a-8acf-f83116892fc8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1db1e6f0-5a47-4491-b592-9c1c8e9bce5d" LastKnownName="ContactRepository" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="832e4ebf-6740-4ded-b5d5-19fde767ff35" name="FindContacts" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="bf66a638-bf36-46d8-a34b-5a80fdbaea6e" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="961494fc-fb87-4254-96a3-b30fcb33010c" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="a820d7c7-7c5d-44e0-8dd2-7ee3f33ef53a" name="method" profile="CSharpProfile">
+                <elementDefinition Id="1854dead-8bca-4edf-90c3-a4f3a9242bf2" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3747e321-6f62-44db-9455-fdb88dcca4c2">
+                    <propertyInstance Id="5e438511-011b-4071-a4a4-b2e6fd1d6050" name="ClrAttributes">
+                      <elementDefinition Id="1c11da9b-44af-4129-b94a-1f76441b5241" />
+                    </propertyInstance>
+                    <elementDefinition Id="00d02362-92fd-4b79-9db3-536670181716" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf347866-82ad-4ca4-8a1e-87a062f3e216">
+                    <propertyInstance Id="5f8b70d9-fb57-477a-b723-34d6c76e15d4" name="IsPartial" value="false">
+                      <elementDefinition Id="61ae12da-d4b6-49cb-a627-c3631fc79349" />
+                    </propertyInstance>
+                    <elementDefinition Id="810aadd6-bbd6-4626-8bb6-06bea44a0b27" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dfefb93c-c3d4-4a66-9326-0e3dfa98b94f">
+                    <propertyInstance Id="31d1b4db-3527-460c-912f-66c9fb22d96c" name="IsUnsafe" value="false">
+                      <elementDefinition Id="c7ade523-4e30-4232-afa7-931fb7867c76" />
+                    </propertyInstance>
+                    <elementDefinition Id="6650150d-4c5b-4a37-936a-719ee1f41494" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8b3ccf22-05b1-49aa-b32d-6c246c04e776">
+                    <propertyInstance Id="6d918130-0021-4672-8cd2-4ad7b0c69301" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="4ccf7832-d6f3-4585-b4cc-fa95277ac5d3" />
+                    </propertyInstance>
+                    <elementDefinition Id="7167ab36-b5c8-45b2-a3cb-5a7ad539be7d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f13e8872-e603-44ac-82e7-aafe95d89276">
+                    <propertyInstance Id="875b1947-28f3-4c53-b676-1b511482892c" name="params" value="false">
+                      <elementDefinition Id="b3535a8b-2ef1-432b-9399-4738bf2a5e6e" />
+                    </propertyInstance>
+                    <elementDefinition Id="a0403ac3-aa1c-409e-b951-5d6eacf1e998" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="f43205cf-5dab-439d-ad26-56a9e3b35ff5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a0ed715b-5a87-4454-aa6c-041869e61837" direction="Return">
+                  <elementDefinition Id="a1b1994b-d380-411c-9cb1-6fba02dbec40" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ca45df25-bec9-4764-90fe-56971f92ec55" LastKnownName="PagedList&lt;Contact&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e711c956-1660-4416-88ac-f40c9f4b1928" name="pageIndex" direction="In">
+                  <referencesInternal>
+                    <reference Id="6d138cd4-8cd4-4ae6-bc06-1b0577a2216c" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageIndex" tag="ViewCode">
+                      <elementDefinition Id="184f0739-2a12-4134-a80a-f15289ef8fe8" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="230dac1a-24a4-4797-8e6b-37046b5b0864" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bbebf800-3b69-457d-8dff-b04b62e1b77f" LastKnownName="Nullable&lt;Int32&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e2472fb0-26d8-4c09-86a8-699503117e47" name="pageSize" direction="In">
+                  <referencesInternal>
+                    <reference Id="6fae22f9-21e0-432b-9da5-7c19e93ab311" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageSize" tag="ViewCode">
+                      <elementDefinition Id="c5d6a119-f4cb-4822-8d69-de6b825425ca" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="47629f8d-840a-4bc6-bfb4-592c4ccc50f1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6143821d-5413-4b67-898f-da4fadecd055" name="ContactBusinessObject" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="30a08cc9-5b52-473a-aff8-66ab2faf1333" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=ContactBusinessObject Member=.ctor" tag="ViewCode">
+                <elementDefinition Id="2eeab0ba-f004-47bd-9a8a-6268df0e84f2" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="23d29ed8-65b1-467b-97bb-a3fd630e4098" name="method" profile="CSharpProfile">
+                <elementDefinition Id="35aff395-0f0f-4c58-95c0-003ec22e257a" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b7384561-aaf5-4659-b65c-b6ea688778a3">
+                    <propertyInstance Id="6b73c85f-541e-49c8-b88e-0647a11167bf" name="ClrAttributes">
+                      <elementDefinition Id="04920f6f-2f88-4908-95f7-d3427e09a10e" />
+                    </propertyInstance>
+                    <elementDefinition Id="6f41f1ac-1b80-4c96-b182-2631152b5a24" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bc278fb1-88e4-4f56-84a0-b3aef6d534fe">
+                    <propertyInstance Id="25600801-d28c-4d5e-9d33-e199654debfb" name="IsPartial" value="false">
+                      <elementDefinition Id="a888f71e-812f-4151-9cf7-c3383a11426b" />
+                    </propertyInstance>
+                    <elementDefinition Id="95447913-ed0c-4645-a90f-0a9070598308" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4119da4f-108f-4c90-8dec-fe187afa8553">
+                    <propertyInstance Id="88fc2703-fd44-4c1c-884c-cc145b55bfdb" name="IsUnsafe" value="false">
+                      <elementDefinition Id="33e15987-6656-48d9-b0bb-9a79074e050a" />
+                    </propertyInstance>
+                    <elementDefinition Id="c2b04c41-3a11-47df-883a-4baae94ad38b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2a4b1dbb-2e34-4970-89c9-48cc5e6f3cfe">
+                    <propertyInstance Id="fdb43797-0dad-4676-ae55-eea6154e4420" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="a73cb069-57a4-454c-8ceb-093e277c7103" />
+                    </propertyInstance>
+                    <elementDefinition Id="7efc3fbe-8a14-4f3d-87d0-35b4338c9426" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="107affa0-49a1-42eb-bdf8-e1adaae534d9">
+                    <propertyInstance Id="3848bc70-b785-478a-b932-57b5d0ab7894" name="params" value="false">
+                      <elementDefinition Id="e057af69-e513-4848-8c2a-7ecb137018ad" />
+                    </propertyInstance>
+                    <elementDefinition Id="d57ae1ec-0075-4e80-91aa-971ad0ae1b89" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5f203f25-3caa-410e-b09e-9732d7d02ed2" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="1db1e6f0-5a47-4491-b592-9c1c8e9bce5d" name="ContactRepository" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::DataAccessObject::ContactRepository">
+        <elementDefinition Id="c347c9f7-74e6-4230-96ab-866904f522d1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ca45df25-bec9-4764-90fe-56971f92ec55" name="PagedList&lt;Contact&gt;" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::Utility::UI::PagedList&lt;Contact&gt;">
+        <elementDefinition Id="64e2412e-3bbe-4d7c-9570-b2699d780b1e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="15d90729-30cc-417b-959c-04bb94716a82" name="EmployeeBusinessObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="13aabf79-35cc-47f5-875a-b30c106e3fb3" handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject" tag="ViewCode">
+            <elementDefinition Id="14e65e7b-d3d1-4a3a-bb27-653446354cbd" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="aefbf644-bf20-4ec2-8b2a-c975f97f9217" name="class" profile="CSharpProfile">
+            <elementDefinition Id="69181274-e3c8-43a3-b6ef-a30dcb984b73" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="9967d970-ddfb-40b6-8f08-1525a227126b">
+                <propertyInstance Id="6eea7403-e3d1-4983-9f37-1d6f7abffba8" name="ClrAttributes">
+                  <elementDefinition Id="17204cf1-3f7a-4156-8258-65218f322ba1" />
+                </propertyInstance>
+                <elementDefinition Id="b68d4c97-abd7-4de6-abd0-8d56a2f11b9a" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="adc4621c-62a5-4b5f-ac3a-422c6263b1f0">
+                <propertyInstance Id="678f90e7-f21f-4ba2-b61e-13bc8dcc0f98" name="IsPartial" value="false">
+                  <elementDefinition Id="2bf17784-d674-4244-bc0a-0347413dc3f7" />
+                </propertyInstance>
+                <elementDefinition Id="e4b13f98-0ff0-42a2-a14d-f4690a9b7fdc" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="ffa4ad3d-7e2d-495b-b502-7ed6c0ad711d">
+                <propertyInstance Id="4b861fa7-2a05-4d9e-a79a-5700d5208812" name="IsStatic" value="False">
+                  <elementDefinition Id="93983224-6f66-4c0e-880a-b0129b2dc17e" />
+                </propertyInstance>
+                <elementDefinition Id="f9aa4ece-0251-488d-b1fa-01305b825695" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="3ebd7d61-7d9a-4605-89fb-6cfb39724888">
+                <propertyInstance Id="7de6463e-c2e8-487c-9292-faab33d25d87" name="IsUnsafe" value="false">
+                  <elementDefinition Id="71af6965-ff7d-4bc9-b5fb-8459a36dec90" />
+                </propertyInstance>
+                <elementDefinition Id="a2591d5f-61aa-424b-af4f-4fd3ab5cf507" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="93c117b7-2680-4118-b029-eae809b92230">
+                <propertyInstance Id="2ca51677-83a8-404a-a100-ec03944efde2" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="e22ceceb-97d3-419a-8015-c7aa532d4be4" />
+                </propertyInstance>
+                <elementDefinition Id="c8acc549-a0f0-4bd4-bd23-99f284e499d3" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="924fd441-a37e-413b-b75c-fbe1735a50e4" />
+        <suppliersInternal>
+          <interfaceRealization Id="8bdc5cd6-d4d2-46d2-bb32-cb759b8e58fd">
+            <interfaceMoniker Id="ab5dbce6-60d3-4454-8601-a726c4324732" LastKnownName="IEmployeeBusinessObject" />
+            <elementDefinition Id="313e7238-30f5-4b77-b0a8-0ac4d6c621ac" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="9f330fc5-a6e6-43c0-9793-f3d08a4fc34f" name="context" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="40b57bc6-4c39-45da-8ce1-99745ea8f615" handle="viewcode://./CodeSchema_Field?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=context" tag="ViewCode">
+                <elementDefinition Id="6fca8442-c1e5-4813-9ab5-0960bd10f348" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="078e98e7-8343-4315-b9cf-dd46b209731c" name="field" profile="CSharpProfile">
+                <elementDefinition Id="7121d149-d156-43cb-84e7-cf53da997fb5" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="95fe88d6-2f41-4be1-9a1a-0a0e4b580b2a">
+                    <propertyInstance Id="1907020c-a3cd-416b-9644-c1465fb2bb2b" name="ClrAttributes">
+                      <elementDefinition Id="6e5a325b-a5a0-4870-b24f-65cf10af2777" />
+                    </propertyInstance>
+                    <elementDefinition Id="2fcb1314-4f95-48eb-a2b2-bfd9703bc464" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8c5c9b41-3d24-42d5-aee7-7f1c584e63f3">
+                    <propertyInstance Id="f0984949-eaed-4c15-b300-7a3260506568" name="IsConst" value="false">
+                      <elementDefinition Id="acb8c2bc-325e-46ce-bbaf-9fc89f49d8d0" />
+                    </propertyInstance>
+                    <elementDefinition Id="458e74ab-17db-4647-9202-d9bcf0d5f986" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1a40a7e2-4337-49a7-893b-1d3fca6abeed">
+                    <propertyInstance Id="29d1c1c8-9380-41a2-998f-b7d34d69b60e" name="IsNullable" value="false">
+                      <elementDefinition Id="afd67f42-adbc-4cdd-bd82-f09a61b8a2d9" />
+                    </propertyInstance>
+                    <elementDefinition Id="894ee1a8-eed1-4bb9-9d1c-f96fd70ed707" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf44275f-dd8e-4c9d-8312-8a8f142f2533">
+                    <propertyInstance Id="051b448a-0f5e-4cdb-99bd-5c78f5c7cf55" name="IsVolatile" value="false">
+                      <elementDefinition Id="0c6cd811-d2ac-44e7-9ac9-813f23e754a8" />
+                    </propertyInstance>
+                    <elementDefinition Id="308b441f-15aa-4d1f-b45f-c52670594708" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2a695221-c27e-4093-a755-e463898de5e3">
+                    <propertyInstance Id="24961919-1d98-488d-9aa1-268b162274a3" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9141dc03-f8e7-4660-880f-570f7b3a0e85" />
+                    </propertyInstance>
+                    <elementDefinition Id="09261d2b-be81-485c-b2de-b20e3c8ceebc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="e991eac3-7a19-4bc2-b1ec-765f1b12fa02" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b11f0c2e-6f3b-43a2-baa1-37a2083baed6" LastKnownName="IObjectContext" />
+            </type_NamedElement>
+          </property>
+          <property Id="5d200643-d42e-4fc6-9181-2c041655a16f" name="employeeRepository" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="8033ae11-0fd8-4a50-98dd-dd82ed4289e9" handle="viewcode://./CodeSchema_Field?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=employeeRepository" tag="ViewCode">
+                <elementDefinition Id="0cf9d3ca-c44d-40b7-898d-23017e599fae" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="febf239b-96b2-4ec7-bb44-76f0c999acc8" name="field" profile="CSharpProfile">
+                <elementDefinition Id="c2bd0d23-f9be-4edc-a815-a88e3a1c09c3" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5eb3ac5a-348d-441b-9fa2-025148a874c5">
+                    <propertyInstance Id="93f1bcdf-7146-47e7-a7c8-2db27cec9351" name="ClrAttributes">
+                      <elementDefinition Id="32ddeb7c-828d-44f2-a6ad-f6dc3436101f" />
+                    </propertyInstance>
+                    <elementDefinition Id="f983ee57-fe8e-4c83-be20-8da109d9354b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6ca43c28-2011-4524-a91f-d62e425ddc37">
+                    <propertyInstance Id="43541065-9c6a-494a-a4c0-50fcd9ff8967" name="IsConst" value="false">
+                      <elementDefinition Id="78f8c284-61f2-4e0b-bb28-205e76b9b395" />
+                    </propertyInstance>
+                    <elementDefinition Id="b6697f4c-0df4-4ef3-acaf-ccfaeb0a551d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8c0fe9be-5936-4d62-8f91-43b9035c5d15">
+                    <propertyInstance Id="f2e5cd4e-a511-4638-b6b8-117018efd324" name="IsNullable" value="false">
+                      <elementDefinition Id="125168ca-dbd4-414a-83a5-948b6c90dd25" />
+                    </propertyInstance>
+                    <elementDefinition Id="355b1e71-b285-49d8-aab9-15a3da3e75ba" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="662906cf-5146-406c-9b69-b3fb1d0c5bec">
+                    <propertyInstance Id="6e9ea822-f7c8-464e-ace3-814ae68ec4aa" name="IsVolatile" value="false">
+                      <elementDefinition Id="d9a3f668-9623-4f91-900a-4d0b4ffcba55" />
+                    </propertyInstance>
+                    <elementDefinition Id="a4016999-9033-43a7-a8a5-d7f725556939" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b40338aa-c761-4119-b0c8-b6f864f370c1">
+                    <propertyInstance Id="a82d0cf1-969d-4a60-b390-a437334d9e1d" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="0c7319c2-a542-4133-a7b8-baece51629c1" />
+                    </propertyInstance>
+                    <elementDefinition Id="7de3793c-3f11-4026-acec-05bb763cdaa6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="0ee95034-f2ba-4355-9bc5-97efb82f1348" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4a9bd374-e97c-48fa-9576-d4d7cb01b3a5" LastKnownName="EmployeeRepository" />
+            </type_NamedElement>
+          </property>
+          <property Id="f72537f7-cb0b-43d5-98f4-fb24a73ca96a" name="uow" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="e1523f8b-b61b-4bf0-b324-0098b0bed958" handle="viewcode://./CodeSchema_Field?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=uow" tag="ViewCode">
+                <elementDefinition Id="db0f0872-d6ba-4ba1-b10d-702c631b7f95" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="fb584364-4ce4-42e8-86bf-23948f421d67" name="field" profile="CSharpProfile">
+                <elementDefinition Id="0d9ff8d8-95cb-456e-9e71-44cd00411dc5" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="83da39c1-4374-4f63-b8e6-e0d81024e7db">
+                    <propertyInstance Id="ec7f5b6e-998b-4bd0-9c72-f8bbe27bfe73" name="ClrAttributes">
+                      <elementDefinition Id="689a997a-bd5b-408a-b885-3b9a21816a95" />
+                    </propertyInstance>
+                    <elementDefinition Id="25f79dac-0b1b-424f-a48f-f48b75fddb91" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="231c8757-e39b-439c-abf9-755a0f590b9a">
+                    <propertyInstance Id="541457bd-f196-4ad2-a9a5-17e74f9e424a" name="IsConst" value="false">
+                      <elementDefinition Id="533450a4-8fdc-4bad-a9b8-95762364a273" />
+                    </propertyInstance>
+                    <elementDefinition Id="95d0037c-9220-4d8e-9d71-e24664d7601f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b31fa541-e22c-43ea-91c0-004eff0d7640">
+                    <propertyInstance Id="cf643baa-866d-467d-b3a8-0cf39413ed71" name="IsNullable" value="false">
+                      <elementDefinition Id="581f84a2-622b-4a5e-9e59-5de94c0d88d7" />
+                    </propertyInstance>
+                    <elementDefinition Id="929ff9f3-8595-43ef-a187-4f99e3375e8f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e090c5d2-25df-4cff-b80a-50573323b4bc">
+                    <propertyInstance Id="5b5090cd-a465-46a7-9c15-22e41a9d0d05" name="IsVolatile" value="false">
+                      <elementDefinition Id="8459b376-5dd4-42a8-8152-a6fc72e93253" />
+                    </propertyInstance>
+                    <elementDefinition Id="d1e322ef-0c38-4b37-b7ad-9c4bea0125c2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="04e0f3e7-95e9-4474-840e-3024cddc33e9">
+                    <propertyInstance Id="dbb03b06-d5b1-4fde-a54b-7adb1e75081b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="39b1bd16-ebac-4e37-b51d-cd078eaf98d9" />
+                    </propertyInstance>
+                    <elementDefinition Id="d6105a86-358e-4e5e-b25f-6887293c675e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="11846e28-c1ca-4be3-b568-111b4b4fc537" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1ccf39e9-533f-41f8-9bd2-5f2f21cf19ff" LastKnownName="IUnitOfWork" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="5f2601bb-69a3-4acd-9141-bd49767b37ec" name="EmployeeBusinessObject" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="ed0c81d8-49ee-4006-8015-d70e54adbda2" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean)])" tag="ViewCode">
+                <elementDefinition Id="ec46b9a8-8c71-4bf1-bc44-9d9eaf79d3e1" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="f02a0a48-2c8d-45c8-91ba-b7ac9016e598" name="method" profile="CSharpProfile">
+                <elementDefinition Id="fff0fa59-a99c-4bf3-9c66-612d6dbb60c7" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a2206ec1-2a8f-41a2-9f53-d6833514a4a4">
+                    <propertyInstance Id="4a76a07b-b916-4748-80af-ccc87f8b412d" name="ClrAttributes">
+                      <elementDefinition Id="ac6a0a67-4fb8-4a2b-bf09-66791e6b711a" />
+                    </propertyInstance>
+                    <elementDefinition Id="0ccec426-2477-40b4-a1a3-a6831b95ce22" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a4e75565-5ae4-4131-8be5-3d4a49d8756d">
+                    <propertyInstance Id="bfa156fc-332d-437f-bcbb-7327c53a30ff" name="IsPartial" value="false">
+                      <elementDefinition Id="c6213a5a-5d5b-456d-8df2-de766e860019" />
+                    </propertyInstance>
+                    <elementDefinition Id="c3bdef3b-0fb1-41da-8e80-9fa20afafd72" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b609e457-d2bd-4634-8bd1-5b0e3c34d216">
+                    <propertyInstance Id="8762ab07-e1fe-4373-9e7a-38e044122081" name="IsUnsafe" value="false">
+                      <elementDefinition Id="fb604fc6-07d9-4c5f-a42b-b59d445be9bf" />
+                    </propertyInstance>
+                    <elementDefinition Id="dce835a5-2149-4a9f-aec8-3ae65bb69d68" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cb87a6eb-b93a-4050-b922-10098dfccec5">
+                    <propertyInstance Id="85df284e-f021-46c1-ac96-5b16aa4df229" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="2ea7b8d9-89a7-46d8-b3cb-3284345615a0" />
+                    </propertyInstance>
+                    <elementDefinition Id="bfdf19d4-4a2d-41c0-9b41-f29ae3c593c8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a0565ecf-e278-4e38-93b0-e66920ed9149">
+                    <propertyInstance Id="869d9842-8558-43ec-b7ff-a53ef8d8e8ab" name="params" value="false">
+                      <elementDefinition Id="56abce3a-c807-458d-838d-7672822ce308" />
+                    </propertyInstance>
+                    <elementDefinition Id="8cb22809-4ea0-4b7e-a6a3-93824da0364a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="095a7ddc-97cf-4f26-ae42-0c899ade8908" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0070ba75-2b20-4d22-9cb1-25a00f2d3e88" name="lazyloaded" direction="In">
+                  <referencesInternal>
+                    <reference Id="bd8ee628-8a26-40b2-9aa0-6bc0b6030f7f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean)]) ParameterIdentifier=lazyloaded" tag="ViewCode">
+                      <elementDefinition Id="cf9b5c81-066d-47a2-a973-960340d8f94c" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="4417636d-63e5-42f1-8fb9-626651fa5c1b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b63391fa-1f0e-4504-b159-73e0e73bbf84" name="proxycreated" direction="In">
+                  <referencesInternal>
+                    <reference Id="ae84fa0c-6800-4095-83b8-9e50b911534f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean)]) ParameterIdentifier=proxycreated" tag="ViewCode">
+                      <elementDefinition Id="fbede92c-14c7-4499-84ea-6ac264861fa9" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ad07eb1b-a6d4-4ca8-90bd-a4aadf95f10d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="43b8ef0c-94db-4f50-a4db-d8bd42c72f81" name="AttachEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="f2483fea-bef9-48fd-8a54-66179c7617cb" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="20834e7d-79d3-4579-bf91-33a6285689ef" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="ba6584e9-ce4b-4b8a-b3dd-f9c19f5061ed" name="method" profile="CSharpProfile">
+                <elementDefinition Id="36e0ada6-05bf-47b3-b363-c191fbef7884" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="553a8220-d972-48a3-b765-c2cad6e696ba">
+                    <propertyInstance Id="a180158e-2f2d-49e0-8d6e-ad5ec99ca35a" name="ClrAttributes">
+                      <elementDefinition Id="137ea5f1-05f4-4ac1-a726-47b56adbc0a2" />
+                    </propertyInstance>
+                    <elementDefinition Id="880afeae-61c3-4753-b635-7ae5cd6c4722" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="078fb115-563d-4906-b134-700e59c46f4a">
+                    <propertyInstance Id="33e0dd8f-5de7-45fe-b7a9-525d9da41e05" name="IsPartial" value="false">
+                      <elementDefinition Id="2309d075-c44f-40e3-8af8-912dda6f562a" />
+                    </propertyInstance>
+                    <elementDefinition Id="7123e4d5-a12e-4c99-a0ee-951723b05c77" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07c22793-e8ae-4f96-b690-669c169d3e2a">
+                    <propertyInstance Id="8f696640-2a51-43aa-b5c1-a7bbdc927346" name="IsUnsafe" value="false">
+                      <elementDefinition Id="d34ca2ca-4975-4535-b5ba-ee34dd4d80d3" />
+                    </propertyInstance>
+                    <elementDefinition Id="0abec3ec-a9c2-42fd-bf80-f7e052e6593e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bb540e79-919a-4ce3-bcfc-8e1f4d163565">
+                    <propertyInstance Id="f88d7028-5a91-4720-a589-bbc70ce1dea4" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="e3bd16c0-2579-4150-acd4-a6e4ab546f58" />
+                    </propertyInstance>
+                    <elementDefinition Id="1da81ceb-ec8e-4b8b-bb2b-9b3ab762d3aa" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4ebdd5c0-aff3-4c46-8cb5-3b84b67990e5">
+                    <propertyInstance Id="708dcee6-ba7b-4c34-ac57-2482e524fc80" name="params" value="false">
+                      <elementDefinition Id="edce6f6f-080d-41f8-b08c-5308e7383422" />
+                    </propertyInstance>
+                    <elementDefinition Id="255e00e2-b3af-47ab-a450-f417a4ff8b7b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4ea0d879-86bf-4a8f-b65d-1bfcbe249919" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42c8aa4b-8120-4f67-a43a-ed82ed65977b" direction="Return">
+                  <elementDefinition Id="97c3d7ba-df22-4f95-a9e8-10c3b6c91f81" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="658ec756-17b6-4f71-ade0-296c84ed8f66" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="a546c56b-8ab4-4c33-8080-8f9c73ac0c48" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="6daad62a-9c4c-43b7-a9f0-b0b80bc3ada6" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ca47f523-ca56-4fdc-b757-c0ff96972ddc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5a241360-3626-4e16-8ce8-d2830ab4c1fc" name="CreateEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="ff802654-48aa-45ec-82a0-e43c41ac06e5" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="e8b0bb12-d70a-44c2-ab76-3fa9255067cc" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6b9bf9fe-b0ef-44ba-a189-ffb9e650e9be" name="method" profile="CSharpProfile">
+                <elementDefinition Id="6dfc2bd3-bf91-4cef-9494-4dca9303981f" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5ffa193c-8084-49d7-a64f-5b7410f25ca9">
+                    <propertyInstance Id="964c585b-e8ab-44b7-bddd-0386c7040651" name="ClrAttributes">
+                      <elementDefinition Id="97872cec-1ad0-4f66-ad68-03e35879fd73" />
+                    </propertyInstance>
+                    <elementDefinition Id="a92a7458-5941-4fee-a8c9-6ffc1cca6dc3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="00f72563-f143-409e-97cc-696d50dbda18">
+                    <propertyInstance Id="25281ee4-6f53-4ba0-b695-5a6f8a0cfbac" name="IsPartial" value="false">
+                      <elementDefinition Id="9aee2dd1-abf9-4c1f-8262-ebf9d847452e" />
+                    </propertyInstance>
+                    <elementDefinition Id="d060eae2-0fd8-4d1c-ae23-a1713d1f5663" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf2d5185-eccb-4e2f-875e-c221e0ca711b">
+                    <propertyInstance Id="c4c4e4bf-f2cb-423a-8ed9-feaf180bc6c6" name="IsUnsafe" value="false">
+                      <elementDefinition Id="d3945d66-820f-48df-b72b-7bf3614b667b" />
+                    </propertyInstance>
+                    <elementDefinition Id="65f87e9e-9b00-4e2d-b1ba-9588fe55679b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="df2ba632-7ef2-4355-ab1d-d701adf801a7">
+                    <propertyInstance Id="dd6f741b-0715-4ca9-b7f5-779e27853e9d" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="869f3299-bd90-452b-89bd-1b2f2cbb9ea5" />
+                    </propertyInstance>
+                    <elementDefinition Id="9c055c03-c3ee-48bb-92e8-2053c240d3ca" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8c9b4396-cc3b-43c9-a0f3-0e59e95061f7">
+                    <propertyInstance Id="b6b10f1f-df5a-4575-8e25-e5c5e0593801" name="params" value="false">
+                      <elementDefinition Id="63d9cb91-7acf-42dd-8c45-9f09ffa87b4c" />
+                    </propertyInstance>
+                    <elementDefinition Id="480bc2f9-1070-4228-8fc9-8aa243c0866f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="d57c0c92-62d0-4038-a3f7-8e1093d7f4a6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a8ba72cb-d197-4d67-8e2a-a77cec00ad80" direction="Return">
+                  <elementDefinition Id="99305c29-f1c6-4d5a-8d08-c4ebdddf0013" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dd6ee5c0-1eaf-459f-b5e1-a45dea8b6137" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="0656ded9-df9c-4254-aa8a-c33868a593ce" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="5a13460c-9402-48b5-8e9a-008e0229a367" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="77ae5faf-3340-43f1-b9ae-c0a2b88874d8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6de2dcb9-d83e-48b0-bf72-942d8c176411" name="DelEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="49b4cb1f-5845-4e3f-ad3b-9067238b1604" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="a3097857-ce12-4dd9-a782-a7132ccf024d" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="ce61626c-0c15-43d0-b966-8df94c9e3c7e" name="method" profile="CSharpProfile">
+                <elementDefinition Id="1fa5ae8b-9601-40c9-96a5-dbd3cfd37b85" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4064507e-b73b-4bdd-8682-f5797512fe09">
+                    <propertyInstance Id="1a2727f2-d5cd-4287-85f1-a752d1b5d11f" name="ClrAttributes">
+                      <elementDefinition Id="acfe49cf-b174-4aa0-af97-99a91711dbfe" />
+                    </propertyInstance>
+                    <elementDefinition Id="b056a396-bb9b-45a7-9de2-f7b6331b1431" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="11d1c129-c7de-4805-b752-b3f2ddd65598">
+                    <propertyInstance Id="fa0d77ab-6de0-4fe8-80bc-874cfb7ad3dd" name="IsPartial" value="false">
+                      <elementDefinition Id="4c38f52f-8dd1-4a4d-99b2-da310141fa0f" />
+                    </propertyInstance>
+                    <elementDefinition Id="a236d3b6-0488-4c83-8776-f23682b91c08" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="47bad839-7129-4621-a563-b81c7e314343">
+                    <propertyInstance Id="92bddba0-602d-42d8-ba5e-2026722a9f50" name="IsUnsafe" value="false">
+                      <elementDefinition Id="2a17c091-ca4d-4884-9c3e-da4e60926f8c" />
+                    </propertyInstance>
+                    <elementDefinition Id="f7e4be5a-beb3-4f16-a4ed-404ff74a8fcf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="944dcf7b-880a-486b-b6b7-b1ddd42eb953">
+                    <propertyInstance Id="9bba2876-f55c-4132-82ee-1cc97c2a0076" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="c609becd-b83e-45d4-a92c-69fcbf16ba02" />
+                    </propertyInstance>
+                    <elementDefinition Id="f9f542c8-91a4-40cc-ae83-a835c76cbc60" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="20f4dcf3-e209-4a54-af08-6d10d549d449">
+                    <propertyInstance Id="93bcdf4c-05f7-477b-8abd-ad7f10847ada" name="params" value="false">
+                      <elementDefinition Id="d65a8a9d-7744-487c-b3e6-eaa5c2e15d6b" />
+                    </propertyInstance>
+                    <elementDefinition Id="f64ffcaf-b05d-4197-becf-9fc6b39b7b69" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5d658ff1-39b8-4b2c-87d3-093d9e4b4277" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a0c8cecf-f533-47d2-8c61-e35c8e01980c" direction="Return">
+                  <elementDefinition Id="42097d5f-4f94-4099-8013-ff8bee28c4b5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c81cdf33-1d45-413b-8b61-0fdccc0762ea" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="542b6954-466e-48b8-8b47-0c06e2f1493e" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="b0dd4d8d-acb1-46f1-abd6-3ea23eea463b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="16fc93a7-ecee-4a22-9f82-70457c3f4efd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e4d0da0e-2ba4-4beb-864e-b2be7f99c519" name="FindByTitle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="afa68f9b-5d7f-41fc-b47b-07ebce5cc1e6" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="5d347c1e-5218-4e58-b9a0-3b30702d2fe2" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="9eb9bc04-176d-4823-8e4a-0c3488b484ec" name="method" profile="CSharpProfile">
+                <elementDefinition Id="bd5dd031-9141-4f33-8a00-f49f0bc4f6e3" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3df2df3a-0071-49e3-ac8b-479dae0da1de">
+                    <propertyInstance Id="685e6457-a3d2-43b4-ba12-d86c2078ac62" name="ClrAttributes">
+                      <elementDefinition Id="87460e77-e09d-4653-b5c7-a2aed2819159" />
+                    </propertyInstance>
+                    <elementDefinition Id="3a3a7a5e-e0ff-44e0-ba11-5fd0a66d3604" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="289d21cf-0860-4d01-bbc6-1c3a34781d6a">
+                    <propertyInstance Id="cda0ec14-6e08-4941-a195-d0195eb8fe5c" name="IsPartial" value="false">
+                      <elementDefinition Id="e0ca1bd0-2478-454c-9c54-f1ae2a65e4e3" />
+                    </propertyInstance>
+                    <elementDefinition Id="bd5fbf31-5b67-4077-b5f3-3af949dcd931" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4f8e6e72-32c5-46f9-8bf3-896c109ed774">
+                    <propertyInstance Id="aa6f244b-9826-40a8-b009-63b133c4e492" name="IsUnsafe" value="false">
+                      <elementDefinition Id="989755be-49c9-4088-a081-2489904e6003" />
+                    </propertyInstance>
+                    <elementDefinition Id="81343c47-1809-4188-b8c7-cbc663c36bd0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="45d05de8-13cc-4ee0-a05f-a5d5e4060376">
+                    <propertyInstance Id="34a980c6-0d59-4f4d-98ee-d1ce00f34838" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="162517d1-173c-4173-88a6-49668f31d8f4" />
+                    </propertyInstance>
+                    <elementDefinition Id="0d89f0ac-0e04-4a67-8196-503fa1c8d238" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3fc67a0b-53b8-4abb-9a68-043b1ce0c01a">
+                    <propertyInstance Id="862fc34e-477b-4e30-93c6-eb3433c28b06" name="params" value="false">
+                      <elementDefinition Id="add78a36-6a5d-43a2-a6f3-1bc64beb14ff" />
+                    </propertyInstance>
+                    <elementDefinition Id="9767dd0f-b05a-4d46-8ef7-3e438dd41f11" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="41c92aad-3a73-4bfe-b90f-3b402845b170" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="664d002d-dc7a-4860-9d7f-a1a4bf00457d" direction="Return">
+                  <elementDefinition Id="22ba69e6-80c0-4750-be30-376d461297fd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="45b1cdb6-06ed-4ba7-82fa-c711f55cbc59" LastKnownName="PagedList&lt;Employee&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cfc295ee-be64-4554-ab78-e2974b7ca274" name="title" direction="In">
+                  <referencesInternal>
+                    <reference Id="29e40a0e-a66d-4f9e-a2d4-cd93440cbec6" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=title" tag="ViewCode">
+                      <elementDefinition Id="83aa8868-67fc-45d6-876d-f59fae015d57" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="60401b90-8f4b-4efe-8cff-acbed98b587a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="856a4f70-b50f-42c3-92cc-8b8e1e8b99ae" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42561860-2cf3-4a6d-8041-05f383f04a86" name="pageIndex" direction="In">
+                  <referencesInternal>
+                    <reference Id="90b4a53b-bb24-4327-bf38-3672bfdd6885" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageIndex" tag="ViewCode">
+                      <elementDefinition Id="21c4fb90-2e99-4c7b-a1bf-e8e02e2b39f5" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="47c06809-b211-403e-b953-8c44da306fcf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bbebf800-3b69-457d-8dff-b04b62e1b77f" LastKnownName="Nullable&lt;Int32&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="646dad0b-2aa6-4f42-b7b2-c6e04f98b8b6" name="pageSize" direction="In">
+                  <referencesInternal>
+                    <reference Id="9f5d7fac-92bf-406a-a9ea-58d5ccdfd26d" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=FindByTitle OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageSize" tag="ViewCode">
+                      <elementDefinition Id="bc5ecafd-12c2-4ea9-aa14-1da8cf7539cc" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="26e86ae2-1215-45c8-9ca2-fb7b8e079127" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="8d882205-4276-4409-91a7-74fc16349e9e" name="GetEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="de15cc58-d633-49bd-96b0-e3552b359fcf" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=GetEmployee OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="c65d1292-711b-40a6-baed-260d8e557d90" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="4d63f931-7bd5-4891-831e-b0f1e1569006" name="method" profile="CSharpProfile">
+                <elementDefinition Id="3dec4c93-53e1-4b69-9152-388068f5a896" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3b1327d4-4cdb-4656-873b-c358c15ed11b">
+                    <propertyInstance Id="643ac28b-a52b-4f09-8727-ee2a2db8a150" name="ClrAttributes">
+                      <elementDefinition Id="a81c543f-22d2-4036-a217-c534f185db4d" />
+                    </propertyInstance>
+                    <elementDefinition Id="b544fe5c-975b-41bd-8df3-4b5f62eacf27" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="84f9d0a6-61a3-4237-aa92-fee96e387fbb">
+                    <propertyInstance Id="2adfa9b0-bfba-46a8-a409-85e14d187e9c" name="IsPartial" value="false">
+                      <elementDefinition Id="c58c3bc0-83e2-47a3-b470-0a84a1395521" />
+                    </propertyInstance>
+                    <elementDefinition Id="a8047292-eaea-4d83-b7f2-e12881f4bed0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="aa6e8859-f640-4e8d-9526-e96b241c556b">
+                    <propertyInstance Id="50807d1b-fbc9-4037-a5b9-5a265dc9489a" name="IsUnsafe" value="false">
+                      <elementDefinition Id="32cbaa00-6d2d-4a0a-8eaa-1eec224a1c76" />
+                    </propertyInstance>
+                    <elementDefinition Id="33b5f7b8-7425-4989-a252-1166ae6d9c35" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9820c9f9-5c47-4a22-b691-3a862073c317">
+                    <propertyInstance Id="447b43b4-dbcf-4996-9047-4de0d5526d37" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="0a15da83-f942-4af1-b73f-f4fb4f47b1ab" />
+                    </propertyInstance>
+                    <elementDefinition Id="c2e66b25-9752-4b51-8750-a9ae8ac42db4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5c378532-7177-4f81-aa46-474ffca7dc0b">
+                    <propertyInstance Id="eb8c1418-e3f1-45d6-b859-05768ac10c13" name="params" value="false">
+                      <elementDefinition Id="be28bc2c-42ce-4999-b4e8-6c43d4789fd6" />
+                    </propertyInstance>
+                    <elementDefinition Id="d9ba01ed-49cc-4a8f-8721-ce80275552b3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4bf23e31-30ba-493d-b323-07bb367549f0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="62dbee95-b3f1-411a-af31-d67f501484f2" direction="Return">
+                  <elementDefinition Id="ca03a960-6aed-4112-8749-f1832a96e8ee" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b5006515-4a56-4f04-a927-97f775b379e2" name="pid" direction="In">
+                  <referencesInternal>
+                    <reference Id="d661382d-915e-4078-a01d-aed996161df7" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=GetEmployee OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pid" tag="ViewCode">
+                      <elementDefinition Id="c0ce8574-eaed-4378-bdbd-052b88daa0e2" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="b35d64a7-bef8-4c45-9afa-684d68ab66b2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="df423998-80bf-4044-9c21-1bf8ddb510d2" name="UpdateEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="794c5649-f32a-4dc4-91e3-c0f8ab0cb87d" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="24bf7e12-db70-4ac4-8cd3-aaa64a132cd3" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="8c23370a-950d-490e-8b4c-d6e9cf698e56" name="method" profile="CSharpProfile">
+                <elementDefinition Id="0ac81afe-e288-4bdd-b2df-884fefa8d083" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3efd5d52-e322-46de-a7f2-efa01bcb5036">
+                    <propertyInstance Id="069b2a3a-0739-4ee6-8a2a-74803cea0a82" name="ClrAttributes">
+                      <elementDefinition Id="6b5123c5-ad2c-478f-bfe5-37cdfad4d95f" />
+                    </propertyInstance>
+                    <elementDefinition Id="302bb9b7-54a0-43dc-b0b1-2348582f01ef" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6b41f344-5384-4722-a357-57f7c604a646">
+                    <propertyInstance Id="dec3334f-4523-4447-a8e7-b3117e80ff2e" name="IsPartial" value="false">
+                      <elementDefinition Id="215b90fa-a61b-47c7-a348-8efe2cd9482d" />
+                    </propertyInstance>
+                    <elementDefinition Id="05baf3b3-4d08-4076-9d52-fe1f9c5bbf7b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f8ce1ef0-a75a-4309-92f2-bed59cfd63c0">
+                    <propertyInstance Id="874101d3-0fa7-44d2-91c1-39e02913c7c5" name="IsUnsafe" value="false">
+                      <elementDefinition Id="df4de0d1-f617-4d7b-a99c-a01e973f1d51" />
+                    </propertyInstance>
+                    <elementDefinition Id="aec765d5-60bf-4702-a9e1-16a73e833827" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6bf3294d-7ddf-4137-a4c4-f7765785bce5">
+                    <propertyInstance Id="f3f8d8c3-a281-4133-b0d9-3f47227f74d5" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="a2285076-0185-494c-9f86-1417e25ef22c" />
+                    </propertyInstance>
+                    <elementDefinition Id="d33f1e09-b90b-4aff-91c2-f48d86e523a0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="645540c3-1bca-4e02-a234-e35aa69c979a">
+                    <propertyInstance Id="9b25cab8-d0a1-4797-a8d2-57f8529d317f" name="params" value="false">
+                      <elementDefinition Id="120df308-a848-429d-9d8c-f18e38593f5d" />
+                    </propertyInstance>
+                    <elementDefinition Id="4c046f81-7522-4038-bd76-6dfe70d2c7b5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="013aa0cf-2bac-4a8b-af0c-ee6456f1d6ff" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f66a5ee7-98b5-42bd-bdf7-880226a84728" direction="Return">
+                  <elementDefinition Id="b0b6d5ba-a8c1-4433-a39c-cf5528ed4b35" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a4d37d16-78eb-48b8-8c13-94067722dcd9" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="3d2da283-ea07-4789-88bd-4a55c43a73b8" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="bb8fd5da-6b74-484f-b7b7-ca49f63e97a4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="48aec826-3af8-4b37-a36f-52b43aad2fe5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="204992b0-3faf-4095-9f5e-eaa19a2e4add" name="UpdateEmployee2" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="2a3ac55e-2a3f-438b-84d8-9759bc727020" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+                <elementDefinition Id="3127206b-d677-4a97-acc1-2fe6a3225388" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="38c3457e-fd0a-4c0b-8103-fc2e7c9b4184" name="method" profile="CSharpProfile">
+                <elementDefinition Id="cbdc7cb2-8fd6-4633-bd68-4902361a67ec" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dc8e09b7-885d-4d99-b440-31cab33eea15">
+                    <propertyInstance Id="3b4a2e27-51fb-4975-b869-c64b230a539c" name="ClrAttributes">
+                      <elementDefinition Id="3ae48027-3e43-4817-b9c8-4d55037d6d9b" />
+                    </propertyInstance>
+                    <elementDefinition Id="5b91505a-df03-45b3-b77a-84c0fc2a28fc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1cf79f74-f919-481f-bb7b-83a2ec9d4c90">
+                    <propertyInstance Id="e18dd7ea-1ed9-48fd-babd-3b28c0b314a5" name="IsPartial" value="false">
+                      <elementDefinition Id="730c610f-73a7-41a6-b61b-19a5a1a19925" />
+                    </propertyInstance>
+                    <elementDefinition Id="adb4ff54-d381-4036-8203-a29c2309da9f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5943672d-d88e-4272-a70d-538b61a911a9">
+                    <propertyInstance Id="92010de7-bb29-4914-9d5b-024a36d150b3" name="IsUnsafe" value="false">
+                      <elementDefinition Id="1832686d-a9a1-49c5-8aef-78cc4bd1f3fe" />
+                    </propertyInstance>
+                    <elementDefinition Id="c15d2a21-96b2-4156-9b14-2a588acb59b9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="724b81a0-822e-4d1c-8508-fb4ac6005de5">
+                    <propertyInstance Id="fa45863b-b6cc-4c98-9b09-3c9eab980704" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="f641d97e-e3f3-472a-9316-e716ff7364ef" />
+                    </propertyInstance>
+                    <elementDefinition Id="124ab4ae-e726-4ffb-ad0d-bb4072c92749" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1c70e4cd-2172-405d-9c5b-eb1d4c002b2f">
+                    <propertyInstance Id="2ad99d33-f4d0-49c1-8f9d-d80e1f3ebdab" name="params" value="false">
+                      <elementDefinition Id="172af623-b6a6-4045-9ecc-ebd41c24ac41" />
+                    </propertyInstance>
+                    <elementDefinition Id="571c03c7-2541-4ddd-b1a8-771600f46e1f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="3552b595-2c03-4b0c-8eb9-3808535c2b31" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4232cdea-7429-4558-b6e2-cd211a0c4cd6" direction="Return">
+                  <elementDefinition Id="e38d2910-8af7-4d4f-baac-6340b237fb9a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e31edce9-dda6-43a8-a6c9-1ffb3b1f6a12" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d469734e-09e6-4cf7-8a20-24b4d8764fce" name="employee" direction="In">
+                  <referencesInternal>
+                    <reference Id="2eb0fe72-d4e0-4649-a979-68b475ccf6c4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                      <elementDefinition Id="0268267c-f605-416a-b190-f6ffec273601" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="fd00548b-12c1-4eaf-a3fa-4ac94eeee2d2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" LastKnownName="Employee" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cd73bbfb-ad80-4e67-84e0-5a02f6fd4558" name="EmployeeBusinessObject" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="a120e7d8-2fcb-4e05-96cd-a68cc8590b74" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=.ctor" tag="ViewCode">
+                <elementDefinition Id="37eaed35-8b3c-4541-bdc9-dd138d37dacb" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="a7f7c562-b8c3-4c1e-b96c-36909e842d32" name="method" profile="CSharpProfile">
+                <elementDefinition Id="90185ae5-d600-464b-b1ae-847def5278a4" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7a0ca517-acf3-4a30-ab42-5c6d9e93859d">
+                    <propertyInstance Id="e33bba5d-0962-4093-8d5a-e939799c5802" name="ClrAttributes">
+                      <elementDefinition Id="091e8cc2-99c6-409f-bd50-dd05ca9e41c3" />
+                    </propertyInstance>
+                    <elementDefinition Id="dc2d8b9e-2d7f-4d73-b96c-ae1a2c3a5031" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cacab579-c541-4979-8648-23b7fd010cf2">
+                    <propertyInstance Id="18a6b765-c434-4dec-b4e2-4cf735dbb6f2" name="IsPartial" value="false">
+                      <elementDefinition Id="28cc63f7-1e10-4aa2-b7c3-e0a006bd89a5" />
+                    </propertyInstance>
+                    <elementDefinition Id="682bc32a-cc98-4436-9e45-e0957a33d172" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a0dc7543-406f-4357-8286-77bf919f30d4">
+                    <propertyInstance Id="890f715e-2274-4932-bf0b-2cb02d5ba378" name="IsUnsafe" value="false">
+                      <elementDefinition Id="7fe9190e-047d-409b-baf0-76c548647be4" />
+                    </propertyInstance>
+                    <elementDefinition Id="1b53437c-331e-4fe5-8d8d-03b347143748" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5a9f2892-18c4-4738-be20-237149c864e1">
+                    <propertyInstance Id="d2825c47-7f35-4d57-8f8d-f592a7280783" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="672f34d5-18be-4e6c-9904-95271caf8322" />
+                    </propertyInstance>
+                    <elementDefinition Id="9447c38f-23e4-4946-aced-5812694c3aa3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="aedd18fa-94e1-417e-bc53-a7ad08290dc6">
+                    <propertyInstance Id="b4e58918-69d8-48ba-b44b-00557be423f7" name="params" value="false">
+                      <elementDefinition Id="7936d04e-6b5b-446c-9bcb-4dafe49881b8" />
+                    </propertyInstance>
+                    <elementDefinition Id="973d4d30-a540-40b7-bbd0-8111243287cf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="466107b1-df5c-4b93-b796-3ea902c37a9a" />
+          </operation>
+          <operation Id="f1de221b-b703-4de0-b60b-aad1ecdeab68" name="GetAllEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="c3a2bb72-f30a-42ef-b965-fc634133b505" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=GetAllEmployee" tag="ViewCode">
+                <elementDefinition Id="e5305035-bf42-4c5c-878b-9634ff4f3576" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="61d35102-d335-4889-9b58-1a0eb54e4df4" name="method" profile="CSharpProfile">
+                <elementDefinition Id="17488ce7-8990-45d6-8a57-314776141908" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="02f06999-88a1-4abc-84fd-2a8d94896882">
+                    <propertyInstance Id="dc2ff5f6-034e-475d-9b96-30eace288117" name="ClrAttributes">
+                      <elementDefinition Id="bb616045-348b-49ac-9f4e-9ad93686d43b" />
+                    </propertyInstance>
+                    <elementDefinition Id="f60a1f61-10c7-4414-9a88-d74a4c88e987" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4341740a-e5cd-47d6-ae93-df45d9a2e078">
+                    <propertyInstance Id="c6327769-f8e5-4e90-80d0-d418a3d88619" name="IsPartial" value="false">
+                      <elementDefinition Id="11006f9d-5d5a-4042-8cc4-36bfde7fdcfe" />
+                    </propertyInstance>
+                    <elementDefinition Id="861fc283-dd02-47e8-b1e7-9471f6225e14" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bd9c4726-0eed-415d-b138-71b52412a8a6">
+                    <propertyInstance Id="4545fd10-ecd3-40fb-a378-b80183500f3b" name="IsUnsafe" value="false">
+                      <elementDefinition Id="17358176-e18b-4c22-ab13-55efeb0880d5" />
+                    </propertyInstance>
+                    <elementDefinition Id="80484c00-f21f-446e-93d1-cac5219a83bb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e3c095f8-cbc8-487e-8d19-608acd8ef692">
+                    <propertyInstance Id="e12d939c-5e3f-4257-b56d-326e04096852" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="546cca04-742c-4473-b308-fc532b4a59da" />
+                    </propertyInstance>
+                    <elementDefinition Id="2570e957-faf4-46ac-ab78-f4a2c849692b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ab29add4-5397-4a93-a249-ffc26c31653a">
+                    <propertyInstance Id="0f2ba159-2c22-4a94-b436-992fd7a5dc01" name="params" value="false">
+                      <elementDefinition Id="77b1d6ff-0d56-4a49-8d01-f79f947200d1" />
+                    </propertyInstance>
+                    <elementDefinition Id="7d7996d9-36e8-4f67-aa71-44b9bfebf505" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4f916f18-d104-4154-a379-7a8ee0c6ede7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="101e569c-698d-4dbf-8c7e-f185bd6f7645" direction="Return">
+                  <elementDefinition Id="1f3f3783-8ca1-4a49-acf5-23ce75f354a7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8f884956-d2b1-4f85-8937-dd7870866af4" LastKnownName="IQueryable&lt;Employee&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b11f0c2e-6f3b-43a2-baa1-37a2083baed6" name="IObjectContext" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::DataAccessObject::IObjectContext">
+        <elementDefinition Id="817dd394-0876-4c5b-9633-644766a11955" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4a9bd374-e97c-48fa-9576-d4d7cb01b3a5" name="EmployeeRepository" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::DataAccessObject::EmployeeRepository">
+        <elementDefinition Id="54d5eb5a-aba6-404f-b6d1-7ccc2fd52293" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1ccf39e9-533f-41f8-9bd2-5f2f21cf19ff" name="IUnitOfWork" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::DataAccessObject::IUnitOfWork">
+        <elementDefinition Id="933083a9-a72e-4333-af66-ee01cb75b733" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="2031d7aa-5bf4-4252-91e3-17ddbe4e15f4" name="IContactBusinessObject" isAbstract="false" isLeaf="false">
+        <referencesInternal>
+          <reference Id="b6f50f3c-64db-4c67-af16-16de34b679c9" handle="viewcode://./CodeSchema_Interface?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IContactBusinessObject" tag="ViewCode">
+            <elementDefinition Id="61a6c514-55c1-426a-9b3f-c052379e872c" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="79a92f00-a186-4581-9ab2-dff81fed180f" name="interface" profile="CSharpProfile">
+            <elementDefinition Id="395f3c68-b937-4e83-b612-1c2d8a60fd4c" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="bce7427d-ac5a-44bb-943d-71ee2d35e880">
+                <propertyInstance Id="7a22ca8a-ba6b-4e90-895c-eb948345af57" name="ClrAttributes">
+                  <elementDefinition Id="41f87b58-26f3-4415-9f04-a6f76193c197" />
+                </propertyInstance>
+                <elementDefinition Id="9b22a9f1-8f0a-4c98-b934-75703ccffbd4" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="76bd4633-672a-4aa7-954f-7557a2919812">
+                <propertyInstance Id="e16af798-02f2-4638-8dba-d8f9d3aef761" name="IsPartial" value="false">
+                  <elementDefinition Id="83f7d26f-3a56-4aa6-b439-f5708605c89d" />
+                </propertyInstance>
+                <elementDefinition Id="28de2411-b2f3-4915-90b9-eae0cf8c787e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="19700968-c88e-4c0c-8d3d-f66283a13f75">
+                <propertyInstance Id="e60dc19e-48ec-4bf9-81c0-0641765fd065" name="IsUnsafe" value="false">
+                  <elementDefinition Id="79dc1ff9-b485-45a7-9d47-46f57501a207" />
+                </propertyInstance>
+                <elementDefinition Id="06c152ae-4118-4572-839e-206b3981e5dd" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="1cee027d-354c-489b-ba2e-85cbcdff92cb">
+                <propertyInstance Id="0655a4d6-6c6b-45c5-bdda-70383fd41262" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="a75c10c1-d077-494f-9592-1b6921127e15" />
+                </propertyInstance>
+                <elementDefinition Id="0e78f9e4-d980-4cd2-be3e-bc1b3cb94a07" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="752eee80-f339-44e9-87eb-fd9807157ea5" />
+        <ownedOperations>
+          <operation Id="5400a980-447c-4e67-8299-3f9b9398062f" name="FindContacts" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="ac979f7c-c5de-4e08-bf58-488087f1cc68" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])" tag="ViewCode">
+                <elementDefinition Id="89ffca57-3a84-4eb4-89ee-1fb1566b828b" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3ae2a539-467f-4f30-86bf-fb68854dc1a4" name="method" profile="CSharpProfile">
+                <elementDefinition Id="9069e0d1-3426-452e-8b7f-ecfa621e0f89" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0af03c3d-edcc-4cc7-a775-0dc07f14a775">
+                    <propertyInstance Id="dca17897-804a-42e7-bd61-37d77e9b2df8" name="ClrAttributes">
+                      <elementDefinition Id="2cad6482-1ca5-472d-99cd-1eb39f7fbbe2" />
+                    </propertyInstance>
+                    <elementDefinition Id="dfae5655-c277-496d-a22b-88815ecabf9f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7d701da1-e7ff-4a9a-a5f4-19e4e4cf763b">
+                    <propertyInstance Id="31ddb4aa-fd65-449b-8412-727a86faaa73" name="IsPartial" value="false">
+                      <elementDefinition Id="95182780-1ec9-411a-838c-ff966b396166" />
+                    </propertyInstance>
+                    <elementDefinition Id="7147de28-446f-4be2-88a9-cf86996ca5ec" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b3d96609-9fdc-44b9-b263-0894387e5276">
+                    <propertyInstance Id="b88ea5da-4b75-4736-b730-988b617e57f5" name="IsUnsafe" value="false">
+                      <elementDefinition Id="95c8ce94-4d8a-4a98-b2de-4f33505cd325" />
+                    </propertyInstance>
+                    <elementDefinition Id="33608279-2cee-4d0f-b246-f3b63f3ace2d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f4f1a504-268d-4567-bfa6-f8a1a1c33ec5">
+                    <propertyInstance Id="b49bebba-6782-41d4-943a-d90ffea1748d" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="edb89096-1208-4d87-9c70-e65eaf75ebaf" />
+                    </propertyInstance>
+                    <elementDefinition Id="06695f5a-6134-440b-bbc4-64f9e9a4477c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b53a9b7b-a325-498c-a1fc-3745d84829d3">
+                    <propertyInstance Id="9287eec3-24ef-48b9-9fc6-6a629dd69e3f" name="params" value="false">
+                      <elementDefinition Id="c23e9cad-09a0-4e9a-8d5a-caf09e2172e4" />
+                    </propertyInstance>
+                    <elementDefinition Id="def91466-383d-401c-aa0b-6e395fcb7c4d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="baaa63b2-9fe0-440e-ac94-149f5e2288ac" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c26c8e6c-2584-4a73-96d1-74a38e937581" direction="Return">
+                  <elementDefinition Id="f78a4134-4618-4d73-aa6e-0bd5b20130cc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ca45df25-bec9-4764-90fe-56971f92ec55" LastKnownName="PagedList&lt;Contact&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8c47b9ee-a7b1-4192-bb2f-5fd25414972f" name="pageIndex" direction="In">
+                  <referencesInternal>
+                    <reference Id="afaa130e-603c-4ee0-9ab2-d4573078d3d6" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageIndex" tag="ViewCode">
+                      <elementDefinition Id="189bafaf-c26b-4add-8d16-e409fd4aab5b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="2a119cfc-d26b-4e14-afd0-969d3590eac7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bbebf800-3b69-457d-8dff-b04b62e1b77f" LastKnownName="Nullable&lt;Int32&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="79f05622-29de-4de1-88b1-badee83c077b" name="pageSize" direction="In">
+                  <referencesInternal>
+                    <reference Id="25f14b8d-120d-40cd-986e-7202c5c1210b" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IContactBusinessObject Member=(Name=FindContacts OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=(Name=Nullable GenericParameterCount=1 GenericArguments=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=pageSize" tag="ViewCode">
+                      <elementDefinition Id="89b6635c-cfda-473b-8554-2b7460065d4d" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="de03b06f-4543-4304-b08f-1f70f789358a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b6981d3d-929b-4de3-9717-7ba1a4454e87" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="cc9a4ebd-2010-440d-8241-412074685fdd" name="IronModelingProject">
+    <elementDefinition Id="bb676d08-a0b5-4966-ac0c-795994c1b693" />
+    <profileInstances>
+      <packageHasProfileInstances Id="de4b7d16-e881-469c-b30f-14671111bb37">
+        <profileInstance Id="69433a2a-c35a-4d87-94f8-84de91f0ffce" name="CSharpProfile">
+          <elementDefinition Id="01dee74d-cde6-4733-9ad1-0e56905196b3" />
+        </profileInstance>
+        <elementDefinition Id="5bc9b679-2a16-434c-a4e0-19dd31b82cf1" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ef1a4e63-d3e5-4536-9ec3-9010b034921d">
+        <profileInstance Id="012d942b-8a20-4ed1-9205-4376578e5d15" name="TextTemplateBindings">
+          <elementDefinition Id="72e80ab6-322f-4213-ac8a-3ca628ec8e1d" />
+        </profileInstance>
+        <elementDefinition Id="ac0f5845-0e95-4aa3-adc6-3e31c3039a53" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,99 @@
+April 27 2011 
+1.Update Entity framework to 4.1
+2.Use DbContext instead ObjectContext during DI
+3.Use ADO.NET DbContext Generator template instead ADO.NET POCO Entity Generator.
+
+May 26 2011
+1.Added IRepository paging data method update wcf service reference for unit test project 	
+
+May 30 2011
+Added AOP with Logging and validation.It seems if we want to validate method we have to put
+attribute on interface members.
+
+June 5 2011
+Fixed PagedList<T> bug;
+Changed web form data bind use strong type approach.
+Added Net2Pager control to web form project
+
+June 9 2011
+1.Changed ADO.NET DbContext Generator template to add IEntity interface for all Entity.
+It is use change entity state in datacontext.
+
+June 12 2011
+Integrate jquery-ui-1.8.11 datapicker in edit view.
+
+
+June 14 2011
+Updated Entityframework edmx model for AdventureWorkds database.
+Fixed find method issue in EF Repository. 
+
+June 20 2011
+Added REST data Service 
+Use netfx-WebApi directly test WCF service
+
+Install cmd:
+Install-Package netfx-WebApi.Testing
+
+June 24 2011
+Modified IContext interface to expose EF4 specific properties.
+
+June 27 2011
+Implement test REST CRUD service with fiddler 
+
+July 1 2011
+Added unit test REST service use servicehost and channelFactory
+
+July 4 2011
+Added command line build script.
+
+How to use :
+ Run this batch file from the directory where IronFramework.sln resides.
+ Usage: [debug | release ] [output_path]
+ Example: debug c:\Ironframework-debug-build
+
+Aug 20,2011
+Added Auto complete feature  
+
+Sept 7 2011
+Update documents
+
+Nov 22 2011
+Modified T4 template to add ExecuteStoreCommand method of IOjbectContext interface for execute t-sql query 
+Added 2011 Road map files
+
+Nov 24 2011
+Updated WCF Web API Preview 5
+Fixed bug of service testing.
+
+Nov 25 2011
+Added xUnit framework and updated reference package.
+
+Nov 29 2011
+Introduced DTO for WCF or UI and Automapper
+
+Dec 6 2011
+Added compress white space and remove request header httpmodule
+ 
+Jan 14 2012
+Update Entity Framework version from 4.1 to 4.2
+
+Feb 8 2012
+Fix maxItemsInObjectGraph issue
+
+July 23th 2012
+Added Asp.net MVC 4 beta Web API and unit test
+Fixed bug in UnityDependencyResolver.cs
+
+July 24th 2012
+Updated data access layer with EF 4.3. 
+Fixed update records with Asp.net MVC 3 website
+
+July 25th 2012
+Added batch file for generate proxy class and wsdl of WCF service
+Added simple unittest for Web API 
+
+
+
+
+
+

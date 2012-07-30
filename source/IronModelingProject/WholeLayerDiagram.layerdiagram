@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="b1313322-4a26-4e39-aedf-624b68b652c4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="0a790106-0b26-4f86-a311-abce37e04c16" name="IronFramework">
+      <description>IronFramework</description>
+      <childLayers>
+        <layer Id="99c75da9-c70d-4534-87b9-e9a9e3f12b57" name="Business Layer">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="45ceebe5-b7e3-49d3-a888-44207a2f7cca" direction="Forward">
+              <layerMoniker Id="0aadce9f-0809-4a41-b768-ab999865b664" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="36ffc0af-46eb-4316-8ab5-c4df8857baa0" name="Application Facade" />
+            <layer Id="4c722b4a-e7b5-404b-87fc-cb83f9939f27" name="Business Workflow" />
+            <layer Id="0a2fda24-d066-4acb-81b3-141dd06c8938" name="Business Components" />
+            <layer Id="90c34ec4-a49c-464f-895f-452ac3b2e12f" name="Business Entities" />
+          </childLayers>
+        </layer>
+        <layer Id="0aadce9f-0809-4a41-b768-ab999865b664" name="Data Layer">
+          <childLayers>
+            <layer Id="496d1a5e-2857-4956-8d2d-39e6a4b2561d" name="Entity framework">
+              <childLayers>
+                <layer Id="ef578040-412a-4ee3-8e94-0f0ad1c49aef" name="Repository" />
+              </childLayers>
+            </layer>
+            <layer Id="4be576ca-d50e-4693-a910-49688cc5244a" name="Data Helpers/ Utilities" />
+          </childLayers>
+        </layer>
+        <layer Id="f8c87f0e-89a4-48f5-9a91-8ccb265650d0" name="Cross Cutting">
+          <childLayers>
+            <layer Id="a38a296e-746c-417a-a6ea-1e0981802e3a" name="Communication" />
+            <layer Id="954a3456-cde9-46f7-8082-ad997590c57c" name="Exception Managent" />
+            <layer Id="58ad07aa-7837-4a57-a305-209975cf7c77" name="Cache" />
+            <layer Id="244dcbd9-7376-464c-9d99-8b1d1e1ae842" name="Authentication" />
+            <layer Id="7f72bf50-3def-4479-800e-19f9299ec016" name="Logging and Instrumentation" />
+            <layer Id="16e44a31-a24a-4580-9a7f-fafd6b562229" name="Authorization" />
+            <layer Id="fe202701-dca7-4a37-a8c7-130377072567" name="Enterpr&#xD;&#xA;i&#xD;&#xA;ser&#xD;&#xA;  L&#xD;&#xA;i&#xD;&#xA;brary&#xD;&#xA;">
+              <description>Entlib</description>
+            </layer>
+            <layer Id="5831434b-7144-4272-99fa-2517222d713b" name="Coniguration Management1" />
+          </childLayers>
+        </layer>
+        <layer Id="17e9002e-8ce5-4df8-baa8-37d3c8778f31" name="Presentation Layer">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="5ee20ee7-fae0-4301-807a-03a12f506633" direction="Forward">
+              <layerMoniker Id="35b296d4-7ee4-44d6-8dac-ea7bd03f19aa" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="14a259ae-ff4c-4f9f-bce5-07b7835e06c0" name="UI Components" />
+            <layer Id="d3cafc0b-20c4-4588-b2c2-c643909aebb2" name="UI Process Components" />
+          </childLayers>
+        </layer>
+        <layer Id="35b296d4-7ee4-44d6-8dac-ea7bd03f19aa" name="Service Layer&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="aabd47d6-d812-437d-90e8-2921df0cf2b8" direction="Forward">
+              <layerMoniker Id="99c75da9-c70d-4534-87b9-e9a9e3f12b57" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="d77df757-506c-419c-b8e4-e7e5c0172ae0" name="Servcie Interface" />
+            <layer Id="cb3ba943-4386-47f9-9282-eb7579d5d141" name="Implementation">
+              <childLayers>
+                <layer Id="0c08ec8b-d12c-41fc-98f7-f684ab21bc93" name="WCF Service" />
+              </childLayers>
+            </layer>
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="c2acf4b1-0dda-4210-b57b-e5b5e3ec2c90" name="Client">
+      <childLayers>
+        <layer Id="0dad9903-e9c2-4837-afdc-7b38057d42c6" name=" Browser">
+          <childLayers>
+            <layer Id="09d6bf98-52c7-471d-9d16-6e5238fa2e12" name="Rendering" />
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

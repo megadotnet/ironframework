@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>
+    <script src="Scripts/Plugin/jquery.tree.min.js" type="text/javascript"></script>
+    <link href="Themes/Default/tree.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+           //You can use Http handler provide data source
+            var treedata = [{ "ChildNodes": [{ "ChildNodes": [], "checkstate": 1, "complete": true, "hasChildren": false, "id": "2", "isexpand": true, "showcheck": true, "text": "Node2", "value": "9982"}], "checkstate": 0, "complete": true, "hasChildren": true, "id": "1", "isexpand": true, "showcheck": true, "text": "Root", "value": "3223"}];
+
+
+            var o = { showcheck: true
+            , onnodeclick: TreeNode_Click
+            };
+
+            o.data = treedata;
+            $("#divTreeView").treeview(o);
+
+        });
+
+        function TreeNode_Click(e) {
+            alert(e.value);
+        }
+
+</script>
+</head>
+<body>
+    <div id="divTreeView"></div>
+</body>
+</html>

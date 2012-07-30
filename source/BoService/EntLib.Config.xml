@@ -1,0 +1,116 @@
+﻿<configuration>
+  <configSections>
+    <section name="policyInjection" type="Microsoft.Practices.EnterpriseLibrary.PolicyInjection.Configuration.PolicyInjectionSettings, Microsoft.Practices.EnterpriseLibrary.PolicyInjection, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+    <section name="loggingConfiguration" type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+    <section name="exceptionHandling" type="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Configuration.ExceptionHandlingSettings, Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+  </configSections>
+  <policyInjection>
+    <policies>
+      <add name="MyPIPolicy">
+        <matchingRules>
+          <add type="Microsoft.Practices.EnterpriseLibrary.PolicyInjection.MatchingRules.TypeMatchingRule, Microsoft.Practices.EnterpriseLibrary.PolicyInjection "
+            name="Type Matching Rule">
+            <matches>
+              <add match="IEmployeeBusinessObject" ignoreCase="false" />
+            </matches>
+          </add>
+        </matchingRules>
+        <handlers>
+          <add type="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.PolicyInjection.ExceptionCallHandler, Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+            exceptionPolicyName="MyPolicy" order="1" name="Exception Handling Call Handler" />
+        </handlers>
+      </add>
+    </policies>
+  </policyInjection>
+  <loggingConfiguration name="Logging Application Block" tracingEnabled="true"
+    defaultCategory="General" logWarningsWhenNoCategoriesMatch="true">
+    <listeners>
+      <add name="FlatFile TraceListener" type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.FlatFileTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging "
+        listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.FlatFileTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging "
+        fileName="Generaltrace.log" header="----------------------------------------"
+        footer="----------------------------------------" formatter="Text Formatter"
+        traceOutputOptions="None" filter="All" />
+      <add name="Rolling Flat File Trace Listener" type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.RollingFlatFileTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging "
+        listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.RollingFlatFileTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging "
+        fileName="ErrorRolling.log" footer="----------------------------------------"
+        formatter="" header="----------------------------------------"
+        rollFileExistsBehavior="Overwrite" rollInterval="None" rollSizeKB="0"
+        timeStampPattern="yyyy-MM-dd" traceOutputOptions="None" filter="All" />
+    </listeners>
+    <formatters>
+      <add type="Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.TextFormatter, Microsoft.Practices.EnterpriseLibrary.Logging "
+        template="Timestamp: {timestamp}&#xD;&#xA;Message: {message}&#xD;&#xA;Category: {category}&#xD;&#xA;Priority: {priority}&#xD;&#xA;EventId: {eventid}&#xD;&#xA;Severity: {severity}&#xD;&#xA;Title:{title}&#xD;&#xA;Machine: {machine}&#xD;&#xA;Application Domain: {appDomain}&#xD;&#xA;Process Id: {processId}&#xD;&#xA;Process Name: {processName}&#xD;&#xA;Win32 Thread Id: {win32ThreadId}&#xD;&#xA;Thread Name: {threadName}&#xD;&#xA;Extended Properties: {dictionary({key} - {value}&#xD;&#xA;)}"
+        name="Text Formatter" />
+    </formatters>
+    <categorySources>
+      <add switchValue="All" name="ExceptionLogger">
+        <listeners>
+          <add name="Rolling Flat File Trace Listener" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="General">
+        <listeners>
+          <add name="FlatFile TraceListener" />
+        </listeners>
+      </add>
+    </categorySources>
+    <specialSources>
+      <allEvents switchValue="All" name="All Events" />
+      <notProcessed switchValue="All" name="Unprocessed Category" />
+      <errors switchValue="All" name="Logging Errors &amp; Warnings">
+        <listeners>
+          <add name="Rolling Flat File Trace Listener" />
+        </listeners>
+      </errors>
+    </specialSources>
+  </loggingConfiguration>
+  <exceptionHandling>
+    <exceptionPolicies>
+      <add name="MyPolicy">
+        <exceptionTypes>
+          <add name="Exception" type="System.Exception, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+            postHandlingAction="NotifyRethrow">
+            <exceptionHandlers>
+              <add name="Logging Handler" type="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.LoggingExceptionHandler, Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging "
+                logCategory="ExceptionLogger" eventId="100" severity="Error"
+                title="Enterprise Library Exception Handling" formatterType="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.TextExceptionFormatter, Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                priority="0" useDefaultLogger="false" />
+            </exceptionHandlers>
+          </add>
+        </exceptionTypes>
+      </add>
+    </exceptionPolicies>
+  </exceptionHandling>
+  <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
+    <alias alias="IEmployeeBusinessObject" type="BusinessObject.IEmployeeBusinessObject, BusinessObject" />
+    <alias alias="EmployeeBusinessObject" type="BusinessObject.EmployeeBusinessObject, BusinessObject" />
+    <alias alias="IContactBusinessObject" type="BusinessObject.IContactBusinessObject, BusinessObject" />
+    <alias alias="ContactBusinessObject" type="BusinessObject.ContactBusinessObject, BusinessObject" />
+
+    <container name="DefContainer">
+      <extension type="Interception" />
+      <extension type="Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Unity.EnterpriseLibraryCoreExtension,Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <register  type="IEmployeeBusinessObject" mapTo="EmployeeBusinessObject">
+        <!--<lifetime type="singleton" />-->
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+      <register  type="IEmployeeBusinessObject" mapTo="EmployeeBusinessObject" name="NoOLazyloadedAndProxyCreated">
+        <constructor>
+          <param name="lazyloaded" value="false"/>
+          <param name="proxycreated" value="false"/>
+        </constructor>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+      <register  type="IContactBusinessObject" mapTo="ContactBusinessObject">
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+    </container>
+
+  </unity>
+</configuration>

@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="44747ff9-b791-4425-95b2-75b6b54ed018"
+  name="BusinessEntiies"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="eee999f5-221a-42da-949a-9d93ddde340f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=BusinessEntiies"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f8da1b8f-2257-46c7-8db1-54f2260fe1f8"
+        name="EmployeeAddress"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="48846c92-3fb5-4737-acca-d3353c1b4269"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6b8a35ba-cbe1-4200-b029-5dfb1b283d70"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6fce1d61-c93c-4a5c-b7f0-e654ddbb0832">
+                <propertyInstance
+                  Id="38093041-38e9-411d-bcf5-65d773a883e1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b9cfb14b-dcbe-4eec-8798-4c5db0a79e09">
+                <propertyInstance
+                  Id="fed15034-0379-4c02-8dbd-5b8c3f60af83"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c8b66bac-2b79-4b62-a872-2129318db9da">
+                <propertyInstance
+                  Id="2a8cf5c8-e7cb-4207-bb17-2140e32a30ae"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="73240363-7fcb-42c1-b07c-88b2eef46cb6">
+                <propertyInstance
+                  Id="d92d0881-1dab-4555-ac78-17d3386ff4c5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cffaa802-0631-4dd9-b805-07fd30ee9d64">
+                <propertyInstance
+                  Id="c93a7fb1-0af3-43e4-8d24-a4194dd554a0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="8b83809e-969e-466f-915a-1f01ee68c1bb"
+            isDerived="false"
+            sourceEndRoleName="EmployeeAddress"
+            targetEndRoleName="rowguid"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c190b6a9-07bf-4818-a09e-5d167a127cdb"
+              LastKnownName="Guid"
+              LastKnownLocation="Package1_1648.uml" />
+            <description>Property rowguid references type Guid.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9864dca0-1bda-4120-98e7-e3551a62d739"
+                  name="EmployeeAddress"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8bb4f381-36d2-4f1c-bc65-85cae83ad0c8"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a86a08b3-cd78-47d1-bd8c-23c39c721f9f"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aa507483-944e-4205-900a-51db03744f8a"
+                  name="rowguid"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="265cca1c-68a7-4ad6-8602-251753160626"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="bcd8bda1-21dc-4300-ac0d-97426b34054b"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b6fb9437-7240-4938-9416-89a8a442080d"
+            isDerived="false"
+            sourceEndRoleName="EmployeeAddress"
+            targetEndRoleName="ModifiedDate"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e9c5ce5a-4b80-4ffc-91b4-4275436b3969"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package1_1648.uml" />
+            <description>Property ModifiedDate references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1dc69882-5ff1-4f43-b35b-695b315984b1"
+                  name="EmployeeAddress"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ee00c826-5b18-4137-b0bd-c511904d9396"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c8a6c61e-521e-42de-a750-559b14579e4d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3d6ec725-07d4-42ae-8d42-4183a1480cee"
+                  name="ModifiedDate"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="af72d038-3bb7-4689-af2e-f203e775242d"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="233f382a-9854-434f-99f1-bae5451e2dbc"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b5f5de5d-3c7a-41d9-9684-1d6151d23fab"
+            isDerived="false"
+            sourceEndRoleName="EmployeeAddress"
+            targetEndRoleName="Employee"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="16836b86-6db1-450b-839b-d01a41943b81"
+              LastKnownName="Employee"
+              LastKnownLocation="Package_1648.uml" />
+            <description>Property Employee references type Employee.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="00509689-4bc4-46c0-a39c-b01b9eefd1aa"
+                  name="EmployeeAddress"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8e7fe4cd-9ccc-4896-8e04-325fe4a86cbd"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="68894cc5-cdc2-42df-a517-5d4b6604b6a8"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="00532729-6deb-4382-8ca7-b1af505d82e6"
+                  name="Employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b09f3e94-41df-462b-9d40-ac3387ce3ccf"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0e7499e5-72e6-4b4c-bc85-7e7040ccce6c"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="936d4799-d842-4772-860b-61a3f5766c89"
+            name="EmployeeID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="aefea51d-c3ef-47d6-bb32-ed601824bde1"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=EmployeeID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f3a58b39-d7fa-4710-9b9d-6b12f4e44a49"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b4d626b-d874-48c1-8797-319ea08bbc14">
+                    <propertyInstance
+                      Id="6ae8af72-5ab1-4666-9974-41ef46d20e2c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d805b906-27e6-46ba-8e14-fce5c734b6da">
+                    <propertyInstance
+                      Id="cc3f4b0e-872a-4a03-aa8c-229cf176d9c8"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb878ca2-df06-4e13-b32b-b883d97dc94b">
+                    <propertyInstance
+                      Id="1a164789-75cc-4faf-b002-f7da2768e93c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50d3ede7-97d0-4aee-8a90-a58f101574ed">
+                    <propertyInstance
+                      Id="9ad5c510-79d5-457c-9648-ff93d1188aaa"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="649dab38-9f48-4f8e-a368-09900dedd84d">
+                    <propertyInstance
+                      Id="6a1da159-7861-4b8a-8eda-34e010e93f4b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae2a2f40-0ac5-4054-8375-4bf6a5910488">
+                    <propertyInstance
+                      Id="207f4793-a8af-4ebc-a529-9bba036ba951"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="IronModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="226553bd-4698-482a-8078-fc35fbe24282"
+            name="AddressID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="8fbe8b01-7f55-4621-953b-3dfb87a0ba89"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=AddressID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7b2df19d-1960-414d-b8f4-d199795ff677"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2ee8991-b6ed-4cd0-ac1d-375cb75b84b6">
+                    <propertyInstance
+                      Id="73ce3bed-95a2-45be-b21b-319d2d0f67b6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5b6ce9d-c4e9-4818-95f4-cc7df9c1057a">
+                    <propertyInstance
+                      Id="73b42bbb-d392-4e0f-b2dd-4204ad50fb75"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5020d2a-06bc-4bee-9f5c-360bea02789f">
+                    <propertyInstance
+                      Id="d5041ab1-f942-4bf1-8d75-63740757995c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f134c3f6-c1fe-45d6-b4cc-b465390ba9ef">
+                    <propertyInstance
+                      Id="07ac053f-f1ce-4924-8e85-18839c011282"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d59e99b-5c7c-4d4a-b907-6d01b2bc89f8">
+                    <propertyInstance
+                      Id="5faa5955-dd2d-4ae0-9ade-d53b2ec022ed"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60627772-9359-4def-b50c-8419425aef3a">
+                    <propertyInstance
+                      Id="950ecf40-fbef-496a-8b21-36b41fe9354b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="IronModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7049b731-104e-489f-b270-8b76f63ab4f3"
+            name="rowguid"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e3024010-799c-4aa4-abe1-6bbd07813ef9"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=rowguid"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7b7b6b07-ef47-41c2-8763-2704b4dd035a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4442fe5-0e8a-4b49-937a-da0f99921b51">
+                    <propertyInstance
+                      Id="29f8f3bc-120e-441b-9c7b-fd319ff98624"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6bd68195-13f8-4625-a7bc-00059cb1c9a7">
+                    <propertyInstance
+                      Id="7a1ee571-e765-421f-956b-41540c0fec70"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36127640-5261-41ed-99d2-4e496f7add49">
+                    <propertyInstance
+                      Id="3889f3a1-95e6-475b-9933-5ecc0e4ab486"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1968893e-3499-49ba-a0dc-5385e9ec48fd">
+                    <propertyInstance
+                      Id="2c04ad7f-9d06-45b9-8ad5-7fbc851d6654"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca101478-bf6f-46c7-94e7-c704790ff8f6">
+                    <propertyInstance
+                      Id="8164ae24-78e2-4cc9-8e46-a2e1d9e55f72"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6029b532-8ba2-47e9-92b1-ba537a7727f3">
+                    <propertyInstance
+                      Id="dd3adba5-4e63-4743-8581-7e464ad22622"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c190b6a9-07bf-4818-a09e-5d167a127cdb"
+                LastKnownName="Guid"
+                LastKnownLocation="Package1_1648.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="58665176-0962-43a6-8d31-aca45b63d0c3"
+            name="ModifiedDate"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="73dd2f5d-9516-4b2a-9305-0f2483874271"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=ModifiedDate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2783770c-6371-42ec-a101-f511f7c338fb"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5acd4883-8de4-4bae-979b-1e6f40f7d2c2">
+                    <propertyInstance
+                      Id="16109a5f-27b1-4402-97ae-b0109bf648f7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be52b863-ff31-469a-ab4e-7df816855e66">
+                    <propertyInstance
+                      Id="c2e2ddf6-061c-440a-87f8-c050da216135"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57b5eecf-de25-4baf-9bdd-ea140c72c0fb">
+                    <propertyInstance
+                      Id="0653b004-94f3-46be-914d-f6a303c4dff5"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0bbf9e3-1478-492a-a112-7c9307a0efc9">
+                    <propertyInstance
+                      Id="1fb3f8c8-f44c-4fa7-a1f3-260d802d33fe"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="46d3e5d4-9017-4410-916a-2deaf2c49e21">
+                    <propertyInstance
+                      Id="00ecdcc2-4f77-4a59-848e-deba70c2c2e1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ffc6b79-7349-4438-ade1-0b874a6dd4bc">
+                    <propertyInstance
+                      Id="1acb8a85-a849-4a42-886e-67224a949ed0"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e9c5ce5a-4b80-4ffc-91b4-4275436b3969"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package1_1648.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e34b931c-f970-48c8-be5d-993f3a7d24b9"
+            name="Employee"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="cfb8c1f3-0907-4545-aa26-f4b9066f3cea"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=Employee"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7246b0e3-7769-4feb-a811-30efea9e0571"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76ddd056-d194-4ac7-ba7f-2239b52b0761">
+                    <propertyInstance
+                      Id="99128fc0-195c-4971-9f4f-162362179fb8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f3eff63-92c8-46ea-b205-ac3b36e596d3">
+                    <propertyInstance
+                      Id="ec751c83-610d-469b-acab-689cb01171d3"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c82ef58e-d9a9-4ad5-88cd-9ec8d82e17bc">
+                    <propertyInstance
+                      Id="7a0dc75a-3d41-4b2a-bcc0-26ea83bf3448"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc9cafa3-deff-47ee-877b-4f59aa4cff9f">
+                    <propertyInstance
+                      Id="fdcb3f9c-8d7c-48e8-a853-796a9e0c7840"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="906077c8-99bc-40c9-a1c4-3b23a11c511f">
+                    <propertyInstance
+                      Id="93047229-c176-4a04-a2cd-59f0a150c97c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41ed2b97-b857-4e6d-8c0a-b1efadef87eb">
+                    <propertyInstance
+                      Id="35792e44-726f-4df8-9a24-6ea9130c2caa"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="16836b86-6db1-450b-839b-d01a41943b81"
+                LastKnownName="Employee"
+                LastKnownLocation="Package_1648.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="95cda0ce-637b-4f34-a55b-beed3964fbc3"
+            name="_employeeID"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3e68036e-dbd6-4b8c-afcb-fca919ff0faf"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=_employeeID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="960971d2-b2b4-46bd-83fc-aeb0ac2ea640"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="05e61b71-0e27-44da-9ca0-e827ba0e6833">
+                    <propertyInstance
+                      Id="5cd44af9-8feb-4d11-bcff-f10020347fa7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca26b5d1-1c96-4d07-a22b-40c41642a365">
+                    <propertyInstance
+                      Id="43083d75-db29-440b-a085-9bd58335df86"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c4380410-4a83-41de-90a1-a6e869c73233">
+                    <propertyInstance
+                      Id="4f989517-cd13-4cf8-91a1-4830824beca8"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="101bcd4f-a5fa-4abd-a925-3e2a96e7dd37">
+                    <propertyInstance
+                      Id="8d6affb8-6111-4470-b3da-b0edec67ab85"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef0624d0-2fec-4977-afb6-c9242810839f">
+                    <propertyInstance
+                      Id="8b1bbdc9-3ebb-47a8-a85d-7f8f617605d2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="IronModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6d4da803-b477-4e5c-8be9-cee61a095a29"
+            name="_employee"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e5203559-59ed-4bd9-a6f6-38eec7ee0ef3"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=_employee"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ab3ca785-4e7f-4d15-ae14-05ebaf8d1692"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5d94747-a254-4328-b564-e077f2898df5">
+                    <propertyInstance
+                      Id="1384df88-19bf-4374-be76-3b4fb1ededee"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a4b218b-dac1-4688-a7f8-5a6941da7b2c">
+                    <propertyInstance
+                      Id="a81ece03-fecd-465a-adc9-1c6961e0841b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e07845d-6a19-40eb-a3c9-310eb37f278a">
+                    <propertyInstance
+                      Id="04d04643-b1c8-460d-a22a-9b02bae2be43"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="021d8522-be2a-4f8d-a6c1-bc358734ab95">
+                    <propertyInstance
+                      Id="18862504-0713-4cd0-9aa8-eedbf57e23c4"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7bf5de8-85d6-47e3-a652-ed0e61d68db8">
+                    <propertyInstance
+                      Id="78b5b087-cd90-433d-a6ad-3435535396e4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="16836b86-6db1-450b-839b-d01a41943b81"
+                LastKnownName="Employee"
+                LastKnownLocation="Package_1648.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="54b07fef-6423-4fa2-905c-7e61123a60c6"
+            name="FixupEmployee"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7b0c7a85-ada3-465d-b3e5-cd0f809b6e16"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1845b1ea-c3b8-408c-ad44-c9cb80b38010"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f247fbc8-2ee0-48b5-86a8-d376078af824">
+                    <propertyInstance
+                      Id="deeccb2a-619b-4cdc-b04c-d27392307d7c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9fff155-e77b-4123-90ee-6935c7dfa2fe">
+                    <propertyInstance
+                      Id="c1bf5985-5259-45f6-a218-eef90210fe10"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2404b35f-1e55-413c-a69e-070a79cbe47d">
+                    <propertyInstance
+                      Id="42122d19-4849-469a-9de8-062b8e80b362"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2aec0239-c803-4037-848d-d964fc144822">
+                    <propertyInstance
+                      Id="c0aec5cf-342d-4a64-81df-0d4e7e255dee"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9392a768-0dd0-4b26-8bd0-8d5e9a06c243">
+                    <propertyInstance
+                      Id="02c0e2a9-1992-4773-b5dd-3069b4c5bc26"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c4a71a7-9ce5-47dc-bdb2-2b3c92d85692"
+                  name="previousValue"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="482c4501-ccd2-42c7-9fa1-560b75432d97"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=previousValue"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="80972647-44d5-4592-a4de-3d61d6eb6cb9"
+            name="EmployeeAddress"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8a419deb-2f41-4b71-b900-feeab8251ad2"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fefa17d0-a251-4bb4-be18-797745f86415"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c5a9759-9985-47e7-9d95-009d9670c853">
+                    <propertyInstance
+                      Id="5e11c6ea-1d3a-4c52-ad68-324d37a3ebaf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="535ab3aa-ee4f-4cb8-8d48-13cd765158be">
+                    <propertyInstance
+                      Id="9fe0b929-ffe9-4667-8e54-0abd461be7d9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58fdef0c-6478-41c0-8670-0f6dd4ef7e0d">
+                    <propertyInstance
+                      Id="72192418-2121-4951-874d-42f1ad6b3f8b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23ed9a2a-0d0c-42dc-ba50-37ed190df61a">
+                    <propertyInstance
+                      Id="639f75ca-7549-491a-a746-629e845ad0a9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16c4c80e-a271-4ea7-98fe-a5532fa1e670">
+                    <propertyInstance
+                      Id="62b3ea39-e9f7-4bdc-963f-a63252bfca97"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="16836b86-6db1-450b-839b-d01a41943b81"
+        name="Employee"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a8c6fa76-3b00-4ba1-a766-cc8385dbe94d"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f8476589-9ec6-445a-b244-8df078ce856d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4d7a008e-e56b-4106-a865-8fb08c56e241">
+                <propertyInstance
+                  Id="75760ea2-aed8-4196-bf21-2ea2a7fb9480"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8e8619d-2a2a-4131-b1b7-b6a24b0d413a">
+                <propertyInstance
+                  Id="139c3512-7675-4fc4-a9dc-466e2db0a791"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="248223b2-39d7-4d82-93ab-d807d1139b8a">
+                <propertyInstance
+                  Id="b5f01f44-95f9-4e1c-ab6d-6dfe95f9542d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="70d4e0a4-8ab6-45a2-8197-9d5787ddcac3">
+                <propertyInstance
+                  Id="2b21519b-5a5b-464e-a655-45cbf32658ef"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="20bbf65f-9574-47e0-992b-094de9ec7c4d">
+                <propertyInstance
+                  Id="440d0161-8081-43eb-8261-fc203dc6b94f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a89ec4a6-b4e7-4a35-a7c1-a28301f6aeb1"
+        name="EmployeeDepartmentHistory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="9466ff3d-0b8a-4b62-9386-3465433fa872"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="53a10d00-4022-41d0-a037-9fca5725be5b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c265df18-0965-4805-8635-93131c62e251">
+                <propertyInstance
+                  Id="6e39c78d-b5c7-4355-bfde-7d8b009d7e32"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="183a10bf-ece1-48ff-b707-428f804d9742">
+                <propertyInstance
+                  Id="3b70a0a8-960c-464c-9a6f-deeb4ba41a42"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a6f367a7-17fd-4a81-92ba-62999774fa08">
+                <propertyInstance
+                  Id="6c5fffd7-69a1-4e81-ae9f-bfafb1106ced"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6e9d514d-c93a-486f-9ba3-008df655df36">
+                <propertyInstance
+                  Id="fd700c0e-1c47-43a3-b8e0-54dd4890dbe1"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6b5a8f52-4819-486d-a458-d30636c3a1e5">
+                <propertyInstance
+                  Id="ac04cbee-e0c5-411e-88f6-3eacab281120"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5bab8204-5211-4c25-bc8b-3407f612d3d4"
+        name="EmployeePayHistory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b37569c8-af5a-4a54-88f0-a9a978f7b0f8"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b39a25ed-0f22-4030-83ef-86be6a9d5665"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9e28f3d0-0f1b-41ee-8219-c7d63e268a97">
+                <propertyInstance
+                  Id="53244b71-cef3-408c-85f9-ccffd4bad7c8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="83f35392-b280-443a-96df-060501ce99e2">
+                <propertyInstance
+                  Id="3a950e45-6b01-4e07-b9c7-0380c0ca73e3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b8373124-ee7f-4a12-96b9-8d723bc11263">
+                <propertyInstance
+                  Id="7db38d79-258b-4106-9541-6c26e1ace02c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="92114239-54ee-45ca-aec9-4cc17702ec47">
+                <propertyInstance
+                  Id="c0ca40a7-1b5f-4c3e-8515-ab38d5359299"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c912100a-add0-490d-ae91-2520eb319a29">
+                <propertyInstance
+                  Id="8cf240b9-f0a9-464b-83f9-4588c5d49050"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1977f393-7693-4d0f-a310-50a4a8bdf0bb"
+        name="Contact"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6664be9d-20ea-4334-8e2f-73dd25ba2122"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Contact"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="36bef028-872a-4dfe-97f3-c7cef6bb9451"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c4117756-866f-4974-8ad5-22ef261c01f9">
+                <propertyInstance
+                  Id="6e76930f-0120-4448-8eff-b4855bb393c9"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e2692822-80af-484d-9b94-23cd4d54c320">
+                <propertyInstance
+                  Id="52cd1f0f-c75b-4957-b1d4-64556539a97e"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="def1770a-c445-48cb-9e16-9baac6c6adda">
+                <propertyInstance
+                  Id="dee074b9-499d-4437-ac5d-4b9c1856bc4e"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dd2e206a-bc26-43d2-b8f8-f2231829b075">
+                <propertyInstance
+                  Id="e367b1e4-dab3-462b-9363-2c524f14bd98"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2b1cf3e2-7a7a-4656-a8ef-a1abd0324729">
+                <propertyInstance
+                  Id="d776fda4-315f-4d78-9af4-385951662430"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

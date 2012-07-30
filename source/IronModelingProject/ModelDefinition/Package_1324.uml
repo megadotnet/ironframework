@@ -1,0 +1,991 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="9f2f0e85-2c7f-4d9b-929d-c0eb0604fb36"
+  name="BoService"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d46a8c6c-314c-429b-8d06-d02828a5d683"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=BoService"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="bc965842-7f6f-417d-b6bc-354f7c019b92"
+        name="IRESTEmployeeService"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="6196b910-787b-4b22-839e-7a8f5427fc38"
+            handle="viewcode://./CodeSchema_Interface?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="45583bec-e48a-4d36-a5f1-b1437a916aaa"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1a55c8dd-f580-463e-8cd5-7c7903b2370e">
+                <propertyInstance
+                  Id="04795d77-69f5-408b-af54-54e00ae66390"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="232d3253-eb81-4b80-a1f6-4bd7a44428a3">
+                <propertyInstance
+                  Id="b60c109f-ff56-474f-b103-f77d3d9af93a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="45b396e1-fb96-4e52-813d-6dae52086d48">
+                <propertyInstance
+                  Id="437730d7-c6b4-49ff-8284-d4db65994031"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="662f1165-ef5c-49fb-b869-51ad858d2b8b">
+                <propertyInstance
+                  Id="76a029c7-4bc3-4cd7-929a-2cadbb78c972"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="1b139c37-e14c-47fc-85c0-74eadd720b2a"
+            name="Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="330f7bab-92bb-4a82-bead-3225006b5b7f"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e2862650-57b5-4e0b-82b1-886e6ec56cf9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="03166f76-e7ab-4229-9ad7-5e468e5e57b9">
+                    <propertyInstance
+                      Id="0a5db2b3-873a-4cb6-ae18-1ad009c22e5e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4012199f-ac68-4e3c-a858-9f35669e6e59">
+                    <propertyInstance
+                      Id="138090cf-c710-48fc-919a-5e9bb3f09ec0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed9b1568-60b4-4be2-874a-0a42414690d5">
+                    <propertyInstance
+                      Id="37be165e-93ff-4a84-87cc-eae8fd231888"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc110f8c-511a-4828-ac80-2042d86fa89a">
+                    <propertyInstance
+                      Id="5fca0492-5b23-485c-b4b1-1df60e5e971f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c62c56fb-8b55-4eaf-96e8-f1b93f45c136">
+                    <propertyInstance
+                      Id="04e42aa6-0bfa-4f56-adad-89b3703daad4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2bd5c075-7e99-4078-a157-373d98683d9f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8a08bac9-8ad7-4b45-8132-8e4421fdff72"
+                  name="employee"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="02f1aac9-6166-4249-a855-9d69c0969c86"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f21130dc-41f6-46a4-96c4-b9c3a6cd4bbf"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="419d795e-b627-4a1c-9f71-761f25a7db80"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Delete OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="95986783-f210-4ebb-900e-738367e211cc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="39d11e59-8b7b-404d-8d54-a3017ad09389">
+                    <propertyInstance
+                      Id="52777f08-cd76-457c-b31e-6df303620c66"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="934055a8-3148-4af6-a7ff-2a86613ec914">
+                    <propertyInstance
+                      Id="df0a3d74-f75f-4cd4-b243-d9f4b8e18145"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6b4c7c0-c1be-4189-b7f0-8d48b1c3b57c">
+                    <propertyInstance
+                      Id="11d569e7-f5bc-4f97-9f17-993ed545d40d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c4ad5f3-f6cb-4f2d-afbe-7460e2b497d0">
+                    <propertyInstance
+                      Id="6a408979-9052-426d-b29f-821212107a24"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6aa5c9b-7c71-405f-a5b5-4e37b7cea2ba">
+                    <propertyInstance
+                      Id="14868e48-3f2a-4c11-aa73-91651a0e4dbe"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dc969f2e-4dd0-407d-b915-c7ecf1ddb52c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9d033608-47ef-4991-998e-ebf080ca9273"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="88d95e7f-0447-46a7-bc9d-4c1fed4d7e76"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Delete OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=id"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="49c6714c-1ceb-4959-bdc0-0731fe6df0b1"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3e65bbc5-4a3c-40f8-a325-896dd0d96c80"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Get OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3289b894-50ef-496c-b9b9-1ac9893930d8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a7a0723-7f4c-4570-bb83-12c6f2304462">
+                    <propertyInstance
+                      Id="40e2ba6a-f9b0-4099-a451-038e6ba168db"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71a6be9f-e4bc-449a-8562-94a302cc5862">
+                    <propertyInstance
+                      Id="fe9be9bf-ae81-487f-969e-79ad9a80c239"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48e4c0f3-b235-42f4-9a18-6c8861444d06">
+                    <propertyInstance
+                      Id="67d5410f-8e9b-4008-9a32-0245055f9600"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe31d70c-a8e0-427a-8692-43d75a0d78e3">
+                    <propertyInstance
+                      Id="875a3727-b988-4569-b274-b29f43f5dce2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="951ff821-117f-445a-b900-a53360d68915">
+                    <propertyInstance
+                      Id="a440e415-97c7-41a3-9240-336ec9cf4727"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5ee9a442-580a-486b-9e1a-9db14c4e4ddd"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7026f58d-2d54-49fb-b6e6-8618e865191b"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="31110762-a5fd-4c79-a225-23f13dc1cb83"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Get OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=id"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e8d1f462-5a86-44d5-ba25-71f3d564bbde"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="211d892c-2a84-4e95-87df-a8da38856823"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="525699e1-a220-4e6c-bc9d-6e26a6eec943"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1362db5b-8066-4897-b07a-b6fb7448f718">
+                    <propertyInstance
+                      Id="85c68f7d-e075-4772-9102-30c74cbb9728"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="505983d4-7656-45e6-9df5-2f4e0dfa449a">
+                    <propertyInstance
+                      Id="7007e50a-2b2f-4b48-bb49-60d804a66281"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bb3fd13-3048-4fa4-9fde-6745b4fe6138">
+                    <propertyInstance
+                      Id="de96b1c3-e557-406a-bc77-19f7716fcd59"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51adb854-d4eb-4c91-8e5e-d6b93ca6a082">
+                    <propertyInstance
+                      Id="337fe416-af47-464a-8a79-daf386d75203"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36be933c-ab40-4399-ae2d-7307cca12e5f">
+                    <propertyInstance
+                      Id="20e625ce-7efe-4335-b098-2da6a569ea7b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a6ca7d46-4525-4a7e-8293-1c3cd7b0a51c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="625156b0-1453-4a5e-a1d4-ad85c806dd23"
+                  name="employee"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9d33bb5e-d72e-4e8d-acec-d8937167bf50"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8a945877-cb8f-4cb5-83db-6f8cb1f0a22e"
+        name="RESTEmployeeService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="4b090f6e-656b-48c0-b575-b02afc05cf70"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f93c5801-3abb-4155-a730-e8976d913b5e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7ae2fa12-cd00-4ba3-904e-97973c992864">
+                <propertyInstance
+                  Id="547c2639-b917-4755-b307-54930f95feff"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="274c7142-0684-4162-8fd7-a707292976b1">
+                <propertyInstance
+                  Id="1bb543cb-73e2-40c5-bda5-21cb4de87f93"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="73862590-1f3b-433b-bbe7-aec08c22f9da">
+                <propertyInstance
+                  Id="036cdd5c-54b9-46cc-925a-e4e019a477f7"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7f7aa9f3-224c-4332-8840-2d5d8c712002">
+                <propertyInstance
+                  Id="f13199db-4a7f-4aac-b4d2-77bf2e809a98"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3be80364-6fd3-4d10-87ce-db839aea26e8">
+                <propertyInstance
+                  Id="eee6bb15-414b-4bb1-9bb8-0aaa8cac0bd6"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="24c6ccf8-9cbf-4278-affb-b421cf7b32d2">
+            <interfaceMoniker
+              Id="bc965842-7f6f-417d-b6bc-354f7c019b92"
+              LastKnownName="IRESTEmployeeService"
+              LastKnownLocation="Package_1324.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="50611715-5f84-475e-bbda-16e84a9c592d"
+            name="ebo"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a143dc3c-c43c-4951-8e7d-3e217c0365b4"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=ebo"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6997a413-a29b-4c50-ace4-337928ab916c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6b38804-1509-4e5f-bbda-97313d004f89">
+                    <propertyInstance
+                      Id="4b9b400d-b4d9-4924-aac8-ffb5b6099eda"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="442fb0ef-875b-4412-b0f6-aed268562369">
+                    <propertyInstance
+                      Id="e17c6ed3-1685-473a-95bf-76012b9e287e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0984be8-a9fa-471a-8ef6-2fe0066575eb">
+                    <propertyInstance
+                      Id="7e4b0d1a-0a34-46c4-98c5-eae40375a608"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="377bebbf-c82f-46de-908e-54ea4db3e401">
+                    <propertyInstance
+                      Id="4e76879c-f13f-403c-94cf-12f05d6d9382"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="31bf94b1-973f-48e7-86b5-73b301129870">
+                    <propertyInstance
+                      Id="3a32ced8-1e0a-409c-baf0-5f0f5a728b1b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="4f051776-23a0-478a-810c-8c43c013f8eb"
+                LastKnownName="IEmployeeBusinessObject"
+                LastKnownLocation="Package1_1324.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="583a6ad7-11f2-494a-8696-9a282ef38431"
+            name="RESTEmployeeService"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="91f40aa1-f20b-45b8-abeb-1e28dedec8ab"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bf5ae40d-9fae-4c2b-ae90-a3d08889613a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e243f9d-9c92-4fb9-b744-af428b542093">
+                    <propertyInstance
+                      Id="5a718215-14e6-40f7-af47-fc225adaaa2a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20d74575-a29e-4ed7-9e49-bd1a032d01b2">
+                    <propertyInstance
+                      Id="22c88bcf-24aa-4d9c-890d-925df2c4cbb5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dfe8de72-8c6e-4740-a5f1-c8fb0d7ae162">
+                    <propertyInstance
+                      Id="1fb1be52-0404-40e3-b555-323642fee27e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a57c685-71f4-4ebd-8aa7-5ea2ae8d2a7d">
+                    <propertyInstance
+                      Id="ba7df858-4971-4836-ba89-4768a9a19b70"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c75c96af-19ec-4a00-9787-8e7355cc790d">
+                    <propertyInstance
+                      Id="c2f4c504-1509-48e8-a95f-c09b7cbbce4a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="b5130e2f-f44e-4226-af71-814de17c10b7"
+            name="Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="2ad3032d-3c2a-4939-8ac6-55ccc6652b41"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="91c41eea-31b3-4c4b-b684-3ad4866f5db4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a21f397-58b0-41b8-b63b-6b4dd3f0696a">
+                    <propertyInstance
+                      Id="0192fef5-6cf5-4df7-93db-40da8757da30"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98feedb4-f8f7-4d28-bf40-27686d2da192">
+                    <propertyInstance
+                      Id="dabadb71-6502-4312-8810-23cc10ad18f2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb84c1ae-fe66-466b-81d8-d8df226ef58a">
+                    <propertyInstance
+                      Id="c3d528e3-d2d6-4650-8b88-f00fd93fee4c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c4d5eaf-2e2a-48d7-aaf4-223765dd8ed8">
+                    <propertyInstance
+                      Id="39cafd74-f059-4391-aceb-d87a29f04aa5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29152b6a-77a0-4168-824a-f93289145844">
+                    <propertyInstance
+                      Id="ba5ddfc7-acaa-4a30-87b6-f23f8cc9049d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b4fad85c-76ef-4359-8e57-860f70606f10"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f24436b5-6bdd-4d03-a8f4-8a02fb85b6f3"
+                  name="employee"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="88910972-d524-43c3-96e4-1ecb6b42eef6"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="32115e05-aa69-4516-b6a1-36cb61a3d6f1"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d1a1976b-183b-458d-994b-c98b8cfa933f"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Delete OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ab5920d8-c319-4dc4-849b-790bd077793b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b1307fc-729f-49f6-afbf-bde8d252be08">
+                    <propertyInstance
+                      Id="e868676b-c3db-4c7b-b344-75496decbdb0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87f59dc5-5e0a-4a9a-bf6d-d59d2d26bee7">
+                    <propertyInstance
+                      Id="166c5a0f-4a96-4969-8e67-79dced9dd401"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e82b9814-d566-466d-92cd-bbb5bf71dae5">
+                    <propertyInstance
+                      Id="88ad4327-de31-455b-89a3-703430b1834f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d315bf5-d3b2-43a9-a931-cc61ad4bb588">
+                    <propertyInstance
+                      Id="9acde6e9-2173-4e99-867b-1f1523d03b08"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bef7553f-8d36-4d9d-b54f-10a95aa9a36d">
+                    <propertyInstance
+                      Id="a1a5aad0-77f1-4483-b34b-219c6d4b6aa1"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8f10c81b-502b-439a-9a1c-c6e34ed2abe0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="096943fa-c8d1-45da-a515-f6a18da00f27"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fad402fa-960c-4375-8192-e7d0bb64a330"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Delete OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=id"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ae0e13e5-e0c0-47a6-8058-14d593bf0e92"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3e56212b-34e0-49b8-91c3-3eb744ab4055"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Get OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fd495e18-2292-4198-bcb4-2dadce8f01f3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8810c9c-7a2f-4915-96ca-41fe575b8d5d">
+                    <propertyInstance
+                      Id="02a7413e-71eb-4713-8903-055b880da7be"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af8f9205-d6de-4060-9887-8e0809226725">
+                    <propertyInstance
+                      Id="e29bd29c-57d3-4d6d-9b05-a823b054ba49"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0788c0a0-78ca-403e-ae4f-2e6711d535e6">
+                    <propertyInstance
+                      Id="106ffabe-3883-46fd-955c-f709690f59b3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e8fc2b5e-2569-4318-b67b-e323a904c618">
+                    <propertyInstance
+                      Id="20a31d53-74bc-4e66-9435-f9be18c727a4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3dccffa2-789b-4ec7-a50d-fd59597aeabd">
+                    <propertyInstance
+                      Id="76c303bc-215a-46e1-a162-94d5bf1b7fbb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a0c38b11-444c-4ae9-980c-f19995e12bf8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c8ba7e93-f371-48d7-99bd-bafc29bddfb2"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ec0f138f-5989-49c3-8624-1ca036099d4a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Get OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Int32)]) ParameterIdentifier=id"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="dc89e7d9-cc3c-4a17-9b3e-1efddda49f8e"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ba299a36-9656-46c0-9dca-1fecbfa41825"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="52cf6e12-deb4-43a9-b186-5fcfa6d9bee0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8e4dbc0-925b-49db-9b71-0408205bab5f">
+                    <propertyInstance
+                      Id="ce48984b-6ce5-4922-b134-1df8c159daab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3400ee35-5d54-4ade-a722-7bff8ca69bfd">
+                    <propertyInstance
+                      Id="8bba08d9-b98d-488b-9e16-0adaefaf8970"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f84050ad-ec74-4306-a141-8b55cdac505e">
+                    <propertyInstance
+                      Id="122fd69d-fbf5-4f9a-b156-670e998ac5c0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00b3c55a-39fe-4970-a22e-ef744ba1aadc">
+                    <propertyInstance
+                      Id="ee371a4b-40b7-4e4a-ad37-44c5f8b7aac2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36341385-c317-4b0e-8c4b-a32909dc81b2">
+                    <propertyInstance
+                      Id="10c0f1a2-2222-4bd4-9828-6d42ef3d44d3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dd1548b2-e3fb-4b81-b20c-5abc43e4980a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="IronModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b958b64-669b-4531-ade2-7d9652d341ac"
+                  name="employee"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="99c154e7-058b-4c0f-a06d-1cb82a817aca"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16836b86-6db1-450b-839b-d01a41943b81"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1648.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

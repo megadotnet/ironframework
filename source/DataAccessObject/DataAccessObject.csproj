@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E9D240E-1271-4963-9C3F-FDF2F5522ADE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessObject</RootNamespace>
+    <AssemblyName>DataAccessObject</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.4.2.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\BusinessEntiies\AdventureWorks.Context.cs">
+      <Link>AdventureWorks.Context.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\ContactRepository.cs">
+      <Link>ContactRepository.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\ContactRepository.Generated.cs">
+      <Link>ContactRepository.Generated.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EFRepository.cs">
+      <Link>EFRepository.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EFUnitOfWork.cs">
+      <Link>EFUnitOfWork.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EmployeePayHistoryRepository.cs">
+      <Link>EmployeePayHistoryRepository.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EmployeePayHistoryRepository.Generated.cs">
+      <Link>EmployeePayHistoryRepository.Generated.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EmployeeRepository.cs">
+      <Link>EmployeeRepository.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\EmployeeRepository.Generated.cs">
+      <Link>EmployeeRepository.Generated.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\IRepository.cs">
+      <Link>IRepository.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\IStoredProcedureFunctionsDAO.cs">
+      <Link>IStoredProcedureFunctionsDAO.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\IUnitOfWork.cs">
+      <Link>IUnitOfWork.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\ObjectFactory.cs">
+      <Link>ObjectFactory.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\RepositoryHelper.cs">
+      <Link>RepositoryHelper.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\RepositoryIQueryableExtensions.cs">
+      <Link>RepositoryIQueryableExtensions.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\StoredProcedureFunctionsDAO.cs">
+      <Link>StoredProcedureFunctionsDAO.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\StoredProcedureFunctionsDAO.Generated.cs">
+      <Link>StoredProcedureFunctionsDAO.Generated.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\BusinessEntiies\AdventureWorks.Context.tt">
+      <Link>AdventureWorks.Context.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AdventureWorks.Context.cs</LastGenOutput>
+    </None>
+    <None Include="..\BusinessEntiies\IRepository.tt">
+      <Link>IRepository.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IRepository.cs</LastGenOutput>
+    </None>
+    <None Include="DALClassDiagram.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
+      <Project>{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}</Project>
+      <Name>BusinessEntiies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
+      <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
+      <Name>IronFramework.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

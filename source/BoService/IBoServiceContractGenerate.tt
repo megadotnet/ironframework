@@ -1,0 +1,59 @@
+﻿<#@ template language="C#" hostspecific="true" #>
+<#@ output extension="cs" #>
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ include file="SaveOutput.tt" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#
+    // Config variables
+    string dbName = "AdventureWorks";
+#>
+
+/// Right click .tt file "Run Custom Tool" to update partial model.
+/// Author Petter Liu  http://wintersun.cnblogs.com
+<#  
+    // Iterate over tables and generate procs
+       System.Data.SqlClient.SqlConnection sqlConnection = 
+      new System.Data.SqlClient.SqlConnection(@"Integrated Security=SSPI; Data Source=.");
+    Server server = new Server(new Microsoft.SqlServer.Management.Common.ServerConnection(sqlConnection));
+    Database database = new Database(server, dbName);
+    database.Refresh(); 
+
+    foreach (Table table in database.Tables)
+    {
+
+ #>
+ 
+using System;
+using System.ServiceModel;
+using BusinessEntiies;
+
+namespace BoService
+{
+	 [ServiceContract]
+     public interface I<#= table.Name #>BoService 
+     {
+	 	  [OperationContract]
+		  [ApplyDataContractResolver]
+          bool  Create<#= table.Name #>(<#= table.Name #>   <#= table.Name.ToLower() #>);
+		  
+		  [OperationContract]
+		  [ApplyDataContractResolver]
+		  bool  Del<#= table.Name #>(<#= table.Name #>   <#= table.Name.ToLower() #>);
+		  
+		  [OperationContract]
+		  [ApplyDataContractResolver]
+	      bool  Update<#= table.Name #>(<#= table.Name #>   <#= table.Name.ToLower() #>);
+		  
+		  [OperationContract]
+		  [ApplyDataContractResolver]
+          <#= table.Name #>  Get<#= table.Name #>(int pid);
+	 }
+}	
+<#
+	 SaveOutput("I"+table.Name+"BoService.cs");  
+}
+#>

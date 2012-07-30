@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ServicePoxry.AWServiceReference.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            NationalIDNumber
+        </th>
+        <th>
+            ContactID
+        </th>
+        <th>
+            LoginID
+        </th>
+        <th>
+            Employee2
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            BirthDate
+        </th>
+        <th>
+            MaritalStatus
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            HireDate
+        </th>
+        <th>
+            SalariedFlag
+        </th>
+        <th>
+            VacationHours
+        </th>
+        <th>
+            SickLeaveHours
+        </th>
+        <th>
+            CurrentFlag
+        </th>
+        <th>
+            ModifiedDate
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoginID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaritalStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalariedFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VacationHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SickLeaveHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+        </td>
+    </tr>
+}
+
+</table>

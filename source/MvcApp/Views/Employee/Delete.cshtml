@@ -1,0 +1,93 @@
+﻿@model ServicePoxry.AWServiceReference.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Employee</legend>
+
+    <div class="display-label">NationalIDNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NationalIDNumber)
+    </div>
+
+    <div class="display-label">ContactID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactID)
+    </div>
+
+    <div class="display-label">LoginID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoginID)
+    </div>
+
+    <div class="display-label">Employee2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Employee2.NationalIDNumber)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">BirthDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BirthDate)
+    </div>
+
+    <div class="display-label">MaritalStatus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaritalStatus)
+    </div>
+
+    <div class="display-label">Gender</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">HireDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HireDate)
+    </div>
+
+    <div class="display-label">SalariedFlag</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalariedFlag)
+    </div>
+
+    <div class="display-label">VacationHours</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VacationHours)
+    </div>
+
+    <div class="display-label">SickLeaveHours</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SickLeaveHours)
+    </div>
+
+    <div class="display-label">CurrentFlag</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrentFlag)
+    </div>
+
+    <div class="display-label">rowguid</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rowguid)
+    </div>
+
+    <div class="display-label">ModifiedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModifiedDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

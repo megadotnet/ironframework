@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1ed26e1f-4ccb-4511-bcc0-c3de3650f85b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20333/EmployeeBoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EmployeeBoService.xsd" MetadataType="Schema" ID="24683d08-37a2-4ba2-89d4-d313fc2a949d" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EmployeeBoService1.xsd" MetadataType="Schema" ID="410564f5-8d0b-4f53-a159-4f3e0cc6c358" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmployeeBoService2.xsd" MetadataType="Schema" ID="3c87477b-e4a3-4ec6-acca-9575c7f6c00a" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmployeeBoService.wsdl" MetadataType="Wsdl" ID="1e432ec6-c381-48ac-ae09-7fcd88c78507" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?wsdl" />
+    <MetadataFile FileName="EmployeeBoService.disco" MetadataType="Disco" ID="9b8cacbb-d23c-4f30-b7fe-9fe3f1ca1c5a" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?disco" />
+    <MetadataFile FileName="EmployeeBoService3.xsd" MetadataType="Schema" ID="3a2dddca-7eb9-4706-9ff1-4d4be629c7f5" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
