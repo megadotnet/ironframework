@@ -14,6 +14,7 @@ namespace WebAppMVC4.Controllers
     using System.Net.Http;
     using System.Web.Http;
     using ServicePoxry.AWServiceReference;
+    using System.Net.Http.Formatting;
 
     /// <summary>
     /// The employee controller for Web API
@@ -80,10 +81,10 @@ namespace WebAppMVC4.Controllers
         /// </param>
         /// <returns>HttpResponseMessage
         /// </returns>
-        public HttpResponseMessage PostEmployee(Employee item)
+        public HttpResponseMessage PostEmployee([FromBody]Employee item)
         {
             serviceClient.CreateEmployee2(item);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, item);
+            HttpResponseMessage response = Request.CreateResponse<Employee>(HttpStatusCode.Created, item,new JsonMediaTypeFormatter());
 
             string uri = Url.Link("DefaultApi", new {id = item.EmployeeID});
             response.Headers.Location = new Uri(uri);

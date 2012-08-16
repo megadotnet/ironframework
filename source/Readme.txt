@@ -7,13 +7,12 @@ You need download and install following components:
 
  Entity framework 4.3 RTM
  Enterprise Library 5.0  RTM 
- Newtonsoft.Json for .net 3.5
- Moq.4.0.10827.Final
+ Newtonsoft.Json 
+ Moq 4 
  ASP.NET MVC 3 RTM Tools Update
  WCF Web API Preview 4
- Newtonsoft.Json 3.5
  AutoMapper.2.0.0
- ASP.NET MVC 4 RC for Visual Studio 2010 SP1
+ ASP.NET MVC 4 RTM for Visual Studio 2010 SP1
 
 --------------------------------------------
 -- DataBase

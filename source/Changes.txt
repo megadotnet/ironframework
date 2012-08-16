@@ -92,6 +92,10 @@ July 25th 2012
 Added batch file for generate proxy class and wsdl of WCF service
 Added simple unittest for Web API 
 
+Aug 16th 2012
+Updated Asp.net MVC 4 RTM
+
+
 
 
 
