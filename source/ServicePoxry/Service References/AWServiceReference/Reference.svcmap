@@ -8,7 +8,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -21,7 +23,7 @@
     <MetadataSource Address="http://localhost:20333/EmployeeBoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EmployeeBoService.xsd" MetadataType="Schema" ID="24683d08-37a2-4ba2-89d4-d313fc2a949d" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EmployeeBoService.xsd" MetadataType="Schema" ID="4a620c64-f94f-4aea-bd60-426a72101762" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd3" />
     <MetadataFile FileName="EmployeeBoService1.xsd" MetadataType="Schema" ID="410564f5-8d0b-4f53-a159-4f3e0cc6c358" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd0" />
     <MetadataFile FileName="EmployeeBoService2.xsd" MetadataType="Schema" ID="3c87477b-e4a3-4ec6-acca-9575c7f6c00a" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?xsd=xsd1" />
     <MetadataFile FileName="EmployeeBoService.wsdl" MetadataType="Wsdl" ID="1e432ec6-c381-48ac-ae09-7fcd88c78507" SourceId="1" SourceUrl="http://localhost:20333/EmployeeBoService.svc?wsdl" />

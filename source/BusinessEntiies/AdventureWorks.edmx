@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="AdventureWorksModelStoreContainer">
-          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" />
-          <EntitySet Name="EmployeePayHistory" EntityType="AdventureWorksModel.Store.EmployeePayHistory" store:Type="Tables" Schema="HumanResources" />
-          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" />
+          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="EmployeePayHistory" EntityType="AdventureWorksModel.Store.EmployeePayHistory" store:Type="Tables" Schema="HumanResources" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.Store.FK_Employee_Contact_ContactID">
             <End Role="Contact" EntitySet="Contact" />
             <End Role="Employee" EntitySet="Employee" />
@@ -121,8 +121,8 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <FunctionImport Name="UpdateEmployeeLogin">
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="ManagerID" Mode="In" Type="Int32" />
@@ -151,7 +151,7 @@
           <Key>
             <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="NationalIDNumber" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ContactID" Nullable="false" />
           <Property Type="String" Name="LoginID" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -188,7 +188,7 @@
           <Key>
             <PropertyRef Name="ContactID" />
           </Key>
-          <Property Type="Int32" Name="ContactID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ContactID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Boolean" Name="NameStyle" Nullable="false" />
           <Property Type="String" Name="Title" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -245,7 +245,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities">
           <FunctionImportMapping FunctionImportName="UpdateEmployeeLogin" FunctionName="AdventureWorksModel.Store.uspUpdateEmployeeLogin" />
           <EntitySetMapping Name="Employees">
@@ -307,7 +307,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -327,17 +327,17 @@
         <EntityTypeShape EntityType="AdventureWorksModel.Employee" Width="1.5" PointX="3" PointY="1" Height="4.2218636067708317" />
         <EntityTypeShape EntityType="AdventureWorksModel.EmployeePayHistory" Width="1.5" PointX="5.25" PointY="2.125" Height="1.9210009765624996" />
         <EntityTypeShape EntityType="AdventureWorksModel.Contact" Width="1.5" PointX="0.75" PointY="1.375" Height="3.564474283854167" />
-        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Contact_ContactID" >
+        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Contact_ContactID">
           <ConnectorPoint PointX="2.25" PointY="3.1572371419270837" />
           <ConnectorPoint PointX="3" PointY="3.1572371419270837" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Employee_ManagerID" >
+        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Employee_ManagerID">
           <ConnectorPoint PointX="3.5319230769230767" PointY="5.2218636067708317" />
           <ConnectorPoint PointX="3.5319230769230767" PointY="5.4718636067708317" />
           <ConnectorPoint PointX="3.9784615384615383" PointY="5.4718636067708317" />
           <ConnectorPoint PointX="3.9784615384615383" PointY="5.2218636067708317" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksModel.FK_EmployeePayHistory_Employee_EmployeeID" >
+        <AssociationConnector Association="AdventureWorksModel.FK_EmployeePayHistory_Employee_EmployeeID">
           <ConnectorPoint PointX="4.5" PointY="3.08550048828125" />
           <ConnectorPoint PointX="5.25" PointY="3.08550048828125" />
         </AssociationConnector>

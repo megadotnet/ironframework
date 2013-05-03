@@ -22,6 +22,7 @@ namespace DataAccessObject.Repositories
 	    void UpdateEmployeeLogin(Nullable<int> employeeID, Nullable<int> managerID, string loginID, string title, Nullable<System.DateTime> hireDate, Nullable<bool> currentFlag);
 
 #endregion
+
  
     }
 }

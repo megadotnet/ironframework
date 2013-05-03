@@ -9,8 +9,9 @@
 
 namespace MvcApp.Models
 {
+
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
+
 
     /// <summary>
     /// The change password model.
