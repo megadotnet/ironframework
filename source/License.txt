@@ -1,7 +1,7 @@
 Iron Framework
-Copyright (c) 2007-2012 Petter Liu
+Copyright (c) 2011-2013 Peter Liu
 
-http://code.google.com/p/ironframework/
+https://github.com/megadotnet/ironframework/
 
 Other software included in this distribution is owned and
 licensed separately, see the included license files for details.

@@ -95,6 +95,8 @@ Added simple unittest for Web API
 Aug 16th 2012
 Updated Asp.net MVC 4 RTM
 
+May 3 2013
+Updated Entity Framework version from 4.3 to 5.0.
 
 
 
