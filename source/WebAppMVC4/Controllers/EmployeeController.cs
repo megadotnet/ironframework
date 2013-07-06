@@ -55,8 +55,9 @@ namespace WebAppMVC4.Controllers
         /// The get employee.
         /// </summary>
         /// <param name="id">
-        /// The id.
+        /// Get Employee 
         /// </param>
+        /// <remarks>access http://localhost:21148/api/employee/1 </remarks>
         /// <returns>
         /// </returns>
         /// <exception cref="HttpResponseException">
