@@ -1,11 +1,30 @@
-ironframework
+Iron framework
 =============
 
 Domain Driven Design(DDD),Layered architecture,Aspect-oriented programming(AOP) rapid development infrastructure
 
-focus on enterprise solution based on Microsoft .Net Framework 4.0. Combine with 
+focus on enterprise solution based on Microsoft .Net Framework. Features:
 
-ADO.Net Entity Framework 5.0 
-Enterprise Library 5.0 
-WCF 4.0 
-Asp.net MVC 3/4 
+   Asp.net MVC Razor engine
+   
+ Dependency injection with Asp.net MVC 
+
+ Asp.net Web Form strongly typed data binding model
+
+ Custom paging data server control 
+
+ Hierarchical data model work with JQuery Plug-in
+
+ Enterprise library extention 
+
+ Entity framework POCO and T4 template code generation 
+
+ Cross cutting with Enterprise library application block 
+
+ Dependency injection with Unity  
+
+ Repository and Unit of Work Pattern 
+
+ Unit test with the Moq framework 
+
+   RESTful service 
