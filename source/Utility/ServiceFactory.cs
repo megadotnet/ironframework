@@ -18,6 +18,7 @@ namespace IronFramework.Utility
     using Microsoft.Practices.Unity.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.Logging;
+    using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 
     /// <summary>
     /// Service Factory
@@ -44,20 +45,26 @@ namespace IronFramework.Utility
 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EntLib.config.xml");
             var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
-
             Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
-            var section = (UnityConfigurationSection)config.GetSection("unity");
 
             try
             {
+                var section = (UnityConfigurationSection)config.GetSection("unity");
                 section.Configure(container, "DefContainer");
+
+                //For Entlib 6 :Exception Handling Application Block objects can no longer be created automatically from the Unity DI container. 
+                IConfigurationSource configurationSource = ConfigurationSourceFactory.Create();
+                LogWriterFactory logWriterFactory = new LogWriterFactory(configurationSource);
+                Logger.SetLogWriter(logWriterFactory.Create());
+                // Singleton
+                ExceptionPolicyFactory exceptionPolicyFactory = new ExceptionPolicyFactory(configurationSource);
+                ExceptionPolicy.SetExceptionManager(exceptionPolicyFactory.CreateManager());
             }
             catch (InvalidOperationException ioe)
             {
-                var logWriter = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
-                logWriter.Write(ioe,"ExceptionLogger");
+                Logger.Write(ioe, "ExceptionLogger");
                 throw;
-            }     
+            }
 
             serviceLocator = new UnityServiceLocator(container);
         }

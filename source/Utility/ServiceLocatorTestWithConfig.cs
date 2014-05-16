@@ -12,7 +12,6 @@ namespace IronFramework.Utility
     using System.Configuration;
 
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
-    using Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.Unity;
     using Microsoft.Practices.ServiceLocation;
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.Configuration;

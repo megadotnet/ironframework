@@ -40,7 +40,6 @@ namespace UnitTest
             var container = new UnityContainer();
             container.RegisterType<IEmployeeBusinessObject, EmployeeBusinessObject>(new InjectionConstructor());
 
-            container.AddNewExtension<EnterpriseLibraryCoreExtension>();
             var ebo = container.Resolve<IEmployeeBusinessObject>();
 
             Assert.NotNull(ebo);     
@@ -59,33 +58,6 @@ namespace UnitTest
             Assert.NotNull(entity);
         }
 
-        /// <summary>
-        /// The test direct Cut Crossing Concerns with PIAB.
-        /// </summary>
-       [Fact]
-        public void TestDirectAOPWithPIAB()
-        {
-            var container = new UnityContainer();
-            container.RegisterType<IEmployeeBusinessObject, EmployeeBusinessObject>(new InjectionConstructor());
-
-            container.AddNewExtension<Interception>();
-            container.AddNewExtension<EnterpriseLibraryCoreExtension>();
-            container.Configure<Interception>().SetInterceptorFor<IEmployeeBusinessObject>(
-                new TransparentProxyInterceptor());
-
-            // Get Policy Injection Settings from the Configuration
-            IConfigurationSource configSource = ConfigurationSourceFactory.Create();
-            var policyInjectionsettings =
-                (PolicyInjectionSettings)configSource.GetSection(PolicyInjectionSettings.SectionName);
-            if (policyInjectionsettings != null)
-            {
-                policyInjectionsettings.ConfigureContainer(container, configSource);
-            }
-
-            var ebo = container.Resolve<IEmployeeBusinessObject>();
-            Assert.NotNull(ebo);
-         
-        }
 
         /// <summary>
         /// The test_ ao p_ caching for get all employees.
