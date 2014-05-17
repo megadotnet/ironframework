@@ -99,6 +99,10 @@ May 3 2013
 Updated Entity Framework version from 4.3 to 5.0
 Updated entire project to .net framework 4.5
 
+May 17 2013
+VS2013 solution supported
+Updated Entlib 6 and untiy 3.
+
 
 
 
