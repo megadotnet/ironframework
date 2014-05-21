@@ -9,7 +9,7 @@
 
 namespace DataAccessObject
 {
-    using System.Data.Objects;
+    using System.Data.Entity.Core.Objects;
     using System.Linq;
 
     using IronFramework.Utility.UI;

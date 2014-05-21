@@ -18,8 +18,9 @@ namespace UnitTest
     using Moq;
     using IronFramework.Utility.UI;
     using System.Data;
-    using System.Data.Objects;
     using Xunit;
+    using System.Data.Entity;
+    using System.Data.Entity.Core.Objects;
     
     /// <summary>
     /// The repository test.

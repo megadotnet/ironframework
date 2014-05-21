@@ -30,6 +30,7 @@ namespace UnitTest
     using IronFramework.Utility.UI;
     using Xunit;
     using Xunit.Extensions;
+    using System.Data.Entity.Core;
 
     /// <summary>
     /// The business object test.

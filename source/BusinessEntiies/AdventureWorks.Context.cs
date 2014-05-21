@@ -13,7 +13,7 @@ namespace DataAccessObject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using BusinessEntiies;
-    using System.Data.Objects;
+    using System.Data.Entity.Core.Objects;
     
     public partial class AdventureWorksEntities : DbContext
     {
