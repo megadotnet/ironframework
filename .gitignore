@@ -4,3 +4,11 @@ obj
 
 # mstest test results
 TestResults
+
+#nuget package
+packages/
+!packages/repositories.config
+
+#Visual Studio files
+*.user
+*.suo
