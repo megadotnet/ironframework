@@ -12,3 +12,4 @@ packages/
 #Visual Studio files
 *.user
 *.suo
+*.log
