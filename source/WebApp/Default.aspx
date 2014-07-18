@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Default.aspx.cs" Inherits="WebApp._Default" %>
+    CodeBehind="Default.aspx.cs" Inherits="WebFormApp._Default" %>
 <%@ Import Namespace="IronFramework.Utility.UI" %>
 <%@Register TagPrefix="Net2Pager" Namespace="DiyControl.Pager" Assembly="Net2Pager"%>
 

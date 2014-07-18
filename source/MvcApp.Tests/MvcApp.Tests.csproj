@@ -74,9 +74,9 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvcApp\MvcApp.csproj">
-      <Project>{FD090D57-3540-4E7D-90FE-CB33DC797B7C}</Project>
-      <Name>MvcApp</Name>
+    <ProjectReference Include="..\MvcApp\WebMvcApp.csproj">
+      <Project>{fd090d57-3540-4e7d-90fe-cb33dc797b7c}</Project>
+      <Name>WebMvcApp</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
       <Project>{90CE0470-475D-4D58-98C0-A1D2D86FF266}</Project>
@@ -86,9 +86,9 @@
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebAppMVC4\WebAppMVC4.csproj">
-      <Project>{3EF66C9C-4C22-459F-9458-DDAD20BEAEB4}</Project>
-      <Name>WebAppMVC4</Name>
+    <ProjectReference Include="..\WebAppMVC4\WebAPI.csproj">
+      <Project>{3ef66c9c-4c22-459f-9458-ddad20beaeb4}</Project>
+      <Name>WebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
