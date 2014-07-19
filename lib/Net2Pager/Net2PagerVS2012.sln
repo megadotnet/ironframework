@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net2Pager", "Net2Pager.csproj", "{3AEDBDA9-D609-4DA8-B182-60379E4523FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AEDBDA9-D609-4DA8-B182-60379E4523FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEDBDA9-D609-4DA8-B182-60379E4523FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEDBDA9-D609-4DA8-B182-60379E4523FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEDBDA9-D609-4DA8-B182-60379E4523FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
