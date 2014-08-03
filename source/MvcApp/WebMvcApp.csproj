@@ -142,9 +142,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\EditorTemplates\Employee.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
