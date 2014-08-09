@@ -19,7 +19,7 @@ namespace IronFramework.Utility
     /// </summary>
     /// <typeparam name="S">Source</typeparam>
     /// <typeparam name="T">Target</typeparam>
-    public interface ITypeAdapter<S, T>
+    public interface ITypeAdapter
     {
         /// <summary>
         /// Transforms the specified source.
@@ -36,7 +36,7 @@ namespace IronFramework.Utility
     /// </summary>
     /// <typeparam name="S">Source</typeparam>
     /// <typeparam name="T">Target</typeparam>
-    public class TypeAdapter<S, T> : ITypeAdapter<S, T>
+    public class TypeAdapter : ITypeAdapter
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TypeAdapter&lt;S, T&gt;"/> class.

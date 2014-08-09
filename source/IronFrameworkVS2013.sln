@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntiies", "BusinessEntiies\BusinessEntiies.csproj", "{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}"
 EndProject
@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Documents\Iron Framework developer guide.docx = Documents\Iron Framework developer guide.docx
 		Readme.txt = Readme.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC5Web", "MVC5Web\MVC5Web.csproj", "{5FD82166-C8C7-4D0A-B1A1-203DDF398A66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,5 +124,6 @@ Global
 		{190DBAEE-A744-42DE-85B7-2E9BD256971F} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
 		{90CE0470-475D-4D58-98C0-A1D2D86FF266} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12} = {C473E42B-4C5B-4C4C-81E5-55BF609BBB84}
+		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66} = {C473E42B-4C5B-4C4C-81E5-55BF609BBB84}
 	EndGlobalSection
 EndGlobal

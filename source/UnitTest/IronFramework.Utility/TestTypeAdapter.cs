@@ -30,7 +30,7 @@ namespace UnitTest.TestUtility
         [Fact]
         public void TransformEmployeePayHistory()
         {
-            var adapter = new TypeAdapter<EmployeePayHistory, EmployeePayHistoryDTO>();
+            var adapter = new TypeAdapter();
             var eph = new EmployeePayHistory()
             {
                 EmployeeID = 1,
@@ -47,7 +47,7 @@ namespace UnitTest.TestUtility
         [Fact]
         public void TransformDTOtoEmployeePayHistory()
         {
-            var adapter = new TypeAdapter<EmployeePayHistoryDTO,EmployeePayHistory>();
+            var adapter = new TypeAdapter();
             var eph = new EmployeePayHistoryDTO()
             {
                 EmployeeID = 1,
@@ -64,7 +64,7 @@ namespace UnitTest.TestUtility
         [Fact]
         public void TransformContact()
         {
-            var adapter = new TypeAdapter<Contact, ContactDTO>();
+            var adapter = new TypeAdapter();
             var contact = new Contact()
             {
                FirstName="gates"
@@ -80,7 +80,7 @@ namespace UnitTest.TestUtility
         [Fact]
         public void TransformDTOtoContact()
         {
-            var adapter = new TypeAdapter<ContactDTO, Contact>();
+            var adapter = new TypeAdapter();
             var contact = new ContactDTO()
             {
                 FirstName = "gates"

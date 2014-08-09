@@ -73,7 +73,7 @@ namespace BusinessEntiies
     /// <summary>
     /// EmployeeAdapter
     /// </summary>
-    public class EmployeeAdapter : TypeAdapter<Employee, EmployeeDTO>
+    public class EmployeeAdapter : TypeAdapter
     {
         /// <summary>
         /// Transforms the specified source.

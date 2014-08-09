@@ -29,7 +29,7 @@ namespace BoService
         /// IEmployeeBusinessObject
         /// </summary>
         private readonly IEmployeeBusinessObject ebo;
-        private readonly ITypeAdapter<Employee,EmployeeDTO> enityadapter;
+        private readonly ITypeAdapter enityadapter;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RESTEmployeeService"/> class.

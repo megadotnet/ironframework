@@ -108,9 +108,6 @@ namespace Microsoft.ApplicationServer.Http
 			this.BaseUri = new Uri(serviceBaseUrl);
 			this.serviceUri = new Uri(new Uri(serviceBaseUrl), serviceResourcePath);
 
-            if (serviceConfiguration == null)
-                serviceConfiguration = serviceConfiguration;
-
             //if (serviceInstance != null)
             //    serviceConfiguration.SetResourceFactory(new SingletonResourceFactory(serviceInstance));
             //else if (cacheServiceInstance)
