@@ -38,7 +38,8 @@ namespace BoService
         /// </summary>
         public EmployeeBoService()
         {
-            this.ebo = ServiceFactory.GetInstance<IEmployeeBusinessObject>();
+            //Tips:Here is we cannot use Singleton lifecyle mode because one EF dbcontent make same result per select dataset
+            this.ebo = ServiceFactory.GetInstance<IEmployeeBusinessObject>("NoOLazyloadedAndProxyCreated");
             this.contactebo = ServiceFactory.GetInstance<IContactBusinessObject>();
         }
 
