@@ -1,5 +1,4 @@
-﻿@model IEnumerable<ServicePoxry.AWServiceReference.Employee>
-
+﻿@model IronFramework.Utility.UI.PagedList<BusinessEntiies.Employee>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,109 +9,34 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentFlag)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HireDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoginID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ManagerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaritalStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NationalIDNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalariedFlag)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SickLeaveHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VacationHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rowguid)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentFlag)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HireDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoginID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ManagerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaritalStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NationalIDNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalariedFlag)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SickLeaveHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VacationHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rowguid)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
-        </td>
-    </tr>
+@using (Ajax.BeginForm("Index", "Employee",
+                            new AjaxOptions { UpdateTargetId = "grid-list", HttpMethod = "get", LoadingElementId = "loading", OnBegin = "beginPaging", OnSuccess = "successPaging", OnFailure = "failurePaging" },
+                            new { id = "frm-search" }))
+{
+    <div class="input-append">
+        <input class="span2" id="appendedInputButton" type="text" name="employee_name" placeholder="Name" />
+        <button class="btn" type="submit">
+            <i class="icon-search"></i>&nbsp;Search
+        </button>
+    </div>
+<div id="grid-list">
+    @{ Html.RenderPartial("_PartialEmployee", Model); }
+</div>
 }
+<script type="text/javascript">
 
-</table>
+    function beginPaging(args) {
+        // Animate
+        $('#grid-list').fadeOut('normal');
+    }
+
+    function successPaging() {
+        // Animate
+        $('#grid-list').fadeIn('normal');
+    }
+
+    function failurePaging() {
+        alert("Could not retrieve list.");
+    }
+
+</script>

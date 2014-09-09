@@ -1,9 +1,9 @@
-﻿using ServicePoxry.AWServiceReference;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BoService;
+using BusinessEntiies;
 
 namespace MVC5Web.Controllers
 {
@@ -46,8 +46,8 @@ namespace MVC5Web.Controllers
         public ActionResult Create()
         {
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employees = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
-            var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
+            var employees = this.serviceClient.FindEmployeeByTitle(null, 1, 10,out count);
+            var contactlist = this.serviceClient.GetPagedListContact(1, 10,out count);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
             this.ViewBag.ManagerID = new SelectList(employees, "EmployeeID", "LoginID");
@@ -65,7 +65,7 @@ namespace MVC5Web.Controllers
         /// <returns>
         /// </returns>
         [HttpPost]
-        public ActionResult Create(ServicePoxry.AWServiceReference.Employee employee)
+        public ActionResult Create(Employee employee)
         {
             if (this.ModelState.IsValid)
             {
@@ -74,8 +74,8 @@ namespace MVC5Web.Controllers
             }
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
-            var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10,out count);
+            var contactlist = this.serviceClient.GetPagedListContact(1, 10,out count);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
             this.ViewBag.ManagerID = new SelectList(employeelist, "EmployeeID", "LoginID", employee.ManagerID);
@@ -146,9 +146,9 @@ namespace MVC5Web.Controllers
             Employee employee = this.serviceClient.GetEmployee(id);
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
 
-            var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
+            var contactlist = this.serviceClient.GetPagedListContact(1, 10, out count);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
             this.ViewBag.ManagerID = new SelectList(employeelist, "EmployeeID", "LoginID", employee.ManagerID);
@@ -166,7 +166,7 @@ namespace MVC5Web.Controllers
         /// <returns>
         /// </returns>
         [HttpPost]
-        public ActionResult Edit(ServicePoxry.AWServiceReference.Employee employee)
+        public ActionResult Edit(Employee employee)
         {
             if (this.ModelState.IsValid)
             {
@@ -177,9 +177,9 @@ namespace MVC5Web.Controllers
             }
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
 
-            var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
+            var contactlist = this.serviceClient.GetPagedListContact(1, 10, out count);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
             this.ViewBag.ManagerID = new SelectList(employeelist, "EmployeeID", "LoginID", employee.ManagerID);
@@ -191,11 +191,19 @@ namespace MVC5Web.Controllers
         /// </summary>
         /// <returns>ViewResult
         /// </returns>
-        public ViewResult Index()
+        public ActionResult Index(string employee_name,int? page)
         {
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employee = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
-            return View(employee.ToList());
+            int pageindex = page.HasValue ? page.Value : 1, pagesize = 5;
+            var employee = this.serviceClient.FindEmployeeByTitle(employee_name, pageindex, pagesize, out count);
+            employee.TotalCount = count;
+            employee.PageIndex = pageindex;
+            employee.PageSize = pagesize;
+    
+            if (Request.IsAjaxRequest())
+                return PartialView("_PartialEmployee", employee);
+            else
+                return View(employee);
         }
 
         [HttpGet]
@@ -211,7 +219,7 @@ namespace MVC5Web.Controllers
             {
                 int count = 0;
                 //TODO:Change search text return Title column only
-                PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 20);
+                var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
 
                 return Json(employeelist.Where(el => el.Title.ToLower().Contains(term.ToLower())).Select(ee => ee.Title)
                     , JsonRequestBehavior.AllowGet);

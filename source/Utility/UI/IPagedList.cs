@@ -7,6 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
 namespace IronFramework.Utility.UI
 {
     /// <summary>
@@ -34,11 +35,13 @@ namespace IronFramework.Utility.UI
         /// <summary>
         /// Gets or sets PageSize.
         /// </summary>
+        [DataMember]
         int PageSize { get; set; }
 
         /// <summary>
         /// Gets or sets TotalCount.
         /// </summary>
+         [DataMember]
         int TotalCount { get; set; }
 
         #endregion

@@ -25,7 +25,17 @@ namespace MVC5Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/paging.css"));
+
+            bundles.Add(new ScriptBundle("~/js").Include(
+   "~/Scripts/jquery-{version}.js",
+   "~/Scripts/bootstrap.js",
+   "~/Scripts/jquery.unobtrusive*",
+    "~/Scripts/jquery.validate.js",
+ "~/scripts/jquery.validate.unobtrusive.js",
+"~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js"
+   ));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

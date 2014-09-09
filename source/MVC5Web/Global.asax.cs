@@ -1,6 +1,6 @@
-﻿using IronFramework.Utility.EntLib.IoC;
+﻿using BoService;
+using IronFramework.Utility.EntLib.IoC;
 using Microsoft.Practices.Unity;
-using ServicePoxry.AWServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WCFServiceClient;
 
 namespace MVC5Web
 {
@@ -35,7 +36,7 @@ namespace MVC5Web
             IUnityContainer container = new UnityContainer()
                 .RegisterType<IControllerActivator, CustomControllerActivator>() // No need to a controller activator
                 //.RegisterType<IControllerFactory, UnityControllerFactory>()
-                .RegisterType<IEmployeeBoService, EmployeeBoServiceClient>(
+                .RegisterType<IEmployeeBoService, EmployeeServiceClient>(
                     new HttpContextLifetimeManager<IEmployeeBoService>(), new InjectionConstructor());
 
             return container;

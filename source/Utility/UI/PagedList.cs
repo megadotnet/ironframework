@@ -18,7 +18,7 @@ namespace IronFramework.Utility.UI
     /// </summary>
     /// <typeparam name="T">
     /// </typeparam>
-    [CollectionDataContract]
+     [CollectionDataContract]
     public class PagedList<T> : List<T>, IPagedList
     {
         #region Constructors and Destructors

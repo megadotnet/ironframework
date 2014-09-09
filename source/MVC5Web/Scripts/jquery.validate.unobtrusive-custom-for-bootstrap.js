@@ -40,9 +40,10 @@
 
     function onError(error, inputElement) {  // 'this' is the form element
         var container = $(this).find("[data-valmsg-for='" + escapeAttributeValue(inputElement[0].name) + "']"),
-            replace = $.parseJSON(container.attr("data-valmsg-replace")) !== false;
+            replace = $.parseJSON(container.attr("data-valmsg-replace") || "null") !== false;
 
         container.removeClass("field-validation-valid").addClass("field-validation-error");
+        container.closest(".control-group").addClass("error");
         error.data("unobtrusiveContainer", container);
 
         if (replace) {
@@ -61,7 +62,7 @@
         if (list && list.length && validator.errorList.length) {
             list.empty();
             container.addClass("validation-summary-errors").removeClass("validation-summary-valid");
-
+            
             $.each(validator.errorList, function () {
                 $("<li />").html(this.message).appendTo(list);
             });
@@ -70,10 +71,11 @@
 
     function onSuccess(error) {  // 'this' is the form element
         var container = error.data("unobtrusiveContainer"),
-            replace = $.parseJSON(container.attr("data-valmsg-replace"));
+            replace = $.parseJSON(container.attr("data-valmsg-replace") || "null");
 
         if (container) {
             container.addClass("field-validation-valid").removeClass("field-validation-error");
+            container.closest(".control-group").removeClass("error");
             error.removeData("unobtrusiveContainer");
 
             if (replace) {
@@ -94,6 +96,7 @@
             .removeData("unobtrusiveContainer")
             .find(">*")  // If we were using valmsg-replace, get the underlying error
                 .removeData("unobtrusiveContainer");
+        $form.find(".control-group").removeClass("error");
     }
 
     function validationInfo(form) {
@@ -304,15 +307,6 @@
         return (match && (match.index === 0) && (match[0].length === value.length));
     });
 
-    $jQval.addMethod("nonalphamin", function (value, element, nonalphamin) {
-        var match;
-        if (nonalphamin) {
-            match = value.match(/\W/g);
-            match = match && match.length >= nonalphamin;
-        }
-        return match;
-    });
-
     adapters.addSingleVal("accept", "exts").addSingleVal("regex", "pattern");
     adapters.addBool("creditcard").addBool("date").addBool("digits").addBool("email").addBool("number").addBool("url");
     adapters.addMinMax("length", "minlength", "maxlength", "rangelength").addMinMax("range", "min", "max", "range");
@@ -346,17 +340,6 @@
         });
 
         setValidationValues(options, "remote", value);
-    });
-    adapters.add("password", ["min", "nonalphamin", "regex"], function (options) {
-        if (options.params.min) {
-            setValidationValues(options, "minlength", options.params.min);
-        }
-        if (options.params.nonalphamin) {
-            setValidationValues(options, "nonalphamin", options.params.nonalphamin);
-        }
-        if (options.params.regex) {
-            setValidationValues(options, "regex", options.params.regex);
-        }
     });
 
     $(function () {

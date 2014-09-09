@@ -48,6 +48,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="MvcPaging">
+      <HintPath>..\packages\MVC4.Paging.3.1.1\lib\net40\MvcPaging.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -131,18 +134,22 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\paging.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive-custom-for-bootstrap.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -162,12 +169,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\_PartialEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -179,13 +186,21 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
-      <Project>{90ce0470-475d-4d58-98c0-a1d2d86ff266}</Project>
-      <Name>ServiceProxy</Name>
+    <ProjectReference Include="..\BoService\BoService.csproj">
+      <Project>{bf154a8b-0142-4570-b840-5974e88e2df7}</Project>
+      <Name>BoService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
+      <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
+      <Name>BusinessEntiies</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
       <Name>IronFramework.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCFServiceClient\WCFServiceClient.csproj">
+      <Project>{3bc57283-c8c4-4840-a081-35f88830fd00}</Project>
+      <Name>WCFServiceClient</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
