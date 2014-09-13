@@ -85,7 +85,7 @@ namespace BoService
         public bool Update(EmployeeDTO employee)
         {
             var entity = enityadapter.Transform<EmployeeDTO, Employee>(employee);
-            return this.ebo.UpdateEmployee2(entity);
+            return this.ebo.UpdateEmployeeByAttachEntity(entity);
         }
     }
 }

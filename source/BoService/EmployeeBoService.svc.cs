@@ -141,7 +141,7 @@ namespace BoService
         /// </returns>
         public bool UpdateEmployee(Employee employee)
         {
-            return this.ebo.UpdateEmployee2(employee);
+            return this.ebo.UpdateEmployeeByAttachEntity(employee);
         }
 
 

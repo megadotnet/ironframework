@@ -205,7 +205,7 @@ namespace UnitTest
             employee.Title = "modify it";
 
             // We have change entity state as modify in it.
-            ebo.UpdateEmployee2(employee);
+            ebo.UpdateEmployeeByAttachEntity(employee);
 
             // Get it and verify it
             Employee employeefromDb = ebo.GetEmployee(eid);

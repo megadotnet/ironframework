@@ -153,7 +153,7 @@ namespace BusinessObject
         /// For WCF,because wcf cannot persistent ef4 objectcontext
         /// we also need change entity state then save it. Reference book 'Programming Entity framework 4'
         /// </remarks>
-        public bool UpdateEmployee2(Employee employee)
+        public bool UpdateEmployeeByAttachEntity(Employee employee)
         {
             IObjectContext context = RepositoryHelper.GetDbContext();
             IUnitOfWork uow = RepositoryHelper.GetUnitOfWork(context);

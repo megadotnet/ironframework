@@ -126,7 +126,7 @@ namespace BusinessObject
         /// The update employee
         /// </returns>
         [ExceptionCallHandler("MyPolicy")]
-        bool UpdateEmployee2(Employee employee);
+        bool UpdateEmployeeByAttachEntity(Employee employee);
 
         #endregion
     }
