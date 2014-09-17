@@ -38,13 +38,13 @@ namespace BoService
         bool CreateEmployee(Employee employee);
 
         /// <summary>
-        /// The create employee 2.
+        /// The create employee 
         /// </summary>
         /// <param name="employee">
         /// The employee.
         /// </param>
         /// <returns>
-        /// The create employee 2.
+        ///new employee Id
         /// </returns>
         [OperationContract]
         [ApplyDataContractResolver]
