@@ -6,7 +6,7 @@ Iron Framework
 You need download and install following components:
 recommend install from NuGet
 
- Entity framework RTM
+ ADO.NET Entity Framework RTM
  Enterprise Library  (based on .Net 4.5)  RTM 
  Newtonsoft.Json 
  Moq 
@@ -29,7 +29,7 @@ recommend install from NuGet
 -- Development IDE/Tools 
 --------------------------------------------
 
-For Visual Studio 2012/2013 :
+For Visual Studio 2012/2013 or latest version :
 
 NuGet Package Manager  
 SQL SERVER 2012/2014 
