@@ -1,0 +1,35 @@
+﻿
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
+    <container name="DefContainer">
+      <extension type="Interception" />
+       <register  type="BusinessObject.IContactBO, BusinessObject" 
+                  mapTo="BusinessObject.ContactBO, BusinessObject">
+        <lifetime type="Messag.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], Message.Utility" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+       <register  type="BusinessObject.IEmployeeBO, BusinessObject" 
+                  mapTo="BusinessObject.EmployeeBO, BusinessObject">
+        <lifetime type="Messag.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], Message.Utility" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+       <register  type="BusinessObject.IEmployeePayHistoryBO, BusinessObject" 
+                  mapTo="BusinessObject.EmployeePayHistoryBO, BusinessObject">
+        <lifetime type="Messag.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], Message.Utility" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+    </container>
+  </unity>
+</configuration>
+
+

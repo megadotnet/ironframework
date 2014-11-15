@@ -1,0 +1,90 @@
+﻿<#@ template language="C#" debug="true" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ output extension=".XML"#>
+<#// This needs to be set to the .edmx file that you want to process.
+string edmxFile = FindEDMXFileName(); 
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+MetadataTools ef = new MetadataTools(this);
+CodeRegion region = new CodeRegion(this);
+#><configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
+    <container name="DefContainer">
+      <extension type="Interception" />
+<#
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(edmxFile);
+EntityContainer container = ItemCollection.GetItems<EntityContainer>().FirstOrDefault();
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{;
+#>
+       <register  type="BusinessObject.I<#=code.Escape(entity)#>BO, BusinessObject" 
+                  mapTo="BusinessObject.<#=code.Escape(entity)#>BO, BusinessObject">
+        <lifetime type="singleton" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+<#	
+}
+#>
+    </container>
+  </unity>
+</configuration>
+<#fileManager.Process();#>
+
+
+<#+
+
+bool DoesFileExist(string filename)
+{			
+	return File.Exists(Path.Combine(GetCurrentDirectory(),filename));	
+}
+
+string OutputFile(string filename)
+{
+	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentDirectory(),filename)))
+	{
+		string contents = sr.ReadToEnd();
+		return contents;
+	}
+}
+
+string GetCurrentDirectory()
+{
+	string executingDirectoryName = "";
+	string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();
+	if (String.IsNullOrEmpty(stackTraceFileName))
+	{
+		throw new ArgumentException("No value was specified for the 'directoryName' configuration parameter" +
+			", and we could not figure out the file name from the stack trace (most likely because of running " +
+			"the template with debug='False' specified in the <\u0023@ template \u0023> directive.");
+	}
+	else
+	{		
+		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
+        int lot= executingDirectoryName.LastIndexOf("\\");
+        //Need pay attention to  executingDirectoryName
+        executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntiies");
+	}	
+	return executingDirectoryName;
+}
+
+string FindEDMXFileName()
+{
+	string edmxFile = "";
+				
+	string[] entityFrameworkFiles = Directory.GetFiles(GetCurrentDirectory(), "*.edmx");
+	if(entityFrameworkFiles.Length > 0)
+		edmxFile = entityFrameworkFiles[0];
+	
+	return edmxFile;
+}
+#>
