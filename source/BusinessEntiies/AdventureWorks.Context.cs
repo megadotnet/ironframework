@@ -30,6 +30,8 @@ namespace DataAccessObject
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeePayHistory> EmployeePayHistories { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
     
         public virtual int UpdateEmployeeLogin(Nullable<int> employeeID, Nullable<int> managerID, string loginID, string title, Nullable<System.DateTime> hireDate, Nullable<bool> currentFlag)
         {

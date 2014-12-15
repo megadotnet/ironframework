@@ -61,6 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\BusinessEntiies\AddressRepository.cs">
+      <Link>AddressRepository.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\BusinessEntiies\AddressRepository.Generated.cs">
+      <Link>AddressRepository.Generated.cs</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
     <Compile Include="..\BusinessEntiies\AdventureWorks.Context.cs">
       <Link>AdventureWorks.Context.cs</Link>
       <AutoGen>True</AutoGen>

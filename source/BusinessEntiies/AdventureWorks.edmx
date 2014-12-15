@@ -4,37 +4,20 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="AdventureWorksModelStoreContainer">
-          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="EmployeePayHistory" EntityType="AdventureWorksModel.Store.EmployeePayHistory" store:Type="Tables" Schema="HumanResources" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.Store.FK_Employee_Contact_ContactID">
-            <End Role="Contact" EntitySet="Contact" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="AdventureWorksModel.Store.FK_Employee_Employee_ManagerID">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Employee1" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeePayHistory_Employee_EmployeeID" Association="AdventureWorksModel.Store.FK_EmployeePayHistory_Employee_EmployeeID">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="EmployeePayHistory" EntitySet="EmployeePayHistory" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="AdventureWorksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NationalIDNumber" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NationalIDNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="ContactID" Type="int" Nullable="false" />
-          <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoginID" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="ManagerID" Type="int" />
-          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BirthDate" Type="datetime" Nullable="false" />
-          <Property Name="MaritalStatus" Type="nchar" Nullable="false" MaxLength="1" />
-          <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="MaritalStatus" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="HireDate" Type="datetime" Nullable="false" />
           <Property Name="SalariedFlag" Type="bit" Nullable="false" />
           <Property Name="VacationHours" Type="smallint" Nullable="false" />
@@ -54,29 +37,42 @@
           <Property Name="PayFrequency" Type="tinyint" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="StateProvinceID" Type="int" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="ContactID" />
           </Key>
-          <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameStyle" Type="bit" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="8" />
-          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="EmailPromotion" Type="int" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="25" />
-          <Property Name="PasswordHash" Type="varchar" Nullable="false" MaxLength="128" />
-          <Property Name="PasswordSalt" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="AdditionalContactInfo" Type="xml" />
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Employee_Contact_ContactID">
-          <End Role="Contact" Type="AdventureWorksModel.Store.Contact" Multiplicity="1" />
-          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="*" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -87,8 +83,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Employee_ManagerID">
-          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="0..1" />
-          <End Role="Employee1" Type="AdventureWorksModel.Store.Employee" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="EmployeeID" />
@@ -99,8 +95,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeePayHistory_Employee_EmployeeID">
-          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="1" />
-          <End Role="EmployeePayHistory" Type="AdventureWorksModel.Store.EmployeePayHistory" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeePayHistory" Type="Self.EmployeePayHistory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="EmployeeID" />
@@ -118,6 +114,24 @@
           <Parameter Name="HireDate" Type="datetime" Mode="In" />
           <Parameter Name="CurrentFlag" Type="bit" Mode="In" />
         </Function>
+        <EntityContainer Name="AdventureWorksModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="EmployeePayHistory" EntityType="Self.EmployeePayHistory" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="Person" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="Person" store:Type="Tables" />
+          <AssociationSet Name="FK_Employee_Contact_ContactID" Association="Self.FK_Employee_Contact_ContactID">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="Self.FK_Employee_Employee_ManagerID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePayHistory_Employee_EmployeeID" Association="Self.FK_EmployeePayHistory_Employee_EmployeeID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeePayHistory" EntitySet="EmployeePayHistory" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -146,6 +160,7 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="EmployeePayHistory" EntitySet="EmployeePayHistories" />
           </AssociationSet>
+          <EntitySet Name="Addresses" EntityType="AdventureWorksModel.Address" />
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -157,16 +172,16 @@
           <Property Type="String" Name="LoginID" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ManagerID" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="BirthDate" Nullable="false" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="3" />
           <Property Type="String" Name="MaritalStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="Gender" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Type="DateTime" Name="HireDate" Nullable="false" />
+          <Property Type="DateTime" Name="HireDate" Nullable="false" Precision="3" />
           <Property Type="Boolean" Name="SalariedFlag" Nullable="false" />
           <Property Type="Int16" Name="VacationHours" Nullable="false" />
           <Property Type="Int16" Name="SickLeaveHours" Nullable="false" />
           <Property Type="Boolean" Name="CurrentFlag" Nullable="false" />
           <Property Type="Guid" Name="rowguid" Nullable="false" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
           <NavigationProperty Name="Contact" Relationship="AdventureWorksModel.FK_Employee_Contact_ContactID" FromRole="Employee" ToRole="Contact" />
           <NavigationProperty Name="Employee1" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee" ToRole="Employee1" />
           <NavigationProperty Name="Employee2" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee1" ToRole="Employee" />
@@ -178,10 +193,10 @@
             <PropertyRef Name="RateChangeDate" />
           </Key>
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
-          <Property Type="DateTime" Name="RateChangeDate" Nullable="false" />
+          <Property Type="DateTime" Name="RateChangeDate" Nullable="false" Precision="3" />
           <Property Type="Decimal" Name="Rate" Nullable="false" Precision="19" Scale="4" />
           <Property Type="Byte" Name="PayFrequency" Nullable="false" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
           <NavigationProperty Name="Employee" Relationship="AdventureWorksModel.FK_EmployeePayHistory_Employee_EmployeeID" FromRole="EmployeePayHistory" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Contact">
@@ -202,7 +217,7 @@
           <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="AdditionalContactInfo" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="rowguid" Nullable="false" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
           <NavigationProperty Name="Employees" Relationship="AdventureWorksModel.FK_Employee_Contact_ContactID" FromRole="Contact" ToRole="Employee" />
         </EntityType>
         <Association Name="FK_Employee_Contact_ContactID">
@@ -241,6 +256,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -302,6 +330,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="AdventureWorksModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -318,7 +360,8 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -341,6 +384,7 @@
           <ConnectorPoint PointX="4.5" PointY="3.08550048828125" />
           <ConnectorPoint PointX="5.25" PointY="3.08550048828125" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="AdventureWorksModel.Address" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </Diagrams>
   </Designer>

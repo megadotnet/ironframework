@@ -32,6 +32,17 @@ namespace DataAccessObject
 		}	
 		
 		
+		public static AddressRepository GetAddressRepository()
+		{
+			return ObjectFactory.GetInstance<AddressRepository>();
+		}
+		
+		public static AddressRepository GetAddressRepository(IObjectContext objectcontext)
+        {
+            return ObjectFactory.GetInstance<AddressRepository, IObjectContext>(objectcontext);
+        }
+
+
 		public static ContactRepository GetContactRepository()
 		{
 			return ObjectFactory.GetInstance<ContactRepository>();

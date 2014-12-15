@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntiies", "BusinessEntiies\BusinessEntiies.csproj", "{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}"
 EndProject
@@ -54,6 +54,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataServiceTests", "ODataServiceTests\ODataServiceTests.csproj", "{8661CE65-E606-4A71-AA42-CC7C0846180F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceClient", "WCFServiceClient\WCFServiceClient.csproj", "{3BC57283-C8C4-4840-A081-35F88830FD00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataWebAPI", "ODataWebAPI\ODataWebAPI.csproj", "{510C6128-6E38-43AD-83FC-9978478D33B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataWebAPI.Tests", "ODataWebAPI.Tests\ODataWebAPI.Tests.csproj", "{AB948773-CA27-452E-97E5-4EBDD70CA59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +129,14 @@ Global
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{510C6128-6E38-43AD-83FC-9978478D33B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{510C6128-6E38-43AD-83FC-9978478D33B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{510C6128-6E38-43AD-83FC-9978478D33B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{510C6128-6E38-43AD-83FC-9978478D33B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB948773-CA27-452E-97E5-4EBDD70CA59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB948773-CA27-452E-97E5-4EBDD70CA59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB948773-CA27-452E-97E5-4EBDD70CA59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB948773-CA27-452E-97E5-4EBDD70CA59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,5 +158,7 @@ Global
 		{820F7C26-42CA-4E8A-AD37-7F4A79E2E527} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
 		{8661CE65-E606-4A71-AA42-CC7C0846180F} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
 		{3BC57283-C8C4-4840-A081-35F88830FD00} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
+		{510C6128-6E38-43AD-83FC-9978478D33B9} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
+		{AB948773-CA27-452E-97E5-4EBDD70CA59D} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
 	EndGlobalSection
 EndGlobal

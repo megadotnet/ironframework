@@ -31,7 +31,8 @@ namespace DataAccessObject
 		    container.RegisterType< DataAccessObject.Repositories.IStoredProcedureFunctionsDAO, DataAccessObject.Repositories.StoredProcedureFunctionsDAO>();
 			container.RegisterType<DbContext, AdventureWorksEntities>(new InjectionConstructor());
             container.RegisterType<IObjectContext, ObjectContextAdapter>();
-		            container.RegisterType<IRepository<Contact>,EFRepository<Contact>>();	
+		            container.RegisterType<IRepository<Address>,EFRepository<Address>>();	
+            container.RegisterType<IRepository<Contact>,EFRepository<Contact>>();	
             container.RegisterType<IRepository<Employee>,EFRepository<Employee>>();	
             container.RegisterType<IRepository<EmployeePayHistory>,EFRepository<EmployeePayHistory>>();	
         }
