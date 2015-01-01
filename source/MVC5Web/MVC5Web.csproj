@@ -124,7 +124,35 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\AddressController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AddressController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ContactController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ContactController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ControllerBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeeController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeeController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeePayHistoryController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeePayHistoryController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +168,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Controllers\ControllerBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControllerBase.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
@@ -194,6 +226,10 @@
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
       <Name>BusinessEntiies</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
       <Name>IronFramework.Utility</Name>
@@ -202,6 +238,9 @@
       <Project>{3bc57283-c8c4-4840-a081-35f88830fd00}</Project>
       <Name>WCFServiceClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
