@@ -27,7 +27,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
 #>
        <register  type="BusinessObject.I<#=code.Escape(entity)#>BO, BusinessObject" 
                   mapTo="BusinessObject.<#=code.Escape(entity)#>BO, BusinessObject">
-        <lifetime type="Messag.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.I<#=code.Escape(entity)#>BO, BusinessObject]], Message.Utility" />
+        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.I<#=code.Escape(entity)#>BO, BusinessObject]], IronFramework.Utility" />
         <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />

@@ -7,6 +7,13 @@
     <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
     <container name="DefContainer">
       <extension type="Interception" />
+       <register  type="BusinessObject.IAddressBO, BusinessObject" 
+                  mapTo="BusinessObject.AddressBO, BusinessObject">
+        <lifetime type="singleton" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
        <register  type="BusinessObject.IContactBO, BusinessObject" 
                   mapTo="BusinessObject.ContactBO, BusinessObject">
         <lifetime type="singleton" />
