@@ -148,6 +148,35 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AddressController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AddressController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ContactController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ContactController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ControllerBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeeController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeeController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeePayHistoryController.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeePayHistoryController.Generated.cs">
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,6 +212,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Controllers\ControllerBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControllerBase.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -206,13 +239,29 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
+      <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
+      <Name>BusinessEntiies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
+      <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
+      <Name>IronFramework.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

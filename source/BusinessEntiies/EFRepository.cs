@@ -157,11 +157,66 @@ namespace DataAccessObject
         public PagedList<T> Find<K>(
             Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, int? pageIndex, int pageSize)
         {
+            return this.Find(expression: expression, orderExpression: orderExpression
+                ,isOrderByDesc:true, pageIndex: pageIndex, pageSize: pageSize);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <returns></returns>
+        public IEnumerable<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                )
+        {
             if (expression == null)
             {
-                return this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToPagedList(pageIndex, pageSize);
+                if (isOrderByDesc)
+                {
+                    return this.ObjectSet.AsQueryable().OrderByDescending(orderExpression);
+                }
+                return this.ObjectSet.AsQueryable().OrderBy(orderExpression);
             }
 
+            if (isOrderByDesc)
+            {
+                return this.ObjectSet.Where(expression).OrderByDescending(orderExpression);
+            }
+            return this.ObjectSet.Where(expression).OrderBy(orderExpression);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns>Entities paged list</returns>
+        public PagedList<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                , int? pageIndex, int pageSize)
+          {
+            if (expression == null)
+            {
+                if (isOrderByDesc)
+                {
+                    return this.ObjectSet.AsQueryable().OrderByDescending(orderExpression).ToPagedList(pageIndex, pageSize);
+                }
+                return this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToPagedList(pageIndex, pageSize);   
+            }
+
+            if (isOrderByDesc)
+            {
+                return this.ObjectSet.Where(expression).OrderByDescending(orderExpression).AsQueryable().ToPagedList(
+                    pageIndex, pageSize);
+            }
             return this.ObjectSet.Where(expression).OrderBy(orderExpression).AsQueryable().ToPagedList(
                 pageIndex, pageSize);
         }

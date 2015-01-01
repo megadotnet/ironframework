@@ -11,7 +11,7 @@ MetadataTools ef = new MetadataTools(this);
 CodeRegion region = new CodeRegion(this);
 #>// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IRepository.cs" company="Megadonet">
-//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+//   Copyright (c) 2010-2015 Petter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   a interface of data acccess repository.
@@ -103,6 +103,24 @@ namespace <#= code.VsNamespaceSuggestion() #>
             Expression<Func<T, K>> orderexpression, 
             int? pageIndex, 
             int pageSize);
+
+IEnumerable<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                );
+
+		/// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns>Entities paged list</returns>
+        PagedList<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression
+                , bool isOrderByDesc, int? pageIndex, int pageSize);
 
         /// <summary>
         /// Saves this instance.
@@ -298,6 +316,14 @@ namespace <#= code.VsNamespaceSuggestion() #>
         void ChangeObjectState(object entity, EntityState entityState);
 
         /// <summary>
+        /// Changes the state of the object.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <param name="entityState">State of the entity.</param>
+        void ChangeObjectState<TEntity>(TEntity entity, EntityState entityState) where TEntity : class;
+
+        /// <summary>
         /// The create object set.
         /// </summary>
         /// <typeparam name="T">
@@ -324,6 +350,15 @@ namespace <#= code.VsNamespaceSuggestion() #>
         int ExecuteStoreCommand(string commandText, params object[] parameters);
 
         /// <summary>
+        /// Executes the store query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText">The command text.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+         ObjectResult<T> ExecuteStoreQuery<T>(string commandText, params object[] parameters);
+
+        /// <summary>
         /// The save changes.
         /// </summary>
         void SaveChanges();
@@ -343,6 +378,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         private readonly ObjectContext _context;
 
+        /// <summary>
+        /// The current database context
+        /// </summary>
+        private DbContext currentDbContext;
+
         #endregion
 
         #region Constructors and Destructors
@@ -356,6 +396,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public ObjectContextAdapter(DbContext dbcontext)
         {
             this._context = (dbcontext as IObjectContextAdapter).ObjectContext;
+            currentDbContext = dbcontext;
         }
 
         #endregion
@@ -420,9 +461,22 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <param name="entityState">
         /// State of the entity.
         /// </param>
+        /// <remarks>EF4 or EF5</remarks>
         public void ChangeObjectState(object entity, EntityState entityState)
         {
             this._context.ObjectStateManager.ChangeObjectState(entity, entityState);
+        }
+
+
+        /// <summary>
+        /// Changes the state of the object for EF6
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <param name="entityState">State of the entity.</param>
+        public void ChangeObjectState<TEntity>(TEntity entity, EntityState entityState)  where TEntity : class
+        {
+            this.currentDbContext.Entry<TEntity>(entity).State = entityState;
         }
 
         /// <summary>
@@ -457,6 +511,18 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public int ExecuteStoreCommand(string commandText, params object[] parameters)
         {
             return this._context.ExecuteStoreCommand(commandText, parameters);
+        }
+
+         /// <summary>
+        /// Executes the store query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText">The command text.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public ObjectResult<T> ExecuteStoreQuery<T>(string commandText, params object[] parameters)
+        {
+            return _context.ExecuteStoreQuery<T>( commandText,parameters);
         }
 
         /// <summary>
@@ -707,11 +773,66 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public PagedList<T> Find<K>(
             Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, int? pageIndex, int pageSize)
         {
+            return this.Find(expression: expression, orderExpression: orderExpression
+                ,isOrderByDesc:true, pageIndex: pageIndex, pageSize: pageSize);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <returns></returns>
+        public IEnumerable<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                )
+        {
             if (expression == null)
             {
-                return this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToPagedList(pageIndex, pageSize);
+                if (isOrderByDesc)
+                {
+                    return this.ObjectSet.AsQueryable().OrderByDescending(orderExpression);
+                }
+                return this.ObjectSet.AsQueryable().OrderBy(orderExpression);
             }
 
+            if (isOrderByDesc)
+            {
+                return this.ObjectSet.Where(expression).OrderByDescending(orderExpression);
+            }
+            return this.ObjectSet.Where(expression).OrderBy(orderExpression);
+        }
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns>Entities paged list</returns>
+        public PagedList<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                , int? pageIndex, int pageSize)
+          {
+            if (expression == null)
+            {
+                if (isOrderByDesc)
+                {
+                    return this.ObjectSet.AsQueryable().OrderByDescending(orderExpression).ToPagedList(pageIndex, pageSize);
+                }
+                return this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToPagedList(pageIndex, pageSize);   
+            }
+
+            if (isOrderByDesc)
+            {
+                return this.ObjectSet.Where(expression).OrderByDescending(orderExpression).AsQueryable().ToPagedList(
+                    pageIndex, pageSize);
+            }
             return this.ObjectSet.Where(expression).OrderBy(orderExpression).AsQueryable().ToPagedList(
                 pageIndex, pageSize);
         }

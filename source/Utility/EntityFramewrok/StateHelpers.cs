@@ -33,7 +33,9 @@ namespace IronFramework.Utility.EntityFramewrok
         /// <summary>
         /// The deleted.
         /// </summary>
-        Deleted
+        Deleted,
+
+        Detached
     }
 
     /// <summary>

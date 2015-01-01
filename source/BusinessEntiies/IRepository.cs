@@ -1,7 +1,7 @@
 ﻿
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IRepository.cs" company="Megadonet">
-//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+//   Copyright (c) 2010-2015 Petter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   a interface of data acccess repository.
@@ -93,6 +93,24 @@ namespace DataAccessObject
             Expression<Func<T, K>> orderexpression, 
             int? pageIndex, 
             int pageSize);
+
+IEnumerable<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+                );
+
+		/// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns>Entities paged list</returns>
+        PagedList<T> Find<K>(
+                Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression
+                , bool isOrderByDesc, int? pageIndex, int pageSize);
 
         /// <summary>
         /// Saves this instance.

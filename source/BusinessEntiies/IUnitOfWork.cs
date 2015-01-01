@@ -63,6 +63,14 @@ namespace DataAccessObject
         void ChangeObjectState(object entity, EntityState entityState);
 
         /// <summary>
+        /// Changes the state of the object.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <param name="entityState">State of the entity.</param>
+        void ChangeObjectState<TEntity>(TEntity entity, EntityState entityState) where TEntity : class;
+
+        /// <summary>
         /// The create object set.
         /// </summary>
         /// <typeparam name="T">
@@ -89,6 +97,15 @@ namespace DataAccessObject
         int ExecuteStoreCommand(string commandText, params object[] parameters);
 
         /// <summary>
+        /// Executes the store query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText">The command text.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+         ObjectResult<T> ExecuteStoreQuery<T>(string commandText, params object[] parameters);
+
+        /// <summary>
         /// The save changes.
         /// </summary>
         void SaveChanges();
@@ -108,6 +125,11 @@ namespace DataAccessObject
         /// </summary>
         private readonly ObjectContext _context;
 
+        /// <summary>
+        /// The current database context
+        /// </summary>
+        private DbContext currentDbContext;
+
         #endregion
 
         #region Constructors and Destructors
@@ -121,6 +143,7 @@ namespace DataAccessObject
         public ObjectContextAdapter(DbContext dbcontext)
         {
             this._context = (dbcontext as IObjectContextAdapter).ObjectContext;
+            currentDbContext = dbcontext;
         }
 
         #endregion
@@ -185,9 +208,22 @@ namespace DataAccessObject
         /// <param name="entityState">
         /// State of the entity.
         /// </param>
+        /// <remarks>EF4 or EF5</remarks>
         public void ChangeObjectState(object entity, EntityState entityState)
         {
             this._context.ObjectStateManager.ChangeObjectState(entity, entityState);
+        }
+
+
+        /// <summary>
+        /// Changes the state of the object for EF6
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <param name="entityState">State of the entity.</param>
+        public void ChangeObjectState<TEntity>(TEntity entity, EntityState entityState)  where TEntity : class
+        {
+            this.currentDbContext.Entry<TEntity>(entity).State = entityState;
         }
 
         /// <summary>
@@ -222,6 +258,18 @@ namespace DataAccessObject
         public int ExecuteStoreCommand(string commandText, params object[] parameters)
         {
             return this._context.ExecuteStoreCommand(commandText, parameters);
+        }
+
+         /// <summary>
+        /// Executes the store query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText">The command text.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public ObjectResult<T> ExecuteStoreQuery<T>(string commandText, params object[] parameters)
+        {
+            return _context.ExecuteStoreQuery<T>( commandText,parameters);
         }
 
         /// <summary>

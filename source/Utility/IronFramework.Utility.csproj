@@ -101,6 +101,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramewrok\PredicateBuilder.cs" />
     <Compile Include="EntLib\IoC\HttpContextLifetimeManager.cs" />
     <Compile Include="UtilityExtention.cs" />
     <Compile Include="Web\HttpModule\BaseHttpModule.cs" />
