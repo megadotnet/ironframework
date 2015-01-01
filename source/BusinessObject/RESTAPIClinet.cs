@@ -23,9 +23,7 @@ namespace BusinessObject
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14488/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                PrepareTargetSite(client);
 
                 // HTTP POST
                 string entityname = typeof(T).Name;
@@ -38,6 +36,13 @@ namespace BusinessObject
 
         }
 
+        private static void PrepareTargetSite(HttpClient client)
+        {
+            client.BaseAddress = new Uri("http://localhost:3956/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
         /// <summary>
         /// Clients the HTTP put.
         /// </summary>
@@ -48,9 +53,7 @@ namespace BusinessObject
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14488/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                PrepareTargetSite(client);
 
                 // HTTP PUT
                 string entityname = typeof(T).Name;
@@ -74,9 +77,7 @@ namespace BusinessObject
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14488/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                PrepareTargetSite(client);
 
                 // HTTP DELETE
                 string entityname = typeof(T).Name;
@@ -99,9 +100,7 @@ namespace BusinessObject
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14488/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                PrepareTargetSite(client);
 
                 string entityname = typeof(T).Name;
                 entityname=entityname.Substring(0,entityname.IndexOf("Dto"));
@@ -128,9 +127,7 @@ namespace BusinessObject
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14488/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                PrepareTargetSite(client);
 
                 string entityname = typeof(Query).Name;
                 entityname = entityname.Substring(0, entityname.IndexOf("Dto"));

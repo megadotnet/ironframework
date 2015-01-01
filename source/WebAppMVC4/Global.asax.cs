@@ -63,7 +63,7 @@ namespace WebAppMVC4
         {
             // Create UnityContainer          
             IUnityContainer container = new UnityContainer()
-                .RegisterType<EmployeeController>()
+                .RegisterType<EmployeeWCFController>()
                 .RegisterType<IEmployeeBoService, EmployeeBoServiceClient>(
                     new HierarchicalLifetimeManager(), new InjectionConstructor());
 

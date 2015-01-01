@@ -35,7 +35,7 @@ namespace MvcApp.Tests.Controllers
         [Fact]
         public void GetEmployeeShouldGetOneEntity()
         {
-            var emploeeController = new EmployeeController(new MemeoryEmployeeBoService());
+            var emploeeController = new EmployeeWCFController(new MemeoryEmployeeBoService());
             var item = emploeeController.GetEmployee(1);
             Assert.NotNull(item);
             Assert.IsType<Employee>(item);
@@ -50,7 +50,7 @@ namespace MvcApp.Tests.Controllers
         {
             // Arrange
             var product = new Employee { EmployeeID = 1, Title = "SD" };
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
 
             // Act
             var result = controller.GetEmployee(1);
@@ -65,7 +65,7 @@ namespace MvcApp.Tests.Controllers
         [Fact]
         public void GetProductThrowsWhenRepositoryReturnsNull()
         {
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
             Assert.Throws<HttpResponseException>(() => controller.GetEmployee(222));
         }
 
@@ -80,7 +80,7 @@ namespace MvcApp.Tests.Controllers
             {
                 new Employee{EmployeeID=1,Title="SD"}
             };
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
 
             // Act
             var result = controller.GetAllEmployee();
@@ -95,7 +95,7 @@ namespace MvcApp.Tests.Controllers
         [Fact]
         public void PostEmployeeReturnsCreatedStatusCode()
         {
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
             SetupControllerForTests(controller);
 
             var result = controller.PostEmployee(new Employee { EmployeeID = 1 });
@@ -108,7 +108,7 @@ namespace MvcApp.Tests.Controllers
         [Fact]
         public void PostEmployeeReturnsTheCorrectLocationInResponseMessage()
         {
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
             SetupControllerForTests(controller);
 
             var result = controller.PostEmployee(new Employee { EmployeeID = 111 });
@@ -127,7 +127,7 @@ namespace MvcApp.Tests.Controllers
             var mockobject= new Mock<IEmployeeBoService>();
             mockobject.Setup(e => e.DelEmployee(It.Is<Employee>(i => i.EmployeeID == removedId))).Returns(true);
             var serviceclient =mockobject.Object;
-            var controller = new EmployeeController(serviceclient);
+            var controller = new EmployeeWCFController(serviceclient);
             var employee = new Employee { EmployeeID = removedId };
             controller.DeleteEmployee(employee);
 
@@ -140,7 +140,7 @@ namespace MvcApp.Tests.Controllers
         [Fact]
         public void DeleteEmployeeReturnsResponseMessageWithNoContentStatusCode()
         {
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
 
             var employee = new Employee { EmployeeID = 111 };
             var result = controller.DeleteEmployee(employee);
@@ -156,7 +156,7 @@ namespace MvcApp.Tests.Controllers
         public void PutEmployeeUpdatesRepository()
         {
             //Arrange
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
             var item=new Employee { EmployeeID=1,Title="PM"};
          
             // Act
@@ -175,7 +175,7 @@ namespace MvcApp.Tests.Controllers
         public void PutEmployeeThrowsWhenRepositoryUpdateReturnsFalse()
         {
             //Arrange
-            var controller = new EmployeeController(new MemeoryEmployeeBoService());
+            var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
 
             Assert.Throws<HttpResponseException>(() => controller.PutEmployee(new Employee() { EmployeeID=123}));
         }
