@@ -241,10 +241,10 @@ namespace UnitTest
         /// <summary>
         /// Creates the DTO.
         /// </summary>
-        /// <returns>EmployeeDTO</returns>
-        private EmployeeDTO CreateDTO()
+        /// <returns>EmployeeDto</returns>
+        private EmployeeDto CreateDTO()
         {
-            var employee = new EmployeeDTO
+            var employee = new EmployeeDto
             {
                 ManagerID = 2,
                 ContactID = 3,

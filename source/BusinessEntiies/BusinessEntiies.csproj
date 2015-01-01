@@ -57,6 +57,9 @@
     <Compile Include="Address.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\AddressDto.cs">
+      <DependentUpon>DTOGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="AdventureWorks.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,16 +73,29 @@
     <Compile Include="Contact.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\ContactDTO.cs" />
+    <Compile Include="DTO\EmployeeAdapter.cs" />
+    <Compile Include="DTO\ContactDto.cs">
+      <DependentUpon>DTOGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DTOGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTOGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="Address.partial.cs" />
+    <Compile Include="DTO\EmployeeDto.cs">
+      <DependentUpon>DTOGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePayHistory.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\EmployeePayHistoryDTO.cs" />
+    <Compile Include="DTO\EmployeePayHistoryDto.cs">
+      <DependentUpon>DTOGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UIPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +111,10 @@
     <None Include="AdventureWorks.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AdventureWorks.cs</LastGenOutput>
+    </None>
+    <None Include="DTO\DTOGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DTOGenerator.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

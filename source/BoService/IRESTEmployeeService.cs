@@ -36,7 +36,7 @@ namespace BoService
         [ApplyDataContractResolver]
         [WebInvoke(UriTemplate = "Create", Method = "POST")]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        int Create(EmployeeDTO employee);
+        int Create(EmployeeDto employee);
 
         /// <summary>
         /// Deletes the specified id.
@@ -60,7 +60,7 @@ namespace BoService
         [ApplyDataContractResolver]
         [CyclicReferencesAware(true)]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        EmployeeDTO Get(int id);
+        EmployeeDto Get(int id);
 
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace BoService
         [ApplyDataContractResolver]
         [WebInvoke(UriTemplate = "Update", Method = "PUT")]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        bool Update(EmployeeDTO employee);
+        bool Update(EmployeeDto employee);
     } 
     #endregion
 }

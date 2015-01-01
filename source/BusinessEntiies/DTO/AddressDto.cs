@@ -14,20 +14,27 @@ namespace BusinessEntiies
     using System.Collections.Generic;
     
     [DataContract()]
-    public partial class EmployeePayHistoryDto : UIPaging
+    public partial class AddressDto : UIPaging
     {
         [Key()] 
         [Required] 
-        [DataMember()] public int EmployeeID  {get; set; }
-        [Key()] 
-        [Required] 
-        [DataMember()] public System.DateTime RateChangeDate  {get; set; }
+        [DataMember()] public int AddressID  {get; set; }
      
         [Required] 
-        [DataMember()] public decimal Rate  {get; set; }
+        [DataMember()] public string AddressLine1  {get; set; }
+        [DataMember()] public string AddressLine2  {get; set; }
      
         [Required] 
-        [DataMember()] public byte PayFrequency  {get; set; }
+        [DataMember()] public string City  {get; set; }
+     
+        [Required] 
+        [DataMember()] public int StateProvinceID  {get; set; }
+     
+        [Required] 
+        [DataMember()] public string PostalCode  {get; set; }
+     
+        [Required] 
+        [DataMember()] public System.Guid rowguid  {get; set; }
      
         [Required] 
         [DataMember()] public System.DateTime ModifiedDate  {get; set; }

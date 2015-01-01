@@ -46,9 +46,9 @@ namespace BoService
         /// <param name="employee">The employee.</param>
         /// <returns>if success return true else false</returns>
         [OperationBehavior(TransactionAutoComplete = true,TransactionScopeRequired = true)]
-        public int Create(EmployeeDTO employee)
+        public int Create(EmployeeDto employee)
         {
-            var entity = enityadapter.Transform<EmployeeDTO,Employee>(employee);
+            var entity = enityadapter.Transform<EmployeeDto,Employee>(employee);
             this.ebo.CreateEmployee(entity);
             return entity.EmployeeID;
         }
@@ -60,8 +60,8 @@ namespace BoService
         /// <returns>if success return true else false</returns>
         public bool Delete(int id)
         {
-            var employee = new EmployeeDTO { EmployeeID = id };
-            var entity = enityadapter.Transform<EmployeeDTO, Employee>(employee);
+            var employee = new EmployeeDto { EmployeeID = id };
+            var entity = enityadapter.Transform<EmployeeDto, Employee>(employee);
             this.ebo.AttachEmployee(entity);
             return this.ebo.DelEmployee(entity);
         }
@@ -71,10 +71,10 @@ namespace BoService
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>single Emploee entity</returns>
-        public EmployeeDTO Get(int id)
+        public EmployeeDto Get(int id)
         {
             var tempe=this.ebo.GetEmployee(id);
-            return enityadapter.Transform<Employee,EmployeeDTO>(tempe);
+            return enityadapter.Transform<Employee,EmployeeDto>(tempe);
         }
 
         /// <summary>
@@ -82,9 +82,9 @@ namespace BoService
         /// </summary>
         /// <param name="employee">The employee.</param>
         /// <returns>if success return true else false</returns>
-        public bool Update(EmployeeDTO employee)
+        public bool Update(EmployeeDto employee)
         {
-            var entity = enityadapter.Transform<EmployeeDTO, Employee>(employee);
+            var entity = enityadapter.Transform<EmployeeDto, Employee>(employee);
             return this.ebo.UpdateEmployeeByAttachEntity(entity);
         }
     }

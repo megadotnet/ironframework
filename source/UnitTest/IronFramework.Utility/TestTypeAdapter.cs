@@ -36,7 +36,7 @@ namespace UnitTest.TestUtility
                 EmployeeID = 1,
                 ModifiedDate = DateTime.Now
             };
-            var dto = adapter.Transform<EmployeePayHistory, EmployeePayHistoryDTO>(eph);
+            var dto = adapter.Transform<EmployeePayHistory, EmployeePayHistoryDto>(eph);
 
             Assert.Equal(1, dto.EmployeeID);
         }
@@ -48,12 +48,12 @@ namespace UnitTest.TestUtility
         public void TransformDTOtoEmployeePayHistory()
         {
             var adapter = new TypeAdapter();
-            var eph = new EmployeePayHistoryDTO()
+            var eph = new EmployeePayHistoryDto()
             {
                 EmployeeID = 1,
                 ModifiedDate = DateTime.Now
             };
-            var dto = adapter.Transform<EmployeePayHistoryDTO, EmployeePayHistory>(eph);
+            var dto = adapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(eph);
 
             Assert.Equal(dto.EmployeeID,eph.EmployeeID);
         }
@@ -69,7 +69,7 @@ namespace UnitTest.TestUtility
             {
                FirstName="gates"
             };
-            var dto = adapter.Transform<Contact, ContactDTO>(contact);
+            var dto = adapter.Transform<Contact, ContactDto>(contact);
 
             Assert.Equal(contact.FirstName, dto.FirstName);
         }
@@ -81,11 +81,11 @@ namespace UnitTest.TestUtility
         public void TransformDTOtoContact()
         {
             var adapter = new TypeAdapter();
-            var contact = new ContactDTO()
+            var contact = new ContactDto()
             {
                 FirstName = "gates"
             };
-            var dto = adapter.Transform<ContactDTO,Contact>(contact);
+            var dto = adapter.Transform<ContactDto,Contact>(contact);
 
             Assert.Equal(dto.FirstName, contact.FirstName);
         }
@@ -113,7 +113,7 @@ namespace UnitTest.TestUtility
                     }
                  }
             };
-            var dto = adapter.Transform<Employee, EmployeeDTO>(employee);
+            var dto = adapter.Transform<Employee, EmployeeDto>(employee);
 
             Assert.Equal(employee.EmployeeID, dto.EmployeeID);
             Assert.Equal(employee.LoginID, dto.LoginID);
@@ -127,21 +127,21 @@ namespace UnitTest.TestUtility
         {
             var adapter = new EmployeeAdapter();
 
-            var employee = new EmployeeDTO()
+            var employee = new EmployeeDto()
             {
                 EmployeeID = 1,
                 LoginID = "petter"
                 ,ContactID = 12
-                ,EmployeePayHistories = new List<EmployeePayHistoryDTO>()
+                ,EmployeePayHistories = new List<EmployeePayHistoryDto>()
                  {
-                    new EmployeePayHistoryDTO()
+                    new EmployeePayHistoryDto()
                     {
                         EmployeeID = 1,
                         ModifiedDate = DateTime.Now
                     }
                  }
             };
-            var dto = adapter.Transform<EmployeeDTO, Employee>(employee);
+            var dto = adapter.Transform<EmployeeDto, Employee>(employee);
 
             Assert.Equal(employee.EmployeeID, dto.EmployeeID);
             Assert.Equal(employee.LoginID, dto.LoginID);
