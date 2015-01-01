@@ -14,14 +14,14 @@ namespace MvcApp.Tests.Controllers
     using Xunit;
     using Moq;
     using System.Web.Http;
-    using System.Web.Http.Routing;
-    using System.Web.Http.Controllers;
-    using System.Web.Http.Hosting;
     using System.Net.Http;
     using System.Net;
     using System;
     using System.Linq;
     using System.Collections.Generic;
+    using System.Web.Http.Controllers;
+    using System.Web.Http.Hosting;
+    using System.Web.Http.Routing;
 
     /// <summary>
     /// WebAPI Unit Test
