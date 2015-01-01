@@ -25,10 +25,11 @@ namespace BusinessObject
     /// </summary>
 	public class EmployeeBO : IEmployeeBO
 	{
+        ///TODO: should config complex DTO convert issue
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new TypeAdapter();
+        private ITypeAdapter typeAdapter = new EmployeeAdapter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -129,10 +130,10 @@ namespace BusinessObject
     if (!string.IsNullOrEmpty(_employeeDto.MaritalStatus)) list.Add(c => c.MaritalStatus.Contains(_employeeDto.MaritalStatus));
     if (!string.IsNullOrEmpty(_employeeDto.Gender)) list.Add(c => c.Gender.Contains(_employeeDto.Gender));
     
-    if (_employeeDto.SalariedFlag != null) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
+    if (_employeeDto.SalariedFlag != false) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
     
     
-    if (_employeeDto.CurrentFlag != null) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
+    if (_employeeDto.CurrentFlag != false) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
     
     
           //Add more condition

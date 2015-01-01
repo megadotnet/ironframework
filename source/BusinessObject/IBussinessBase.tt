@@ -464,11 +464,19 @@ public class CodeStringGenerator
                     _code.Escape(edmProperty)
                     ,entityname);
             }
-            else if (typeName=="bool" || typeName=="Nullable<bool>")
+            else if (typeName=="Nullable<bool>")
             {
                 resultStr= string.Format(
                     CultureInfo.InvariantCulture,
                     "if (_{1}Dto.{0} != null) list.Add(c => c.{0} == _{1}Dto.{0});",
+                    _code.Escape(edmProperty)
+                    ,entityname);
+            }
+            else if (typeName=="bool")
+            {
+                resultStr= string.Format(
+                    CultureInfo.InvariantCulture,
+                    "if (_{1}Dto.{0} != false) list.Add(c => c.{0} == _{1}Dto.{0});",
                     _code.Escape(edmProperty)
                     ,entityname);
             }

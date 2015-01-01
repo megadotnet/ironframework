@@ -120,7 +120,7 @@ namespace BusinessObject
            var list = new List<Expression<Func<Contact, bool>>>();
 
                 if (_contactDto.ContactID > 0) list.Add(c => c.ContactID == _contactDto.ContactID);
-    if (_contactDto.NameStyle != null) list.Add(c => c.NameStyle == _contactDto.NameStyle);
+    if (_contactDto.NameStyle != false) list.Add(c => c.NameStyle == _contactDto.NameStyle);
     if (!string.IsNullOrEmpty(_contactDto.Title)) list.Add(c => c.Title.Contains(_contactDto.Title));
     if (!string.IsNullOrEmpty(_contactDto.FirstName)) list.Add(c => c.FirstName.Contains(_contactDto.FirstName));
     if (!string.IsNullOrEmpty(_contactDto.MiddleName)) list.Add(c => c.MiddleName.Contains(_contactDto.MiddleName));
