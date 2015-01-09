@@ -141,8 +141,10 @@ EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileMana
 
 
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
-{;
-    fileManager.StartNewFile("I"+entity.Name + "BO.Generated.cs"); #>
+{
+    if(!DoesFileExist("I"+entity.Name + "BO.Generated.cs"))
+	{   
+      fileManager.StartNewFile("I"+entity.Name + "BO.Generated.cs"); #>
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
@@ -165,7 +167,15 @@ namespace <#= code.VsNamespaceSuggestion() #>
 	{
 
 	}
-}<#	
+}<#
+	}
+	else
+	{
+		fileManager.StartNewFile("I"+entity.Name + "BO.Generated.cs");
+		this.Write(OutputFile("I"+entity.Name + "BO.Generated.cs"));
+	}
+#>
+<#	
 	if(!DoesFileExist(entity.Name + "BO.cs"))
 	{   
 		fileManager.StartNewFile(entity.Name + "BO.cs");
@@ -961,6 +971,24 @@ string GetCurrentDirectory()
 	else
 	{		
 		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
+	}	
+	return executingDirectoryName;
+}
+
+
+string GetEDMXCurrentDirectory()
+{
+	string executingDirectoryName = "";
+	string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();
+	if (String.IsNullOrEmpty(stackTraceFileName))
+	{
+		throw new ArgumentException("No value was specified for the 'directoryName' configuration parameter" +
+			", and we could not figure out the file name from the stack trace (most likely because of running " +
+			"the template with debug='False' specified in the <\u0023@ template \u0023> directive.");
+	}
+	else
+	{		
+		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
         int lot= executingDirectoryName.LastIndexOf("\\");
         //Need pay attention to  executingDirectoryName
         executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntiies");
@@ -972,7 +1000,7 @@ string FindEDMXFileName()
 {
 	string edmxFile = "";
 				
-	string[] entityFrameworkFiles = Directory.GetFiles(GetCurrentDirectory(), "*.edmx");
+	string[] entityFrameworkFiles = Directory.GetFiles(GetEDMXCurrentDirectory(), "*.edmx");
 	if(entityFrameworkFiles.Length > 0)
 		edmxFile = entityFrameworkFiles[0];
 	
