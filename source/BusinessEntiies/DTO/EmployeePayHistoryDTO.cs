@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies
+namespace BusinessEntiies.DTO
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
@@ -18,18 +18,27 @@ namespace BusinessEntiies
     {
         [Key()] 
         [Required] 
-        [DataMember()] public int EmployeeID  {get; set; }
+        [DataMember] 
+        public int EmployeeID  {get; set; }
         [Key()] 
         [Required] 
-        [DataMember()] public System.DateTime RateChangeDate  {get; set; }
+        [DataMember] 
+        public System.DateTime RateChangeDate  {get; set; }
      
         [Required] 
-        [DataMember()] public decimal Rate  {get; set; }
+        [DataMember] 
+        public decimal Rate  {get; set; }
      
         [Required] 
-        [DataMember()] public byte PayFrequency  {get; set; }
+        [DataMember] 
+        public byte PayFrequency  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime ModifiedDate  {get; set; }
+        [DataMember] 
+        public System.DateTime ModifiedDate  {get; set; }
+    
+        [DataMember] 
+        public virtual Employee Employee { get; set; }
+    
     }
 }

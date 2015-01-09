@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies
+namespace BusinessEntiies.DTO
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
@@ -18,25 +18,34 @@ namespace BusinessEntiies
     {
         [Key()] 
         [Required] 
-        [DataMember()] public int AddressID  {get; set; }
+        [DataMember] 
+        public int AddressID  {get; set; }
      
         [Required] 
-        [DataMember()] public string AddressLine1  {get; set; }
-        [DataMember()] public string AddressLine2  {get; set; }
+        [DataMember] 
+        public string AddressLine1  {get; set; }
+        [DataMember] 
+        public string AddressLine2  {get; set; }
      
         [Required] 
-        [DataMember()] public string City  {get; set; }
+        [DataMember] 
+        public string City  {get; set; }
      
         [Required] 
-        [DataMember()] public int StateProvinceID  {get; set; }
+        [DataMember] 
+        public int StateProvinceID  {get; set; }
      
         [Required] 
-        [DataMember()] public string PostalCode  {get; set; }
+        [DataMember] 
+        public string PostalCode  {get; set; }
      
         [Required] 
-        [DataMember()] public System.Guid rowguid  {get; set; }
+        [DataMember] 
+        public System.Guid rowguid  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime ModifiedDate  {get; set; }
+        [DataMember] 
+        public System.DateTime ModifiedDate  {get; set; }
+    
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies
+namespace BusinessEntiies.DTO
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
@@ -18,36 +18,55 @@ namespace BusinessEntiies
     {
         [Key()] 
         [Required] 
-        [DataMember()] public int ContactID  {get; set; }
+        [DataMember] 
+        public int ContactID  {get; set; }
      
         [Required] 
-        [DataMember()] public bool NameStyle  {get; set; }
-        [DataMember()] public string Title  {get; set; }
+        [DataMember] 
+        public bool NameStyle  {get; set; }
+        [DataMember] 
+        public string Title  {get; set; }
      
         [Required] 
-        [DataMember()] public string FirstName  {get; set; }
-        [DataMember()] public string MiddleName  {get; set; }
+        [DataMember] 
+        public string FirstName  {get; set; }
+        [DataMember] 
+        public string MiddleName  {get; set; }
      
         [Required] 
-        [DataMember()] public string LastName  {get; set; }
-        [DataMember()] public string Suffix  {get; set; }
-        [DataMember()] public string EmailAddress  {get; set; }
+        [DataMember] 
+        public string LastName  {get; set; }
+        [DataMember] 
+        public string Suffix  {get; set; }
+        [DataMember] 
+        public string EmailAddress  {get; set; }
      
         [Required] 
-        [DataMember()] public int EmailPromotion  {get; set; }
-        [DataMember()] public string Phone  {get; set; }
+        [DataMember] 
+        public int EmailPromotion  {get; set; }
+        [DataMember] 
+        public string Phone  {get; set; }
      
         [Required] 
-        [DataMember()] public string PasswordHash  {get; set; }
+        [DataMember] 
+        public string PasswordHash  {get; set; }
      
         [Required] 
-        [DataMember()] public string PasswordSalt  {get; set; }
-        [DataMember()] public string AdditionalContactInfo  {get; set; }
+        [DataMember] 
+        public string PasswordSalt  {get; set; }
+        [DataMember] 
+        public string AdditionalContactInfo  {get; set; }
      
         [Required] 
-        [DataMember()] public System.Guid rowguid  {get; set; }
+        [DataMember] 
+        public System.Guid rowguid  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime ModifiedDate  {get; set; }
+        [DataMember] 
+        public System.DateTime ModifiedDate  {get; set; }
+    
+        [DataMember] 
+        public virtual Employee [] Employees { get; set; }
+    
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies
+namespace BusinessEntiies.DTO
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
@@ -18,65 +18,75 @@ namespace BusinessEntiies
     {
         [Key()] 
         [Required] 
-        [DataMember()] public int EmployeeID  {get; set; }
+        [DataMember] 
+        public int EmployeeID  {get; set; }
      
         [Required] 
-        [DataMember()] public string NationalIDNumber  {get; set; }
+        [DataMember] 
+        public string NationalIDNumber  {get; set; }
      
         [Required] 
-        [DataMember()] public int ContactID  {get; set; }
+        [DataMember] 
+        public int ContactID  {get; set; }
      
         [Required] 
-        [DataMember()] public string LoginID  {get; set; }
-        [DataMember()] public Nullable<int> ManagerID  {get; set; }
+        [DataMember] 
+        public string LoginID  {get; set; }
+        [DataMember] 
+        public Nullable<int> ManagerID  {get; set; }
      
         [Required] 
-        [DataMember()] public string Title  {get; set; }
+        [DataMember] 
+        public string Title  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime BirthDate  {get; set; }
+        [DataMember] 
+        public System.DateTime BirthDate  {get; set; }
      
         [Required] 
-        [DataMember()] public string MaritalStatus  {get; set; }
+        [DataMember] 
+        public string MaritalStatus  {get; set; }
      
         [Required] 
-        [DataMember()] public string Gender  {get; set; }
+        [DataMember] 
+        public string Gender  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime HireDate  {get; set; }
+        [DataMember] 
+        public System.DateTime HireDate  {get; set; }
      
         [Required] 
-        [DataMember()] public bool SalariedFlag  {get; set; }
+        [DataMember] 
+        public bool SalariedFlag  {get; set; }
      
         [Required] 
-        [DataMember()] public short VacationHours  {get; set; }
+        [DataMember] 
+        public short VacationHours  {get; set; }
      
         [Required] 
-        [DataMember()] public short SickLeaveHours  {get; set; }
+        [DataMember] 
+        public short SickLeaveHours  {get; set; }
      
         [Required] 
-        [DataMember()] public bool CurrentFlag  {get; set; }
+        [DataMember] 
+        public bool CurrentFlag  {get; set; }
      
         [Required] 
-        [DataMember()] public System.Guid rowguid  {get; set; }
+        [DataMember] 
+        public System.Guid rowguid  {get; set; }
      
         [Required] 
-        [DataMember()] public System.DateTime ModifiedDate  {get; set; }
-
-        //TODO:Should add it by generate by Nav property
-        /// <summary>
-        /// Gets or sets the contact.
-        /// </summary>
-        /// <value>
-        /// The contact.
-        /// </value>
-        public virtual ContactDto Contact { get; set; }
-        /// <summary>
-        /// Gets or sets the employee pay histories.
-        /// </summary>
-        /// <value>
-        /// The employee pay histories.
-        /// </value>
-        public virtual List<EmployeePayHistoryDto> EmployeePayHistories { get; set; }
+        [DataMember] 
+        public System.DateTime ModifiedDate  {get; set; }
+    
+        [DataMember] 
+        public virtual Contact Contact { get; set; }
+        [DataMember] 
+        public virtual Employee [] Employee1 { get; set; }
+        [DataMember] 
+        public virtual Employee Employee2 { get; set; }
+        [DataMember] 
+        public virtual EmployeePayHistory [] EmployeePayHistories { get; set; }
+    
     }
 }

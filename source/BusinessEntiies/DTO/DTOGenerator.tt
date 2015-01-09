@@ -5,7 +5,7 @@
 <#@ output extension=".cs"#>
 <#
 //reference from http://stackoverflow.com/a/21406874
-const string inputFile = @"AdventureWorks.edmx";
+const string inputFile = @"../AdventureWorks.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -23,6 +23,9 @@ WriteHeader(codeStringGenerator, fileManager);
 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
 {
+    var collectionNavigationProperties = entity.NavigationProperties.Where(np => np.DeclaringType == entity && np.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many);
+      var complexProperties = entity.Properties.Where(p => p.TypeUsage.EdmType is ComplexType && p.DeclaringType == entity);
+
     fileManager.StartNewFile(entity.Name + "Dto.cs");
     BeginNamespace(code);
 #>
@@ -44,7 +47,20 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
 <#
         }
     }
+
+    var navigationProperties = entity.NavigationProperties.Where(np => np.DeclaringType == entity);
+    if (navigationProperties.Any())
+    {
 #>
+
+<#
+        foreach (var navigationProperty in navigationProperties)
+        {
+            WriteNavigationProperty(code, navigationProperty);
+        }
+    }
+#>
+
 }
 <#
     EndNamespace(code);
@@ -122,6 +138,29 @@ public void EndNamespace(CodeGenerationTools code)
 }
 public const string TemplateId = "CSharp_DbContext_Types_EF5";
 
+ void WriteNavigationProperty(CodeGenerationTools code, NavigationProperty navigationProperty)
+{
+    var endType = code.Escape(navigationProperty.ToEndMember.GetEntityType());
+    WriteProperty2(PropertyVirtualModifier(Accessibility.ForProperty(navigationProperty)),
+                  navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? (endType + " []") : endType,
+                  code.Escape(navigationProperty),
+                  code.SpaceAfter(Accessibility.ForGetter(navigationProperty)),
+                  code.SpaceAfter(Accessibility.ForSetter(navigationProperty)));
+}
+
+    void WriteProperty2(string accessibility, string type, string name, string getterAccessibility, string setterAccessibility)
+{
+#>
+    [DataMember] 
+    <#=accessibility#> <#=type#> <#=name#> { <#=getterAccessibility#>get; <#=setterAccessibility#>set; }
+<#+
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
 public class CodeStringGenerator
 {
     private readonly CodeGenerationTools _code;
@@ -143,7 +182,8 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "[DataMember()] {0} {1} {2} {3} {{get; {4}set; }}",
+            @"[DataMember] 
+    {0} {1} {2} {3} {{get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
             _typeMapper.GetTypeName(edmProperty.TypeUsage),
             _code.Escape(edmProperty),
