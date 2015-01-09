@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,7 +61,7 @@
     <Compile Include="Address.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\AddressDto.cs">
+    <Compile Include="AddressDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="AdventureWorks.cs">
@@ -74,10 +78,10 @@
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\EmployeeAdapter.cs" />
-    <Compile Include="DTO\ContactDto.cs">
+    <Compile Include="ContactDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\DTOGenerator.cs">
+    <Compile Include="DTOGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DTOGenerator.tt</DependentUpon>
@@ -86,13 +90,13 @@
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
     <Compile Include="Address.partial.cs" />
-    <Compile Include="DTO\EmployeeDto.cs">
+    <Compile Include="EmployeeDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployeePayHistory.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\EmployeePayHistoryDto.cs">
+    <Compile Include="EmployeePayHistoryDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\UIPaging.cs" />
@@ -112,7 +116,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AdventureWorks.cs</LastGenOutput>
     </None>
-    <None Include="DTO\DTOGenerator.tt">
+    <None Include="DTOGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DTOGenerator.cs</LastGenOutput>
     </None>

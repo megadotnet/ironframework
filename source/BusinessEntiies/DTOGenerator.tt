@@ -5,7 +5,7 @@
 <#@ output extension=".cs"#>
 <#
 //reference from http://stackoverflow.com/a/21406874
-const string inputFile = @"../AdventureWorks.edmx";
+const string inputFile = @"AdventureWorks.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -40,7 +40,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         {
 #>
 <#if (ef.IsKey(edmProperty))
-{#>    [Key()]<#}#><# if (!IsNullable(edmProperty.TypeUsage)) { #> 
+{#>    [Key]<#}#><# if (!IsNullable(edmProperty.TypeUsage)) { #> 
     [Required] 
 <#}#>
     <#=codeStringGenerator.Property(edmProperty)#>
@@ -61,6 +61,10 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     }
 #>
 
+     public override string ToString()
+     {
+         return JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+     }
 }
 <#
     EndNamespace(code);
@@ -152,6 +156,7 @@ public const string TemplateId = "CSharp_DbContext_Types_EF5";
 {
 #>
     [DataMember] 
+    [JsonProperty("<#=name#>")]
     <#=accessibility#> <#=type#> <#=name#> { <#=getterAccessibility#>get; <#=setterAccessibility#>set; }
 <#+
 }
@@ -210,7 +215,7 @@ public class CodeStringGenerator
             ? string.Format(
                 CultureInfo.InvariantCulture,
                 "{0}using System;using System.ComponentModel.DataAnnotations;" +
-                "using System.Runtime.Serialization;{1}" +
+                "using System.Runtime.Serialization;using Newtonsoft.Json;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
@@ -224,7 +229,7 @@ public class CodeStringGenerator
             ? string.Format(
                 CultureInfo.InvariantCulture,
                 "{0}using System;using System.ComponentModel.DataAnnotations;" +Environment.NewLine+
-                "using System.Runtime.Serialization;{1}" +
+                "using System.Runtime.Serialization;using Newtonsoft.Json;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 Environment.NewLine + "using System.Collections.Generic;",

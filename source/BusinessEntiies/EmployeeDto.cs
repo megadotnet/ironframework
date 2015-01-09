@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies.DTO
+namespace BusinessEntiies
 {
     using System;using System.ComponentModel.DataAnnotations;
-    using System.Runtime.Serialization;
+    using System.Runtime.Serialization;using Newtonsoft.Json;
     using System.Collections.Generic;
     
     [DataContract()]
     public partial class EmployeeDto : UIPaging
     {
-        [Key()] 
+        [Key] 
         [Required] 
         [DataMember] 
         public int EmployeeID  {get; set; }
@@ -80,13 +80,21 @@ namespace BusinessEntiies.DTO
         public System.DateTime ModifiedDate  {get; set; }
     
         [DataMember] 
+        [JsonProperty("Contact")]
         public virtual Contact Contact { get; set; }
         [DataMember] 
+        [JsonProperty("Employee1")]
         public virtual Employee [] Employee1 { get; set; }
         [DataMember] 
+        [JsonProperty("Employee2")]
         public virtual Employee Employee2 { get; set; }
         [DataMember] 
+        [JsonProperty("EmployeePayHistories")]
         public virtual EmployeePayHistory [] EmployeePayHistories { get; set; }
     
+         public override string ToString()
+         {
+             return JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+         }
     }
 }

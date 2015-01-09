@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies.DTO
+namespace BusinessEntiies
 {
     using System;using System.ComponentModel.DataAnnotations;
-    using System.Runtime.Serialization;
+    using System.Runtime.Serialization;using Newtonsoft.Json;
     using System.Collections.Generic;
     
     [DataContract()]
     public partial class AddressDto : UIPaging
     {
-        [Key()] 
+        [Key] 
         [Required] 
         [DataMember] 
         public int AddressID  {get; set; }
@@ -47,5 +47,9 @@ namespace BusinessEntiies.DTO
         [DataMember] 
         public System.DateTime ModifiedDate  {get; set; }
     
+         public override string ToString()
+         {
+             return JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+         }
     }
 }

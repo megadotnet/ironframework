@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessEntiies.DTO
+namespace BusinessEntiies
 {
     using System;using System.ComponentModel.DataAnnotations;
-    using System.Runtime.Serialization;
+    using System.Runtime.Serialization;using Newtonsoft.Json;
     using System.Collections.Generic;
     
     [DataContract()]
     public partial class EmployeePayHistoryDto : UIPaging
     {
-        [Key()] 
+        [Key] 
         [Required] 
         [DataMember] 
         public int EmployeeID  {get; set; }
-        [Key()] 
+        [Key] 
         [Required] 
         [DataMember] 
         public System.DateTime RateChangeDate  {get; set; }
@@ -38,7 +38,12 @@ namespace BusinessEntiies.DTO
         public System.DateTime ModifiedDate  {get; set; }
     
         [DataMember] 
+        [JsonProperty("Employee")]
         public virtual Employee Employee { get; set; }
     
+         public override string ToString()
+         {
+             return JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+         }
     }
 }
