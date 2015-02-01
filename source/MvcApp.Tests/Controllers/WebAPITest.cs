@@ -92,7 +92,6 @@ namespace MvcApp.Tests.Controllers
         /// <summary>
         /// Posts the employee returns created status code.
         /// </summary>
-        [Fact]
         public void PostEmployeeReturnsCreatedStatusCode()
         {
             var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
@@ -105,7 +104,6 @@ namespace MvcApp.Tests.Controllers
         /// <summary>
         /// Posts the employee returns the correct location in response message.
         /// </summary>
-        [Fact]
         public void PostEmployeeReturnsTheCorrectLocationInResponseMessage()
         {
             var controller = new EmployeeWCFController(new MemeoryEmployeeBoService());
