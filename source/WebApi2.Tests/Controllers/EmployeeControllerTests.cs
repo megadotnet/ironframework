@@ -18,13 +18,13 @@ namespace WebApi2.Tests.Controllers
         /// </summary>
         /// <seealso cref="https://github.com/AutoFixture/AutoFixture"/>
         /// <param name="employeeDto"></param>
-        //[Theory, AutoData]
+        [Theory, AutoData]
         public void TestMethod(EmployeeDto employeeDto)
         {
             var controller = new EmployeeController();
-            //var result=controller.Get(employeeDto);
+            var result=controller.Get(employeeDto);
 
-            //Assert.NotNull(result);
+            Assert.NotNull(result);
         }
     }
 }
