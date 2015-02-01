@@ -22,12 +22,18 @@ namespace BusinessEntiies
         public int AddressID  {get; set; }
      
         [Required] 
+     
+        [StringLength(60)]
         [DataMember] 
         public string AddressLine1  {get; set; }
+     
+        [StringLength(60)]
         [DataMember] 
         public string AddressLine2  {get; set; }
      
         [Required] 
+     
+        [StringLength(30)]
         [DataMember] 
         public string City  {get; set; }
      
@@ -36,6 +42,8 @@ namespace BusinessEntiies
         public int StateProvinceID  {get; set; }
      
         [Required] 
+     
+        [StringLength(15)]
         [DataMember] 
         public string PostalCode  {get; set; }
      

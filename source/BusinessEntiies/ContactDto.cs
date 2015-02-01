@@ -24,34 +24,52 @@ namespace BusinessEntiies
         [Required] 
         [DataMember] 
         public bool NameStyle  {get; set; }
+     
+        [StringLength(8)]
         [DataMember] 
         public string Title  {get; set; }
      
         [Required] 
+     
+        [StringLength(50)]
         [DataMember] 
         public string FirstName  {get; set; }
+     
+        [StringLength(50)]
         [DataMember] 
         public string MiddleName  {get; set; }
      
         [Required] 
+     
+        [StringLength(50)]
         [DataMember] 
         public string LastName  {get; set; }
+     
+        [StringLength(10)]
         [DataMember] 
         public string Suffix  {get; set; }
+     
+        [StringLength(50)]
         [DataMember] 
         public string EmailAddress  {get; set; }
      
         [Required] 
         [DataMember] 
         public int EmailPromotion  {get; set; }
+     
+        [StringLength(25)]
         [DataMember] 
         public string Phone  {get; set; }
      
         [Required] 
+     
+        [StringLength(128)]
         [DataMember] 
         public string PasswordHash  {get; set; }
      
         [Required] 
+     
+        [StringLength(10)]
         [DataMember] 
         public string PasswordSalt  {get; set; }
         [DataMember] 

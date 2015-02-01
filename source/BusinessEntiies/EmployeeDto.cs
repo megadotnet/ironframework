@@ -22,6 +22,8 @@ namespace BusinessEntiies
         public int EmployeeID  {get; set; }
      
         [Required] 
+     
+        [StringLength(15)]
         [DataMember] 
         public string NationalIDNumber  {get; set; }
      
@@ -30,12 +32,16 @@ namespace BusinessEntiies
         public int ContactID  {get; set; }
      
         [Required] 
+     
+        [StringLength(256)]
         [DataMember] 
         public string LoginID  {get; set; }
         [DataMember] 
         public Nullable<int> ManagerID  {get; set; }
      
         [Required] 
+     
+        [StringLength(50)]
         [DataMember] 
         public string Title  {get; set; }
      
@@ -44,10 +50,14 @@ namespace BusinessEntiies
         public System.DateTime BirthDate  {get; set; }
      
         [Required] 
+     
+        [StringLength(1)]
         [DataMember] 
         public string MaritalStatus  {get; set; }
      
         [Required] 
+     
+        [StringLength(1)]
         [DataMember] 
         public string Gender  {get; set; }
      
@@ -88,9 +98,9 @@ namespace BusinessEntiies
         //[DataMember] 
         //[JsonProperty("Employee2")]
         //public virtual Employee Employee2 { get; set; }
-        [DataMember] 
-        [JsonProperty("EmployeePayHistories")]
-        public virtual EmployeePayHistoryDto [] EmployeePayHistories { get; set; }
+        //[DataMember] 
+        //[JsonProperty("EmployeePayHistories")]
+        //public virtual EmployeePayHistoryDto [] EmployeePayHistories { get; set; }
     
          public override string ToString()
          {

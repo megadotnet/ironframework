@@ -99,6 +99,11 @@
     <Compile Include="EmployeePayHistoryDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="MetadataGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetadataGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\UIPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -119,6 +124,10 @@
     <None Include="DTOGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DTOGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="MetadataGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MetadataGenerator.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

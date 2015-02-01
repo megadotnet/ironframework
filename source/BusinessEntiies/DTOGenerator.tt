@@ -42,6 +42,8 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
 <#if (ef.IsKey(edmProperty))
 {#>    [Key]<#}#><# if (!IsNullable(edmProperty.TypeUsage)) { #> 
     [Required] 
+<#}#><#if (HasMaxLength(edmProperty.TypeUsage)) { #> 
+    [StringLength(<#=MaxLength(edmProperty.TypeUsage) #>)]
 <#}#>
     <#=codeStringGenerator.Property(edmProperty)#>
 <#
@@ -551,8 +553,11 @@ public static bool IsNullable(TypeUsage usage)
  
 public static bool HasMaxLength(TypeUsage usage) 
 { 
-    return usage.Facets.Any(facet => facet.Name == "MaxLength");     
+    return usage.Facets.Any(facet => facet.Name == "MaxLength"&& facet.Value != null && facet.IsUnbounded == false);     
 } 
  
-
+ private static int MaxLength(TypeUsage usage)
+ {
+    return (int)usage.Facets.First(facet => facet.Name == "MaxLength").Value;    
+ }
 #>
