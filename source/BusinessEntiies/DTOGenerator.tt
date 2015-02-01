@@ -146,7 +146,7 @@ public const string TemplateId = "CSharp_DbContext_Types_EF5";
 {
     var endType = code.Escape(navigationProperty.ToEndMember.GetEntityType());
     WriteProperty2(PropertyVirtualModifier(Accessibility.ForProperty(navigationProperty)),
-                  navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? (endType + " []") : endType,
+                  navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? (endType + "Dto []") : endType,
                   code.Escape(navigationProperty),
                   code.SpaceAfter(Accessibility.ForGetter(navigationProperty)),
                   code.SpaceAfter(Accessibility.ForSetter(navigationProperty)));
@@ -155,9 +155,9 @@ public const string TemplateId = "CSharp_DbContext_Types_EF5";
     void WriteProperty2(string accessibility, string type, string name, string getterAccessibility, string setterAccessibility)
 {
 #>
-    [DataMember] 
-    [JsonProperty("<#=name#>")]
-    <#=accessibility#> <#=type#> <#=name#> { <#=getterAccessibility#>get; <#=setterAccessibility#>set; }
+    //[DataMember] 
+    //[JsonProperty("<#=name#>")]
+    //<#=accessibility#> <#=type#> <#=name#> { <#=getterAccessibility#>get; <#=setterAccessibility#>set; }
 <#+
 }
 

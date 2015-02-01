@@ -37,9 +37,9 @@ namespace BusinessEntiies
         [DataMember] 
         public System.DateTime ModifiedDate  {get; set; }
     
-        [DataMember] 
-        [JsonProperty("Employee")]
-        public virtual Employee Employee { get; set; }
+        //[DataMember] 
+        //[JsonProperty("Employee")]
+        //public virtual Employee Employee { get; set; }
     
          public override string ToString()
          {

@@ -139,7 +139,7 @@ namespace UnitTest.TestUtility
                         EmployeeID = 1,
                         ModifiedDate = DateTime.Now
                     }
-                 }
+                 }.ToArray()
             };
             var dto = adapter.Transform<EmployeeDto, Employee>(employee);
 

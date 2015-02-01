@@ -79,18 +79,18 @@ namespace BusinessEntiies
         [DataMember] 
         public System.DateTime ModifiedDate  {get; set; }
     
-        [DataMember] 
-        [JsonProperty("Contact")]
-        public virtual Contact Contact { get; set; }
-        [DataMember] 
-        [JsonProperty("Employee1")]
-        public virtual Employee [] Employee1 { get; set; }
-        [DataMember] 
-        [JsonProperty("Employee2")]
-        public virtual Employee Employee2 { get; set; }
+        //[DataMember] 
+        //[JsonProperty("Contact")]
+        //public virtual Contact Contact { get; set; }
+        //[DataMember] 
+        //[JsonProperty("Employee1")]
+        //public virtual EmployeeDto [] Employee1 { get; set; }
+        //[DataMember] 
+        //[JsonProperty("Employee2")]
+        //public virtual Employee Employee2 { get; set; }
         [DataMember] 
         [JsonProperty("EmployeePayHistories")]
-        public virtual EmployeePayHistory [] EmployeePayHistories { get; set; }
+        public virtual EmployeePayHistoryDto [] EmployeePayHistories { get; set; }
     
          public override string ToString()
          {
