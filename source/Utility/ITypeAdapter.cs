@@ -29,6 +29,9 @@ namespace IronFramework.Utility
         /// <param name="source">The source instance</param>
         /// <returns>Target type</returns>
         T Transform<S, T>(S source);
+
+
+        T Transform<S, T>(S source, T instance);
     }
 
     /// <summary>
@@ -95,6 +98,15 @@ namespace IronFramework.Utility
             Mapper.CreateMap<S, T>();
         }
 
+
+
+        public T Transform<S, T>(S source, T instance)
+        {
+            Mapper.Reset();
+            Mapper.CreateMap<S, T>().ForAllMembers(opt => opt.Condition(srs => !srs.IsSourceValueNull));
+            return Mapper.Map<S, T>(source, instance);
+            ;
+        }
     }
 
 

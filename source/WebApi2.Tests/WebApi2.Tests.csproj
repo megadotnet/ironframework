@@ -158,6 +158,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperTest.cs" />
     <Compile Include="Controllers\EmployeeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
@@ -180,6 +181,10 @@
     <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
       <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>
       <Name>BusinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
+      <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
+      <Name>IronFramework.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi2\WebApi2.csproj">
       <Project>{D5A34979-907B-44CC-A9AE-87E1E5161418}</Project>
