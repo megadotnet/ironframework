@@ -156,6 +156,10 @@
     </None>
     <None Include="app.config" />
     <None Include="DALClassDiagram.cd" />
+    <None Include="GenSproc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GenSproc.sql</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +174,13 @@
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GenSproc.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenSproc.tt</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

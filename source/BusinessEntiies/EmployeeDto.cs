@@ -98,9 +98,9 @@ namespace BusinessEntiies
         //[DataMember] 
         //[JsonProperty("Employee2")]
         //public virtual Employee Employee2 { get; set; }
-        //[DataMember] 
-        //[JsonProperty("EmployeePayHistories")]
-        //public virtual EmployeePayHistoryDto [] EmployeePayHistories { get; set; }
+        [DataMember] 
+        [JsonProperty("EmployeePayHistories")]
+        public virtual EmployeePayHistoryDto [] EmployeePayHistories { get; set; }
     
          public override string ToString()
          {

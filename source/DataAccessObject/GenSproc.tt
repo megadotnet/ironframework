@@ -1,0 +1,336 @@
+﻿<#@ template   debug="true" hostSpecific="true" #>
+<#@ output extension="sql" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo"#>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+
+<#
+     string serverName = @".";
+     string databaseName = @"AdventureWorks";
+     Server server = new Server(serverName);       
+     Database database = new Database(server, databaseName);
+     database.Refresh(); 
+
+     int count=0;
+
+foreach(Table table in database.Tables)
+     {       
+     #>
+/* -------------------------------------------------------------------------------------*/
+/* DELETE SCRIPTS */
+/* ------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------
+ /     <#= table.Name #>DeleteBy<#= table.Name#>ID
+ /  ------------------------------------------------------------------------------------- */
+
+IF  EXISTS (SELECT * FROM sys.objects 
+             WHERE object_id = OBJECT_ID(N'<#=  table.Name #>DeleteBy<#= table.Name#>ID') AND type in (N'P', N'PC'))
+         DROP PROCEDURE  <#=  table.Name  #>DeleteBy<#= table.Name#>ID
+         GO
+
+ SET ANSI_NULLS ON
+ GO
+
+ SET QUOTED_IDENTIFIER ON
+ GO
+
+ CREATE PROCEDURE <#= table.Name #>DeleteBy<#= table.Name#>ID 
+<#
+         //int count=0;
+         count=0;
+         PushIndent("     ");
+         foreach (Column column in table.Columns)
+         {           
+             if (column.InPrimaryKey){
+             
+                 if (count>0) this.WriteLine(",");
+                     this.Write("@"+column.Name +" "+ column.DataType);
+                     count ++;
+             }   
+         } 
+         this.PopIndent();
+         WriteLine("");
+#>
+
+AS 
+     SET NOCOUNT ON;
+
+ DELETE FROM <#= table.Name #> 
+WHERE <#    
+         count = 0;
+         foreach (Column column in table.Columns)
+         {                       
+             if (column.InPrimaryKey){
+                 if (count>0) this.Write(" AND ");
+                 WriteLine(column.Name + " = @" + column.Name);
+                 count ++;
+             }
+         }
+         this.PopIndent();
+         WriteLine("");
+         WriteLine("GO");
+
+#>
+/* -------------------------------------------------------------------------------------*/
+/* SELECT BY PRIMARY KEY SCRIPTS */
+/* ------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------
+ /     <#= table.Name #>SelectBy<#= table.Name#>ID
+ /  ------------------------------------------------------------------------------------- */
+
+     
+     IF  EXISTS (SELECT * FROM sys.objects 
+             WHERE object_id = OBJECT_ID(N'<#=  table.Name #>SelectBy<#= table.Name#>ID') AND type in (N'P', N'PC'))
+         DROP PROCEDURE  <#=  table.Name  #>SelectBy<#= table.Name#>ID
+         GO
+
+         
+ SET ANSI_NULLS ON
+ GO
+
+ SET QUOTED_IDENTIFIER ON
+ GO
+
+ CREATE PROCEDURE <#= table.Name #>SelectBy<#= table.Name#>ID 
+<#
+         count=0;
+         PushIndent("     ");
+         foreach (Column column in table.Columns)
+         {           
+             if (column.InPrimaryKey){
+             
+                 if (count>0) this.WriteLine(",");
+                     this.Write("@"+column.Name +" "+ column.DataType);
+                     count ++;
+             }   
+         } 
+         this.PopIndent();
+         WriteLine("");
+#>
+
+AS 
+ SET NOCOUNT ON;
+SELECT * FROM <#= table.Name #> 
+WHERE <#    
+         count = 0;
+         foreach (Column column in table.Columns)
+         {                       
+             if (column.InPrimaryKey){
+                 if (count>0) this.Write(" AND ");
+                 WriteLine(column.Name + " = @" + column.Name);
+                 count ++;
+             }
+         }
+         this.PopIndent();
+         WriteLine("");
+         WriteLine("GO");
+
+#>
+/* -------------------------------------------------------------------------------------*/
+/* INSERT TABLE SCRIPTS */
+/* ------------------------------------------------------------------------------------- */
+         
+/* -------------------------------------------------------------------------------------
+ /     <#= table.Name #>Insert
+ /  ------------------------------------------------------------------------------------- */
+     
+     IF  EXISTS (SELECT * FROM sys.objects 
+             WHERE object_id = OBJECT_ID(N'<#=  table.Name #>Insert') AND type in (N'P', N'PC'))
+         DROP PROCEDURE  <#=  table.Name  #>Insert
+         GO
+
+         
+ SET ANSI_NULLS ON
+ GO
+
+ SET QUOTED_IDENTIFIER ON
+ GO
+
+     
+         CREATE PROCEDURE <#=  table.Name  #>Insert
+<# 
+         //int count = 0;
+         count=0;
+         string primarykeyname = "";
+         this.PushIndent("        ");
+         this.Write("    ");
+         foreach(Column column in table.Columns)
+         {
+             if (!column.Identity){
+
+                 if (count>0) 
+                 {   
+                 this.Write(" , ");
+             
+                 if (column.DataType.Name == "varchar")
+                     this.Write("@"+column.Name +" "+ column.DataType + "(" + column.Properties["Length"].Value + ")");
+
+                 else 
+                     this.Write("@" + column.Name + " " + column.DataType );
+                     this.WriteLine("");
+
+                 }   
+
+                 else {
+                     this.Write("   ");
+                 
+                         if (column.DataType.Name == "varchar")
+                             this.Write("@"+column.Name +" "+ column.DataType + "(" + column.Properties["Length"].Value + ")");
+
+                         else 
+                             this.Write("@" + column.Name + " " + column.DataType );
+                             this.WriteLine("");
+                 }
+
+             count ++;
+             }   
+
+             else 
+             {
+                     
+                     primarykeyname = column.Name;
+                     this.WriteLine("");
+                 
+                 }
+                 
+         }
+
+         this.Write(",@" + primarykeyname + " int OUTPUT");
+         this.WriteLine("    ");
+         this.PopIndent();
+         this.WriteLine("    ");
+         #>
+         AS
+         SET NOCOUNT ON;
+         INSERT INTO <#= table.Name #> 
+         (
+         <# 
+             this.PushIndent("        ");
+             count = 0;
+             
+             this.Write("    ");
+             foreach (Column column in table.Columns)
+             {
+                 if (!column.Identity){
+                     if  (count>0) this.Write(" , ");
+                     this.Write(column.Name);
+                     this.WriteLine("");
+                     count ++;
+                 }
+             }
+             this.WriteLine("");
+             this.PopIndent();
+         #>
+         ) VALUES (
+         <#  
+             this.PushIndent("        ");
+             count = 0;
+             this.Write("    ");
+             foreach(Column column in table.Columns)
+             {
+                 if (!column.Identity){
+                     if  (count>0) this.Write(" , ");
+                     this.Write("@" + column.Name);
+                     this.WriteLine("");
+                     count ++;
+                 }
+             }
+         #> 
+<# 
+
+     this.WriteLine(")");
+     this.WriteLine("SELECT @" + primarykeyname + " = SCOPE_IDENTITY()");
+     this.WriteLine("GO");
+         this.PopIndent();
+         WriteLine("");
+         WriteLine("");
+     
+
+#>
+/* -------------------------------------------------------------------------------------*/
+/* UPDATE TABLE SCRIPTS */
+/* ------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------
+ /     <#= table.Name #>Update
+ /  ------------------------------------------------------------------------------------- */
+
+IF  EXISTS (SELECT * FROM sys.objects 
+     WHERE object_id = OBJECT_ID(N'<#=  table.Name #>Update') AND type in (N'P', N'PC'))
+ DROP PROCEDURE  <#=  table.Name  #>Update
+ GO
+
+ SET ANSI_NULLS ON
+ GO
+
+ SET QUOTED_IDENTIFIER ON
+ GO
+         
+         CREATE PROCEDURE <#=  table.Name  #>Update
+<# 
+         count = 0;
+         this.PushIndent("        ");
+         this.Write("    ");
+         foreach(Column column in table.Columns)
+         {
+             if (count>0) this.Write(" , ");
+
+             if (column.DataType.Name == "varchar")
+             this.Write("@"+column.Name +" "+ column.DataType + "(" + column.Properties["Length"].Value + ")");
+
+                     else 
+                 this.Write("@" + column.Name + " " + column.DataType );
+
+             this.WriteLine("");
+             count ++;
+         }
+         this.PopIndent();
+         this.WriteLine("    ");
+         #>
+         AS 
+         SET NOCOUNT ON
+         UPDATE <#= table.Name #> SET
+         <# 
+             
+             count = 0;
+             this.Write("    ");
+             foreach (Column column in table.Columns)
+             {
+                 if (!column.InPrimaryKey){
+                     if  (count>0) this.Write("          , ");
+                     this.WriteLine(column.Name + " = @" + column.Name);
+                     count ++;
+                 }
+             }
+             
+         #>      WHERE <#  
+             
+             count = 0;
+             
+             foreach(Column column in table.Columns)
+             {
+                 if (column.InPrimaryKey){
+                     if  (count>0) this.Write(" , ");
+                     this.Write(column.Name + " = @" + column.Name);
+                     count ++;
+                 }
+             }
+         #> 
+<# 
+     this.WriteLine("        GO");
+         this.PopIndent();
+         WriteLine("");
+         WriteLine("");
+             #>
+
+
+<#      
+
+     }
+
+     
+#>
