@@ -41,6 +41,13 @@ namespace IronFramework.Utility
         /// </summary>
         static ServiceFactory()
         {
+            var container = PrepareContainer();
+
+            serviceLocator = new UnityServiceLocator(container);
+        }
+
+        public static IUnityContainer PrepareContainer()
+        {
             var container = Singleton.GetInstance<IUnityContainer>(() => new UnityContainer());
 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EntLib.config.xml");
@@ -65,8 +72,7 @@ namespace IronFramework.Utility
                 Logger.Write(ioe, "ExceptionLogger");
                 throw;
             }
-
-            serviceLocator = new UnityServiceLocator(container);
+            return container;
         }
 
         #endregion

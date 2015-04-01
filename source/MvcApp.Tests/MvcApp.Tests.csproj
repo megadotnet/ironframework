@@ -112,6 +112,10 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MVC5Web\MVC5Web.csproj">
+      <Project>{5fd82166-c8c7-4d0a-b1a1-203ddf398a66}</Project>
+      <Name>MVC5Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcApp\WebMvcApp.csproj">
       <Project>{fd090d57-3540-4e7d-90fe-cb33dc797b7c}</Project>
       <Name>WebMvcApp</Name>

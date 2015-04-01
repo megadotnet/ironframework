@@ -11,6 +11,9 @@ namespace WebApi2
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Application_Start
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,6 +21,7 @@ namespace WebApi2
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            UnityConfig.RegisterComponents();       
         }
     }
 }
