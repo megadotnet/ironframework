@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AsyncContronlerTests.cs" />
     <Compile Include="Controllers\EmployeeControllerTest.cs" />
     <Compile Include="Controllers\MemeoryEmployeeBoService.cs" />
     <Compile Include="Controllers\MockHttpContext.cs" />
