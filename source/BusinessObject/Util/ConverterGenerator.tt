@@ -1,0 +1,676 @@
+<#@ template language="C#" debug="true" hostspecific="true" #>
+<#@ Assembly Name="System.Core, Version=4.0.0.0, Culture=neutral" #>
+<#@ Assembly Name="Microsoft.CSharp, Version=4.0.0.0, Culture=neutral" #>
+<#@ import namespace="System.Text"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ output extension=".cs"#>
+<#
+//reference from http://stackoverflow.com/a/21406874
+const string inputFile = @"../../BusinessEntiies/AdventureWorks.edmx";
+var textTransform = DynamicTextTransformation.Create(this);
+var code = new CodeGenerationTools(this);
+var ef = new MetadataTools(this);
+var typeMapper = new TypeMapper(code, ef, textTransform.Errors);
+var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+var itemCollection = new EdmMetadataLoader(textTransform.Host, textTransform.Errors).CreateEdmItemCollection(inputFile);
+var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
+
+if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems(itemCollection), inputFile))
+{
+    return string.Empty;
+}
+
+WriteHeader(codeStringGenerator, fileManager);
+
+foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
+{
+    var collectionNavigationProperties = entity.NavigationProperties.Where(np => np.DeclaringType == entity && np.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many);
+      var complexProperties = entity.Properties.Where(p => p.TypeUsage.EdmType is ComplexType && p.DeclaringType == entity);
+
+    fileManager.StartNewFile(entity.Name + "Dto.cs");
+    BeginNamespace(code);
+#>
+<#=codeStringGenerator.UsingDirectives(false)#>
+<#=codeStringGenerator.EntityClassOpening(entity)#>
+{
+<#
+    var simpleProperties = typeMapper.GetSimpleProperties(entity);
+    if (simpleProperties.Any())
+    {
+
+#>
+       /// <summary>
+       /// Converts the dto to entities.
+       /// </summary>
+       /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#> dto.</param>
+       /// <returns><#=code.Escape(entity)#></returns>
+       public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+       {
+          if (_<#=code.Escape(entity)#>Dto==null)
+          {
+              throw new ArgumentNullException("model should not be null");
+          }
+          var ef<#=code.Escape(entity)#>=new <#=code.Escape(entity)#>();
+          ConvertObject(_<#=code.Escape(entity)#>Dto, ef<#=code.Escape(entity)#>);
+          return ef<#=code.Escape(entity)#>;
+       }
+
+          /// <summary>
+          /// Converts the dto to entities.
+          /// </summary>
+          /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#> dto</param>
+          /// <param name="ef<#=code.Escape(entity)#>">已存在的<#=code.Escape(entity)#> EF model</param>
+          /// <returns><#=code.Escape(entity)#></returns>
+         public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>)
+         {
+              if (_<#=code.Escape(entity)#>Dto==null && ef<#=code.Escape(entity)#>==null)
+              {
+                   throw new ArgumentNullException("models should not be null");
+              }
+               ConvertObject(_<#=code.Escape(entity)#>Dto, ef<#=code.Escape(entity)#>);
+               return ef<#=code.Escape(entity)#>;
+         }
+
+       /// <summary>
+       /// Converts the dto to entities.
+       /// </summary>
+       /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#> dto.</param>
+       /// <param name="skipNullPropertyValue">if set to <c>true</c> [skip null property value].</param>
+      /// <returns><#=code.Escape(entity)#></returns>
+     public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto,bool skipNullPropertyValue)
+    {
+          if (_<#=code.Escape(entity)#>Dto==null)
+          {
+              throw new ArgumentNullException("model should not be null");
+          }
+
+         var ef<#=code.Escape(entity)#>=new <#=code.Escape(entity)#>();
+
+         ConvertObjectWithCheckNull(_<#=code.Escape(entity)#>Dto, skipNullPropertyValue, ef<#=code.Escape(entity)#>);
+         return ef<#=code.Escape(entity)#>;
+     }
+
+         /// <summary>
+         /// Converts the dto to entities.
+         /// </summary>
+         /// <param name="_ <#=code.Escape(entity)#>Dto">The  <#=code.Escape(entity)#> dto.</param>
+         /// <param name="ef <#=code.Escape(entity)#>">已存的EntityFramework实体 ef <#=code.Escape(entity)#></param>
+         /// <param name="skipNullPropertyValue">if set to <c>true</c> [skip null property value].</param>
+         /// <returns><#=code.Escape(entity)#></returns>
+       public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>, bool skipNullPropertyValue)
+       {
+              if (_<#=code.Escape(entity)#>Dto==null && ef<#=code.Escape(entity)#>==null)
+              {
+                   throw new ArgumentNullException("models should not be null");
+              }
+
+             ConvertObjectWithCheckNull(_<#=code.Escape(entity)#>Dto, skipNullPropertyValue, ef<#=code.Escape(entity)#>);
+             return ef<#=code.Escape(entity)#>;
+       }
+
+      private static void ConvertObjectWithCheckNull(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, bool skipNullPropertyValue, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>)
+      {
+<#
+        foreach (var edmProperty in simpleProperties)
+        { #><# if (IsStringType(edmProperty.TypeUsage)) { #> 
+           if (!skipNullPropertyValue ||  _<#=code.Escape(entity)#>Dto.<#=codeStringGenerator.Property(edmProperty)#> != null) {ef<#=code.Escape(entity)#>.<#=codeStringGenerator.Property(edmProperty)#>=_<#=code.Escape(entity)#>Dto.<#=codeStringGenerator.Property(edmProperty)#>; }
+<#}else {#>
+           ef<#=code.Escape(entity)#>.<#=codeStringGenerator.Property(edmProperty)#>=_<#=code.Escape(entity)#>Dto.<#=codeStringGenerator.Property(edmProperty)#>;
+  <# } #>
+   <# } #>
+
+        }
+
+       /// <summary>
+       /// Converts the entities to dto.
+      /// </summary>
+      /// <param name="_<#=code.Escape(entity)#>">The <#=code.Escape(entity)#> entity</param>
+      /// <returns><#=code.Escape(entity)#>Dto</returns>
+     public <#=code.Escape(entity)#>Dto ConvertEntitiesToDto(<#=code.Escape(entity)#>  _<#=code.Escape(entity)#>)
+    {
+          if (_<#=code.Escape(entity)#>==null)
+          {
+                   throw new ArgumentNullException("models should not be null");
+          }
+
+         var _<#=code.Escape(entity)#>Dto =new <#=code.Escape(entity)#>Dto();
+          <#
+        foreach (var edmProperty in simpleProperties)
+        { #>
+           _<#=code.Escape(entity)#>Dto.<#=codeStringGenerator.Property(edmProperty)#>=_<#=code.Escape(entity)#>.<#=codeStringGenerator.Property(edmProperty)#>; 
+   <# } #>
+          return _<#=code.Escape(entity)#>Dto;
+    }
+
+       private static void ConvertObject(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>)
+       {
+<#
+        foreach (var edmProperty in simpleProperties)
+        { #>
+           ef<#=code.Escape(entity)#>.<#=codeStringGenerator.Property(edmProperty)#>=_<#=code.Escape(entity)#>Dto.<#=codeStringGenerator.Property(edmProperty)#>; 
+   <# } #>
+       }
+<#
+      
+    }
+
+    var navigationProperties = entity.NavigationProperties.Where(np => np.DeclaringType == entity);
+    if (navigationProperties.Any())
+    {
+#>
+
+<#
+        foreach (var navigationProperty in navigationProperties)
+        {
+            WriteNavigationProperty(code, navigationProperty);
+        }
+    }
+#>
+}
+<#
+    EndNamespace(code);
+}
+
+foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollection))
+{
+    fileManager.StartNewFile(complex.Name + ".cs");
+    BeginNamespace(code);
+#>
+<#=codeStringGenerator.UsingDirectives(false, false)#>
+<#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>
+{
+<#
+
+    var simpleProperties = typeMapper.GetSimpleProperties(complex);
+    if (simpleProperties.Any())
+    {
+        foreach(var edmProperty in simpleProperties)
+        {
+#>
+    <#=codeStringGenerator.Property(edmProperty)#>
+<#
+        }
+    }
+#>
+}
+<#
+    EndNamespace(code);
+}
+fileManager.Process();
+#>
+
+<#+
+
+public void WriteHeader(CodeStringGenerator codeStringGenerator, EntityFrameworkTemplateFileManager fileManager)
+{
+    fileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+// <#=GetResourceString("Template_GeneratedCodeCommentLine1")#>
+// DTO 模型与数据层的实体 相互 转换工具 类
+// <#=GetResourceString("Template_GeneratedCodeCommentLine2")#>
+// <#=GetResourceString("Template_GeneratedCodeCommentLine3")#>
+// </auto-generated>
+//------------------------------------------------------------------------------
+<#=codeStringGenerator.UsingDirectives(true)#>
+<#+
+    fileManager.EndBlock();
+}
+
+public void BeginNamespace(CodeGenerationTools code)
+{
+    var codeNamespace = code.VsNamespaceSuggestion();
+    if (!String.IsNullOrEmpty(codeNamespace))
+    {
+#>
+namespace <#=code.EscapeNamespace(codeNamespace)#>
+{
+<#+
+        PushIndent("    ");
+    }
+}
+
+public void EndNamespace(CodeGenerationTools code)
+{
+    if (!String.IsNullOrEmpty(code.VsNamespaceSuggestion()))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+public const string TemplateId = "CSharp_DbContext_Types_EF5";
+
+ void WriteNavigationProperty(CodeGenerationTools code, NavigationProperty navigationProperty)
+{
+    var endType = code.Escape(navigationProperty.ToEndMember.GetEntityType());
+    WriteProperty2(PropertyVirtualModifier(Accessibility.ForProperty(navigationProperty)),
+                  navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? (endType + "Dto []") : endType+"Dto",
+                  code.Escape(navigationProperty),
+                  code.SpaceAfter(Accessibility.ForGetter(navigationProperty)),
+                  code.SpaceAfter(Accessibility.ForSetter(navigationProperty)));
+}
+
+    void WriteProperty2(string accessibility, string type, string name, string getterAccessibility, string setterAccessibility)
+{
+#>
+    //<#=accessibility#> <#=type#> <#=name#>s { <#=getterAccessibility#>get; <#=setterAccessibility#>set; }
+<#+
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
+public class CodeStringGenerator
+{
+    private readonly CodeGenerationTools _code;
+    private readonly TypeMapper _typeMapper;
+    private readonly MetadataTools _ef;
+
+    public CodeStringGenerator(CodeGenerationTools code, TypeMapper typeMapper, MetadataTools ef)
+    {
+        ArgumentNotNull(code, "code");
+        ArgumentNotNull(typeMapper, "typeMapper");
+        ArgumentNotNull(ef, "ef");
+
+        _code = code;
+        _typeMapper = typeMapper;
+        _ef = ef;
+    }
+
+    public string Property(EdmProperty edmProperty)
+    {
+            return _code.Escape(edmProperty);
+    }
+
+
+    public string EntityClassOpening(EntityType entity)
+    {
+        System.Text.StringBuilder sb=new System.Text.StringBuilder();
+           
+            sb.AppendFormat(CultureInfo.InvariantCulture,
+@"public interface I{0}Converter
+    {{
+        {0} ConvertDtoToEntities({0}Dto _{0}Dto);
+        {0} ConvertDtoToEntities({0}Dto _{0}Dto, {0} ef{0});
+        {0} ConvertDtoToEntities({0}Dto _{0}Dto,bool skipNullPropertyValue);
+        {0} ConvertDtoToEntities({0}Dto _{0}Dto, {0} ef{0}, bool skipNullPropertyValue);
+        {0}Dto ConvertEntitiesToDto({0} _{0});
+     }}",_code.Escape(entity));
+
+            sb.AppendLine();
+            sb.AppendFormat(
+                CultureInfo.InvariantCulture,
+                @"{0} {1}partial class {2}Converter{3}: I{2}Converter",
+                Accessibility.ForType(entity),
+                _code.SpaceAfter(_code.AbstractOption(entity)),
+                _code.Escape(entity),
+                _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)));
+
+
+
+            return sb.ToString();
+    }
+
+
+    public string UsingDirectives(bool inHeader, bool includeCollections)
+    {
+        return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
+            ? string.Format(
+                CultureInfo.InvariantCulture,
+                "{0}using System;using System.ComponentModel.DataAnnotations;" +
+                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using AOC.DataTransferObject;using AOC.BusinessEntities;\r\n using AOC.DataTransferObject.Dto;using AOC.DataTransferObject;{1}" +
+                "{2}",
+                inHeader ? Environment.NewLine : "",
+                includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
+                inHeader ? "" : Environment.NewLine)
+            : "";
+    }
+
+    public string UsingDirectives(bool inHeader)
+    {
+        return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
+            ? string.Format(
+                CultureInfo.InvariantCulture,
+                "{0}using System;using System.ComponentModel.DataAnnotations;" +Environment.NewLine+
+                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using AOC.DataTransferObject.Model;using AOC.BusinessEntities;\r\n using AOC.DataTransferObject.Dto;using AOC.DataTransferObject;{1}" +
+                "{2}",
+                inHeader ? Environment.NewLine : "",
+                Environment.NewLine + "using System.Collections.Generic;",
+                inHeader ? "" : Environment.NewLine)
+            : "";
+    }
+}
+
+public class TypeMapper
+{
+    private const string ExternalTypeNameAttributeName = @"http://schemas.microsoft.com/ado/2006/04/codegeneration:ExternalTypeName";
+
+    private readonly System.Collections.IList _errors;
+    private readonly CodeGenerationTools _code;
+    private readonly MetadataTools _ef;
+
+    public TypeMapper(CodeGenerationTools code, MetadataTools ef, System.Collections.IList errors)
+    {
+        ArgumentNotNull(code, "code");
+        ArgumentNotNull(ef, "ef");
+        ArgumentNotNull(errors, "errors");
+
+        _code = code;
+        _ef = ef;
+        _errors = errors;
+    }
+
+    public string GetTypeName(TypeUsage typeUsage)
+    {
+        return typeUsage == null ? null : GetTypeName(typeUsage.EdmType, _ef.IsNullable(typeUsage), null);
+    }
+
+    public string GetTypeName(EdmType edmType)
+    {
+        return GetTypeName(edmType, null,  null);
+    }
+
+    public string GetTypeName(TypeUsage typeUsage, string modelNamespace)
+    {
+        return typeUsage == null ? null : GetTypeName(typeUsage.EdmType, _ef.IsNullable(typeUsage), modelNamespace);
+    }
+
+    public string GetTypeName(EdmType edmType, string modelNamespace)
+    {
+        return GetTypeName(edmType, null, modelNamespace);
+    }
+
+    public string GetTypeName(EdmType edmType, bool? isNullable, string modelNamespace)
+    {
+        if (edmType == null)
+        {
+            return null;
+        }
+
+        var collectionType = edmType as CollectionType;
+        if (collectionType != null)
+        {
+            return String.Format(CultureInfo.InvariantCulture, "ICollection<{0}>", GetTypeName(collectionType.TypeUsage, modelNamespace));
+        }
+
+        var typeName = _code.Escape(edmType.MetadataProperties
+                                .Where(p => p.Name == ExternalTypeNameAttributeName)
+                                .Select(p => (string)p.Value)
+                                .FirstOrDefault())
+            ?? (modelNamespace != null && edmType.NamespaceName != modelNamespace ?
+                _code.CreateFullName(_code.EscapeNamespace(edmType.NamespaceName), _code.Escape(edmType)) :
+                _code.Escape(edmType));
+
+        if (edmType is StructuralType)
+        {
+            return typeName;
+        }
+
+        if (edmType is SimpleType)
+        {
+            var clrType = UnderlyingClrType(edmType);
+            if (!IsEnumType(edmType))
+            {
+                typeName = _code.Escape(clrType);
+            }
+
+            return clrType.IsValueType && isNullable == true ?
+                String.Format(CultureInfo.InvariantCulture, "Nullable<{0}>", typeName) :
+                typeName;
+        }
+
+        throw new ArgumentException("edmType");
+    }
+
+    public Type UnderlyingClrType(EdmType edmType)
+    {
+        ArgumentNotNull(edmType, "edmType");
+
+        var primitiveType = edmType as PrimitiveType;
+        if (primitiveType != null)
+        {
+            return primitiveType.ClrEquivalentType;
+        }
+
+        if (IsEnumType(edmType))
+        {
+            return GetEnumUnderlyingType(edmType).ClrEquivalentType;
+        }
+
+        return typeof(object);
+    }
+
+
+
+    public bool IsEnumType(GlobalItem edmType)
+    {
+        ArgumentNotNull(edmType, "edmType");
+
+        return edmType.GetType().Name == "EnumType";
+    }
+
+    public PrimitiveType GetEnumUnderlyingType(EdmType enumType)
+    {
+        ArgumentNotNull(enumType, "enumType");
+
+        return (PrimitiveType)enumType.GetType().GetProperty("UnderlyingType").GetValue(enumType, null);
+    }
+
+    public string CreateLiteral(object value)
+    {
+        if (value == null || value.GetType() != typeof(TimeSpan))
+        {
+            return _code.CreateLiteral(value);
+        }
+
+        return string.Format(CultureInfo.InvariantCulture, "new TimeSpan({0})", ((TimeSpan)value).Ticks);
+    }
+
+    public bool VerifyCaseInsensitiveTypeUniqueness(IEnumerable<string> types, string sourceFile)
+    {
+        ArgumentNotNull(types, "types");
+        ArgumentNotNull(sourceFile, "sourceFile");
+
+        var hash = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+        if (types.Any(item => !hash.Add(item)))
+        {
+            _errors.Add(
+                new CompilerError(sourceFile, -1, -1, "6023",
+                    String.Format(CultureInfo.CurrentCulture, GetResourceString("Template_CaseInsensitiveTypeConflict"))));
+            return false;
+        }
+        return true;
+    }
+
+
+
+    public IEnumerable<T> GetItemsToGenerate<T>(IEnumerable<GlobalItem> itemCollection) where T: EdmType
+    {
+        return itemCollection
+            .OfType<T>()
+            .Where(i => !i.MetadataProperties.Any(p => p.Name == ExternalTypeNameAttributeName))
+            .OrderBy(i => i.Name);
+    }
+
+    public IEnumerable<string> GetAllGlobalItems(IEnumerable<GlobalItem> itemCollection)
+    {
+        return itemCollection
+            .Where(i => i is EntityType || i is ComplexType || i is EntityContainer || IsEnumType(i))
+            .Select(g => GetGlobalItemName(g));
+    }
+
+    public string GetGlobalItemName(GlobalItem item)
+    {
+        if (item is EdmType)
+        {
+            return ((EdmType)item).Name;
+        }
+        else
+        {
+            return ((EntityContainer)item).Name;
+        }
+    }
+
+    public IEnumerable<EdmProperty> GetSimpleProperties(EntityType type)
+    {
+        return type.Properties.Where(p => p.TypeUsage.EdmType is SimpleType && p.DeclaringType == type);
+    }
+
+    public IEnumerable<EdmProperty> GetSimpleProperties(ComplexType type)
+    {
+        return type.Properties.Where(p => p.TypeUsage.EdmType is SimpleType && p.DeclaringType == type);
+    }
+}
+
+public class EdmMetadataLoader
+{
+    private readonly IDynamicHost _host;
+    private readonly System.Collections.IList _errors;
+
+    public EdmMetadataLoader(IDynamicHost host, System.Collections.IList errors)
+    {
+        ArgumentNotNull(host, "host");
+        ArgumentNotNull(errors, "errors");
+
+        _host = host;
+        _errors = errors;
+    }
+
+    public IEnumerable<GlobalItem> CreateEdmItemCollection(string sourcePath)
+    {
+        ArgumentNotNull(sourcePath, "sourcePath");
+
+        if (!ValidateInputPath(sourcePath))
+        {
+            return new EdmItemCollection();
+        }
+
+        var schemaElement = LoadRootElement(_host.ResolvePath(sourcePath));
+        if (schemaElement != null)
+        {
+            using (var reader = schemaElement.CreateReader())
+            {
+                IList<EdmSchemaError> errors;
+                var itemCollection = MetadataItemCollectionFactory.CreateEdmItemCollection(new[] { reader }, out errors);
+
+                ProcessErrors(errors, sourcePath);
+
+                return itemCollection;
+            }
+        }
+        return new EdmItemCollection();
+    }
+
+    public string GetModelNamespace(string sourcePath)
+    {
+        ArgumentNotNull(sourcePath, "sourcePath");
+
+        if (!ValidateInputPath(sourcePath))
+        {
+            return string.Empty;
+        }
+
+        var model = LoadRootElement(_host.ResolvePath(sourcePath));
+        if (model == null)
+        {
+            return string.Empty;
+        }
+
+        var attribute = model.Attribute("Namespace");
+        return attribute != null ? attribute.Value : "";
+    }
+
+    private bool ValidateInputPath(string sourcePath)
+    {
+        if (sourcePath == "$" + "edmxInputFile" + "$")
+        {
+            _errors.Add(
+                new CompilerError(_host.TemplateFile ?? sourcePath, 0, 0, string.Empty,
+                    GetResourceString("Template_ReplaceVsItemTemplateToken")));
+            return false;
+        }
+
+        return true;
+    }
+
+    public XElement LoadRootElement(string sourcePath)
+    {
+        ArgumentNotNull(sourcePath, "sourcePath");
+
+        var root = XElement.Load(sourcePath, LoadOptions.SetBaseUri | LoadOptions.SetLineInfo);
+        return root.Elements()
+            .Where(e => e.Name.LocalName == "Runtime")
+            .Elements()
+            .Where(e => e.Name.LocalName == "ConceptualModels")
+            .Elements()
+            .Where(e => e.Name.LocalName == "Schema")
+            .FirstOrDefault()
+                ?? root;
+    }
+
+    private void ProcessErrors(IEnumerable<EdmSchemaError> errors, string sourceFilePath)
+    {
+        foreach (var error in errors)
+        {
+            _errors.Add(
+                new CompilerError(
+                    error.SchemaLocation ?? sourceFilePath,
+                    error.Line,
+                    error.Column,
+                    error.ErrorCode.ToString(CultureInfo.InvariantCulture),
+                    error.Message)
+                {
+                    IsWarning = error.Severity == EdmSchemaErrorSeverity.Warning
+                });
+        }
+    }
+
+
+}
+
+public static void ArgumentNotNull<T>(T arg, string name) where T : class
+{
+    if (arg == null)
+    {
+        throw new ArgumentNullException(name);
+    }
+}
+
+private static readonly Lazy<System.Resources.ResourceManager> ResourceManager =
+    new Lazy<System.Resources.ResourceManager>(
+        () => new System.Resources.ResourceManager("System.Data.Entity.Design", typeof(MetadataItemCollectionFactory).Assembly),  true);
+
+public static string GetResourceString(string resourceName)
+{
+    ArgumentNotNull(resourceName, "resourceName");
+
+    return ResourceManager.Value.GetString(resourceName, null);
+}
+
+public static bool IsNullable(TypeUsage usage) 
+{ 
+    return (bool)usage.Facets.First(facet => facet.Name == "Nullable").Value; 
+} 
+ 
+ public static bool IsStringType(TypeUsage usage) 
+{ 
+        return (bool)(usage.EdmType.Name=="String");
+} 
+
+public static bool HasMaxLength(TypeUsage usage) 
+{ 
+    return usage.Facets.Any(facet => facet.Name == "MaxLength"&& facet.Value != null && facet.IsUnbounded == false);     
+} 
+ 
+ private static int MaxLength(TypeUsage usage)
+ {
+    return (int)usage.Facets.First(facet => facet.Name == "MaxLength").Value;    
+ }
+ 
+
+#>

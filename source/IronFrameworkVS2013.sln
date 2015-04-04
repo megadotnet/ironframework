@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{D3E1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Enties", "Enties", "{25A86981-9091-4D52-B4C6-FA68876FDA23}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{25A86981-9091-4D52-B4C6-FA68876FDA23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{79066B18-BAB7-414F-BE5A-C2DB3D370DF1}"
 EndProject
@@ -69,6 +69,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A045B6
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObject", "DataTransferObject\DataTransferObject.csproj", "{8A550FC8-2CE5-4774-A565-B38899352366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +158,10 @@ Global
 		{90BB7690-575A-41E1-8197-B8A30CEEF7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90BB7690-575A-41E1-8197-B8A30CEEF7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90BB7690-575A-41E1-8197-B8A30CEEF7DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A550FC8-2CE5-4774-A565-B38899352366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A550FC8-2CE5-4774-A565-B38899352366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A550FC8-2CE5-4774-A565-B38899352366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A550FC8-2CE5-4774-A565-B38899352366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +187,7 @@ Global
 		{AB948773-CA27-452E-97E5-4EBDD70CA59D} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
 		{D5A34979-907B-44CC-A9AE-87E1E5161418} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
 		{90BB7690-575A-41E1-8197-B8A30CEEF7DB} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
+		{8A550FC8-2CE5-4774-A565-B38899352366} = {25A86981-9091-4D52-B4C6-FA68876FDA23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.PolicyInjection.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
