@@ -133,6 +133,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\packages\AutoFixture.3.23.0\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.Xunit">
+      <HintPath>..\packages\AutoFixture.Xunit.3.23.0\lib\net40\Ploeh.AutoFixture.Xunit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -190,6 +196,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\BusinessObjectTest.cs" />
+    <Compile Include="GenreateBOTests\AddressTests.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\AddressTests.Generated.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\ContactTests.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\ContactTests.Generated.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\EmployeePayHistoryTests.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\EmployeePayHistoryTests.Generated.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\EmployeeTests.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\EmployeeTests.Generated.cs">
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreateBOTests\UnitTestsBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitTestsBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Http\HttpWebService.cs" />
     <Compile Include="Service\RESTServiceTest.cs" />
     <Compile Include="Infrastructure\TestCutCrossingConcerns.cs" />
@@ -241,6 +276,10 @@
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="GenreateBOTests\UnitTestsBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UnitTestsBase.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BusinessEntiies.Employee.datasource" />
