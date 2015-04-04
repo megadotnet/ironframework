@@ -18,7 +18,7 @@ var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
 //   Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
-//   a interface of data acccess repository.
+//   a interface of business object repository.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -27,9 +27,9 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
-    using BusinessEntiies;
 
     using IronFramework.Utility.UI;
+    using DataTransferObject.Model;
 
     /// <summary>
     /// a interface of data acccess repository.
@@ -111,6 +111,16 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </returns>
         bool DeleteWithAttachEntiy(T t);
 
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        bool DeleteWithAttachEntiy(T[] entities);
+
         /// <summary>
         /// The update entiy.
         /// </summary>
@@ -132,6 +142,14 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// The <see cref="bool"/>.
         /// </returns>
          bool UpdateWithAttachEntiy(T t);
+
+
+        /// <summary>
+        /// Updates the entiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        bool UpdateEntiyWithGet(T entity);
         #endregion
     }
 }<#
@@ -162,6 +180,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq.Expressions;
     using System.Collections.Generic;
     using BusinessEntiies;
+    using DataTransferObject;
 
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>interface I<#=code.Escape(entity)#>BO : IBusniessLogicObject<<#=code.Escape(entity)#>Dto>
 	{
@@ -181,7 +200,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 		fileManager.StartNewFile(entity.Name + "BO.cs");
 		#>// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="<#=code.Escape(entity)#>BO.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The <#=code.Escape(entity)#>Bo
@@ -195,10 +214,12 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using BusinessEntiies;
 using DataAccessObject;
-using IronFramework.Utility;
+using DataTransferObject.Model;
+using DataTransferObject;
+using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
-
+	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
     /// <summary>
@@ -209,7 +230,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new TypeAdapter();
+        private I<#=code.Escape(entity)#>Converter typeAdapter = new <#=code.Escape(entity)#>Converter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -234,7 +255,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         }
 
         /// <summary>
-        /// FindEnties 
+        /// Find Enties 
         /// </summary>
         /// <param name="pageIndex">pageIndex</param>
         /// <param name="pageSize">pageSize</param>
@@ -243,21 +264,22 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             var entities=entiesrepository.Repository.Find(p => p.<#=codeStringGenerator.PK(entity)#>>0, p => p.<#=codeStringGenerator.PK(entity)#>, pageIndex, pageSize);
             var listDtos=new PagedList<<#=code.Escape(entity)#>Dto>() { TotalCount = entities.TotalCount };
-             entities.ForEach(entity => { listDtos.Add(typeAdapter.Transform<<#=code.Escape(entity)#>, <#=code.Escape(entity)#>Dto>(entity)); });
+             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
         }
 
 
         /// <summary>
-        /// Converts the toui model.
+        /// Converts the to UI model.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        /// <returns></returns>
-        private EasyuiDatagridData<UIT> ConvertTOUIModel<UIT, DBT>(PagedList<DBT> entities)
+        /// <returns><#=code.Escape(entity)#> list</returns>
+        private EasyuiDatagridData<<#=code.Escape(entity)#>Dto> ConvertTOUIModel(PagedList<<#=code.Escape(entity)#>> entities)
         {
-            var listDtos = new EasyuiDatagridData<UIT>() { total = entities.TotalCount };
-            var lists = new List<UIT>();
-            entities.ForEach(entity => { lists.Add(typeAdapter.Transform<DBT, UIT>(entity)); });
+            var listDtos = new EasyuiDatagridData<<#=code.Escape(entity)#>Dto>() { total = entities.TotalCount };
+            var lists = new List<<#=code.Escape(entity)#>Dto>();
+            
+            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
             listDtos.rows = lists.ToArray();
             return listDtos;
         }
@@ -270,7 +292,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> FindEnties(<#=code.Escape(entity)#>Dto  _<#=code.Escape(entity).ToLower()#>Dto)
         {
             var entities = entiesrepository.Repository.Find(p => p.<#=codeStringGenerator.PK(entity)#> > 0, p => p.<#=codeStringGenerator.PK(entity)#>, _<#=code.Escape(entity).ToLower()#>Dto.pageIndex, _<#=code.Escape(entity).ToLower()#>Dto.pageSize);
-            var listDtos = ConvertTOUIModel<<#=code.Escape(entity)#>Dto,<#=code.Escape(entity)#>>(entities);
+            var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
 
@@ -287,7 +309,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
                 e => e.<#=codeStringGenerator.PK(entity)#>,
                 _<#=code.Escape(entity).ToLower()#>Dto.pageIndex,
                 _<#=code.Escape(entity).ToLower()#>Dto.pageSize);
-           return ConvertTOUIModel<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(dbResults);
+           return ConvertTOUIModel(dbResults);
         }
 
 
@@ -329,7 +351,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool CreateEntiy(<#=code.Escape(entity)#>Dto t)
         {
-            var dbEntity=typeAdapter.Transform<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(t);
+            var dbEntity=typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Add(dbEntity);
             entiesrepository.Save();
             return true;
@@ -343,7 +365,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public <#=code.Escape(entity)#>Dto GetEntiyByPK(int _<#=codeStringGenerator.PK(entity)#>)
         {
             var entity=entiesrepository.Repository.Single(e => e.<#=codeStringGenerator.PK(entity)#> == _<#=codeStringGenerator.PK(entity)#>);
-            return typeAdapter.Transform<<#=code.Escape(entity)#>, <#=code.Escape(entity)#>Dto>(entity);
+            return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
 
@@ -354,11 +376,31 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteWithAttachEntiy(<#=code.Escape(entity)#>Dto t)
         {
-            var dbEntity = typeAdapter.Transform<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Attach(dbEntity);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        public bool DeleteWithAttachEntiy(<#=code.Escape(entity)#>Dto[] entities)
+        {
+            bool flag = false;
+           if (entities!=null& entities.Length>0)
+           {
+               foreach(var entity in entities)
+               {
+                   flag=DeleteWithAttachEntiy(entity);
+               }
+           }
+           return flag;
         }
 
         /// <summary>
@@ -368,7 +410,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteEntiy(<#=code.Escape(entity)#>Dto t)
         {
-            var dbEntity = typeAdapter.Transform<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
@@ -381,14 +423,14 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateWithAttachEntiy(<#=code.Escape(entity)#>Dto t)
         {
-            var dbentity = typeAdapter.Transform<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             if (StateHelpers.GetEquivalentEntityState(dbentity.State)==StateHelpers.GetEquivalentEntityState(State.Detached))
             {
                entiesrepository.Attach(dbentity); 
             }
 
             dbentity.State = State.Modified;
-            context.ChangeObjectState<<#=code.Escape(entity)#>>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+            context.ChangeObjectState<<#=code.Escape(entity)#>>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
             uow.Save();
             return true;
@@ -401,10 +443,24 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateEntiy(<#=code.Escape(entity)#>Dto t)
         {
-            var dbentity = typeAdapter.Transform<<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#>>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             dbentity.State = State.Modified;
             context.ChangeObjectState<<#=code.Escape(entity)#>>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
+            uow.Save();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates the <#=code.Escape(entity)#>entiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        public bool UpdateEntiyWithGet(<#=code.Escape(entity)#>Dto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.<#=codeStringGenerator.PK(entity)#> == entity.<#=codeStringGenerator.PK(entity)#>);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
         }
@@ -474,19 +530,11 @@ public class CodeStringGenerator
                     _code.Escape(edmProperty)
                     ,entityname);
             }
-            else if (typeName=="Nullable<bool>")
+            else if (typeName=="bool" || typeName=="Nullable<bool>")
             {
                 resultStr= string.Format(
                     CultureInfo.InvariantCulture,
                     "if (_{1}Dto.{0} != null) list.Add(c => c.{0} == _{1}Dto.{0});",
-                    _code.Escape(edmProperty)
-                    ,entityname);
-            }
-            else if (typeName=="bool")
-            {
-                resultStr= string.Format(
-                    CultureInfo.InvariantCulture,
-                    "if (_{1}Dto.{0} != false) list.Add(c => c.{0} == _{1}Dto.{0});",
                     _code.Escape(edmProperty)
                     ,entityname);
             }
@@ -958,7 +1006,7 @@ string OutputFile(string filename)
 	}
 }
 
-string GetCurrentDirectory()
+ string GetCurrentDirectory()
 {
 	string executingDirectoryName = "";
 	string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();

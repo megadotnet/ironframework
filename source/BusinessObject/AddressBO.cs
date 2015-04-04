@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="AddressBO.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The AddressBo
@@ -14,10 +14,12 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using BusinessEntiies;
 using DataAccessObject;
-using IronFramework.Utility;
+using DataTransferObject.Model;
+using DataTransferObject;
+using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
-
+	
 namespace BusinessObject
 {   
     /// <summary>
@@ -28,7 +30,7 @@ namespace BusinessObject
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new TypeAdapter();
+        private IAddressConverter typeAdapter = new AddressConverter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -53,7 +55,7 @@ namespace BusinessObject
         }
 
         /// <summary>
-        /// FindEnties 
+        /// Find Enties 
         /// </summary>
         /// <param name="pageIndex">pageIndex</param>
         /// <param name="pageSize">pageSize</param>
@@ -62,21 +64,22 @@ namespace BusinessObject
         {
             var entities=entiesrepository.Repository.Find(p => p.AddressID>0, p => p.AddressID, pageIndex, pageSize);
             var listDtos=new PagedList<AddressDto>() { TotalCount = entities.TotalCount };
-             entities.ForEach(entity => { listDtos.Add(typeAdapter.Transform<Address, AddressDto>(entity)); });
+             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
         }
 
 
         /// <summary>
-        /// Converts the toui model.
+        /// Converts the to UI model.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        /// <returns></returns>
-        private EasyuiDatagridData<UIT> ConvertTOUIModel<UIT, DBT>(PagedList<DBT> entities)
+        /// <returns>Address list</returns>
+        private EasyuiDatagridData<AddressDto> ConvertTOUIModel(PagedList<Address> entities)
         {
-            var listDtos = new EasyuiDatagridData<UIT>() { total = entities.TotalCount };
-            var lists = new List<UIT>();
-            entities.ForEach(entity => { lists.Add(typeAdapter.Transform<DBT, UIT>(entity)); });
+            var listDtos = new EasyuiDatagridData<AddressDto>() { total = entities.TotalCount };
+            var lists = new List<AddressDto>();
+            
+            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
             listDtos.rows = lists.ToArray();
             return listDtos;
         }
@@ -89,7 +92,7 @@ namespace BusinessObject
         public EasyuiDatagridData<AddressDto> FindEnties(AddressDto  _addressDto)
         {
             var entities = entiesrepository.Repository.Find(p => p.AddressID > 0, p => p.AddressID, _addressDto.pageIndex, _addressDto.pageSize);
-            var listDtos = ConvertTOUIModel<AddressDto,Address>(entities);
+            var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
 
@@ -106,7 +109,7 @@ namespace BusinessObject
                 e => e.AddressID,
                 _addressDto.pageIndex,
                 _addressDto.pageSize);
-           return ConvertTOUIModel<AddressDto, Address>(dbResults);
+           return ConvertTOUIModel(dbResults);
         }
 
 
@@ -144,7 +147,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool CreateEntiy(AddressDto t)
         {
-            var dbEntity=typeAdapter.Transform<AddressDto, Address>(t);
+            var dbEntity=typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Add(dbEntity);
             entiesrepository.Save();
             return true;
@@ -158,7 +161,7 @@ namespace BusinessObject
         public AddressDto GetEntiyByPK(int _AddressID)
         {
             var entity=entiesrepository.Repository.Single(e => e.AddressID == _AddressID);
-            return typeAdapter.Transform<Address, AddressDto>(entity);
+            return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
 
@@ -169,11 +172,31 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteWithAttachEntiy(AddressDto t)
         {
-            var dbEntity = typeAdapter.Transform<AddressDto, Address>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Attach(dbEntity);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        public bool DeleteWithAttachEntiy(AddressDto[] entities)
+        {
+            bool flag = false;
+           if (entities!=null& entities.Length>0)
+           {
+               foreach(var entity in entities)
+               {
+                   flag=DeleteWithAttachEntiy(entity);
+               }
+           }
+           return flag;
         }
 
         /// <summary>
@@ -183,7 +206,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteEntiy(AddressDto t)
         {
-            var dbEntity = typeAdapter.Transform<AddressDto, Address>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
@@ -196,14 +219,14 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateWithAttachEntiy(AddressDto t)
         {
-            var dbentity = typeAdapter.Transform<AddressDto, Address>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             if (StateHelpers.GetEquivalentEntityState(dbentity.State)==StateHelpers.GetEquivalentEntityState(State.Detached))
             {
                entiesrepository.Attach(dbentity); 
             }
 
             dbentity.State = State.Modified;
-            context.ChangeObjectState<Address>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+            context.ChangeObjectState<Address>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
             uow.Save();
             return true;
@@ -216,10 +239,24 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateEntiy(AddressDto t)
         {
-            var dbentity = typeAdapter.Transform<AddressDto, Address>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             dbentity.State = State.Modified;
             context.ChangeObjectState<Address>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
+            uow.Save();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates the Addressentiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        public bool UpdateEntiyWithGet(AddressDto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.AddressID == entity.AddressID);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
         }

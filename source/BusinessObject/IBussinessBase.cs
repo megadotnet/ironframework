@@ -5,7 +5,7 @@
 //   Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
-//   a interface of data acccess repository.
+//   a interface of business object repository.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,9 +14,9 @@ namespace BusinessObject
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
-    using BusinessEntiies;
 
     using IronFramework.Utility.UI;
+    using DataTransferObject.Model;
 
     /// <summary>
     /// a interface of data acccess repository.
@@ -98,6 +98,16 @@ namespace BusinessObject
         /// </returns>
         bool DeleteWithAttachEntiy(T t);
 
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        bool DeleteWithAttachEntiy(T[] entities);
+
         /// <summary>
         /// The update entiy.
         /// </summary>
@@ -119,6 +129,14 @@ namespace BusinessObject
         /// The <see cref="bool"/>.
         /// </returns>
          bool UpdateWithAttachEntiy(T t);
+
+
+        /// <summary>
+        /// Updates the entiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        bool UpdateEntiyWithGet(T entity);
         #endregion
     }
 }

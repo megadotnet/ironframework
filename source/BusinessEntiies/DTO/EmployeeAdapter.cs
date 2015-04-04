@@ -1,4 +1,5 @@
-﻿using IronFramework.Utility;
+﻿using DataTransferObject;
+using IronFramework.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;

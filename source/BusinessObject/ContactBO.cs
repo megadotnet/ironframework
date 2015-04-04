@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ContactBO.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The ContactBo
@@ -14,10 +14,12 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using BusinessEntiies;
 using DataAccessObject;
-using IronFramework.Utility;
+using DataTransferObject.Model;
+using DataTransferObject;
+using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
-
+	
 namespace BusinessObject
 {   
     /// <summary>
@@ -28,7 +30,7 @@ namespace BusinessObject
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new TypeAdapter();
+        private IContactConverter typeAdapter = new ContactConverter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -53,7 +55,7 @@ namespace BusinessObject
         }
 
         /// <summary>
-        /// FindEnties 
+        /// Find Enties 
         /// </summary>
         /// <param name="pageIndex">pageIndex</param>
         /// <param name="pageSize">pageSize</param>
@@ -62,21 +64,22 @@ namespace BusinessObject
         {
             var entities=entiesrepository.Repository.Find(p => p.ContactID>0, p => p.ContactID, pageIndex, pageSize);
             var listDtos=new PagedList<ContactDto>() { TotalCount = entities.TotalCount };
-             entities.ForEach(entity => { listDtos.Add(typeAdapter.Transform<Contact, ContactDto>(entity)); });
+             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
         }
 
 
         /// <summary>
-        /// Converts the toui model.
+        /// Converts the to UI model.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        /// <returns></returns>
-        private EasyuiDatagridData<UIT> ConvertTOUIModel<UIT, DBT>(PagedList<DBT> entities)
+        /// <returns>Contact list</returns>
+        private EasyuiDatagridData<ContactDto> ConvertTOUIModel(PagedList<Contact> entities)
         {
-            var listDtos = new EasyuiDatagridData<UIT>() { total = entities.TotalCount };
-            var lists = new List<UIT>();
-            entities.ForEach(entity => { lists.Add(typeAdapter.Transform<DBT, UIT>(entity)); });
+            var listDtos = new EasyuiDatagridData<ContactDto>() { total = entities.TotalCount };
+            var lists = new List<ContactDto>();
+            
+            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
             listDtos.rows = lists.ToArray();
             return listDtos;
         }
@@ -89,7 +92,7 @@ namespace BusinessObject
         public EasyuiDatagridData<ContactDto> FindEnties(ContactDto  _contactDto)
         {
             var entities = entiesrepository.Repository.Find(p => p.ContactID > 0, p => p.ContactID, _contactDto.pageIndex, _contactDto.pageSize);
-            var listDtos = ConvertTOUIModel<ContactDto,Contact>(entities);
+            var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
 
@@ -106,7 +109,7 @@ namespace BusinessObject
                 e => e.ContactID,
                 _contactDto.pageIndex,
                 _contactDto.pageSize);
-           return ConvertTOUIModel<ContactDto, Contact>(dbResults);
+           return ConvertTOUIModel(dbResults);
         }
 
 
@@ -120,7 +123,7 @@ namespace BusinessObject
            var list = new List<Expression<Func<Contact, bool>>>();
 
                 if (_contactDto.ContactID > 0) list.Add(c => c.ContactID == _contactDto.ContactID);
-    if (_contactDto.NameStyle != false) list.Add(c => c.NameStyle == _contactDto.NameStyle);
+    if (_contactDto.NameStyle != null) list.Add(c => c.NameStyle == _contactDto.NameStyle);
     if (!string.IsNullOrEmpty(_contactDto.Title)) list.Add(c => c.Title.Contains(_contactDto.Title));
     if (!string.IsNullOrEmpty(_contactDto.FirstName)) list.Add(c => c.FirstName.Contains(_contactDto.FirstName));
     if (!string.IsNullOrEmpty(_contactDto.MiddleName)) list.Add(c => c.MiddleName.Contains(_contactDto.MiddleName));
@@ -151,7 +154,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool CreateEntiy(ContactDto t)
         {
-            var dbEntity=typeAdapter.Transform<ContactDto, Contact>(t);
+            var dbEntity=typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Add(dbEntity);
             entiesrepository.Save();
             return true;
@@ -165,7 +168,7 @@ namespace BusinessObject
         public ContactDto GetEntiyByPK(int _ContactID)
         {
             var entity=entiesrepository.Repository.Single(e => e.ContactID == _ContactID);
-            return typeAdapter.Transform<Contact, ContactDto>(entity);
+            return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
 
@@ -176,11 +179,31 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteWithAttachEntiy(ContactDto t)
         {
-            var dbEntity = typeAdapter.Transform<ContactDto, Contact>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Attach(dbEntity);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        public bool DeleteWithAttachEntiy(ContactDto[] entities)
+        {
+            bool flag = false;
+           if (entities!=null& entities.Length>0)
+           {
+               foreach(var entity in entities)
+               {
+                   flag=DeleteWithAttachEntiy(entity);
+               }
+           }
+           return flag;
         }
 
         /// <summary>
@@ -190,7 +213,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteEntiy(ContactDto t)
         {
-            var dbEntity = typeAdapter.Transform<ContactDto, Contact>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
@@ -203,14 +226,14 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateWithAttachEntiy(ContactDto t)
         {
-            var dbentity = typeAdapter.Transform<ContactDto, Contact>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             if (StateHelpers.GetEquivalentEntityState(dbentity.State)==StateHelpers.GetEquivalentEntityState(State.Detached))
             {
                entiesrepository.Attach(dbentity); 
             }
 
             dbentity.State = State.Modified;
-            context.ChangeObjectState<Contact>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+            context.ChangeObjectState<Contact>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
             uow.Save();
             return true;
@@ -223,10 +246,24 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateEntiy(ContactDto t)
         {
-            var dbentity = typeAdapter.Transform<ContactDto, Contact>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             dbentity.State = State.Modified;
             context.ChangeObjectState<Contact>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
+            uow.Save();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates the Contactentiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        public bool UpdateEntiyWithGet(ContactDto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.ContactID == entity.ContactID);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
         }

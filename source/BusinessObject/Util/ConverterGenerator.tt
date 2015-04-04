@@ -323,7 +323,7 @@ public class CodeStringGenerator
             ? string.Format(
                 CultureInfo.InvariantCulture,
                 "{0}using System;using System.ComponentModel.DataAnnotations;" +
-                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using AOC.DataTransferObject;using AOC.BusinessEntities;\r\n using AOC.DataTransferObject.Dto;using AOC.DataTransferObject;{1}" +
+                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using DataTransferObject;using BusinessEntiies;\r\n using DataTransferObject;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
@@ -337,7 +337,7 @@ public class CodeStringGenerator
             ? string.Format(
                 CultureInfo.InvariantCulture,
                 "{0}using System;using System.ComponentModel.DataAnnotations;" +Environment.NewLine+
-                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using AOC.DataTransferObject.Model;using AOC.BusinessEntities;\r\n using AOC.DataTransferObject.Dto;using AOC.DataTransferObject;{1}" +
+                "using System.Runtime.Serialization;using Newtonsoft.Json;\r\n using DataTransferObject.Model;using BusinessEntiies;\r\n using DataTransferObject;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 Environment.NewLine + "using System.Collections.Generic;",

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="EmployeeBO.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The EmployeeBo
@@ -14,10 +14,12 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using BusinessEntiies;
 using DataAccessObject;
-using IronFramework.Utility;
+using DataTransferObject.Model;
+using DataTransferObject;
+using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
-
+	
 namespace BusinessObject
 {   
     /// <summary>
@@ -25,11 +27,10 @@ namespace BusinessObject
     /// </summary>
 	public class EmployeeBO : IEmployeeBO
 	{
-        ///TODO: should config complex DTO convert issue
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new EmployeeAdapter();
+        private IEmployeeConverter typeAdapter = new EmployeeConverter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -54,7 +55,7 @@ namespace BusinessObject
         }
 
         /// <summary>
-        /// FindEnties 
+        /// Find Enties 
         /// </summary>
         /// <param name="pageIndex">pageIndex</param>
         /// <param name="pageSize">pageSize</param>
@@ -63,21 +64,22 @@ namespace BusinessObject
         {
             var entities=entiesrepository.Repository.Find(p => p.EmployeeID>0, p => p.EmployeeID, pageIndex, pageSize);
             var listDtos=new PagedList<EmployeeDto>() { TotalCount = entities.TotalCount };
-             entities.ForEach(entity => { listDtos.Add(typeAdapter.Transform<Employee, EmployeeDto>(entity)); });
+             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
         }
 
 
         /// <summary>
-        /// Converts the toui model.
+        /// Converts the to UI model.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        /// <returns></returns>
-        private EasyuiDatagridData<UIT> ConvertTOUIModel<UIT, DBT>(PagedList<DBT> entities)
+        /// <returns>Employee list</returns>
+        private EasyuiDatagridData<EmployeeDto> ConvertTOUIModel(PagedList<Employee> entities)
         {
-            var listDtos = new EasyuiDatagridData<UIT>() { total = entities.TotalCount };
-            var lists = new List<UIT>();
-            entities.ForEach(entity => { lists.Add(typeAdapter.Transform<DBT, UIT>(entity)); });
+            var listDtos = new EasyuiDatagridData<EmployeeDto>() { total = entities.TotalCount };
+            var lists = new List<EmployeeDto>();
+            
+            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
             listDtos.rows = lists.ToArray();
             return listDtos;
         }
@@ -90,7 +92,7 @@ namespace BusinessObject
         public EasyuiDatagridData<EmployeeDto> FindEnties(EmployeeDto  _employeeDto)
         {
             var entities = entiesrepository.Repository.Find(p => p.EmployeeID > 0, p => p.EmployeeID, _employeeDto.pageIndex, _employeeDto.pageSize);
-            var listDtos = ConvertTOUIModel<EmployeeDto,Employee>(entities);
+            var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
 
@@ -107,7 +109,7 @@ namespace BusinessObject
                 e => e.EmployeeID,
                 _employeeDto.pageIndex,
                 _employeeDto.pageSize);
-           return ConvertTOUIModel<EmployeeDto, Employee>(dbResults);
+           return ConvertTOUIModel(dbResults);
         }
 
 
@@ -130,10 +132,10 @@ namespace BusinessObject
     if (!string.IsNullOrEmpty(_employeeDto.MaritalStatus)) list.Add(c => c.MaritalStatus.Contains(_employeeDto.MaritalStatus));
     if (!string.IsNullOrEmpty(_employeeDto.Gender)) list.Add(c => c.Gender.Contains(_employeeDto.Gender));
     
-    if (_employeeDto.SalariedFlag != false) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
+    if (_employeeDto.SalariedFlag != null) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
     
     
-    if (_employeeDto.CurrentFlag != false) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
+    if (_employeeDto.CurrentFlag != null) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
     
     
           //Add more condition
@@ -153,7 +155,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool CreateEntiy(EmployeeDto t)
         {
-            var dbEntity=typeAdapter.Transform<EmployeeDto, Employee>(t);
+            var dbEntity=typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Add(dbEntity);
             entiesrepository.Save();
             return true;
@@ -167,7 +169,7 @@ namespace BusinessObject
         public EmployeeDto GetEntiyByPK(int _EmployeeID)
         {
             var entity=entiesrepository.Repository.Single(e => e.EmployeeID == _EmployeeID);
-            return typeAdapter.Transform<Employee, EmployeeDto>(entity);
+            return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
 
@@ -178,11 +180,31 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteWithAttachEntiy(EmployeeDto t)
         {
-            var dbEntity = typeAdapter.Transform<EmployeeDto, Employee>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Attach(dbEntity);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        public bool DeleteWithAttachEntiy(EmployeeDto[] entities)
+        {
+            bool flag = false;
+           if (entities!=null& entities.Length>0)
+           {
+               foreach(var entity in entities)
+               {
+                   flag=DeleteWithAttachEntiy(entity);
+               }
+           }
+           return flag;
         }
 
         /// <summary>
@@ -192,7 +214,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteEntiy(EmployeeDto t)
         {
-            var dbEntity = typeAdapter.Transform<EmployeeDto, Employee>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
@@ -205,14 +227,14 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateWithAttachEntiy(EmployeeDto t)
         {
-            var dbentity = typeAdapter.Transform<EmployeeDto, Employee>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             if (StateHelpers.GetEquivalentEntityState(dbentity.State)==StateHelpers.GetEquivalentEntityState(State.Detached))
             {
                entiesrepository.Attach(dbentity); 
             }
 
             dbentity.State = State.Modified;
-            context.ChangeObjectState<Employee>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+            context.ChangeObjectState<Employee>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
             uow.Save();
             return true;
@@ -225,10 +247,24 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateEntiy(EmployeeDto t)
         {
-            var dbentity = typeAdapter.Transform<EmployeeDto, Employee>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             dbentity.State = State.Modified;
             context.ChangeObjectState<Employee>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
+            uow.Save();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates the Employeeentiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        public bool UpdateEntiyWithGet(EmployeeDto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.EmployeeID == entity.EmployeeID);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
         }

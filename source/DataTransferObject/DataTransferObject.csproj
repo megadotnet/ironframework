@@ -64,6 +64,7 @@
     <Compile Include="EmployeePayHistoryDto.cs">
       <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\EasyuiDatagridData.cs" />
     <Compile Include="Model\UIPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

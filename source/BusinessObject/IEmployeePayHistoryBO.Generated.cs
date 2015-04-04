@@ -15,6 +15,7 @@ namespace BusinessObject
     using System.Linq.Expressions;
     using System.Collections.Generic;
     using BusinessEntiies;
+    using DataTransferObject;
 
 	public interface IEmployeePayHistoryBO : IBusniessLogicObject<EmployeePayHistoryDto>
 	{

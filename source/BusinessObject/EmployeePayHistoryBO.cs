@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="EmployeePayHistoryBO.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The EmployeePayHistoryBo
@@ -14,10 +14,12 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using BusinessEntiies;
 using DataAccessObject;
-using IronFramework.Utility;
+using DataTransferObject.Model;
+using DataTransferObject;
+using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
-
+	
 namespace BusinessObject
 {   
     /// <summary>
@@ -28,7 +30,7 @@ namespace BusinessObject
         /// <summary>
         /// The type adapter
         /// </summary>
-        private ITypeAdapter typeAdapter = new TypeAdapter();
+        private IEmployeePayHistoryConverter typeAdapter = new EmployeePayHistoryConverter();
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -53,7 +55,7 @@ namespace BusinessObject
         }
 
         /// <summary>
-        /// FindEnties 
+        /// Find Enties 
         /// </summary>
         /// <param name="pageIndex">pageIndex</param>
         /// <param name="pageSize">pageSize</param>
@@ -62,21 +64,22 @@ namespace BusinessObject
         {
             var entities=entiesrepository.Repository.Find(p => p.EmployeeID>0, p => p.EmployeeID, pageIndex, pageSize);
             var listDtos=new PagedList<EmployeePayHistoryDto>() { TotalCount = entities.TotalCount };
-             entities.ForEach(entity => { listDtos.Add(typeAdapter.Transform<EmployeePayHistory, EmployeePayHistoryDto>(entity)); });
+             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
         }
 
 
         /// <summary>
-        /// Converts the toui model.
+        /// Converts the to UI model.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        /// <returns></returns>
-        private EasyuiDatagridData<UIT> ConvertTOUIModel<UIT, DBT>(PagedList<DBT> entities)
+        /// <returns>EmployeePayHistory list</returns>
+        private EasyuiDatagridData<EmployeePayHistoryDto> ConvertTOUIModel(PagedList<EmployeePayHistory> entities)
         {
-            var listDtos = new EasyuiDatagridData<UIT>() { total = entities.TotalCount };
-            var lists = new List<UIT>();
-            entities.ForEach(entity => { lists.Add(typeAdapter.Transform<DBT, UIT>(entity)); });
+            var listDtos = new EasyuiDatagridData<EmployeePayHistoryDto>() { total = entities.TotalCount };
+            var lists = new List<EmployeePayHistoryDto>();
+            
+            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
             listDtos.rows = lists.ToArray();
             return listDtos;
         }
@@ -89,7 +92,7 @@ namespace BusinessObject
         public EasyuiDatagridData<EmployeePayHistoryDto> FindEnties(EmployeePayHistoryDto  _employeepayhistoryDto)
         {
             var entities = entiesrepository.Repository.Find(p => p.EmployeeID > 0, p => p.EmployeeID, _employeepayhistoryDto.pageIndex, _employeepayhistoryDto.pageSize);
-            var listDtos = ConvertTOUIModel<EmployeePayHistoryDto,EmployeePayHistory>(entities);
+            var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
 
@@ -106,7 +109,7 @@ namespace BusinessObject
                 e => e.EmployeeID,
                 _employeepayhistoryDto.pageIndex,
                 _employeepayhistoryDto.pageSize);
-           return ConvertTOUIModel<EmployeePayHistoryDto, EmployeePayHistory>(dbResults);
+           return ConvertTOUIModel(dbResults);
         }
 
 
@@ -141,7 +144,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool CreateEntiy(EmployeePayHistoryDto t)
         {
-            var dbEntity=typeAdapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(t);
+            var dbEntity=typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Add(dbEntity);
             entiesrepository.Save();
             return true;
@@ -155,7 +158,7 @@ namespace BusinessObject
         public EmployeePayHistoryDto GetEntiyByPK(int _EmployeeID)
         {
             var entity=entiesrepository.Repository.Single(e => e.EmployeeID == _EmployeeID);
-            return typeAdapter.Transform<EmployeePayHistory, EmployeePayHistoryDto>(entity);
+            return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
 
@@ -166,11 +169,31 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteWithAttachEntiy(EmployeePayHistoryDto t)
         {
-            var dbEntity = typeAdapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Attach(dbEntity);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// The del entiy.
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns>
+        /// The <see cref="bool" />.
+        /// </returns>
+        public bool DeleteWithAttachEntiy(EmployeePayHistoryDto[] entities)
+        {
+            bool flag = false;
+           if (entities!=null& entities.Length>0)
+           {
+               foreach(var entity in entities)
+               {
+                   flag=DeleteWithAttachEntiy(entity);
+               }
+           }
+           return flag;
         }
 
         /// <summary>
@@ -180,7 +203,7 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public bool DeleteEntiy(EmployeePayHistoryDto t)
         {
-            var dbEntity = typeAdapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(t);
+            var dbEntity = typeAdapter.ConvertDtoToEntities(t);
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
@@ -193,14 +216,14 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateWithAttachEntiy(EmployeePayHistoryDto t)
         {
-            var dbentity = typeAdapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             if (StateHelpers.GetEquivalentEntityState(dbentity.State)==StateHelpers.GetEquivalentEntityState(State.Detached))
             {
                entiesrepository.Attach(dbentity); 
             }
 
             dbentity.State = State.Modified;
-            context.ChangeObjectState<EmployeePayHistory>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+            context.ChangeObjectState<EmployeePayHistory>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
             uow.Save();
             return true;
@@ -213,10 +236,24 @@ namespace BusinessObject
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return
         public bool UpdateEntiy(EmployeePayHistoryDto t)
         {
-            var dbentity = typeAdapter.Transform<EmployeePayHistoryDto, EmployeePayHistory>(t);
+            var dbentity = typeAdapter.ConvertDtoToEntities(t);
             dbentity.State = State.Modified;
             context.ChangeObjectState<EmployeePayHistory>(dbentity,  StateHelpers.GetEquivalentEntityState(dbentity.State));
 
+            uow.Save();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates the EmployeePayHistoryentiy with get.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
+        public bool UpdateEntiyWithGet(EmployeePayHistoryDto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.EmployeeID == entity.EmployeeID);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
         }

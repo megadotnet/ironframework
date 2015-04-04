@@ -63,9 +63,6 @@
     <Compile Include="Address.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="AddressDto.cs">
-      <DependentUpon>DTOGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="AdventureWorks.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,33 +77,18 @@
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\EmployeeAdapter.cs" />
-    <Compile Include="ContactDto.cs">
-      <DependentUpon>DTOGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTOGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTOGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
     <Compile Include="Address.partial.cs" />
-    <Compile Include="EmployeeDto.cs">
-      <DependentUpon>DTOGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="EmployeePayHistory.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeePayHistoryDto.cs">
-      <DependentUpon>DTOGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="MetadataGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MetadataGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\UIPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,10 +105,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AdventureWorks.cs</LastGenOutput>
     </None>
-    <None Include="DTOGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DTOGenerator.cs</LastGenOutput>
-    </None>
     <None Include="MetadataGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MetadataGenerator.cs</LastGenOutput>
@@ -134,6 +112,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>

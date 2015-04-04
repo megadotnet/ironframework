@@ -2,40 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace BusinessEntiies
+namespace DataTransferObject.Model
 {
-    /// <summary>
-    /// UIPaging
-    /// </summary>
-    public class UIPaging
-    {
-        /// <summary>
-        /// Gets or sets the size of the page.
-        /// </summary>
-        /// <value>
-        /// The size of the page.
-        /// </value>
-        public int pageSize { get; set; }
-
-        /// <summary>
-        /// Gets or sets the index of the page.
-        /// </summary>
-        /// <value>
-        /// The index of the page.
-        /// </value>
-        public int? pageIndex { get; set; }
-
-        /// <summary>
-        /// Gets or sets the total count.
-        /// </summary>
-        /// <value>
-        /// The total count.
-        /// </value>
-        public int TotalCount { get; set; }
-    }
-
-
     /// <summary>
     /// EasyuiDatagridData
     /// </summary>
@@ -80,54 +50,54 @@ namespace BusinessEntiies
     ///
     /// JSON Data:
     /// {
-///  "rows": [
-///    {
-///      "APP_CODE": "SMP",
-///      "CLIENT_TX_SEQ": "1",
-///      "EVENT_STATUS": 0,
-///      "MSG_CONTENT": "CLR\r\n234 23 23 23 23\r\n2323 23 2",
-///      "MSG_EVENT_ID": 18439,
-///      "MSG_SEND_START_TIME": "2014-12-18 13:51:55",
-///      "beginSTART_TIME": null,
-///      "endSTART_TIME": null,
-///      "MSG_TITLE": "SITA",
-///      "MSG_TYPE": "MessagePackage",
-///      "ORG_CODE": "数据应用中心",
-///      "PRIORITY": 1,
-///      "RECEIVER_ACCOUNT": "234234A",
-///      "RECEIVER_ACCOUNT_TYPE": "REAL_ACCOUNT",
-///      "SENDER": "liujunyuan",
-///      "SENDER_ACCOUNT": "KMGUODR",
-///      "TERMINAL_COMMAND": "Default",
-///      "TERMINAL_FLAG": "1",
-///      "TERMINAL_TYPE": "1",
-///      "PartialViewList": null
-///    },
-///    {
-///      "APP_CODE": "SMP",
-///      "CLIENT_TX_SEQ": "1",
-///      "EVENT_STATUS": 0,
-///      "MSG_CONTENT": "234324",
-///      "MSG_EVENT_ID": 18438,
-///      "MSG_SEND_START_TIME": "2014-12-18 13:50:05",
-///      "beginSTART_TIME": null,
-///      "endSTART_TIME": null,
-///      "MSG_TITLE": "SITA",
-///      "MSG_TYPE": "MessagePackage",
-///      "ORG_CODE": "数据应用中心",
-///      "PRIORITY": 1,
-///      "RECEIVER_ACCOUNT": "234234",
-///      "RECEIVER_ACCOUNT_TYPE": "REAL_ACCOUNT",
-///      "SENDER": "liujunyuan",
-///      "SENDER_ACCOUNT": "ZPPPUODR",
-///      "TERMINAL_COMMAND": "Default",
-///      "TERMINAL_FLAG": "1",
-///      "TERMINAL_TYPE": "1",
-///      "PartialViewList": null
-///    }
-///  ],
-///  "total": 18423
-///}
+    ///  "rows": [
+    ///    {
+    ///      "APP_CODE": "SMP",
+    ///      "CLIENT_TX_SEQ": "1",
+    ///      "EVENT_STATUS": 0,
+    ///      "MSG_CONTENT": "CLR\r\n234 23 23 23 23\r\n2323 23 2",
+    ///      "MSG_EVENT_ID": 18439,
+    ///      "MSG_SEND_START_TIME": "2014-12-18 13:51:55",
+    ///      "beginSTART_TIME": null,
+    ///      "endSTART_TIME": null,
+    ///      "MSG_TITLE": "SITA",
+    ///      "MSG_TYPE": "MessagePackage",
+    ///      "ORG_CODE": "数据应用中心",
+    ///      "PRIORITY": 1,
+    ///      "RECEIVER_ACCOUNT": "234234A",
+    ///      "RECEIVER_ACCOUNT_TYPE": "REAL_ACCOUNT",
+    ///      "SENDER": "liujunyuan",
+    ///      "SENDER_ACCOUNT": "KMGUODR",
+    ///      "TERMINAL_COMMAND": "Default",
+    ///      "TERMINAL_FLAG": "1",
+    ///      "TERMINAL_TYPE": "1",
+    ///      "PartialViewList": null
+    ///    },
+    ///    {
+    ///      "APP_CODE": "SMP",
+    ///      "CLIENT_TX_SEQ": "1",
+    ///      "EVENT_STATUS": 0,
+    ///      "MSG_CONTENT": "234324",
+    ///      "MSG_EVENT_ID": 18438,
+    ///      "MSG_SEND_START_TIME": "2014-12-18 13:50:05",
+    ///      "beginSTART_TIME": null,
+    ///      "endSTART_TIME": null,
+    ///      "MSG_TITLE": "SITA",
+    ///      "MSG_TYPE": "MessagePackage",
+    ///      "ORG_CODE": "数据应用中心",
+    ///      "PRIORITY": 1,
+    ///      "RECEIVER_ACCOUNT": "234234",
+    ///      "RECEIVER_ACCOUNT_TYPE": "REAL_ACCOUNT",
+    ///      "SENDER": "liujunyuan",
+    ///      "SENDER_ACCOUNT": "ZPPPUODR",
+    ///      "TERMINAL_COMMAND": "Default",
+    ///      "TERMINAL_FLAG": "1",
+    ///      "TERMINAL_TYPE": "1",
+    ///      "PartialViewList": null
+    ///    }
+    ///  ],
+    ///  "total": 18423
+    ///}
     /// 
     /// 
     /// </code>

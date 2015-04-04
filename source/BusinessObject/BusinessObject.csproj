@@ -172,6 +172,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SaveOutput.tt</DependentUpon>
     </Compile>
+    <Compile Include="Util\AddressDto.cs">
+      <DependentUpon>ConverterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ContactDto.cs">
+      <DependentUpon>ConverterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ConverterGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConverterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util\EmployeeDto.cs">
+      <DependentUpon>ConverterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util\EmployeePayHistoryDto.cs">
+      <DependentUpon>ConverterGenerator.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -212,6 +229,10 @@
     <ProjectReference Include="..\DataAccessObject\DataAccessObject.csproj">
       <Project>{5E9D240E-1271-4963-9C3F-FDF2F5522ADE}</Project>
       <Name>DataAccessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
+      <Name>DataTransferObject</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
