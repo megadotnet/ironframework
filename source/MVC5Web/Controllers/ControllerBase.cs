@@ -49,6 +49,11 @@ namespace MVC5Web.Controllers
         {
             return await RESTAPIClinet.Instance().ClientHTTPDelete<T>(id);
         }
+
+        public async Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri)
+        {
+            return await RESTAPIClinet.Instance().ClientHTTPPut<TResult, Query>(model, customPartialUri);
+        }
        
         #endregion
     }

@@ -19,8 +19,11 @@ namespace MVC5Web.Controllers
         // GET: Contact/Find/?pageindex=1&pagesize=10&....
         public async Task<JsonResult> Find(ContactDto _ContactDto)
         {
-           return Json(await ClientHTTPGetList<EasyuiDatagridData<ContactDto>,ContactDto>(_ContactDto)
-                    , JsonRequestBehavior.AllowGet);
+           if (Request["page"] != null)
+           {
+                _ContactDto.pageIndex = Convert.ToInt32(Request["page"].ToString());
+           }
+           return Json(await ClientHTTPGetList<EasyuiDatagridData<ContactDto>,ContactDto>(_ContactDto));
         }
 
         // GET: Contact/Get/14
@@ -54,6 +57,33 @@ namespace MVC5Web.Controllers
         public async Task<bool> Delete(int id)
         {
             return await ClientHTTPDelete<ContactDto>(id);
+        }
+
+        /// <summary>
+        /// Deletes the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example>
+        /// <code>
+        /// POST: 
+        /// Contact/Delete
+         ///   BODY: 
+         /// {
+         /// "id": ["1627","1628"]
+        ///}
+        /// </code>
+        /// </example>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<JsonResult> Delete(int[] id)
+        {
+            var delobject = new DeleteObject { Ids = id };
+            return Json(await ClientHTTPPut<ContactDto, DeleteObject>(delobject, "DeleteByList"));
+        }
+
+        public ActionResult ContactUI()
+        {
+            return this.View();
         }
 
 	}

@@ -66,7 +66,42 @@ namespace BusinessObject
             }
         }
 
+        /// <summary>
+        /// Clients the HTTP put.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="model">The model.</param>
+        /// <param name="customPartialUri">The custom partial URI.</param>
+        /// <returns></returns>
+        public async Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri)
+        {
+            using (var client = new HttpClient())
+            {
+                PrepareTargetSite(client);
 
+                // HTTP PUT
+                string entityname = typeof(TResult).Name;
+                int dtoindex = entityname.IndexOf("Dto");
+
+                if (dtoindex > 0)
+                {
+                    entityname = entityname.Substring(0, dtoindex);
+                }
+
+                string routingUrl = "api/" + entityname;
+
+                if (!string.IsNullOrEmpty(customPartialUri))
+                {
+                    routingUrl += "/" + customPartialUri;
+                }
+
+
+                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
+
+                return response.IsSuccessStatusCode;
+            }
+        }
         /// <summary>
         /// Clients the HTTP delete.
         /// </summary>

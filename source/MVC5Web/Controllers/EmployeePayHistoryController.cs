@@ -19,8 +19,11 @@ namespace MVC5Web.Controllers
         // GET: EmployeePayHistory/Find/?pageindex=1&pagesize=10&....
         public async Task<JsonResult> Find(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-           return Json(await ClientHTTPGetList<EasyuiDatagridData<EmployeePayHistoryDto>,EmployeePayHistoryDto>(_EmployeePayHistoryDto)
-                    , JsonRequestBehavior.AllowGet);
+           if (Request["page"] != null)
+           {
+                _EmployeePayHistoryDto.pageIndex = Convert.ToInt32(Request["page"].ToString());
+           }
+           return Json(await ClientHTTPGetList<EasyuiDatagridData<EmployeePayHistoryDto>,EmployeePayHistoryDto>(_EmployeePayHistoryDto));
         }
 
         // GET: EmployeePayHistory/Get/14
@@ -54,6 +57,33 @@ namespace MVC5Web.Controllers
         public async Task<bool> Delete(int id)
         {
             return await ClientHTTPDelete<EmployeePayHistoryDto>(id);
+        }
+
+        /// <summary>
+        /// Deletes the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example>
+        /// <code>
+        /// POST: 
+        /// EmployeePayHistory/Delete
+         ///   BODY: 
+         /// {
+         /// "id": ["1627","1628"]
+        ///}
+        /// </code>
+        /// </example>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<JsonResult> Delete(int[] id)
+        {
+            var delobject = new DeleteObject { Ids = id };
+            return Json(await ClientHTTPPut<EmployeePayHistoryDto, DeleteObject>(delobject, "DeleteByList"));
+        }
+
+        public ActionResult EmployeePayHistoryUI()
+        {
+            return this.View();
         }
 
 	}
