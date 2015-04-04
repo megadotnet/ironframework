@@ -18,6 +18,7 @@ namespace BoService
     using BusinessEntiies;
     using BusinessObject;
     using IronFramework.Utility;
+    using DataTransferObject;
 
     /// <summary>
     ///  Employee REST CRUD Service

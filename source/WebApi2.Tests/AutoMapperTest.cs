@@ -2,6 +2,7 @@
 using BusinessEntiies;
 using IronFramework.Utility;
 using Xunit;
+using DataTransferObject;
 
 namespace WebApi2.Tests
 {

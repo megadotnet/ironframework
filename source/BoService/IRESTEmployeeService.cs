@@ -18,6 +18,7 @@ namespace BoService
     using System.ServiceModel.Web;
     using BusinessEntiies;
     using IronFramework.Utility;
+    using DataTransferObject;
 
     /// <summary>
     /// Interface of  REST Employee DTO Service CRUD

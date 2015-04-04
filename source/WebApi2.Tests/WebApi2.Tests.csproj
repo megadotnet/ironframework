@@ -184,6 +184,10 @@
       <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>
       <Name>BusinessObject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
       <Name>IronFramework.Utility</Name>

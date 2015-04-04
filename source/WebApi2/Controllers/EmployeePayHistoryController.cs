@@ -1,5 +1,7 @@
 using BusinessEntiies;
 using BusinessObject;
+using DataTransferObject;
+using DataTransferObject.Model;
 using IronFramework.Utility;
 using System;
 using System.Collections.Generic;

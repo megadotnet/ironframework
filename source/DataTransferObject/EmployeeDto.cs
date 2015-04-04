@@ -98,9 +98,9 @@ namespace DataTransferObject
         //[DataMember] 
         //[JsonProperty("Employee2s")]
         //public virtual Employee Employee2s { get; set; }
-        //[DataMember] 
-        //[JsonProperty("EmployeePayHistoriess")]
-        //public virtual EmployeePayHistoryDto [] EmployeePayHistoriess { get; set; }
+        [DataMember]
+        [JsonProperty("EmployeePayHistoriess")]
+        public virtual EmployeePayHistoryDto[] EmployeePayHistoriess { get; set; }
     
          public override string ToString()
          {

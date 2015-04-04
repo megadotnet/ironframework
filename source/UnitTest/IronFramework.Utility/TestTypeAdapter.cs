@@ -18,6 +18,7 @@ namespace UnitTest.TestUtility
     using BusinessObject;
     using BoService;
     using System.ServiceModel;
+    using DataTransferObject;
 
     /// <summary>
     /// TestTypeAdapter
@@ -132,7 +133,8 @@ namespace UnitTest.TestUtility
                 EmployeeID = 1,
                 LoginID = "petter"
                 ,ContactID = 12
-                ,EmployeePayHistories = new List<EmployeePayHistoryDto>()
+                ,
+                EmployeePayHistoriess = new List<EmployeePayHistoryDto>()
                  {
                     new EmployeePayHistoryDto()
                     {
