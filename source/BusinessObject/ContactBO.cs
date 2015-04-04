@@ -12,7 +12,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using BusinessEntiies;
+using BusinessEntities;
 using DataAccessObject;
 using DataTransferObject.Model;
 using DataTransferObject;

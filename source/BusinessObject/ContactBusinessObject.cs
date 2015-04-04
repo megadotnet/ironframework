@@ -45,7 +45,7 @@ namespace BusinessObject
         /// <param name="pageIndex">Index of the page.</param>
         /// <param name="pageSize">Size of the page.</param>
         /// <returns>PagedList entities</returns>
-        public IronFramework.Utility.UI.PagedList<BusinessEntiies.Contact> FindContacts(int? pageIndex, int pageSize)
+        public IronFramework.Utility.UI.PagedList<BusinessEntities.Contact> FindContacts(int? pageIndex, int pageSize)
         {
             return this.contactRepository.Repository.Find(null, e => e.ContactID, pageIndex, pageSize);
         }

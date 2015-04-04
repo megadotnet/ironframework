@@ -11,7 +11,7 @@ namespace BusinessObject
 {
     using System.Linq;
 
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using DataAccessObject;
 

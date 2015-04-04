@@ -1,9 +1,9 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EmployeeRepository.cs" company="Megadotnet">
+// <copyright file="AddressRepository.cs" company="Megadotnet">
 // Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
-//   The Employee repository.
+//   The Address repository.
 //   This file is auto generated and will be overwritten as soon as the template is executed
 //   Do not modify this file...
 // </summary>
@@ -14,20 +14,20 @@ namespace DataAccessObject
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using IronFramework.Utility.UI;
  
-	public partial class EmployeeRepository
+	public partial class AddressRepository
 	{
-		private IRepository<Employee> _repository {get;set;}
-		public IRepository<Employee> Repository
+		private IRepository<Address> _repository {get;set;}
+		public IRepository<Address> Repository
 		{
 			get { return _repository; }
 			set { _repository = value; }
 		}
 		
-		public EmployeeRepository(IRepository<Employee> repository)
+		public AddressRepository(IRepository<Address> repository)
     	{
     		Repository = repository;
     	}
@@ -36,7 +36,7 @@ namespace DataAccessObject
         /// Alls enties 
         /// </summary>
         /// <returns>Alls enties</returns>
-		public IEnumerable<Employee> All()
+		public IEnumerable<Address> All()
 		{
 			return Repository.All();
 		}
@@ -45,7 +45,7 @@ namespace DataAccessObject
         /// Adds the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-		public void Add(Employee entity)
+		public void Add(Address entity)
 		{
 			Repository.Add(entity);
 		}
@@ -54,7 +54,7 @@ namespace DataAccessObject
         /// Attaches the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-		public void Attach(Employee entity)
+		public void Attach(Address entity)
 		{
 		    Repository.Attach(entity);
 		}
@@ -63,7 +63,7 @@ namespace DataAccessObject
         /// Deletes the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-		public void Delete(Employee entity)
+		public void Delete(Address entity)
 		{
 			Repository.Delete(entity);
 		}

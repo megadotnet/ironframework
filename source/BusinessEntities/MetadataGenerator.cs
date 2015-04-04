@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Core.Objects.DataClasses;
 
-namespace BusinessEntiies
+namespace BusinessEntities
 {
 	[MetadataType(typeof(AddressMetadata))]
 	public partial class Address

@@ -735,7 +735,7 @@ string GetEDMXCurrentDirectory()
         string edmxpath=executingDirectoryName.Substring(0,lot);
          lot=edmxpath.LastIndexOf("\\");
         //Need pay attention to  executingDirectoryName
-        executingDirectoryName=Path.Combine(edmxpath.Substring(0,lot),"BusinessEntiies");
+        executingDirectoryName=Path.Combine(edmxpath.Substring(0,lot),"BusinessEntities");
 	}	
 	return executingDirectoryName;
 }

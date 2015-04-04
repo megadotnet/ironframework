@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ODataWebAPI.Tests.BusinessEntiies;
+using ODataWebAPI.Tests.BusinessEntities;
 
 namespace ODataWebAPI.Tests
 {

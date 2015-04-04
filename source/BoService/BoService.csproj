@@ -148,9 +148,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
-      <Project>{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}</Project>
-      <Name>BusinessEntiies</Name>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
       <Project>{B7BAD4BB-923B-44D8-B908-7C0D257FA78B}</Project>

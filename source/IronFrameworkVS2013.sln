@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntiies", "BusinessEntiies\BusinessEntiies.csproj", "{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Utility", "Utility\IronFramework.Utility.csproj", "{70A400B0-6FE0-4007-AF35-E99835F39922}"
 EndProject

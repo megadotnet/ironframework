@@ -14,7 +14,7 @@ namespace BusinessObject
     using System.Linq;
     using System.Text;
     using IronFramework.Utility.UI;
-    using BusinessEntiies;
+    using BusinessEntities;
 
     /// <summary>
     /// IContactBusinessObject

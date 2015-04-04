@@ -14,7 +14,7 @@ namespace WebApi2.Controllers
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
 
 	public partial class ContactController : BaseWebAPIController
 	{

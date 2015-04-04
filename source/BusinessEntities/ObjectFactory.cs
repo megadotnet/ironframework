@@ -11,7 +11,7 @@ namespace DataAccessObject
 {
     using System.Data.Entity;
 
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using DataAccessObject.Repositories;
 
@@ -26,7 +26,7 @@ namespace DataAccessObject
 
        static ObjectFactory()
        {
-           container = new UnityContainer();
+            container = new UnityContainer();
 			container.RegisterType<IUnitOfWork, EFUnitOfWork>();
 		    container.RegisterType< DataAccessObject.Repositories.IStoredProcedureFunctionsDAO, DataAccessObject.Repositories.StoredProcedureFunctionsDAO>();
 			container.RegisterType<DbContext, AdventureWorksEntities>(new InjectionConstructor());

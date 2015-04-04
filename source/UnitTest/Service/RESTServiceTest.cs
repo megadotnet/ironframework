@@ -15,7 +15,7 @@ namespace UnitTest
     using Microsoft.ApplicationServer.Http;
     using Microsoft.ApplicationServer.Http.Description;
     using System.Net.Http;
-    using BusinessEntiies;
+    using BusinessEntities;
     using BoService;
     using System.ServiceModel;
     using IronFramework.Utility.WCF;

@@ -1,4 +1,4 @@
-﻿using BusinessEntiies;
+﻿using BusinessEntities;
 using DataTransferObject;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Xunit;

@@ -12,7 +12,7 @@ namespace UnitTest
     using System;
     using System.Transactions;
 
-    using BusinessEntiies;
+    using BusinessEntities;
     using DataAccessObject;
 
     /// <summary>

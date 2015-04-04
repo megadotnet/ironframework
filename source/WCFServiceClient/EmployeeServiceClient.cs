@@ -21,37 +21,37 @@ namespace WCFServiceClient
         {
         }
 
-        public bool CreateEmployee(BusinessEntiies.Employee employee)
+        public bool CreateEmployee(BusinessEntities.Employee employee)
         {
             return base.Channel.CreateEmployee(employee);
         }
 
-        public int CreateEmployee2(BusinessEntiies.Employee employee)
+        public int CreateEmployee2(BusinessEntities.Employee employee)
         {
             return base.Channel.CreateEmployee2(employee);
         }
 
-        public bool DelEmployee(BusinessEntiies.Employee employee)
+        public bool DelEmployee(BusinessEntities.Employee employee)
         {
             return base.Channel.DelEmployee(employee);
         }
 
-        public IronFramework.Utility.UI.PagedList<BusinessEntiies.Employee> FindEmployeeByTitle(string title, int? pageIndex, int pageSize, out int totalcount)
+        public IronFramework.Utility.UI.PagedList<BusinessEntities.Employee> FindEmployeeByTitle(string title, int? pageIndex, int pageSize, out int totalcount)
         {
             return base.Channel.FindEmployeeByTitle(title,pageIndex,pageSize,out totalcount);
         }
 
-        public BusinessEntiies.Employee GetEmployee(int pid)
+        public BusinessEntities.Employee GetEmployee(int pid)
         {
             return base.Channel.GetEmployee(pid);
         }
 
-        public bool UpdateEmployee(BusinessEntiies.Employee employee)
+        public bool UpdateEmployee(BusinessEntities.Employee employee)
         {
             return base.Channel.UpdateEmployee(employee);
         }
 
-        public IronFramework.Utility.UI.PagedList<BusinessEntiies.Contact> GetPagedListContact(int? pageIndex, int pageSize, out int totalcount)
+        public IronFramework.Utility.UI.PagedList<BusinessEntities.Contact> GetPagedListContact(int? pageIndex, int pageSize, out int totalcount)
         {
             return base.Channel.GetPagedListContact(pageIndex,pageSize,out totalcount);
         }

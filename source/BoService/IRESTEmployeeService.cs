@@ -16,7 +16,7 @@ namespace BoService
     using System.ServiceModel;
     using System.Text;
     using System.ServiceModel.Web;
-    using BusinessEntiies;
+    using BusinessEntities;
     using IronFramework.Utility;
     using DataTransferObject;
 

@@ -1,4 +1,4 @@
-﻿using BusinessEntiies;
+﻿using BusinessEntities;
 using Microsoft.OData.Edm;
 using System;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace ODataWebAPI
             EntityTypeConfiguration<Address> titleType = builder.EntityType<Address>();
             //http://stackoverflow.com/questions/24829422/handling-dates-with-odata-v4-ef6-and-web-api-v2-2
             titleType.Ignore(t => t.ModifiedDate);
-            titleType.Property(t => t.EdmModifiedDate).Name = "ModifiedDate";
+            //titleType.Property(t => t.EdmModifiedDate).Name = "ModifiedDate";
 
 
             builder.EntitySet<Address>("Addresses");

@@ -71,7 +71,7 @@
             <referencesInternal>
               <reference
                 Id="330f7bab-92bb-4a82-bead-3225006b5b7f"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -138,7 +138,7 @@
                   <referencesInternal>
                     <reference
                       Id="02f1aac9-6166-4249-a855-9d69c0969c86"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -344,7 +344,7 @@
             <referencesInternal>
               <reference
                 Id="211d892c-2a84-4e95-87df-a8da38856823"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -411,7 +411,7 @@
                   <referencesInternal>
                     <reference
                       Id="9d33bb5e-d72e-4e8d-acec-d8937167bf50"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -631,7 +631,7 @@
             <referencesInternal>
               <reference
                 Id="2ad3032d-3c2a-4939-8ac6-55ccc6652b41"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -698,7 +698,7 @@
                   <referencesInternal>
                     <reference
                       Id="88910972-d524-43c3-96e4-1ecb6b42eef6"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -904,7 +904,7 @@
             <referencesInternal>
               <reference
                 Id="ba299a36-9656-46c0-9dca-1fecbfa41825"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -971,7 +971,7 @@
                   <referencesInternal>
                     <reference
                       Id="99c154e7-058b-4c0f-a06d-1cb82a817aca"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>

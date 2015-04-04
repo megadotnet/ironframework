@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Generation date: 2014/12/15 16:02:22
-namespace ODataWebAPI.Tests.BusinessEntiies
+namespace ODataWebAPI.Tests.BusinessEntities
 {
     /// <summary>
     /// There are no comments for Container in the schema.
@@ -44,7 +44,7 @@ namespace ODataWebAPI.Tests.BusinessEntiies
             {
                 return resolvedType;
             }
-            resolvedType = this.DefaultResolveType(typeName, "BusinessEntiies", "ODataWebAPI.Tests.BusinessEntiies");
+            resolvedType = this.DefaultResolveType(typeName, "BusinessEntities", "ODataWebAPI.Tests.BusinessEntities");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -68,13 +68,13 @@ namespace ODataWebAPI.Tests.BusinessEntiies
                 }
                 return string.Concat("IronFramework.Utility.EntityFramewrok.", clientType.Name);
             }
-            if (clientType.Namespace.Equals("ODataWebAPI.Tests.BusinessEntiies", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("ODataWebAPI.Tests.BusinessEntities", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
                 {
-                    return string.Concat("BusinessEntiies.", originalNameAttribute.OriginalName);
+                    return string.Concat("BusinessEntities.", originalNameAttribute.OriginalName);
                 }
-                return string.Concat("BusinessEntiies.", clientType.Name);
+                return string.Concat("BusinessEntities.", clientType.Name);
             }
             return null;
         }
@@ -111,7 +111,7 @@ namespace ODataWebAPI.Tests.BusinessEntiies
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.1.0")]
             private const string Edmx = @"<edmx:Edmx Version=""4.0"" xmlns:edmx=""http://docs.oasis-open.org/odata/ns/edmx"">
   <edmx:DataServices>
-    <Schema Namespace=""BusinessEntiies"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
+    <Schema Namespace=""BusinessEntities"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EntityType Name=""Address"">
         <Key>
           <PropertyRef Name=""AddressID"" />
@@ -126,7 +126,7 @@ namespace ODataWebAPI.Tests.BusinessEntiies
         <Property Name=""rowguid"" Type=""Edm.Guid"" />
       </EntityType>
       <EntityContainer Name=""Container"">
-        <EntitySet Name=""Addresses"" EntityType=""BusinessEntiies.Address"" />
+        <EntitySet Name=""Addresses"" EntityType=""BusinessEntities.Address"" />
       </EntityContainer>
     </Schema>
     <Schema Namespace=""IronFramework.Utility.EntityFramewrok"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
@@ -412,27 +412,27 @@ namespace ODataWebAPI.Tests.BusinessEntiies
     public static class ExtensionMethods
     {
         /// <summary>
-        /// Get an entity of type global::ODataWebAPI.Tests.BusinessEntiies.Address as global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle specified by key from an entity set
+        /// Get an entity of type global::ODataWebAPI.Tests.BusinessEntities.Address as global::ODataWebAPI.Tests.BusinessEntities.AddressSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ODataWebAPI.Tests.BusinessEntiies.Address> source, global::System.Collections.Generic.Dictionary<string, object> keys)
+        public static global::ODataWebAPI.Tests.BusinessEntities.AddressSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ODataWebAPI.Tests.BusinessEntities.Address> source, global::System.Collections.Generic.Dictionary<string, object> keys)
         {
-            return new global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::ODataWebAPI.Tests.BusinessEntities.AddressSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::ODataWebAPI.Tests.BusinessEntiies.Address as global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle specified by key from an entity set
+        /// Get an entity of type global::ODataWebAPI.Tests.BusinessEntities.Address as global::ODataWebAPI.Tests.BusinessEntities.AddressSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="addressID">The value of addressID</param>
-        public static global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ODataWebAPI.Tests.BusinessEntiies.Address> source,
+        public static global::ODataWebAPI.Tests.BusinessEntities.AddressSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ODataWebAPI.Tests.BusinessEntities.Address> source,
             int addressID)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "AddressID", addressID }
             };
-            return new global::ODataWebAPI.Tests.BusinessEntiies.AddressSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::ODataWebAPI.Tests.BusinessEntities.AddressSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
     }
 }

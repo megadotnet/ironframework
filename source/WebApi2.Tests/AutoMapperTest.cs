@@ -1,5 +1,5 @@
 ﻿using System;
-using BusinessEntiies;
+using BusinessEntities;
 using IronFramework.Utility;
 using Xunit;
 using DataTransferObject;

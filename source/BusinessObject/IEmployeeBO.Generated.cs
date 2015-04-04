@@ -14,7 +14,7 @@ namespace BusinessObject
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
     using DataTransferObject;
 
 	public interface IEmployeeBO : IBusniessLogicObject<EmployeeDto>

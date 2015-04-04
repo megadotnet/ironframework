@@ -9,7 +9,7 @@
 
 namespace BoService
 {
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using BusinessObject;
 

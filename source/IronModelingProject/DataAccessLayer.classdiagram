@@ -3524,7 +3524,7 @@
         <ownedOperationsInternal>
           <operation Id="c7ff9c2d-fb93-42f3-aeee-9d9d62f40303" name="EmployeeRepository" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="6195f595-b231-416c-918f-27231166930a" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]))])" tag="ViewCode">
+              <reference Id="6195f595-b231-416c-918f-27231166930a" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]))])" tag="ViewCode">
                 <elementDefinition Id="74d49705-9f36-4b62-a287-902b60396f4a" />
               </reference>
             </referencesInternal>
@@ -3570,7 +3570,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="827c9f09-aca3-4b17-8b7c-fba307e6101f" name="repository" direction="In">
                   <referencesInternal>
-                    <reference Id="a68e1f42-8da3-47b8-9628-ffd8419d5444" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]))]) ParameterIdentifier=repository" tag="ViewCode">
+                    <reference Id="a68e1f42-8da3-47b8-9628-ffd8419d5444" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]))]) ParameterIdentifier=repository" tag="ViewCode">
                       <elementDefinition Id="7b78e932-dad6-475d-85a1-4a31660282b9" />
                     </reference>
                   </referencesInternal>
@@ -3639,7 +3639,7 @@
           </operation>
           <operation Id="1095ffbe-35e7-45d0-a03b-4ac50ab2c115" name="Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="8b28bd98-5758-4ada-ba69-98f5d8dac653" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="8b28bd98-5758-4ada-ba69-98f5d8dac653" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="c5c77d64-a880-4999-b3e4-eaf46d4c88f5" />
               </reference>
             </referencesInternal>
@@ -3685,7 +3685,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="903967a8-f7b3-45c0-a357-5049cd202d04" name="entity" direction="In">
                   <referencesInternal>
-                    <reference Id="e9b5fc9b-f73f-4814-9b40-d25fcbe43457" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
+                    <reference Id="e9b5fc9b-f73f-4814-9b40-d25fcbe43457" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
                       <elementDefinition Id="d9b9322f-95ab-4449-bf65-6333b9ed0d73" />
                     </reference>
                   </referencesInternal>
@@ -3699,7 +3699,7 @@
           </operation>
           <operation Id="0620c84c-ef58-410e-8f8d-45e72b1f6c84" name="Attach" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="1f363165-9d0a-40c0-90bd-2b8ff82b23ca" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="1f363165-9d0a-40c0-90bd-2b8ff82b23ca" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="ad92eaaa-adfc-4c6e-96e3-1331092c4f2a" />
               </reference>
             </referencesInternal>
@@ -3745,7 +3745,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="a70d2fcf-aa35-406c-9b88-afd474b535ea" name="entity" direction="In">
                   <referencesInternal>
-                    <reference Id="951d50b0-4ecb-4442-92b7-3eaed7a046b0" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
+                    <reference Id="951d50b0-4ecb-4442-92b7-3eaed7a046b0" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
                       <elementDefinition Id="fc02553d-a11b-489b-83b2-2fa5033945ed" />
                     </reference>
                   </referencesInternal>
@@ -3759,7 +3759,7 @@
           </operation>
           <operation Id="d06d8756-af12-42dc-8508-58160a9f50f6" name="Delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="85949022-9123-4433-8817-789a8eaf0a17" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="85949022-9123-4433-8817-789a8eaf0a17" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="17279b2f-c811-48bc-9958-30c6098e431c" />
               </reference>
             </referencesInternal>
@@ -3805,7 +3805,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="a768a9ba-6ab9-41c2-99c8-b6c0f7bdee85" name="entity" direction="In">
                   <referencesInternal>
-                    <reference Id="eaad7ce2-81c7-4ccf-986d-b90f91803bcd" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
+                    <reference Id="eaad7ce2-81c7-4ccf-986d-b90f91803bcd" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity" tag="ViewCode">
                       <elementDefinition Id="a2695d12-1c99-40fb-898b-a2c8748df313" />
                     </reference>
                   </referencesInternal>
@@ -3876,7 +3876,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1b9bd717-9a9c-4d99-849a-8f2b587d835c" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntiies::Employee">
+      <referencedType Id="1b9bd717-9a9c-4d99-849a-8f2b587d835c" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntities::Employee">
         <elementDefinition Id="16836b86-6db1-450b-839b-d01a41943b81" />
       </referencedType>
     </packageHasNamedElement>

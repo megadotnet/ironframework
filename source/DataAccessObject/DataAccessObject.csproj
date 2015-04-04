@@ -63,95 +63,95 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\BusinessEntiies\AddressRepository.cs">
+    <Compile Include="..\BusinessEntities\AddressRepository.cs">
       <Link>AddressRepository.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\AddressRepository.Generated.cs">
+    <Compile Include="..\BusinessEntities\AddressRepository.Generated.cs">
       <Link>AddressRepository.Generated.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\AdventureWorks.Context.cs">
+    <Compile Include="..\BusinessEntities\AdventureWorks.Context.cs">
       <Link>AdventureWorks.Context.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorks.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\ContactRepository.cs">
+    <Compile Include="..\BusinessEntities\ContactRepository.cs">
       <Link>ContactRepository.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\ContactRepository.Generated.cs">
+    <Compile Include="..\BusinessEntities\ContactRepository.Generated.cs">
       <Link>ContactRepository.Generated.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EFRepository.cs">
+    <Compile Include="..\BusinessEntities\EFRepository.cs">
       <Link>EFRepository.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EFUnitOfWork.cs">
+    <Compile Include="..\BusinessEntities\EFUnitOfWork.cs">
       <Link>EFUnitOfWork.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EmployeePayHistoryRepository.cs">
+    <Compile Include="..\BusinessEntities\EmployeePayHistoryRepository.cs">
       <Link>EmployeePayHistoryRepository.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EmployeePayHistoryRepository.Generated.cs">
+    <Compile Include="..\BusinessEntities\EmployeePayHistoryRepository.Generated.cs">
       <Link>EmployeePayHistoryRepository.Generated.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EmployeeRepository.cs">
+    <Compile Include="..\BusinessEntities\EmployeeRepository.cs">
       <Link>EmployeeRepository.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\EmployeeRepository.Generated.cs">
+    <Compile Include="..\BusinessEntities\EmployeeRepository.Generated.cs">
       <Link>EmployeeRepository.Generated.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\IRepository.cs">
+    <Compile Include="..\BusinessEntities\IRepository.cs">
       <Link>IRepository.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\IStoredProcedureFunctionsDAO.cs">
+    <Compile Include="..\BusinessEntities\IStoredProcedureFunctionsDAO.cs">
       <Link>IStoredProcedureFunctionsDAO.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\IUnitOfWork.cs">
+    <Compile Include="..\BusinessEntities\IUnitOfWork.cs">
       <Link>IUnitOfWork.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\ObjectFactory.cs">
+    <Compile Include="..\BusinessEntities\ObjectFactory.cs">
       <Link>ObjectFactory.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\RepositoryHelper.cs">
+    <Compile Include="..\BusinessEntities\RepositoryHelper.cs">
       <Link>RepositoryHelper.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\RepositoryIQueryableExtensions.cs">
+    <Compile Include="..\BusinessEntities\RepositoryIQueryableExtensions.cs">
       <Link>RepositoryIQueryableExtensions.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\StoredProcedureFunctionsDAO.cs">
+    <Compile Include="..\BusinessEntities\StoredProcedureFunctionsDAO.cs">
       <Link>StoredProcedureFunctionsDAO.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\BusinessEntiies\StoredProcedureFunctionsDAO.Generated.cs">
+    <Compile Include="..\BusinessEntities\StoredProcedureFunctionsDAO.Generated.cs">
       <Link>StoredProcedureFunctionsDAO.Generated.cs</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\BusinessEntiies\AdventureWorks.Context.tt">
+    <None Include="..\BusinessEntities\AdventureWorks.Context.tt">
       <Link>AdventureWorks.Context.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AdventureWorks.Context.cs</LastGenOutput>
     </None>
-    <None Include="..\BusinessEntiies\IRepository.tt">
+    <None Include="..\BusinessEntities\IRepository.tt">
       <Link>IRepository.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>IRepository.cs</LastGenOutput>
@@ -168,9 +168,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
-      <Project>{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}</Project>
-      <Name>BusinessEntiies</Name>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>

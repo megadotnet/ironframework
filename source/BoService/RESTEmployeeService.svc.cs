@@ -15,7 +15,9 @@ namespace BoService
     using System.Runtime.Serialization;
     using System.ServiceModel;
     using System.Text;
-    using BusinessEntiies;
+    using BusinessEntities;
+    using BusinessEntities.DTO;
+
     using BusinessObject;
     using IronFramework.Utility;
     using DataTransferObject;

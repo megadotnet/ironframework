@@ -11,7 +11,7 @@ namespace UnitTest
 {
     using System.Collections.Generic;
     using System.Linq;
-    using BusinessEntiies;
+    using BusinessEntities;
     using DataAccessObject;
     using IronFramework.Utility.UI;
     using Xunit;

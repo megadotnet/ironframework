@@ -134,9 +134,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
-      <Name>BusinessEntiies</Name>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
       <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>

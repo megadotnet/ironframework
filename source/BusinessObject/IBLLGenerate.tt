@@ -28,7 +28,7 @@
  #>
  
 using System;
-using BusinessEntiies;
+using BusinessEntities;
 namespace MSDN.BLL
 {
      public interface I<#= table.Name #>Bll 

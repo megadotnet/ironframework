@@ -37,7 +37,7 @@ namespace IronFramework.Utility.UI
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///  <%#this.Eval2<BusinessEntiies.Employee>(_ => _.EmployeeID)%>
+        ///  <%#this.Eval2<BusinessEntities.Employee>(_ => _.EmployeeID)%>
         /// ]]>
         /// </code>
         /// </example>

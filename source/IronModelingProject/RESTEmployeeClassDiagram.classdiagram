@@ -115,7 +115,7 @@
         <ownedOperations>
           <operation Id="b1a71e6a-fe51-43fe-a7ba-6928d84e1c37" name="Create" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="cadef690-3d21-4dbf-8b58-e2dff46cc70d" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="cadef690-3d21-4dbf-8b58-e2dff46cc70d" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="330f7bab-92bb-4a82-bead-3225006b5b7f" />
               </reference>
             </referencesInternal>
@@ -169,7 +169,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="08c30a27-45c8-4d37-9520-6d29278d5884" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="5fb49ebf-d839-4969-b3a4-e563db4ba6b9" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="5fb49ebf-d839-4969-b3a4-e563db4ba6b9" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="02f1aac9-6166-4249-a855-9d69c0969c86" />
                     </reference>
                   </referencesInternal>
@@ -319,7 +319,7 @@
           </operation>
           <operation Id="ad46fd62-baa7-4edc-bcd9-4e9029c251d2" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="aee200c5-6dd7-4ecd-8ab1-a656e9c151e0" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="aee200c5-6dd7-4ecd-8ab1-a656e9c151e0" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="211d892c-2a84-4e95-87df-a8da38856823" />
               </reference>
             </referencesInternal>
@@ -373,7 +373,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="bbca9786-51c5-4d6d-8ba2-d43b7d5fe007" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="b3eddfd7-834c-4c38-8893-dedf0a9f82e5" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="b3eddfd7-834c-4c38-8893-dedf0a9f82e5" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=IRESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="9d33bb5e-d72e-4e8d-acec-d8937167bf50" />
                     </reference>
                   </referencesInternal>
@@ -394,7 +394,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1829a953-220c-4f08-83c9-baaeef082375" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntiies::Employee">
+      <referencedType Id="1829a953-220c-4f08-83c9-baaeef082375" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntities::Employee">
         <elementDefinition Id="16836b86-6db1-450b-839b-d01a41943b81" />
       </referencedType>
     </packageHasNamedElement>
@@ -552,7 +552,7 @@
           </operation>
           <operation Id="f15acd1d-6eab-477e-81c0-05cb8e4fa0f7" name="Create" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="38a15dfa-df15-4337-84d5-262cbfc234e6" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="38a15dfa-df15-4337-84d5-262cbfc234e6" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="2ad3032d-3c2a-4939-8ac6-55ccc6652b41" />
               </reference>
             </referencesInternal>
@@ -606,7 +606,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="223b3cbf-128d-4a93-946b-e2d544943056" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="e196d898-5b1c-402b-8512-1ba1e0cae420" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="e196d898-5b1c-402b-8512-1ba1e0cae420" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Create OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="88910972-d524-43c3-96e4-1ecb6b42eef6" />
                     </reference>
                   </referencesInternal>
@@ -756,7 +756,7 @@
           </operation>
           <operation Id="87c7116c-3846-485e-a8de-7e38318e6469" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="dc0e12c0-5a21-40ba-a2fc-fb1483b683b1" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="dc0e12c0-5a21-40ba-a2fc-fb1483b683b1" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="ba299a36-9656-46c0-9dca-1fecbfa41825" />
               </reference>
             </referencesInternal>
@@ -810,7 +810,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="25a16420-5be5-452e-bc00-509f8f3490c9" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="2467992b-4365-42a4-83b0-2fcbf70046d7" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="2467992b-4365-42a4-83b0-2fcbf70046d7" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BoService/bin/BoService.dll Namespace=BoService Type=RESTEmployeeService Member=(Name=Update OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="99c154e7-058b-4c0f-a06d-1cb82a817aca" />
                     </reference>
                   </referencesInternal>

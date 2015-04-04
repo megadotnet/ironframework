@@ -11,7 +11,7 @@ namespace BusinessObject.Util
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;using Newtonsoft.Json;
-     using DataTransferObject.Model;using BusinessEntiies;
+     using DataTransferObject.Model;using BusinessEntities;
      using DataTransferObject;
     using System.Collections.Generic;
     
@@ -131,7 +131,7 @@ namespace BusinessObject.Util
                   _AddressDto.StateProvinceID=_Address.StateProvinceID; 
                   _AddressDto.PostalCode=_Address.PostalCode; 
                   _AddressDto.rowguid=_Address.rowguid; 
-                  _AddressDto.ModifiedDate=_Address.ModifiedDate.Value; 
+                  _AddressDto.ModifiedDate=_Address.ModifiedDate; 
                  return _AddressDto;
         }
     

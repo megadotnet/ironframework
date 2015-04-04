@@ -179,7 +179,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
     using DataTransferObject;
 
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>interface I<#=code.Escape(entity)#>BO : IBusniessLogicObject<<#=code.Escape(entity)#>Dto>
@@ -212,7 +212,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using BusinessEntiies;
+using BusinessEntities;
 using DataAccessObject;
 using DataTransferObject.Model;
 using DataTransferObject;
@@ -1039,7 +1039,7 @@ string GetEDMXCurrentDirectory()
 		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
         int lot= executingDirectoryName.LastIndexOf("\\");
         //Need pay attention to  executingDirectoryName
-        executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntiies");
+        executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntities");
 	}	
 	return executingDirectoryName;
 }

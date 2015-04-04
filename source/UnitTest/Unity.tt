@@ -72,7 +72,7 @@ string GetCurrentDirectory()
 		executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
         int lot= executingDirectoryName.LastIndexOf("\\");
         //Need pay attention to  executingDirectoryName
-        executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntiies");
+        executingDirectoryName=Path.Combine(executingDirectoryName.Substring(0,lot),"BusinessEntities");
 	}	
 	return executingDirectoryName;
 }

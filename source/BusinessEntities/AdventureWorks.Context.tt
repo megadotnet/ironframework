@@ -42,7 +42,7 @@ namespace <#=Code.EscapeNamespace(ObjectNamespace)#>
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using BusinessEntiies;
+using BusinessEntities;
 <#
 if (container.FunctionImports.Any())
 {

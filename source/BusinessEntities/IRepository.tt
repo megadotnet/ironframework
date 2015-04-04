@@ -164,7 +164,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using IronFramework.Utility.UI;
  
@@ -1006,7 +1006,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 {
     using System.Data.Entity;
 
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using DataAccessObject.Repositories;
 

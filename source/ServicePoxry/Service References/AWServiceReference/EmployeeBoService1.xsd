@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:20333/EmployeeBoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessEntiies" />
+  <xs:import schemaLocation="http://localhost:20333/EmployeeBoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessEntities" />
   <xs:import schemaLocation="http://localhost:20333/EmployeeBoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IronFramework.Utility.UI" />
   <xs:element name="CreateEmployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BusinessEntiies" minOccurs="0" name="employee" nillable="true" type="q1:Employee" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BusinessEntities" minOccurs="0" name="employee" nillable="true" type="q1:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -19,7 +19,7 @@
   <xs:element name="CreateEmployee2">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BusinessEntiies" minOccurs="0" name="employee" nillable="true" type="q2:Employee" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BusinessEntities" minOccurs="0" name="employee" nillable="true" type="q2:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,7 +33,7 @@
   <xs:element name="DelEmployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BusinessEntiies" minOccurs="0" name="employee" nillable="true" type="q3:Employee" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BusinessEntities" minOccurs="0" name="employee" nillable="true" type="q3:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -71,14 +71,14 @@
   <xs:element name="GetEmployeeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BusinessEntiies" minOccurs="0" name="GetEmployeeResult" nillable="true" type="q5:Employee" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BusinessEntities" minOccurs="0" name="GetEmployeeResult" nillable="true" type="q5:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateEmployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BusinessEntiies" minOccurs="0" name="employee" nillable="true" type="q6:Employee" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BusinessEntities" minOccurs="0" name="employee" nillable="true" type="q6:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

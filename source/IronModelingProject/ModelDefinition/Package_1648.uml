@@ -2,12 +2,12 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="44747ff9-b791-4425-95b2-75b6b54ed018"
-  name="BusinessEntiies"
+  name="BusinessEntities"
   visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <referencesInternal>
     <reference
       Id="eee999f5-221a-42da-949a-9d93ddde340f"
-      handle="viewcode://./CodeSchema_Namespace?Namespace=BusinessEntiies"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=BusinessEntities"
       tag="ViewCode" />
   </referencesInternal>
   <packagedElements>
@@ -21,7 +21,7 @@
         <referencesInternal>
           <reference
             Id="48846c92-3fb5-4737-acca-d3353c1b4269"
-            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -281,7 +281,7 @@
             <referencesInternal>
               <reference
                 Id="aefea51d-c3ef-47d6-bb32-ed601824bde1"
-                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=EmployeeID"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=EmployeeID"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -354,7 +354,7 @@
             <referencesInternal>
               <reference
                 Id="8fbe8b01-7f55-4621-953b-3dfb87a0ba89"
-                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=AddressID"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=AddressID"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -427,7 +427,7 @@
             <referencesInternal>
               <reference
                 Id="e3024010-799c-4aa4-abe1-6bbd07813ef9"
-                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=rowguid"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=rowguid"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -500,7 +500,7 @@
             <referencesInternal>
               <reference
                 Id="73dd2f5d-9516-4b2a-9305-0f2483874271"
-                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=ModifiedDate"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=ModifiedDate"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -573,7 +573,7 @@
             <referencesInternal>
               <reference
                 Id="cfb8c1f3-0907-4545-aa26-f4b9066f3cea"
-                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=Employee"
+                handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=Employee"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -647,7 +647,7 @@
             <referencesInternal>
               <reference
                 Id="3e68036e-dbd6-4b8c-afcb-fca919ff0faf"
-                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=_employeeID"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=_employeeID"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -714,7 +714,7 @@
             <referencesInternal>
               <reference
                 Id="e5203559-59ed-4bd9-a6f6-38eec7ee0ef3"
-                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=_employee"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=_employee"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -781,7 +781,7 @@
             <referencesInternal>
               <reference
                 Id="7b0c7a85-ada3-465d-b3e5-cd0f809b6e16"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -836,7 +836,7 @@
                   <referencesInternal>
                     <reference
                       Id="482c4501-ccd2-42c7-9fa1-560b75432d97"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=previousValue"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=(Name=FixupEmployee OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=previousValue"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -860,7 +860,7 @@
             <referencesInternal>
               <reference
                 Id="8a419deb-2f41-4b71-b900-feeab8251ad2"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress Member=.ctor"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress Member=.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -920,7 +920,7 @@
         <referencesInternal>
           <reference
             Id="a8c6fa76-3b00-4ba1-a766-cc8385dbe94d"
-            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -978,7 +978,7 @@
         <referencesInternal>
           <reference
             Id="9466ff3d-0b8a-4b62-9386-3465433fa872"
-            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -1036,7 +1036,7 @@
         <referencesInternal>
           <reference
             Id="b37569c8-af5a-4a54-88f0-a9a978f7b0f8"
-            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -1094,7 +1094,7 @@
         <referencesInternal>
           <reference
             Id="6664be9d-20ea-4334-8e2f-73dd25ba2122"
-            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Contact"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Contact"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>

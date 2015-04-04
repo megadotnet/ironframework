@@ -28,7 +28,7 @@
  #>
  
 using System;
-using BusinessEntiies;
+using BusinessEntities;
 namespace MSDN.BLL
 {
      public partial class <#= table.Name #>Bll

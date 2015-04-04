@@ -11,7 +11,7 @@ namespace BusinessObject.Util
 {
     using System;using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;using Newtonsoft.Json;
-     using DataTransferObject.Model;using BusinessEntiies;
+     using DataTransferObject.Model;using BusinessEntities;
      using DataTransferObject;
     using System.Collections.Generic;
     

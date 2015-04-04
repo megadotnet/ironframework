@@ -16,7 +16,7 @@ namespace UnitTest
     using System.Linq;
     using System.Threading;
 
-    using BusinessEntiies;
+    using BusinessEntities;
     using BusinessObject;
 
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;

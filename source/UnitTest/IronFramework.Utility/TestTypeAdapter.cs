@@ -12,9 +12,12 @@ namespace UnitTest.TestUtility
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
+    using BusinessEntities.DTO;
+
     using Xunit;
     using IronFramework.Utility;
-    using BusinessEntiies;
+    using BusinessEntities;
     using BusinessObject;
     using BoService;
     using System.ServiceModel;

@@ -1,13 +1,9 @@
-﻿using DataTransferObject;
-using IronFramework.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessEntiies
+﻿namespace BusinessEntities.DTO
 {
+    using DataTransferObject;
+
+    using IronFramework.Utility;
+
     /// <summary>
     /// EmployeeAdapter
     /// </summary>
@@ -25,19 +21,19 @@ namespace BusinessEntiies
             //TODO: The best approach that provider automatically revert method
             if (typeof(S).Equals(typeof(Employee)))
             {
-                CreateMap<Employee, EmployeeDto>();
+                this.CreateMap<Employee, EmployeeDto>();
                 //mapping child collection
-                CreateMap<Contact, ContactDto>();
-                CreateMap<EmployeePayHistory, EmployeePayHistoryDto>();
+                this.CreateMap<Contact, ContactDto>();
+                this.CreateMap<EmployeePayHistory, EmployeePayHistoryDto>();
             }
             else
             {
-                CreateMap<EmployeeDto, Employee>();
+                this.CreateMap<EmployeeDto, Employee>();
                 //mapping child collection
-                CreateMap<ContactDto, Contact>();
-                CreateMap<EmployeePayHistoryDto, EmployeePayHistory>();
+                this.CreateMap<ContactDto, Contact>();
+                this.CreateMap<EmployeePayHistoryDto, EmployeePayHistory>();
             }
-            return GetTarget<S, T>(source);
+            return this.GetTarget<S, T>(source);
         }
     }
 }

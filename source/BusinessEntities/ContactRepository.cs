@@ -14,7 +14,7 @@ namespace DataAccessObject
     using System.Collections.Generic;
     using IronFramework.Utility.UI;
     using System.Linq.Expressions;
-    using BusinessEntiies;
+    using BusinessEntities;
 
     /// <summary>
     ///  Add your own data access methods.

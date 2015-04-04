@@ -48,9 +48,9 @@
       <Project>{bf154a8b-0142-4570-b840-5974e88e2df7}</Project>
       <Name>BoService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
-      <Name>BusinessEntiies</Name>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>

@@ -14,7 +14,7 @@ namespace UnitTest
     using System.Linq;
     using System.Text;
     using IronFramework.Utility;
-    using BusinessEntiies;
+    using BusinessEntities;
     using BusinessObject;
     using System.IO;
     using Microsoft.Practices.EnterpriseLibrary.Validation.PolicyInjection;

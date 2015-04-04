@@ -13,7 +13,7 @@ namespace DataAccessObject
     using System.Linq;
     using System.Linq.Expressions;
 
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using IronFramework.Utility.UI;
 

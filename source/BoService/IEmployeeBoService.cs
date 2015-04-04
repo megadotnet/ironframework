@@ -11,7 +11,7 @@ namespace BoService
 {
     using System.ServiceModel;
 
-    using BusinessEntiies;
+    using BusinessEntities;
 
     using IronFramework.Utility;
     using IronFramework.Utility.UI;

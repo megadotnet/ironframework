@@ -222,12 +222,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessEntiies\BusinessEntiies.csproj">
-      <Project>{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}</Project>
-      <Name>BusinessEntiies</Name>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccessObject\DataAccessObject.csproj">
-      <Project>{5E9D240E-1271-4963-9C3F-FDF2F5522ADE}</Project>
+      <Project>{5e9d240e-1271-4963-9c3f-fdf2f5522ade}</Project>
       <Name>DataAccessObject</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">

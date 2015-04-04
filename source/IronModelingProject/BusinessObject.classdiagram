@@ -115,7 +115,7 @@
         <ownedOperations>
           <operation Id="016e2f42-4851-4a1b-8485-86dcaf86acbf" name="AttachEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="564188e9-ae37-48ec-a133-9db048c8c239" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="564188e9-ae37-48ec-a133-9db048c8c239" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="64f2a131-ec45-416e-ac20-ee4e20ace589" />
               </reference>
             </referencesInternal>
@@ -169,7 +169,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="c8d46897-f352-4e1d-a778-61377b2f1dab" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="d58042a0-09ec-44d7-9672-3b88eb06dfc4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="d58042a0-09ec-44d7-9672-3b88eb06dfc4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="02196b85-c10d-4eed-aaaf-bc1f29eabe0e" />
                     </reference>
                   </referencesInternal>
@@ -183,7 +183,7 @@
           </operation>
           <operation Id="7ea4b110-940f-47af-be22-ac6a1c2c710b" name="CreateEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="33fdf7b4-d3db-434b-a8b6-37574eeeac9b" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="33fdf7b4-d3db-434b-a8b6-37574eeeac9b" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="c74f9220-757c-44f8-a573-478e9f0d86ea" />
               </reference>
             </referencesInternal>
@@ -237,7 +237,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="62164962-4b98-4ab8-9e21-3dfc858b3028" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="be871abe-caf2-4b13-bfad-3b324837b9d1" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="be871abe-caf2-4b13-bfad-3b324837b9d1" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="d99baa36-807a-4383-8ae7-b3151fcadd5e" />
                     </reference>
                   </referencesInternal>
@@ -251,7 +251,7 @@
           </operation>
           <operation Id="c4cefda4-e964-4e84-89cc-fd7151ad3582" name="DelEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="f996cef7-1168-46fc-8b51-1b100517c052" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="f996cef7-1168-46fc-8b51-1b100517c052" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="9de426f0-8375-4d98-8051-f1d1000efbf3" />
               </reference>
             </referencesInternal>
@@ -305,7 +305,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="ea4681c3-07fa-43e0-b654-cfe101ed54de" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="c3e37df3-6b58-4efe-9b92-51707d5c59ae" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="c3e37df3-6b58-4efe-9b92-51707d5c59ae" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="1c7e1a4a-af03-40e8-94e4-2390a29779a4" />
                     </reference>
                   </referencesInternal>
@@ -481,7 +481,7 @@
           </operation>
           <operation Id="f3261613-6e2f-45ed-87ca-3d908f8471a3" name="UpdateEmployee" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="2e4178a5-a16c-423d-87b1-258cacd36751" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="2e4178a5-a16c-423d-87b1-258cacd36751" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="c0d46073-4a8e-4f39-a22f-5e7a457abf42" />
               </reference>
             </referencesInternal>
@@ -535,7 +535,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="8a707288-5d5f-42a9-92eb-8f60089f7c4a" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="30a16fd0-2723-4855-a187-e2dce122f18f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="30a16fd0-2723-4855-a187-e2dce122f18f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="e3ddfe59-d798-4821-9e49-a049d82d5217" />
                     </reference>
                   </referencesInternal>
@@ -549,7 +549,7 @@
           </operation>
           <operation Id="bbd9a286-3049-4c13-80fb-9cb048ed1f34" name="UpdateEmployee2" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="7186090c-fe2b-410a-8226-8b4edc3e0bfa" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="7186090c-fe2b-410a-8226-8b4edc3e0bfa" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="69b2b2e3-48e3-44ed-96ff-8b44e08c59cd" />
               </reference>
             </referencesInternal>
@@ -603,7 +603,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="91f338f8-8ad7-49dc-a4fe-aea789749a96" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="699807ac-c561-4037-842e-20a840fc3ccb" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="699807ac-c561-4037-842e-20a840fc3ccb" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=IEmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="f2f449b6-597b-4ad0-af94-918195c15616" />
                     </reference>
                   </referencesInternal>
@@ -679,7 +679,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntiies::Employee">
+      <referencedType Id="b3ab7981-4d86-43ff-8dbb-c51bd3a5e035" name="Employee" isAbstract="false" isLeaf="false" cachedFullName="IronModelingProject::BusinessEntities::Employee">
         <elementDefinition Id="16836b86-6db1-450b-839b-d01a41943b81" />
       </referencedType>
     </packageHasNamedElement>
@@ -1222,7 +1222,7 @@
           </operation>
           <operation Id="43b8ef0c-94db-4f50-a4db-d8bd42c72f81" name="AttachEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="f2483fea-bef9-48fd-8a54-66179c7617cb" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="f2483fea-bef9-48fd-8a54-66179c7617cb" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="20834e7d-79d3-4579-bf91-33a6285689ef" />
               </reference>
             </referencesInternal>
@@ -1276,7 +1276,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="658ec756-17b6-4f71-ade0-296c84ed8f66" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="a546c56b-8ab4-4c33-8080-8f9c73ac0c48" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="a546c56b-8ab4-4c33-8080-8f9c73ac0c48" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=AttachEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="6daad62a-9c4c-43b7-a9f0-b0b80bc3ada6" />
                     </reference>
                   </referencesInternal>
@@ -1290,7 +1290,7 @@
           </operation>
           <operation Id="5a241360-3626-4e16-8ce8-d2830ab4c1fc" name="CreateEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="ff802654-48aa-45ec-82a0-e43c41ac06e5" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="ff802654-48aa-45ec-82a0-e43c41ac06e5" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="e8b0bb12-d70a-44c2-ab76-3fa9255067cc" />
               </reference>
             </referencesInternal>
@@ -1344,7 +1344,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="dd6ee5c0-1eaf-459f-b5e1-a45dea8b6137" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="0656ded9-df9c-4254-aa8a-c33868a593ce" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="0656ded9-df9c-4254-aa8a-c33868a593ce" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=CreateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="5a13460c-9402-48b5-8e9a-008e0229a367" />
                     </reference>
                   </referencesInternal>
@@ -1358,7 +1358,7 @@
           </operation>
           <operation Id="6de2dcb9-d83e-48b0-bf72-942d8c176411" name="DelEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="49b4cb1f-5845-4e3f-ad3b-9067238b1604" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="49b4cb1f-5845-4e3f-ad3b-9067238b1604" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="a3097857-ce12-4dd9-a782-a7132ccf024d" />
               </reference>
             </referencesInternal>
@@ -1412,7 +1412,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="c81cdf33-1d45-413b-8b61-0fdccc0762ea" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="542b6954-466e-48b8-8b47-0c06e2f1493e" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="542b6954-466e-48b8-8b47-0c06e2f1493e" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=DelEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="b0dd4d8d-acb1-46f1-abd6-3ea23eea463b" />
                     </reference>
                   </referencesInternal>
@@ -1588,7 +1588,7 @@
           </operation>
           <operation Id="df423998-80bf-4044-9c21-1bf8ddb510d2" name="UpdateEmployee" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="794c5649-f32a-4dc4-91e3-c0f8ab0cb87d" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="794c5649-f32a-4dc4-91e3-c0f8ab0cb87d" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="24bf7e12-db70-4ac4-8cd3-aaa64a132cd3" />
               </reference>
             </referencesInternal>
@@ -1642,7 +1642,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="a4d37d16-78eb-48b8-8c13-94067722dcd9" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="3d2da283-ea07-4789-88bd-4a55c43a73b8" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="3d2da283-ea07-4789-88bd-4a55c43a73b8" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="bb8fd5da-6b74-484f-b7b7-ca49f63e97a4" />
                     </reference>
                   </referencesInternal>
@@ -1656,7 +1656,7 @@
           </operation>
           <operation Id="204992b0-3faf-4095-9f5e-eaa19a2e4add" name="UpdateEmployee2" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
-              <reference Id="2a3ac55e-2a3f-438b-84d8-9759bc727020" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])" tag="ViewCode">
+              <reference Id="2a3ac55e-2a3f-438b-84d8-9759bc727020" handle="viewcode://./CodeSchema_Method?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])" tag="ViewCode">
                 <elementDefinition Id="3127206b-d677-4a97-acc1-2fe6a3225388" />
               </reference>
             </referencesInternal>
@@ -1710,7 +1710,7 @@
               <operationHasOwnedParameters>
                 <parameter Id="d469734e-09e6-4cf7-8a20-24b4d8764fce" name="employee" direction="In">
                   <referencesInternal>
-                    <reference Id="2eb0fe72-d4e0-4649-a979-68b475ccf6c4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
+                    <reference Id="2eb0fe72-d4e0-4649-a979-68b475ccf6c4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessObject/bin/Debug/BusinessObject.dll Namespace=BusinessObject Type=EmployeeBusinessObject Member=(Name=UpdateEmployee2 OverloadingParameters=[(Assembly=file:///C:/Code/IronFramework/IronFramework/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=employee" tag="ViewCode">
                       <elementDefinition Id="0268267c-f605-416a-b190-f6ffec273601" />
                     </reference>
                   </referencesInternal>

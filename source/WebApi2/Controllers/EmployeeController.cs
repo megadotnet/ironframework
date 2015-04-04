@@ -1,4 +1,4 @@
-using BusinessEntiies;
+using BusinessEntities;
 using BusinessObject;
 using DataTransferObject;
 using DataTransferObject.Model;

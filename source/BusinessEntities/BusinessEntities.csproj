@@ -8,8 +8,8 @@
     <ProjectGuid>{72AED1A2-1B70-4ED9-9F97-506A7EA9EB51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessEntiies</RootNamespace>
-    <AssemblyName>BusinessEntiies</AssemblyName>
+    <RootNamespace>BusinessEntities</RootNamespace>
+    <AssemblyName>BusinessEntities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -3892,7 +3892,7 @@
             <referencesInternal>
               <reference
                 Id="342828ba-960e-4ed0-9256-b12adff3255f"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)]))])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -3947,7 +3947,7 @@
                   <referencesInternal>
                     <reference
                       Id="02328811-76f9-424d-a9ed-9e41a343c94a"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)]))]) ParameterIdentifier=repository"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)]))]) ParameterIdentifier=repository"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4043,7 +4043,7 @@
             <referencesInternal>
               <reference
                 Id="35dfe9cd-aa83-4299-a6a8-b490324e013f"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4098,7 +4098,7 @@
                   <referencesInternal>
                     <reference
                       Id="7d371732-8787-49cb-b3e8-c06e49fecf23"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4122,7 +4122,7 @@
             <referencesInternal>
               <reference
                 Id="350864c6-fbbc-4fcc-bb05-069745cca0c9"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4177,7 +4177,7 @@
                   <referencesInternal>
                     <reference
                       Id="19d6df58-698e-4dea-b95d-88b57e6ac114"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4201,7 +4201,7 @@
             <referencesInternal>
               <reference
                 Id="c2033f74-9d76-423a-972a-28ec04ed50bc"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4256,7 +4256,7 @@
                   <referencesInternal>
                     <reference
                       Id="791ece92-e7d6-4ff2-bcbf-9fc9cba07814"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeAddress)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeAddressRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeAddress)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4685,7 +4685,7 @@
             <referencesInternal>
               <reference
                 Id="d2607f5b-d6b8-4630-8594-282fc774beb6"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)]))])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4740,7 +4740,7 @@
                   <referencesInternal>
                     <reference
                       Id="c94797fd-bcd9-45b7-bdc1-7d8a57d2ae7f"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)]))]) ParameterIdentifier=repository"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)]))]) ParameterIdentifier=repository"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4836,7 +4836,7 @@
             <referencesInternal>
               <reference
                 Id="6c824c50-2437-4f16-816a-f260410b3426"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4891,7 +4891,7 @@
                   <referencesInternal>
                     <reference
                       Id="91d819b3-1403-4115-812c-8db6ad1a9370"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4915,7 +4915,7 @@
             <referencesInternal>
               <reference
                 Id="708fe4d4-1ad7-4c52-aa5f-f5a3e4cca8b8"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -4970,7 +4970,7 @@
                   <referencesInternal>
                     <reference
                       Id="7d456f91-e63f-4d38-ad06-52e1a15c96e6"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -4994,7 +4994,7 @@
             <referencesInternal>
               <reference
                 Id="02b46096-0ba3-459c-b22b-5a77a616c7b2"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -5049,7 +5049,7 @@
                   <referencesInternal>
                     <reference
                       Id="8a47b32e-e0d9-48e1-9d79-4417efe2cd09"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeDepartmentHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeeDepartmentHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -5478,7 +5478,7 @@
             <referencesInternal>
               <reference
                 Id="10f6d5cd-4fcc-448d-a990-28ed7f41d9a4"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)]))])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -5533,7 +5533,7 @@
                   <referencesInternal>
                     <reference
                       Id="6ea1ddcd-3f29-48cc-8ec7-b7827dedb12f"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)]))]) ParameterIdentifier=repository"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)]))]) ParameterIdentifier=repository"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -5629,7 +5629,7 @@
             <referencesInternal>
               <reference
                 Id="cc8596a3-626f-4975-8a7c-dba003b8ff89"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -5684,7 +5684,7 @@
                   <referencesInternal>
                     <reference
                       Id="afbebfd4-a806-4977-881b-6fd8085aad93"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -5708,7 +5708,7 @@
             <referencesInternal>
               <reference
                 Id="33646b55-f0eb-43f0-be3d-e2d092bb7ffc"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -5763,7 +5763,7 @@
                   <referencesInternal>
                     <reference
                       Id="1ab1a0a7-c606-4a7b-8641-b2df497aac90"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -5787,7 +5787,7 @@
             <referencesInternal>
               <reference
                 Id="2d04ed35-6908-4999-8404-06c257d6f2a6"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -5842,7 +5842,7 @@
                   <referencesInternal>
                     <reference
                       Id="524ccd8c-3c25-4d26-94bd-2ebddfdd35ad"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=EmployeePayHistory)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeePayHistoryRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=EmployeePayHistory)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -6271,7 +6271,7 @@
             <referencesInternal>
               <reference
                 Id="74d49705-9f36-4b62-a287-902b60396f4a"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]))])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -6326,7 +6326,7 @@
                   <referencesInternal>
                     <reference
                       Id="7b78e932-dad6-475d-85a1-4a31660282b9"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]))]) ParameterIdentifier=repository"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=.ctor OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=(Name=IRepository GenericParameterCount=1 GenericArguments=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]))]) ParameterIdentifier=repository"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -6422,7 +6422,7 @@
             <referencesInternal>
               <reference
                 Id="c5c77d64-a880-4999-b3e4-eaf46d4c88f5"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -6477,7 +6477,7 @@
                   <referencesInternal>
                     <reference
                       Id="d9b9322f-95ab-4449-bf65-6333b9ed0d73"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Add OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -6501,7 +6501,7 @@
             <referencesInternal>
               <reference
                 Id="ad92eaaa-adfc-4c6e-96e3-1331092c4f2a"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -6556,7 +6556,7 @@
                   <referencesInternal>
                     <reference
                       Id="fc02553d-a11b-489b-83b2-2fa5033945ed"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Attach OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>
@@ -6580,7 +6580,7 @@
             <referencesInternal>
               <reference
                 Id="17279b2f-c811-48bc-9958-30c6098e431c"
-                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)])"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
@@ -6635,7 +6635,7 @@
                   <referencesInternal>
                     <reference
                       Id="a2695d12-1c99-40fb-898b-a2c8748df313"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntiies/bin/Debug/BusinessEntiies.dll Namespace=BusinessEntiies Type=Employee)]) ParameterIdentifier=entity"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/DataAccessObject/bin/Debug/DataAccessObject.dll Namespace=DataAccessObject Type=EmployeeRepository Member=(Name=Delete OverloadingParameters=[(Assembly=file:///D:/Code/ArchitectDemo/EF4WCF/BusinessEntities/bin/Debug/BusinessEntities.dll Namespace=BusinessEntities Type=Employee)]) ParameterIdentifier=entity"
                       tag="ViewCode" />
                   </referencesInternal>
                   <type_NamedElement>

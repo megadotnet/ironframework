@@ -84,7 +84,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
-    using BusinessEntiies;
+    using BusinessEntities;
 
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Controller : BaseWebAPIController
 	{
@@ -94,7 +94,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 	if(!DoesFileExist(entity.Name + "Controller.cs"))
 	{   
 		fileManager.StartNewFile(entity.Name + "Controller.cs");
-		#>using BusinessEntiies;
+		#>using BusinessEntities;
 using BusinessObject;
 using DataTransferObject;
 using DataTransferObject.Model;
@@ -667,7 +667,7 @@ string OutputFile(string filename)
                 int lot = executingDirectoryName.LastIndexOf("\\");
                 executingDirectoryName=executingDirectoryName.Substring(0, lot);
                 //Need pay attention to  executingDirectoryName
-                executingDirectoryName = Path.Combine(executingDirectoryName.Substring(0, executingDirectoryName.LastIndexOf("\\")), "BusinessEntiies");
+                executingDirectoryName = Path.Combine(executingDirectoryName.Substring(0, executingDirectoryName.LastIndexOf("\\")), "BusinessEntities");
             }
             return executingDirectoryName;
         }
