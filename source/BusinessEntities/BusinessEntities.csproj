@@ -68,11 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdventureWorks.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorks.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
@@ -80,7 +75,6 @@
     <Compile Include="Employee.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="Address.partial.cs" />
     <Compile Include="EmployeePayHistory.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
