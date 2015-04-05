@@ -29,11 +29,10 @@ namespace WebApi2.Controllers
            return  _EmployeeBO.FindAll(_EmployeeDto);
         }
 
-
 		// GET: api/Employee/?pageindex=1&pagesize=10
-        public PagedList<EmployeeDto> Get([FromUri] int pageIndex, int pageSize)
+        public EasyuiDatagridData<EmployeeDto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _EmployeeBO.FindEnties(pageIndex, pageSize);
+            return _EmployeeBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/Employee/5

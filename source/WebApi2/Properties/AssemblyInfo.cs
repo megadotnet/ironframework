@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("WebApi2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("MSIT")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("WebApi2")]
-[assembly: AssemblyCopyright("Copyright © MSIT 2015")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("07b6853c-0542-4bdf-9c54-9ac611da2567")]
+[assembly: Guid("64a5066c-634f-4470-85b3-1218b6e68ddd")]
 
 // Version information for an assembly consists of the following four values:
 //

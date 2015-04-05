@@ -19,16 +19,16 @@ namespace WebApi2
             var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
             Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
 
-            try
-            {
+            //try
+            //{
                 var section = (UnityConfigurationSection)config.GetSection("unity");
                 section.Configure(container, "DefContainer");
 
-            }
-            catch (InvalidOperationException ioe)
-            {
-                throw;
-            }
+            //}
+            //catch (InvalidOperationException)
+            //{
+            //    throw;
+            //}
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers  

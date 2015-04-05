@@ -52,8 +52,13 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             return await RESTAPIClinet.Instance().ClientHTTPGetList<T, Query>(query);
         }
+		        
+	    public async Task<T> ClientHTTPGetList<T, Query>(string querystring) where T : new()
+        {
+            return await RESTAPIClinet.Instance().ClientHTTPGetList<T, Query>(querystring);
+        }
 
-        public async Task<bool>  ClientHTTPPut<T>(T model) where T : new()
+        public async Task<bool> ClientHTTPPut<T>(T model) where T : new()
         {
             return await RESTAPIClinet.Instance().ClientHTTPPut<T>(model);
         }
@@ -81,7 +86,6 @@ EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileMana
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
 {;
     fileManager.StartNewFile(entity.Name + "Controller.Generated.cs"); #>
-	using BusinessEntities;
 using DataTransferObject;
 using DataTransferObject.Model;
 using IronFramework.Utility;
@@ -193,7 +197,6 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq.Expressions;
     using System.Collections.Generic;
 	using System.Web.Mvc;
-    using BusinessEntities;
 
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Controller : BaseWebController
 	{

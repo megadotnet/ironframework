@@ -105,9 +105,11 @@
     <Compile Include="Controllers\EmployeeControllerTest.cs" />
     <Compile Include="Controllers\MemeoryEmployeeBoService.cs" />
     <Compile Include="Controllers\MockHttpContext.cs" />
+    <Compile Include="Controllers\WebAPITest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Controllers\WebAPITest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -128,10 +130,6 @@
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebAppMVC4\WebAPI.csproj">
-      <Project>{3ef66c9c-4c22-459f-9458-ddad20beaeb4}</Project>
-      <Name>WebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

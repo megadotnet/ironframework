@@ -30,6 +30,7 @@ namespace IronFramework.Utility.UI
         /// <summary>
         /// Gets or sets PageIndex.
         /// </summary>
+         [DataMember]
         int PageIndex { get; set; }
 
         /// <summary>

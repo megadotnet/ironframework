@@ -1,54 +1,55 @@
 ﻿@using MvcPaging
-@model IronFramework.Utility.UI.PagedList<DataTransferObject.EmployeeDto>
+@model DataTransferObject.Model.EasyuiDatagridData<DataTransferObject.EmployeeDto>
+
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().BirthDate)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().BirthDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ContactID)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ContactID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().CurrentFlag)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().CurrentFlag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Gender)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().Gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().HireDate)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().HireDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().LoginID)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().LoginID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ManagerID)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ManagerID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().MaritalStatus)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().MaritalStatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ModifiedDate)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ModifiedDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().NationalIDNumber)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().NationalIDNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().SalariedFlag)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().SalariedFlag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().SickLeaveHours)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().SickLeaveHours)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().VacationHours)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().VacationHours)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().rowguid)
+            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().rowguid)
         </th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.rows)
     {
         <tr>
             <td>
@@ -109,9 +110,9 @@
     @Html.Raw(Ajax.Pager(
         new Options
         {
-            PageSize = Model.PageSize,
-            TotalItemCount = Model.TotalCount,
-            CurrentPage = Model.PageIndex,
+            PageSize = Model.rows.FirstOrDefault().pageSize,
+            TotalItemCount = Model.total,
+            CurrentPage = Model.rows.FirstOrDefault().pageIndex.Value,
             ItemTexts = new ItemTexts() { Next = "Next", Previous = "Previous", Page = "P" },
             ItemIcon = new ItemIcon() { First = "icon-backward", Previous = "icon-chevron-left", Next = "icon-chevron-right", Last = "icon-forward" },
             TooltipTitles = new TooltipTitles() { Next = "Next page", Previous = "Previous page", Page = "Go to page {0}.", First = "Go To First Page", Last = "Go To Last Page" },
@@ -130,7 +131,7 @@
 
         }, new { controller = "Employee", action = "Index", employee_name = ViewData["employee_name"] }))
  <div class="well">
-        <span class="badge badge-info">@Model.TotalCount</span> entries
+        <span class="badge badge-info">@Model.total</span> entries
     </div>
  </div>
 

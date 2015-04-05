@@ -9,6 +9,7 @@
 
 namespace IronFramework.Utility.UI
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -18,6 +19,7 @@ namespace IronFramework.Utility.UI
     /// </summary>
     /// <typeparam name="T">
     /// </typeparam>
+     [Serializable]
      [CollectionDataContract]
     public class PagedList<T> : List<T>, IPagedList
     {
@@ -118,16 +120,19 @@ namespace IronFramework.Utility.UI
         /// <summary>
         /// Gets or sets PageIndex.
         /// </summary>
+        [DataMember]
         public int PageIndex { get; set; }
 
         /// <summary>
         /// Gets or sets PageSize.
         /// </summary>
+        [DataMember]
         public int PageSize { get; set; }
 
         /// <summary>
         /// Gets or sets TotalCount.
         /// </summary>
+        [DataMember]
         public int TotalCount { get; set; }
 
         #endregion

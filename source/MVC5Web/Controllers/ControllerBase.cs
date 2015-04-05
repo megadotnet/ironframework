@@ -39,12 +39,13 @@ namespace MVC5Web.Controllers
         {
             return await RESTAPIClinet.Instance().ClientHTTPGetList<T, Query>(query);
         }
-
-        public async Task<T> ClientHTTPGetList<T, Query>(string querystring) where T : new()
+		        
+	    public async Task<T> ClientHTTPGetList<T, Query>(string querystring) where T : new()
         {
             return await RESTAPIClinet.Instance().ClientHTTPGetList<T, Query>(querystring);
         }
-        public async Task<bool>  ClientHTTPPut<T>(T model) where T : new()
+
+        public async Task<bool> ClientHTTPPut<T>(T model) where T : new()
         {
             return await RESTAPIClinet.Instance().ClientHTTPPut<T>(model);
         }

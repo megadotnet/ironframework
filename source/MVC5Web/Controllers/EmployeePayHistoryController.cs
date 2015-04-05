@@ -15,7 +15,6 @@ namespace MVC5Web.Controllers
     using System.Linq.Expressions;
     using System.Collections.Generic;
 	using System.Web.Mvc;
-    using BusinessEntities;
 
 	public partial class EmployeePayHistoryController : BaseWebController
 	{

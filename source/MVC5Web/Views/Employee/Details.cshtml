@@ -1,4 +1,4 @@
-﻿@model ServicePoxry.AWServiceReference.Employee
+﻿@model DataTransferObject.EmployeeDto
 
 @{
     ViewBag.Title = "Details";
@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.BirthDate)
+            @Html.DisplayFor(model => model.BirthDate)
         </dt>
 
         <dd>

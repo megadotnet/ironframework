@@ -15,19 +15,130 @@ namespace MVC5Web.Controllers
     using System.Linq.Expressions;
     using System.Collections.Generic;
 	using System.Web.Mvc;
-    using BusinessEntities;
     using IronFramework.Utility.UI;
     using DataTransferObject;
     using System.Threading.Tasks;
+    using DataTransferObject.Model;
 
 	public partial class EmployeeController : BaseWebController
 	{
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string employee_name, int? page)
         {
-            var dbresults = await ClientHTTPGetList<PagedList<EmployeeDto>, EmployeeDto>(
-                string.Format("pageindex={0}&pagesize={1}", 1, 10)
+            //int count = 0;
+            int pageindex = page.HasValue ? page.Value : 1;
+            int pagesize = 5;
+            var dbresults = await ClientHTTPGetList<EasyuiDatagridData<EmployeeDto>, EmployeeDto>(
+                string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
                 );
-            return View(dbresults);
+            if (Request.IsAjaxRequest())
+                return PartialView("_PartialEmployee", dbresults);
+            else
+                return View(dbresults);
         }
+
+        /// <summary>
+        /// The create.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public ActionResult Create()
+        {
+            //int count = 0;
+            //var employees = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
+            //var contactlist = this.serviceClient.GetPagedListContact(1, 10, out count);
+
+            //this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
+            //this.ViewBag.ManagerID = new SelectList(employees, "EmployeeID", "LoginID");
+            return this.View();
+        }
+
+        // POST: /Employee/Create
+
+        /// <summary>
+        /// The create.
+        /// </summary>
+        /// <param name="employee">
+        /// The employee.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        [HttpPost]
+        public async Task<bool> Create(EmployeeDto employee)
+        {
+            return await Post(employee);
+        }
+
+        // GET: /Employee/Edit/5
+
+        // GET: /Employee/Delete/5
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public async Task<ActionResult> Delete(int id)
+        {
+            var model = await ClientHTTPGet<EmployeeDto>(id);
+            return View(model);
+        }
+
+        // POST: /Employee/Delete/5
+
+        /// <summary>
+        /// The delete confirmed.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(int id)
+        {
+            await ClientHTTPDelete<EmployeeDto>(id);
+            return this.RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// The details.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public  async Task<ViewResult> Details(int id)
+        {
+            var model = await ClientHTTPGet<EmployeeDto>(id);
+            return View(model);
+        }
+
+        /// <summary>
+        /// The edit.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public  async Task<ActionResult> Edit(int id)
+        {
+            var model = await ClientHTTPGet<EmployeeDto>(id);
+
+            int count = 0;
+            //var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
+
+            //var contactlist = this.serviceClient.GetPagedListContact(1, 10, out count);
+
+            //this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
+            //this.ViewBag.ManagerID = new SelectList(employeelist, "EmployeeID", "LoginID", employee.ManagerID);
+            return View(model);
+        }
+
 	}
 }

@@ -139,7 +139,7 @@
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
-      
+
     </container>
 
   </unity>

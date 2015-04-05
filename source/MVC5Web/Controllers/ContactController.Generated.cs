@@ -1,4 +1,3 @@
-	using BusinessEntities;
 using DataTransferObject;
 using DataTransferObject.Model;
 using IronFramework.Utility;

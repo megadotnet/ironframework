@@ -98,11 +98,10 @@ namespace <#= code.VsNamespaceSuggestion() #>
            return  _<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
         }
 
-
 		// GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10
-        public PagedList<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
+        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _<#=code.Escape(entity)#>BO.FindEnties(pageIndex, pageSize);
+            return _<#=code.Escape(entity)#>BO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/<#=code.Escape(entity)#>/5
