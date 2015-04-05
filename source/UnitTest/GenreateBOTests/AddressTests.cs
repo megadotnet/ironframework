@@ -41,11 +41,23 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_AddressDto">The _Address dto.</param>
-        [Theory, AutoData, AutoRollback]
-        public void TestGet(AddressDto _AddressDto)
+        [Theory, AutoData]
+        public void TestFindAll(AddressDto _AddressDto)
         {
             var _AddressBO = new AddressBO();
             var dbResult=_AddressBO.FindAll(_AddressDto);
+            Assert.NotNull(dbResult);
+        }
+
+		/// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_AddressDto">The _Address dto.</param>
+        [Theory, AutoData]
+        public void TestFindEnties(AddressDto _AddressDto)
+        {
+            var _AddressBO = new AddressBO();
+            var dbResult=_AddressBO.FindEnties(_AddressDto);
             Assert.NotNull(dbResult);
         }
 

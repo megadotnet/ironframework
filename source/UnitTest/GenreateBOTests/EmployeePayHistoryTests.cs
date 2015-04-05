@@ -41,11 +41,23 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
-        [Theory, AutoData, AutoRollback]
-        public void TestGet(EmployeePayHistoryDto _EmployeePayHistoryDto)
+        [Theory, AutoData]
+        public void TestFindAll(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             var dbResult=_EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
+            Assert.NotNull(dbResult);
+        }
+
+		/// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
+        [Theory, AutoData]
+        public void TestFindEnties(EmployeePayHistoryDto _EmployeePayHistoryDto)
+        {
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
+            var dbResult=_EmployeePayHistoryBO.FindEnties(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
         }
 

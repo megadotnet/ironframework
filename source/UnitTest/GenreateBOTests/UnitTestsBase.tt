@@ -125,11 +125,23 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// Tests the get.
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
-        [Theory, AutoData, AutoRollback]
-        public void TestGet(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        [Theory, AutoData]
+        public void TestFindAll(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             var dbResult=_<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
+            Assert.NotNull(dbResult);
+        }
+
+		/// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
+        [Theory, AutoData]
+        public void TestFindEnties(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        {
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
+            var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
         }
 
