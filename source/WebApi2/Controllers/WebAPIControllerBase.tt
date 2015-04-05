@@ -67,38 +67,12 @@ EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileMana
 
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
 {;
-    fileManager.StartNewFile(entity.Name + "Controller.Generated.cs"); #>
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
-// </copyright>
-// <summary>
-//   The <#=code.Escape(entity)#> repository.
-//   This file is auto generated and will be overwritten as soon as the template is executed
-//   Do not modify this file...
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------	
-namespace <#= code.VsNamespaceSuggestion() #>
-{  
-    using System;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Collections.Generic;
-    using BusinessEntities;
-
-	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Controller : BaseWebAPIController
-	{
-
-	}
-}<#	
-	if(!DoesFileExist(entity.Name + "Controller.cs"))
-	{   
-		fileManager.StartNewFile(entity.Name + "Controller.cs");
-		#>using BusinessEntities;
+    fileManager.StartNewFile(entity.Name + "Controller.Generated.cs"); #>using BusinessEntities;
 using BusinessObject;
 using DataTransferObject;
 using DataTransferObject.Model;
 using IronFramework.Utility;
+using IronFramework.Utility.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -122,6 +96,13 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] <#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
            return  _<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
+        }
+
+
+		// GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10
+        public PagedList<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
+        {
+            return _<#=code.Escape(entity)#>BO.FindEnties(pageIndex, pageSize);
         }
 
         // GET: api/<#=code.Escape(entity)#>/5
@@ -152,12 +133,39 @@ namespace <#= code.VsNamespaceSuggestion() #>
         }
 
 	}
+}
+<#	
+	if(!DoesFileExist(entity.Name + "Controller.cs"))
+	{   
+		fileManager.StartNewFile(entity.Name + "Controller.cs");
+		#>// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
+// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The <#=code.Escape(entity)#> repository.
+//   This file is auto generated and will be overwritten as soon as the template is executed
+//   Do not modify this file...
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
+namespace <#= code.VsNamespaceSuggestion() #>
+{  
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    using BusinessEntities;
+
+	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Controller : BaseWebAPIController
+	{
+
+	}
 }<#
 	}
 	else
 	{
-		fileManager.StartNewFile(entity.Name + "BO.cs");
-		this.Write(OutputFile(entity.Name + "BO.cs"));
+		fileManager.StartNewFile(entity.Name + "Controller.cs");
+		this.Write(OutputFile(entity.Name + "Controller.cs"));
 	}
 }
 
@@ -638,17 +646,37 @@ public class TypeMapper
 }
 bool DoesFileExist(string filename)
 {			
-	return File.Exists(Path.Combine(GetCurrentDirectory(),filename));	
+	return File.Exists(Path.Combine(GetCurrentDirectory2(),filename));	
 }
 
 string OutputFile(string filename)
 {
-	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentDirectory(),filename)))
+	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentDirectory2(),filename)))
 	{
 		string contents = sr.ReadToEnd();
 		return contents;
 	}
 }
+
+
+     string GetCurrentDirectory2()
+        {
+            string executingDirectoryName = "";
+            string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();
+            if (String.IsNullOrEmpty(stackTraceFileName))
+            {
+                throw new ArgumentException("No value was specified for the 'directoryName' configuration parameter" +
+                    ", and we could not figure out the file name from the stack trace (most likely because of running " +
+                    "the template with debug='False' specified in the <\u0023@ template \u0023> directive.");
+            }
+            else
+            {
+                executingDirectoryName = Path.GetDirectoryName(stackTraceFileName);
+
+            }
+            return executingDirectoryName;
+        }
+
 
      string GetCurrentDirectory()
         {

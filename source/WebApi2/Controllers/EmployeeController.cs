@@ -1,59 +1,23 @@
-using BusinessEntities;
-using BusinessObject;
-using DataTransferObject;
-using DataTransferObject.Model;
-using IronFramework.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-	
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EmployeeRepository.cs" company="Megadotnet">
+// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The Employee repository.
+//   This file is auto generated and will be overwritten as soon as the template is executed
+//   Do not modify this file...
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace WebApi2.Controllers
-{   
+{  
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    using BusinessEntities;
 
-	public partial class EmployeeController : BaseWebAPIController 
+	public partial class EmployeeController : BaseWebAPIController
 	{
-
-        /// <summary>
-        /// The Employee bo
-        /// </summary>
-        private IEmployeeBO _EmployeeBO = ServiceFactory.GetInstance<IEmployeeBO>();
-
-
-        // GET: api/Employee/?pageindex=1&pagesize=10&....
-        public EasyuiDatagridData<EmployeeDto> Get([FromUri] EmployeeDto _EmployeeDto)
-        {
-           return  _EmployeeBO.FindAll(_EmployeeDto);
-        }
-
-        // GET: api/Employee/5
-        public EmployeeDto Get(int id)
-        {
-            return _EmployeeBO.GetEntiyByPK(id);
-        }
-
-        // POST: api/Employee
-        [ValidateModel]
-        public void Post(EmployeeDto value)
-        {
-            _EmployeeBO.CreateEntiy(value);
-        }
-
-        // PUT: api/Employee/
-        [ValidateModel]
-        public void Put(EmployeeDto value)
-        {
-            _EmployeeBO.UpdateWithAttachEntiy(value);
-        }
-
-        // DELETE: api/Employee/5
-        public void Delete(int id)
-        {
-            var entity = new EmployeeDto() { EmployeeID = id };
-            _EmployeeBO.DeleteWithAttachEntiy(entity);
-        }
 
 	}
 }

@@ -1,59 +1,23 @@
-using BusinessEntities;
-using BusinessObject;
-using DataTransferObject;
-using DataTransferObject.Model;
-using IronFramework.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-	
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EmployeePayHistoryRepository.cs" company="Megadotnet">
+// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The EmployeePayHistory repository.
+//   This file is auto generated and will be overwritten as soon as the template is executed
+//   Do not modify this file...
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace WebApi2.Controllers
-{   
+{  
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    using BusinessEntities;
 
-	public partial class EmployeePayHistoryController : BaseWebAPIController 
+	public partial class EmployeePayHistoryController : BaseWebAPIController
 	{
-
-        /// <summary>
-        /// The EmployeePayHistory bo
-        /// </summary>
-        private IEmployeePayHistoryBO _EmployeePayHistoryBO = ServiceFactory.GetInstance<IEmployeePayHistoryBO>();
-
-
-        // GET: api/EmployeePayHistory/?pageindex=1&pagesize=10&....
-        public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] EmployeePayHistoryDto _EmployeePayHistoryDto)
-        {
-           return  _EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
-        }
-
-        // GET: api/EmployeePayHistory/5
-        public EmployeePayHistoryDto Get(int id)
-        {
-            return _EmployeePayHistoryBO.GetEntiyByPK(id);
-        }
-
-        // POST: api/EmployeePayHistory
-        [ValidateModel]
-        public void Post(EmployeePayHistoryDto value)
-        {
-            _EmployeePayHistoryBO.CreateEntiy(value);
-        }
-
-        // PUT: api/EmployeePayHistory/
-        [ValidateModel]
-        public void Put(EmployeePayHistoryDto value)
-        {
-            _EmployeePayHistoryBO.UpdateWithAttachEntiy(value);
-        }
-
-        // DELETE: api/EmployeePayHistory/5
-        public void Delete(int id)
-        {
-            var entity = new EmployeePayHistoryDto() { EmployeeID = id };
-            _EmployeePayHistoryBO.DeleteWithAttachEntiy(entity);
-        }
 
 	}
 }

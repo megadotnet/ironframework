@@ -181,6 +181,28 @@ namespace BusinessObject
             }
         }
 
+        public async Task<T> ClientHTTPGetList<T, Query>(string querystring) where T : new()
+        {
+            using (var client = new HttpClient())
+            {
+                PrepareTargetSite(client);
+
+                string entityname = typeof(Query).Name;
+                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
+
+                //?pageindex=1&pagesize=10
+                HttpResponseMessage response = await client.GetAsync(string.Format("api/{0}/?{1}", entityname, querystring));
+                if (response.IsSuccessStatusCode)
+                {
+                    T product = await response.Content.ReadAsAsync<T>();
+                    return product;
+                }
+
+                return new T();
+            }
+        }
+
+
         /// <summary>
         /// Gets the query string.
         /// </summary>
