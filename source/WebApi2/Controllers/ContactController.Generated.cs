@@ -20,7 +20,17 @@ namespace WebApi2.Controllers
         /// <summary>
         /// The Contact bo
         /// </summary>
-        private IContactBO _ContactBO = ServiceFactory.GetInstance<IContactBO>();
+        private IContactBO _ContactBO=null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactController"/> class.
+        /// </summary>
+        /// <param name="ContactBO">The _ userbo.</param>
+        public ContactController(IContactBO  _varContactBO)
+        {
+            _ContactBO = _varContactBO;
+        }
+
 
 
         // GET: api/Contact/?pageindex=1&pagesize=10&....
@@ -32,7 +42,7 @@ namespace WebApi2.Controllers
 		// GET: api/Contact/?pageindex=1&pagesize=10
         public EasyuiDatagridData<ContactDto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _ContactBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
+            return _ContactBO.FindEnties(new ContactDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/Contact/5

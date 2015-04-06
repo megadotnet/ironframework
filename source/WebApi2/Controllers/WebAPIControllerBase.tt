@@ -89,7 +89,17 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <summary>
         /// The <#=code.Escape(entity)#> bo
         /// </summary>
-        private I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = ServiceFactory.GetInstance<I<#=code.Escape(entity)#>BO>();
+        private I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO=null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="<#=code.Escape(entity)#>Controller"/> class.
+        /// </summary>
+        /// <param name="<#=code.Escape(entity)#>BO">The _ userbo.</param>
+        public <#=code.Escape(entity)#>Controller(I<#=code.Escape(entity)#>BO  _var<#=code.Escape(entity)#>BO)
+        {
+            _<#=code.Escape(entity)#>BO = _var<#=code.Escape(entity)#>BO;
+        }
+
 
 
         // GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10&....
@@ -101,7 +111,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 		// GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10
         public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _<#=code.Escape(entity)#>BO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
+            return _<#=code.Escape(entity)#>BO.FindEnties(new <#=code.Escape(entity)#>Dto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/<#=code.Escape(entity)#>/5

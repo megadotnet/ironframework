@@ -20,7 +20,17 @@ namespace WebApi2.Controllers
         /// <summary>
         /// The EmployeePayHistory bo
         /// </summary>
-        private IEmployeePayHistoryBO _EmployeePayHistoryBO = ServiceFactory.GetInstance<IEmployeePayHistoryBO>();
+        private IEmployeePayHistoryBO _EmployeePayHistoryBO=null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeePayHistoryController"/> class.
+        /// </summary>
+        /// <param name="EmployeePayHistoryBO">The _ userbo.</param>
+        public EmployeePayHistoryController(IEmployeePayHistoryBO  _varEmployeePayHistoryBO)
+        {
+            _EmployeePayHistoryBO = _varEmployeePayHistoryBO;
+        }
+
 
 
         // GET: api/EmployeePayHistory/?pageindex=1&pagesize=10&....
@@ -32,7 +42,7 @@ namespace WebApi2.Controllers
 		// GET: api/EmployeePayHistory/?pageindex=1&pagesize=10
         public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _EmployeePayHistoryBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
+            return _EmployeePayHistoryBO.FindEnties(new EmployeePayHistoryDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/EmployeePayHistory/5

@@ -20,7 +20,17 @@ namespace WebApi2.Controllers
         /// <summary>
         /// The Employee bo
         /// </summary>
-        private IEmployeeBO _EmployeeBO = ServiceFactory.GetInstance<IEmployeeBO>();
+        private IEmployeeBO _EmployeeBO=null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeController"/> class.
+        /// </summary>
+        /// <param name="EmployeeBO">The _ userbo.</param>
+        public EmployeeController(IEmployeeBO  _varEmployeeBO)
+        {
+            _EmployeeBO = _varEmployeeBO;
+        }
+
 
 
         // GET: api/Employee/?pageindex=1&pagesize=10&....

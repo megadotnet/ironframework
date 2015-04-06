@@ -20,7 +20,17 @@ namespace WebApi2.Controllers
         /// <summary>
         /// The Address bo
         /// </summary>
-        private IAddressBO _AddressBO = ServiceFactory.GetInstance<IAddressBO>();
+        private IAddressBO _AddressBO=null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressController"/> class.
+        /// </summary>
+        /// <param name="AddressBO">The _ userbo.</param>
+        public AddressController(IAddressBO  _varAddressBO)
+        {
+            _AddressBO = _varAddressBO;
+        }
+
 
 
         // GET: api/Address/?pageindex=1&pagesize=10&....
@@ -32,7 +42,7 @@ namespace WebApi2.Controllers
 		// GET: api/Address/?pageindex=1&pagesize=10
         public EasyuiDatagridData<AddressDto> Get([FromUri] int pageIndex, int pageSize)
         {
-            return _AddressBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
+            return _AddressBO.FindEnties(new AddressDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
         // GET: api/Address/5
