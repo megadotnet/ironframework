@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessObject;
 using DataTransferObject;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Xunit;
@@ -41,7 +42,7 @@ namespace WebApi2.Tests.Controllers
 
         public void TestAddEmployeeDto(EmployeeDto employeeDto)
         {
-            var controller = new EmployeeController();
+            var controller = new EmployeeController(new EmployeeBO());
            controller.Post(employeeDto);
         }
 
@@ -53,7 +54,7 @@ namespace WebApi2.Tests.Controllers
         [Theory, AutoData]
         public void TestGeEmployeeDto(EmployeeDto employeeDto)
         {
-            var controller = new EmployeeController();
+            var controller = new EmployeeController(new EmployeeBO());
             var result=controller.Get(employeeDto);
 
             Assert.NotNull(result);
@@ -67,7 +68,7 @@ namespace WebApi2.Tests.Controllers
 
         public void TestUpdateEmployeeDto(EmployeeDto employeeDto)
         {
-            var controller = new EmployeeController();
+            var controller = new EmployeeController(new EmployeeBO());
             controller.Put(employeeDto);
         }
 
@@ -79,7 +80,7 @@ namespace WebApi2.Tests.Controllers
 
         public void TestDelEmployeeDto(EmployeeDto employeeDto)
         {
-            var controller = new EmployeeController();
+            var controller = new EmployeeController(new EmployeeBO());
             controller.Delete(employeeDto.EmployeeID);
         }
     }

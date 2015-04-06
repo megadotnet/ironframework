@@ -7,12 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MvcApp.Tests.Controllers
+namespace WebApi2.Tests.Controllers
 {
     using ServicePoxry.AWServiceReference;
-    using WebAppMVC4.Controllers;
     using Xunit;
-    using Moq;
     using System.Web.Http;
     using System.Net.Http;
     using System.Net;
@@ -22,6 +20,8 @@ namespace MvcApp.Tests.Controllers
     using System.Web.Http.Controllers;
     using System.Web.Http.Hosting;
     using System.Web.Http.Routing;
+    using WebApi2.Controllers;
+    using Moq;
 
     /// <summary>
     /// WebAPI Unit Test

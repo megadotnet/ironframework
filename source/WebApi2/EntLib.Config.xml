@@ -140,6 +140,14 @@
         <policyInjection />
       </register >
 
+      <register  type="ServicePoxry.AWServiceReference.IEmployeeBoService, ServicePoxry"
+          mapTo="ServicePoxry.AWServiceReference.EmployeeBoServiceClient, ServicePoxry">
+        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[ServicePoxry.AWServiceReference.IEmployeeBoService, ServicePoxry]], IronFramework.Utility" />
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
     </container>
 
   </unity>

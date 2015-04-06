@@ -127,7 +127,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +187,7 @@
     <Compile Include="Controllers\EmployeePayHistoryController.Generated.cs">
       <DependentUpon>WebAPIControllerBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EmployeeWCFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebAPIControllerBase.cs">
@@ -282,6 +282,10 @@
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
+      <Project>{90ce0470-475d-4d58-98c0-a1d2d86ff266}</Project>
+      <Name>ServiceProxy</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>

@@ -6,7 +6,7 @@
 //   Defines the EmployeeController type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-namespace WebAppMVC4.Controllers
+namespace WebApi2.Controllers
 {
     using System;
     using System.Collections.Generic;
