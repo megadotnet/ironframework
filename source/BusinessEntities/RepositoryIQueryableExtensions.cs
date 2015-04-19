@@ -66,7 +66,7 @@ namespace DataAccessObject
         /// </returns>
         public static PagedList<T> ToPagedList<T>(this IQueryable<T> allItems, int? pageIndex, int pageSize)
         {
-            int truePageIndex = pageIndex ?? 0;
+            int truePageIndex = pageIndex ?? 1;
             int itemIndex = (truePageIndex - 1) * pageSize;
             IQueryable<T> pageOfItems = allItems.Skip(itemIndex).Take(pageSize);
             return new PagedList<T>(pageOfItems, truePageIndex, pageSize, allItems.Count());

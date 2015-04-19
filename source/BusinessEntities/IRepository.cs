@@ -69,6 +69,23 @@ namespace DataAccessObject
         IEnumerable<T> Find(Expression<Func<T, bool>> expression);
 
         /// <summary>
+        /// FindAsync
+        /// </summary>
+        /// <param name="expression">expression</param>
+        /// <returns>async task  IEmunerable entites</returns>
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
+		
+		
+		/// <summary>
+        /// FindAsync
+        /// </summary>
+        /// <param name="expression">expression</param>
+        /// <returns>async task  IEmunerable entites</returns>
+		Task<IEnumerable<T>> FindAsync<K>(
+           Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+        );
+
+        /// <summary>
         /// Finds the specified where expression
         /// </summary>
         /// <typeparam name="K">
@@ -95,6 +112,27 @@ namespace DataAccessObject
             int? pageIndex, 
             int pageSize);
 
+	    /// <summary>
+        /// Finds the specified where expression
+        /// </summary>
+        /// <typeparam name="K">
+        /// K is Key type of sort column  
+        /// </typeparam>
+        /// <param name="whereExpression">
+        /// The where expression.
+        /// </param>
+        /// <param name="orderexpression">
+        /// The orderexpression.
+        /// </param>
+        /// <param name="pageIndex">
+        /// Index of the page.
+        /// </param>
+        /// <param name="pageSize">
+        /// Size of the page.
+        /// </param>
+        /// <returns>
+        /// IEnumerable of entitis 
+        /// </returns>
 IEnumerable<T> Find<K>(
                 Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
                 );

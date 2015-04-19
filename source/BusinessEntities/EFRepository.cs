@@ -136,6 +136,44 @@ namespace DataAccessObject
         }
 
         /// <summary>
+        /// FindAsync
+        /// </summary>
+        /// <param name="expression">expression</param>
+        /// <returns>async task  IEmunerable entites</returns>
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression)
+        {
+            return await this.ObjectSet.Where(expression).ToListAsync();
+        }
+		
+		/// <summary>
+        /// Finds the specified expression with aync
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<T>> FindAsync<K>(
+           Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
+        )
+        {
+              if (expression == null)
+            {
+                if (isOrderByDesc)
+                {
+                    return await this.ObjectSet.AsQueryable().OrderByDescending(orderExpression).ToListAsync();
+                }
+                return await this.ObjectSet.AsQueryable().OrderBy(orderExpression).ToListAsync();
+            }
+
+            if (isOrderByDesc)
+            {
+                return await this.ObjectSet.Where(expression).OrderByDescending(orderExpression).ToListAsync();
+            }
+            return  await this.ObjectSet.Where(expression).OrderBy(orderExpression).ToListAsync();      
+       }  
+
+        /// <summary>
         /// Finds the specified expression.
         /// </summary>
         /// <typeparam name="K">
