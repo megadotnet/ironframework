@@ -13,6 +13,7 @@ namespace DataAccessObject
     using System;
     using System.Linq;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
     using System.Collections.Generic;
     using BusinessEntities;
 
@@ -75,5 +76,13 @@ namespace DataAccessObject
 		{
 			Repository.Save();
 		}
+
+		/// <summary>
+        /// SaveAsync
+        /// </summary>
+        public async Task<int> SaveAsync()
+        {
+            return await Repository.SaveAsync();
+        }
 	}
 }

@@ -11,6 +11,7 @@ namespace DataAccessObject
 {
     using System;
 	using System.Data.Entity;
+	using System.Threading.Tasks;
 
     /// <summary>
     /// EFUnitOfWork
@@ -69,6 +70,16 @@ namespace DataAccessObject
         {
             this._objectContext.SaveChanges();
         }
+
+	    /// <summary>
+        /// SaveChangesAsync
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> SaveChangesAsync()
+        {
+           return await this._objectContext.SaveChangesAsync();
+        }
+
 
         #endregion
 

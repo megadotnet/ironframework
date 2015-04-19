@@ -207,6 +207,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System;
     using System.Linq;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
     using System.Collections.Generic;
     using BusinessEntities;
 
@@ -269,6 +270,14 @@ namespace <#= code.VsNamespaceSuggestion() #>
 		{
 			Repository.Save();
 		}
+
+		/// <summary>
+        /// SaveAsync
+        /// </summary>
+        public async Task<int> SaveAsync()
+        {
+            return await Repository.SaveAsync();
+        }
 	}
 }<#	
 	if(!DoesFileExist(entity.Name + "Repository.cs"))
@@ -985,6 +994,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 {
     using System;
 	using System.Data.Entity;
+	using System.Threading.Tasks;
 
     /// <summary>
     /// EFUnitOfWork
@@ -1043,6 +1053,16 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             this._objectContext.SaveChanges();
         }
+
+	    /// <summary>
+        /// SaveChangesAsync
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> SaveChangesAsync()
+        {
+           return await this._objectContext.SaveChangesAsync();
+        }
+
 
         #endregion
 
