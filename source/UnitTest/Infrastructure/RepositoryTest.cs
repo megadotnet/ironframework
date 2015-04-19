@@ -21,6 +21,7 @@ namespace UnitTest
     using Xunit;
     using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
+    using System.Threading.Tasks;
     
     /// <summary>
     /// The repository test.
@@ -128,6 +129,32 @@ namespace UnitTest
             Assert.Equal(50, cPagedlist.TotalCount);
         }
 
+        /// <summary>
+        /// Tests the Find async
+        /// </summary>
+        /// <see cref="http://stackoverflow.com/a/21256276/709066"/>
+        [Fact]
+        public async Task TestFindAsync()
+        {
+            //arrange
+            var mockobject = new Mock<IRepository<Customer>>();
+            mockobject.Setup(r => r.Add(It.IsAny<Customer>()));
+
+            var customer = new Customer() { CustomerId = 1 };
+            mockobject.Setup(r =>  r.FindAsync(c => c.CustomerId == customer.CustomerId))
+                .ReturnsAsync(new List<Customer>() { customer });
+
+            var mockRepository = mockobject.Object;
+
+            //act
+            var clist = await mockRepository.FindAsync(c => c.CustomerId == customer.CustomerId);
+           
+
+            //assert
+            Assert.NotNull(clist);
+            Assert.True(clist.Count() > 0);
+        }
+
 
         /// <summary>
         /// Tests the save.
@@ -147,6 +174,27 @@ namespace UnitTest
 
             //assert
             mockobject.Verify(e => e.Save());
+        }
+
+        /// <summary>
+        /// TestSaveAsync
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        public async Task TestSaveAsync()
+        {
+            //arrange
+            var mockobject = new Mock<IRepository<Customer>>();
+            mockobject.Setup(r => r.Save()).Verifiable();
+
+            var customer = new Customer() { CustomerId = 1 };
+            var mockRepository = mockobject.Object;
+
+            //act
+            await mockRepository.SaveAsync();
+
+            //assert
+            mockobject.Verify(e => e.SaveAsync());
         }
 
 
