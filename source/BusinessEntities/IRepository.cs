@@ -13,11 +13,12 @@ namespace DataAccessObject
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
 
     /// <summary>
-    /// a interface of data acccess repository.
+    /// A Interface of data acccess repository.
     /// </summary>
     /// <typeparam name="T">entity</typeparam>
     public interface IRepository<T>
@@ -116,6 +117,11 @@ IEnumerable<T> Find<K>(
         /// Saves this instance.
         /// </summary>
         void Save();
+
+		/// <summary>
+        /// Saves with async.
+        /// </summary>
+        Task<int> SaveAsync();
 
         /// <summary>
         /// Singles the specified where.

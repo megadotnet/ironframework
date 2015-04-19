@@ -23,11 +23,12 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
 
     /// <summary>
-    /// a interface of data acccess repository.
+    /// A Interface of data acccess repository.
     /// </summary>
     /// <typeparam name="T">entity</typeparam>
     public interface IRepository<T>
@@ -126,6 +127,11 @@ IEnumerable<T> Find<K>(
         /// Saves this instance.
         /// </summary>
         void Save();
+
+		/// <summary>
+        /// Saves with async.
+        /// </summary>
+        Task<int> SaveAsync();
 
         /// <summary>
         /// Singles the specified where.
@@ -267,6 +273,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
+	using System.Threading.Tasks;
 
     /// <summary>
     /// IUnitOfWork interface
@@ -362,6 +369,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// The save changes.
         /// </summary>
         void SaveChanges();
+
+		/// <summary>
+        /// SaveChangesAsync 
+        /// </summary>
+        Task<int> SaveChangesAsync();
 
         #endregion
     }
@@ -533,6 +545,14 @@ namespace <#= code.VsNamespaceSuggestion() #>
             this._context.SaveChanges();
         }
 
+		/// <summary>
+        /// SaveChangesAsync 
+        /// </summary>
+        public async Task<int> SaveChangesAsync()
+        {
+            return await this._context.SaveChangesAsync();
+        }
+
         #endregion
 
         #endregion
@@ -630,6 +650,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
 
@@ -843,6 +864,15 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public void Save()
         {
             this._objectContext.SaveChanges();
+        }
+
+		/// <summary>
+        /// SaveAsync
+        /// </summary>
+        /// <returns>int</returns>
+        public async Task<int> SaveAsync()
+        {
+            return await this._objectContext.SaveChangesAsync();
         }
 
         /// <summary>

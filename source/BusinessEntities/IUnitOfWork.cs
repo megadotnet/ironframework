@@ -14,6 +14,7 @@ namespace DataAccessObject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
+	using System.Threading.Tasks;
 
     /// <summary>
     /// IUnitOfWork interface
@@ -109,6 +110,11 @@ namespace DataAccessObject
         /// The save changes.
         /// </summary>
         void SaveChanges();
+
+		/// <summary>
+        /// SaveChangesAsync 
+        /// </summary>
+        Task<int> SaveChangesAsync();
 
         #endregion
     }
@@ -278,6 +284,14 @@ namespace DataAccessObject
         public void SaveChanges()
         {
             this._context.SaveChanges();
+        }
+
+		/// <summary>
+        /// SaveChangesAsync 
+        /// </summary>
+        public async Task<int> SaveChangesAsync()
+        {
+            return await this._context.SaveChangesAsync();
         }
 
         #endregion

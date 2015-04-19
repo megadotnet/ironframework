@@ -14,6 +14,7 @@ namespace DataAccessObject
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
 
@@ -227,6 +228,15 @@ namespace DataAccessObject
         public void Save()
         {
             this._objectContext.SaveChanges();
+        }
+
+		/// <summary>
+        /// SaveAsync
+        /// </summary>
+        /// <returns>int</returns>
+        public async Task<int> SaveAsync()
+        {
+            return await this._objectContext.SaveChangesAsync();
         }
 
         /// <summary>
