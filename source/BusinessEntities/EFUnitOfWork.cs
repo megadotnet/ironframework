@@ -10,6 +10,7 @@
 namespace DataAccessObject
 {
     using System;
+	using System.Data.Entity;
 
     /// <summary>
     /// EFUnitOfWork

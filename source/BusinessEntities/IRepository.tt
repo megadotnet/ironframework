@@ -569,6 +569,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 
 namespace <#= code.VsNamespaceSuggestion() #>
 {
+    using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
 
@@ -647,6 +648,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 {
     using System;
     using System.Collections.Generic;
+	using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     using System.Linq.Expressions;
@@ -906,6 +908,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 namespace <#= code.VsNamespaceSuggestion() #>
 {
     using System;
+	using System.Data.Entity;
 
     /// <summary>
     /// EFUnitOfWork

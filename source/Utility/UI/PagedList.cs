@@ -11,6 +11,7 @@ namespace IronFramework.Utility.UI
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Runtime.Serialization;
 
