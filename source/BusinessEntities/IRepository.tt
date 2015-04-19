@@ -334,6 +334,12 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         void Save();
 
+	    /// <summary>
+        /// SaveAsync
+        /// </summary>
+        /// <returns></returns>
+        Task<int> SaveAsync();
+
         #endregion
     }
 
@@ -1058,7 +1064,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// SaveChangesAsync
         /// </summary>
         /// <returns></returns>
-        public async Task<int> SaveChangesAsync()
+        public async Task<int> SaveAsync()
         {
            return await this._objectContext.SaveChangesAsync();
         }

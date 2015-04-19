@@ -28,6 +28,12 @@ namespace DataAccessObject
         /// </summary>
         void Save();
 
+	    /// <summary>
+        /// SaveAsync
+        /// </summary>
+        /// <returns></returns>
+        Task<int> SaveAsync();
+
         #endregion
     }
 

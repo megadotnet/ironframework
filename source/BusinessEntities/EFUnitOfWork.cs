@@ -75,7 +75,7 @@ namespace DataAccessObject
         /// SaveChangesAsync
         /// </summary>
         /// <returns></returns>
-        public async Task<int> SaveChangesAsync()
+        public async Task<int> SaveAsync()
         {
            return await this._objectContext.SaveChangesAsync();
         }

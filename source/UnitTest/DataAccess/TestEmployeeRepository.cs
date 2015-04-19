@@ -16,6 +16,7 @@ namespace UnitTest
     using IronFramework.Utility.UI;
     using Xunit;
     using Xunit.Extensions;
+    using System.Threading.Tasks;
 
     public class TestEmployeeRepository : TestEmployeeBase
     {
@@ -269,6 +270,32 @@ namespace UnitTest
 
             ep.Delete(employee);
             uow.Save();
+        }
+
+        /// <summary>
+        /// TestEFUnitofworkNativeAPIAsync
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        [AutoRollback]
+        public async Task TestEFUnitofworkNativeAPIAsync()
+        {
+            Employee employee = this.CreateNewEmployee();
+
+            var objectcontext = ObjectFactory.GetInstance<IObjectContext>();
+            IUnitOfWork uow = ObjectFactory.GetInstance<IUnitOfWork, IObjectContext>(objectcontext);
+            IRepository<Employee> ep = ObjectFactory.GetInstance<IRepository<Employee>, IObjectContext>(objectcontext);
+
+            ep.Add(employee);
+            await uow.SaveAsync();
+
+            // assert
+            IEnumerable<Employee> employeelist = ep.Find(e => e.EmployeeID == employee.EmployeeID);
+            Assert.NotNull(employeelist);
+            Assert.NotNull(employeelist.SingleOrDefault());
+
+            ep.Delete(employee);
+            await uow.SaveAsync();
         }
 
         /// <summary>
