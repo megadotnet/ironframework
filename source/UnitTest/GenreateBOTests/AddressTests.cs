@@ -37,6 +37,18 @@ namespace UnitTest.GenreateBOTests
             Assert.True(hasAdded);
         }
 
+	    /// <summary>
+        ///GetEntiyByPK
+        /// </summary>
+        /// <param name="pkid">The PK int</param>
+        [Theory, AutoData]
+        public void TestGetEntiyByPK(int pkid)
+        {
+            var _AddressBO = new AddressBO();
+            var dbResult = _AddressBO.GetEntiyByPK(pkid);
+            Assert.NotNull(dbResult);
+        }
+
         /// <summary>
         /// Tests the get.
         /// </summary>
@@ -47,6 +59,7 @@ namespace UnitTest.GenreateBOTests
             var _AddressBO = new AddressBO();
             var dbResult=_AddressBO.FindAll(_AddressDto);
             Assert.NotNull(dbResult);
+		    Assert.True(dbResult.total>0);
         }
 
 		/// <summary>
@@ -58,6 +71,32 @@ namespace UnitTest.GenreateBOTests
         {
             var _AddressBO = new AddressBO();
             var dbResult=_AddressBO.FindEnties(_AddressDto);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.total>0);
+        }
+
+        /// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_AddressDto">The _Address dto.</param>
+        [Theory, AutoData]
+        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        {
+             var _AddressBO = new AddressBO();
+            var dbResult = _AddressBO.FindEnties(pageIndex, pageSize);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.Count>0);
+        }
+
+		/// <summary>
+        /// TestUpdateEntiyWithGet
+        /// </summary>
+        /// <param name="_AddressDto"></param>
+        [Theory, AutoData, AutoRollback]
+        public void TestUpdateEntiyWithGet(AddressDto _AddressDto)
+        {
+            var _AddressBO = new AddressBO();
+            var dbResult = _AddressBO.UpdateEntiyWithGet(_AddressDto);
             Assert.NotNull(dbResult);
         }
 
@@ -82,6 +121,18 @@ namespace UnitTest.GenreateBOTests
         {
             var _AddressBO = new AddressBO();
             bool isDeleted = _AddressBO.DeleteWithAttachEntiy(_AddressDto);
+            Assert.True(isDeleted);
+        }
+
+		/// <summary>
+        /// TestDeleteEntiy
+        /// </summary>
+        /// <param name="_AddressDto">_AddressDto</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestDeleteEntiy(AddressDto _AddressDto)
+        {
+            var _AddressBO = new AddressBO();
+            bool isDeleted = _AddressBO.DeleteEntiy(_AddressDto);
             Assert.True(isDeleted);
         }
 

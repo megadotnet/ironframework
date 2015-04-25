@@ -37,6 +37,18 @@ namespace UnitTest.GenreateBOTests
             Assert.True(hasAdded);
         }
 
+	    /// <summary>
+        ///GetEntiyByPK
+        /// </summary>
+        /// <param name="pkid">The PK int</param>
+        [Theory, AutoData]
+        public void TestGetEntiyByPK(int pkid)
+        {
+            var _ContactBO = new ContactBO();
+            var dbResult = _ContactBO.GetEntiyByPK(pkid);
+            Assert.NotNull(dbResult);
+        }
+
         /// <summary>
         /// Tests the get.
         /// </summary>
@@ -47,6 +59,7 @@ namespace UnitTest.GenreateBOTests
             var _ContactBO = new ContactBO();
             var dbResult=_ContactBO.FindAll(_ContactDto);
             Assert.NotNull(dbResult);
+		    Assert.True(dbResult.total>0);
         }
 
 		/// <summary>
@@ -58,6 +71,32 @@ namespace UnitTest.GenreateBOTests
         {
             var _ContactBO = new ContactBO();
             var dbResult=_ContactBO.FindEnties(_ContactDto);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.total>0);
+        }
+
+        /// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_ContactDto">The _Contact dto.</param>
+        [Theory, AutoData]
+        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        {
+             var _ContactBO = new ContactBO();
+            var dbResult = _ContactBO.FindEnties(pageIndex, pageSize);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.Count>0);
+        }
+
+		/// <summary>
+        /// TestUpdateEntiyWithGet
+        /// </summary>
+        /// <param name="_ContactDto"></param>
+        [Theory, AutoData, AutoRollback]
+        public void TestUpdateEntiyWithGet(ContactDto _ContactDto)
+        {
+            var _ContactBO = new ContactBO();
+            var dbResult = _ContactBO.UpdateEntiyWithGet(_ContactDto);
             Assert.NotNull(dbResult);
         }
 
@@ -82,6 +121,18 @@ namespace UnitTest.GenreateBOTests
         {
             var _ContactBO = new ContactBO();
             bool isDeleted = _ContactBO.DeleteWithAttachEntiy(_ContactDto);
+            Assert.True(isDeleted);
+        }
+
+		/// <summary>
+        /// TestDeleteEntiy
+        /// </summary>
+        /// <param name="_ContactDto">_ContactDto</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestDeleteEntiy(ContactDto _ContactDto)
+        {
+            var _ContactBO = new ContactBO();
+            bool isDeleted = _ContactBO.DeleteEntiy(_ContactDto);
             Assert.True(isDeleted);
         }
 

@@ -121,6 +121,18 @@ namespace <#= code.VsNamespaceSuggestion() #>
             Assert.True(hasAdded);
         }
 
+	    /// <summary>
+        ///GetEntiyByPK
+        /// </summary>
+        /// <param name="pkid">The PK int</param>
+        [Theory, AutoData]
+        public void TestGetEntiyByPK(int pkid)
+        {
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
+            var dbResult = _<#=code.Escape(entity)#>BO.GetEntiyByPK(pkid);
+            Assert.NotNull(dbResult);
+        }
+
         /// <summary>
         /// Tests the get.
         /// </summary>
@@ -131,6 +143,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             var dbResult=_<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
+		    Assert.True(dbResult.total>0);
         }
 
 		/// <summary>
@@ -142,6 +155,32 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(_<#=code.Escape(entity)#>Dto);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.total>0);
+        }
+
+        /// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
+        [Theory, AutoData]
+        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        {
+             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
+            var dbResult = _<#=code.Escape(entity)#>BO.FindEnties(pageIndex, pageSize);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.Count>0);
+        }
+
+		/// <summary>
+        /// TestUpdateEntiyWithGet
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Dto"></param>
+        [Theory, AutoData, AutoRollback]
+        public void TestUpdateEntiyWithGet(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        {
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
+            var dbResult = _<#=code.Escape(entity)#>BO.UpdateEntiyWithGet(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
         }
 
@@ -166,6 +205,18 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             bool isDeleted = _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(_<#=code.Escape(entity)#>Dto);
+            Assert.True(isDeleted);
+        }
+
+		/// <summary>
+        /// TestDeleteEntiy
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Dto">_<#=code.Escape(entity)#>Dto</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestDeleteEntiy(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        {
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
+            bool isDeleted = _<#=code.Escape(entity)#>BO.DeleteEntiy(_<#=code.Escape(entity)#>Dto);
             Assert.True(isDeleted);
         }
 

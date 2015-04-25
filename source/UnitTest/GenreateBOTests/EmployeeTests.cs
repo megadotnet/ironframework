@@ -37,6 +37,18 @@ namespace UnitTest.GenreateBOTests
             Assert.True(hasAdded);
         }
 
+	    /// <summary>
+        ///GetEntiyByPK
+        /// </summary>
+        /// <param name="pkid">The PK int</param>
+        [Theory, AutoData]
+        public void TestGetEntiyByPK(int pkid)
+        {
+            var _EmployeeBO = new EmployeeBO();
+            var dbResult = _EmployeeBO.GetEntiyByPK(pkid);
+            Assert.NotNull(dbResult);
+        }
+
         /// <summary>
         /// Tests the get.
         /// </summary>
@@ -47,6 +59,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeeBO = new EmployeeBO();
             var dbResult=_EmployeeBO.FindAll(_EmployeeDto);
             Assert.NotNull(dbResult);
+		    Assert.True(dbResult.total>0);
         }
 
 		/// <summary>
@@ -58,6 +71,32 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeeBO = new EmployeeBO();
             var dbResult=_EmployeeBO.FindEnties(_EmployeeDto);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.total>0);
+        }
+
+        /// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_EmployeeDto">The _Employee dto.</param>
+        [Theory, AutoData]
+        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        {
+             var _EmployeeBO = new EmployeeBO();
+            var dbResult = _EmployeeBO.FindEnties(pageIndex, pageSize);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.Count>0);
+        }
+
+		/// <summary>
+        /// TestUpdateEntiyWithGet
+        /// </summary>
+        /// <param name="_EmployeeDto"></param>
+        [Theory, AutoData, AutoRollback]
+        public void TestUpdateEntiyWithGet(EmployeeDto _EmployeeDto)
+        {
+            var _EmployeeBO = new EmployeeBO();
+            var dbResult = _EmployeeBO.UpdateEntiyWithGet(_EmployeeDto);
             Assert.NotNull(dbResult);
         }
 
@@ -82,6 +121,18 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeeBO = new EmployeeBO();
             bool isDeleted = _EmployeeBO.DeleteWithAttachEntiy(_EmployeeDto);
+            Assert.True(isDeleted);
+        }
+
+		/// <summary>
+        /// TestDeleteEntiy
+        /// </summary>
+        /// <param name="_EmployeeDto">_EmployeeDto</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestDeleteEntiy(EmployeeDto _EmployeeDto)
+        {
+            var _EmployeeBO = new EmployeeBO();
+            bool isDeleted = _EmployeeBO.DeleteEntiy(_EmployeeDto);
             Assert.True(isDeleted);
         }
 

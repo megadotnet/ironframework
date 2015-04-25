@@ -37,6 +37,18 @@ namespace UnitTest.GenreateBOTests
             Assert.True(hasAdded);
         }
 
+	    /// <summary>
+        ///GetEntiyByPK
+        /// </summary>
+        /// <param name="pkid">The PK int</param>
+        [Theory, AutoData]
+        public void TestGetEntiyByPK(int pkid)
+        {
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
+            var dbResult = _EmployeePayHistoryBO.GetEntiyByPK(pkid);
+            Assert.NotNull(dbResult);
+        }
+
         /// <summary>
         /// Tests the get.
         /// </summary>
@@ -47,6 +59,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             var dbResult=_EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
+		    Assert.True(dbResult.total>0);
         }
 
 		/// <summary>
@@ -58,6 +71,32 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             var dbResult=_EmployeePayHistoryBO.FindEnties(_EmployeePayHistoryDto);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.total>0);
+        }
+
+        /// <summary>
+        /// Tests the get.
+        /// </summary>
+        /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
+        [Theory, AutoData]
+        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        {
+             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
+            var dbResult = _EmployeePayHistoryBO.FindEnties(pageIndex, pageSize);
+            Assert.NotNull(dbResult);
+			Assert.True(dbResult.Count>0);
+        }
+
+		/// <summary>
+        /// TestUpdateEntiyWithGet
+        /// </summary>
+        /// <param name="_EmployeePayHistoryDto"></param>
+        [Theory, AutoData, AutoRollback]
+        public void TestUpdateEntiyWithGet(EmployeePayHistoryDto _EmployeePayHistoryDto)
+        {
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
+            var dbResult = _EmployeePayHistoryBO.UpdateEntiyWithGet(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
         }
 
@@ -82,6 +121,18 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             bool isDeleted = _EmployeePayHistoryBO.DeleteWithAttachEntiy(_EmployeePayHistoryDto);
+            Assert.True(isDeleted);
+        }
+
+		/// <summary>
+        /// TestDeleteEntiy
+        /// </summary>
+        /// <param name="_EmployeePayHistoryDto">_EmployeePayHistoryDto</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestDeleteEntiy(EmployeePayHistoryDto _EmployeePayHistoryDto)
+        {
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
+            bool isDeleted = _EmployeePayHistoryBO.DeleteEntiy(_EmployeePayHistoryDto);
             Assert.True(isDeleted);
         }
 
