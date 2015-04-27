@@ -21,6 +21,9 @@ namespace WebApi2
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+            config.EnableCors();
+
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
