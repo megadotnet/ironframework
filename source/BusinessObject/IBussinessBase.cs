@@ -14,6 +14,7 @@ namespace BusinessObject
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
     using DataTransferObject.Model;
@@ -39,6 +40,20 @@ namespace BusinessObject
         /// The <see cref="PagedList"/>.
         /// </returns>
         PagedList<T> FindEnties(int? pageIndex, int pageSize);
+
+		/// <summary>
+        /// The find enties.
+        /// </summary>
+        /// <param name="pageIndex">
+        /// The page index.
+        /// </param>
+        /// <param name="pageSize">
+        /// The page size.
+        /// </param>
+        /// <returns>
+        /// The <see cref="PagedList"/>.
+        /// </returns>
+		Task<PagedList<T>> FindEntiesAsync(int? pageIndex, int pageSize);
 
         /// <summary>
         /// Finds the enties.

@@ -85,6 +85,48 @@ namespace DataAccessObject
            Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression, bool isOrderByDesc
         );
 
+		        /// <summary>
+        /// Finds the specified where expression
+        /// </summary>
+        /// <typeparam name="K">
+        /// K is Key type of sort column  
+        /// </typeparam>
+        /// <param name="whereExpression">
+        /// The where expression.
+        /// </param>
+        /// <param name="orderexpression">
+        /// The orderexpression.
+        /// </param>
+        /// <param name="pageIndex">
+        /// Index of the page.
+        /// </param>
+        /// <param name="pageSize">
+        /// Size of the page.
+        /// </param>
+        /// <returns>
+        /// List of entitis 
+        /// </returns>
+        Task<PagedList<T>> FindAsync<K>(
+            Expression<Func<T, bool>> whereExpression,
+            Expression<Func<T, K>> orderexpression,
+            int? pageIndex,
+            int pageSize);
+
+        /// <summary>
+        /// Finds the specified expression.
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="expression">The expression.</param>
+        /// <param name="orderExpression">The order expression.</param>
+        /// <param name="isOrderByDesc">if set to <c>true</c> [is order by desc].</param>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns>Entities paged list</returns>
+        Task<PagedList<T>> FindAsync<K>(
+        Expression<Func<T, bool>> expression, Expression<Func<T, K>> orderExpression
+        , bool isOrderByDesc, int? pageIndex, int pageSize);
+
+
         /// <summary>
         /// Finds the specified where expression
         /// </summary>

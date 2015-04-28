@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BusinessEntities;
 using DataAccessObject;
 using DataTransferObject.Model;
@@ -68,6 +69,19 @@ namespace BusinessObject
              return listDtos;
         }
 
+		/// <summary>
+        /// Find Enties Async
+        /// </summary>
+        /// <param name="pageIndex">pageIndex</param>
+        /// <param name="pageSize">pageSize</param>
+        /// <returns>Enties</returns>
+        public async Task<PagedList<EmployeeDto>> FindEntiesAsync(int? pageIndex, int pageSize)
+        {
+            var entities = await entiesrepository.Repository.FindAsync(p => p.EmployeeID > 0, p => p.EmployeeID, pageIndex, pageSize);
+            var listDtos = new PagedList<EmployeeDto>() { TotalCount = entities.TotalCount };
+            entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
+            return listDtos;
+        }
 
         /// <summary>
         /// Converts the to UI model.
