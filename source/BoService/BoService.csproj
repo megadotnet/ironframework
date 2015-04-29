@@ -110,6 +110,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DALConfig.xml" />
     <Content Include="EmployeeBoService.svc" />
     <Content Include="EntLib.Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

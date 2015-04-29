@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ObjectFactory.cs" company="Megadotnet">
-//   Copyright (c) 2010-2011 Petter Liu.  All rights reserved. 
+//   Copyright (c) 2010-2015 Petter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   ObjectFactory
@@ -26,8 +26,25 @@ namespace DataAccessObject
     {
        private static IUnityContainer container;
 
+	    /// <summary>
+        /// ObjectFactory
+        /// </summary>
+        /// <example><code>
+        /// <![CDATA[
+        ///   <appSettings>
+        ///<add key="UsingXmlConfigForUnity" value="true" />
+        ///</appSettings>
+        /// ]]>
+        /// </code></example>
        static ObjectFactory()
        {
+           string appSetting = ConfigurationManager.AppSettings["UsingXmlConfigForUnity"];
+           if (!string.IsNullOrEmpty(appSetting) && Convert.ToBoolean(appSetting))
+           {
+               InitFromXmlFile();
+           }
+           else
+           {
             container = new UnityContainer();
 			container.RegisterType<IUnitOfWork, EFUnitOfWork>();
 		    container.RegisterType< DataAccessObject.Repositories.IStoredProcedureFunctionsDAO, DataAccessObject.Repositories.StoredProcedureFunctionsDAO>();
@@ -39,9 +56,9 @@ namespace DataAccessObject
             container.RegisterType<IRepository<Contact>,EFRepository<Contact>>();	
             container.RegisterType<IRepository<Employee>,EFRepository<Employee>>();	
             container.RegisterType<IRepository<EmployeePayHistory>,EFRepository<EmployeePayHistory>>();	
+           }
         }
 
-		
         private static void InitFromXmlFile()
         {
             container =  new UnityContainer();
