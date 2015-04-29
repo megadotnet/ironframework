@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -178,6 +179,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\BusinessEntities\DALConfig.xml">
+      <Link>DALConfig.xml</Link>
+      <DependentUpon>IRepository.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="GenSproc.sql">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

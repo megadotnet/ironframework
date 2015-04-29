@@ -14,7 +14,11 @@ namespace DataAccessObject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
+	using System.Collections;
+    using System.Linq;
 	using System.Threading.Tasks;
+	using System.Collections.Generic;
+    using System.Data.Entity.Core.Objects;
 
     /// <summary>
     /// IUnitOfWork interface
@@ -301,6 +305,236 @@ namespace DataAccessObject
         }
 
         #endregion
+
+        #endregion
+    }
+
+    public class FakeContextAdapter : IObjectContext
+    {
+        #region Constants and Fields
+
+        /// <summary>
+        /// The object context.
+        /// </summary>
+        //private readonly IObjectContext _context;
+
+        /// <summary>
+        /// The current database context
+        /// </summary>
+        //private DbContext currentDbContext;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <summary>
+        /// https://effort.codeplex.com/wikipage?title=Create%20a%20fake%20DbContext%20instance&referringTitle=Tutorials
+        /// </summary>
+        public FakeContextAdapter()
+        {
+           // DbConnection connection = Effort.DbConnectionFactory.CreateTransient();
+           // currentDbContext = new MessageCenterEntities(connection);
+           // this._context = (currentDbContext as IObjectContextAdapter).ObjectContext;
+
+            //System.Data.Entity.Core.EntityClient.EntityConnection connection = Effort.EntityConnectionFactory.CreateTransient("name=MessageCenterEntities");
+            //this.currentDbContext  = new BusinessEntities.MessageCenterEntities(connection);
+            //this._context = (currentDbContext as IObjectContextAdapter).ObjectContext;
+        }
+
+        #endregion
+
+        #region Implemented Interfaces
+
+        #region IDisposable
+
+        /// <summary>
+        /// The dispose.
+        /// </summary>
+        public void Dispose()
+        {
+            
+        }
+
+        #endregion
+
+        #region IObjectContext
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [lazy loading enabled].
+        /// </summary>
+        /// <value><c>true</c> if [lazy loading enabled]; otherwise, <c>false</c>.</value>
+        public bool LazyLoadingEnabled
+        {
+            get;
+            set;
+        }
+
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [proxy creation enabled].
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if [proxy creation enabled]; otherwise, <c>false</c>.
+        /// </value>
+        public bool ProxyCreationEnabled
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Changes the state of the object.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        /// <param name="entityState">
+        /// State of the entity.
+        /// </param>
+        /// <remarks>EF4 or EF5</remarks>
+        public void ChangeObjectState(object entity, EntityState entityState)
+        {
+           
+        }
+
+
+        /// <summary>
+        /// Changes the state of the object for EF6
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <param name="entityState">State of the entity.</param>
+        public void ChangeObjectState<TEntity>(TEntity entity, EntityState entityState) where TEntity : class
+        {
+           
+        }
+
+        /// <summary>
+        /// Creates the object set.
+        /// </summary>
+        /// <typeparam name="T">
+        /// </typeparam>
+        /// <returns>
+        /// </returns>
+        public IObjectSet<T> CreateObjectSet<T>() where T : class
+        {
+            return new MockObjectSet<T>();
+        }
+
+        /// <summary>
+        /// Executes the function.
+        /// </summary>
+        /// <param name="functionName">Name of the function.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>affect rows</returns>
+        public int ExecuteFunction(string functionName, params ObjectParameter[] parameters)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// ExecuteStoreCommand
+        /// </summary>
+        /// <param name="commandText">sqltest</param>
+        /// <param name="parameters">parameters</param>
+        /// <returns>affect rows</returns>
+        public int ExecuteStoreCommand(string commandText, params object[] parameters)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Executes the store query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText">The command text.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public ObjectResult<T> ExecuteStoreQuery<T>(string commandText, params object[] parameters)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Saves the changes.
+        /// </summary>
+        public void SaveChanges()
+        {
+         
+        }
+
+		public Task<int> SaveChangesAsync()
+        {
+            return Task.Factory.StartNew<int>(()=> { return 1; });
+        }
+
+        #endregion
+
+        #endregion
+    }
+
+    public partial class MockObjectSet<T> : IObjectSet<T> where T : class
+    {
+        private readonly IList<T> collection = new List<T>();
+
+        #region IObjectSet<T> Members
+
+        public void AddObject(T entity)
+        {
+            collection.Add(entity);
+        }
+
+        public void Attach(T entity)
+        {
+            collection.Add(entity);
+        }
+
+        public void DeleteObject(T entity)
+        {
+            collection.Remove(entity);
+        }
+
+        public void Detach(T entity)
+        {
+            collection.Remove(entity);
+        }
+
+        #endregion
+
+        #region IEnumerable<T> Members
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return collection.GetEnumerator();
+        }
+
+        #endregion
+
+        #region IEnumerable Members
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return collection.GetEnumerator();
+        }
+
+        #endregion
+
+        #region IQueryable<T> Members
+
+        public Type ElementType
+        {
+            get { return typeof(T); }
+        }
+
+        public System.Linq.Expressions.Expression Expression
+        {
+            get { return collection.AsQueryable<T>().Expression; }
+        }
+
+        public IQueryProvider Provider
+        {
+            get { return collection.AsQueryable<T>().Provider; }
+        }
 
         #endregion
     }
