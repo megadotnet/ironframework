@@ -7,7 +7,7 @@ You need download and install following components:
 recommend install from NuGet
 
  ADO.NET Entity Framework RTM
- Enterprise Library  (based on .Net 4.5)  RTM 
+ Enterprise Library  (based on .Net 4.5 or 4.5.2)  RTM 
  Newtonsoft.Json 
  Moq 
  ASP.NET MVC RTM Tools Update
@@ -36,6 +36,7 @@ SQL SERVER 2012/2014
 TestDriven.Net  
 StyleCop   
 AnkhSVN - Subversion Support for Visual Studio 
+Visual Studio2013 Update4
 
 
 

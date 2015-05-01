@@ -29,6 +29,11 @@
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
+	        <register  type="DataAccessObject.IObjectContext, DataAccessObject"
+    mapTo="DataAccessObject.FakeContextAdapter, DataAccessObject" name="fakeContextAdapter">
+        <interceptor type="InterfaceInterceptor"/>
+      </register >
+
      <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject" 
                   mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject">
          <!--interceptor type="InterfaceInterceptor"/>

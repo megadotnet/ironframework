@@ -1614,6 +1614,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
+	        <register  type="DataAccessObject.IObjectContext, DataAccessObject"
+    mapTo="DataAccessObject.FakeContextAdapter, DataAccessObject" name="fakeContextAdapter">
+        <interceptor type="InterfaceInterceptor"/>
+      </register >
+
 <#
 
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
