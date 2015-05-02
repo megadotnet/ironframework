@@ -142,6 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramewrok\PredicateBuilder.cs" />
+    <Compile Include="EntLib\Interceptor\CachingBehavior.cs" />
+    <Compile Include="EntLib\Interceptor\ExceptionLoggingBehavior.cs" />
+    <Compile Include="EntLib\Interceptor\LoggingInterceptor.cs" />
+    <Compile Include="EntLib\Interceptor\PerformanceInterceptor.cs" />
     <Compile Include="EntLib\IoC\HttpContextLifetimeManager.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
