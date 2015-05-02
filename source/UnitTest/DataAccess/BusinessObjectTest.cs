@@ -43,6 +43,22 @@ namespace UnitTest
         }
 
         #region Public Methods
+
+
+        /// <summary>
+        /// The test find employee by title.
+        /// </summary>
+        [Fact]
+        public void TestFindEmployeeByTitle()
+        {
+            var ebo = ServiceFactory.GetInstance<IEmployeeBusinessObject>();
+
+            // Get 10 enties
+            PagedList<Employee> resultset = ebo.FindByTitle(null, 1, 10);
+            Assert.NotNull(resultset);
+            Assert.Equal(resultset.Count, 10);
+        }
+
         /// <summary>
         /// The test_ delete employee_ with_ business object.
         /// </summary>
@@ -118,20 +134,6 @@ namespace UnitTest
 
             string loggingfilefullpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ErrorRolling.log");
             Assert.True(File.Exists(loggingfilefullpath));
-        }
-
-        /// <summary>
-        /// The test find employee by title.
-        /// </summary>
-        [Fact]
-        public void TestFindEmployeeByTitle()
-        {
-            var ebo = ServiceFactory.GetInstance<IEmployeeBusinessObject>();
-
-            // Get 10 enties
-            PagedList<Employee> resultset = ebo.FindByTitle(null, 1, 10);
-            Assert.NotNull(resultset);
-            Assert.Equal(resultset.Count, 10);
         }
 
         /// <summary>

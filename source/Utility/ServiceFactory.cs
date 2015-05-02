@@ -60,7 +60,10 @@ namespace IronFramework.Utility
             try
             {
                 var section = (UnityConfigurationSection)config.GetSection("unity");
-                section.Configure(container, "DefContainer");
+                //section.Configure(container, "DefContainer");
+                //For unity 3.0 version
+                container.LoadConfiguration(section, "DefContainer");
+
 
                 //For Entlib 6 :Exception Handling Application Block objects can no longer be created automatically from the Unity DI container. 
                 IConfigurationSource configurationSource = ConfigurationSourceFactory.Create();
