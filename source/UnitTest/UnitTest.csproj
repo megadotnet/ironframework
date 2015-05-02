@@ -293,6 +293,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DALConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="EntLib.Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
