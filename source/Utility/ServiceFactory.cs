@@ -32,6 +32,9 @@ namespace IronFramework.Utility
         /// </summary>
         public static readonly IServiceLocator serviceLocator;
 
+        //For entlib6,there is issue that is https://github.com/net-commons/common-logging/issues/84
+        //private static Logger logger = new Logger("ServiceFactory");
+
         #endregion
 
         #region Constructors and Destructors
@@ -62,14 +65,14 @@ namespace IronFramework.Utility
                 //For Entlib 6 :Exception Handling Application Block objects can no longer be created automatically from the Unity DI container. 
                 IConfigurationSource configurationSource = ConfigurationSourceFactory.Create();
                 LogWriterFactory logWriterFactory = new LogWriterFactory(configurationSource);
-                Logger.SetLogWriter(logWriterFactory.Create());
+                Microsoft.Practices.EnterpriseLibrary.Logging.Logger.SetLogWriter(logWriterFactory.Create());
                 // Singleton
                 ExceptionPolicyFactory exceptionPolicyFactory = new ExceptionPolicyFactory(configurationSource);
                 ExceptionPolicy.SetExceptionManager(exceptionPolicyFactory.CreateManager());
             }
             catch (InvalidOperationException ioe)
             {
-                Logger.Write(ioe, "ExceptionLogger");
+                Microsoft.Practices.EnterpriseLibrary.Logging.Logger.Write(ioe, "ExceptionLogger");
                 throw;
             }
             return container;
