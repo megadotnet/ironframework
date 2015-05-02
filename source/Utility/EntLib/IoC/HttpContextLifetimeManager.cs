@@ -29,7 +29,11 @@ namespace IronFramework.Utility.EntLib.IoC
         /// </returns>
         public override object GetValue()
         {
-            return HttpContext.Current.Items[typeof(T).AssemblyQualifiedName];
+            if (HttpContext.Current != null && HttpContext.Current.Items.Contains(typeof(T).AssemblyQualifiedName))
+            {
+                return HttpContext.Current.Items[typeof(T).AssemblyQualifiedName];
+            }
+            return null;
         }
 
         /// <summary>
@@ -37,7 +41,8 @@ namespace IronFramework.Utility.EntLib.IoC
         /// </summary>
         public override void RemoveValue()
         {
-            HttpContext.Current.Items.Remove(typeof(T).AssemblyQualifiedName);
+            if (HttpContext.Current != null)
+                HttpContext.Current.Items.Remove(typeof(T).AssemblyQualifiedName);
         }
 
         /// <summary>
@@ -48,7 +53,8 @@ namespace IronFramework.Utility.EntLib.IoC
         /// </param>
         public override void SetValue(object newValue)
         {
-            HttpContext.Current.Items[typeof(T).AssemblyQualifiedName] = newValue;
+            if (HttpContext.Current != null)
+                HttpContext.Current.Items[typeof(T).AssemblyQualifiedName] = newValue;
         }
 
         #endregion
