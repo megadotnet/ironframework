@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AddressTests.cs" company="Megadotnet">
+// <copyright file="AddressBOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
@@ -12,19 +12,23 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
 using DataTransferObject;
 using BusinessObject;
+using DataAccessObject;
 	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
     /// Address Tests object
     /// </summary>
-	public partial class AddressTests
+	public partial class AddressBOTests
 	{       
+        #region BoTest
+
         /// <summary>
         /// Tests the add.
         /// </summary>
@@ -135,6 +139,33 @@ namespace UnitTest.GenreateBOTests
             bool isDeleted = _AddressBO.DeleteEntiy(_AddressDto);
             Assert.True(isDeleted);
         }
+
+        #endregion
+
+        /// <summary>
+        /// Tests the Address repository add.
+        /// </summary>
+        /// <param name="_Address">The _ Address.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestAddressRepositoryAdd(Address _Address)
+        {
+            var _AddressRepository = RepositoryHelper.GetAddressRepository();
+            _AddressRepository.Add(_Address);
+            _AddressRepository.Save();
+        }
+
+        /// <summary>
+        /// Tests the Address repository get.
+        /// </summary>
+        /// <param name="_AddressId">The _ Address identifier.</param>
+        [Theory, AutoData]
+        public void TestAddressRepositoryGet(int  _AddressId)
+        {
+            var _AddressRepository = RepositoryHelper.GetAddressRepository();
+            var _Address=_AddressRepository.Repository.Find(entity=>entity.AddressID==_AddressId);
+            Assert.NotNull(_Address);
+        }
+
 
 
 	}

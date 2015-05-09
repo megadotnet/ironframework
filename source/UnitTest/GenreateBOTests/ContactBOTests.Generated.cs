@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ContactTests.cs" company="Megadotnet">
+// <copyright file="ContactBOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
@@ -12,19 +12,23 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
 using DataTransferObject;
 using BusinessObject;
+using DataAccessObject;
 	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
     /// Contact Tests object
     /// </summary>
-	public partial class ContactTests
+	public partial class ContactBOTests
 	{       
+        #region BoTest
+
         /// <summary>
         /// Tests the add.
         /// </summary>
@@ -135,6 +139,33 @@ namespace UnitTest.GenreateBOTests
             bool isDeleted = _ContactBO.DeleteEntiy(_ContactDto);
             Assert.True(isDeleted);
         }
+
+        #endregion
+
+        /// <summary>
+        /// Tests the Contact repository add.
+        /// </summary>
+        /// <param name="_Contact">The _ Contact.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestContactRepositoryAdd(Contact _Contact)
+        {
+            var _ContactRepository = RepositoryHelper.GetContactRepository();
+            _ContactRepository.Add(_Contact);
+            _ContactRepository.Save();
+        }
+
+        /// <summary>
+        /// Tests the Contact repository get.
+        /// </summary>
+        /// <param name="_ContactId">The _ Contact identifier.</param>
+        [Theory, AutoData]
+        public void TestContactRepositoryGet(int  _ContactId)
+        {
+            var _ContactRepository = RepositoryHelper.GetContactRepository();
+            var _Contact=_ContactRepository.Repository.Find(entity=>entity.ContactID==_ContactId);
+            Assert.NotNull(_Contact);
+        }
+
 
 
 	}

@@ -46,11 +46,11 @@ EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileMana
 
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
 {
-    if(!DoesFileExist(entity.Name + "Tests.Generated.cs"))
+    if(!DoesFileExist(entity.Name + "BOTests.cs"))
 	{   
-      fileManager.StartNewFile(entity.Name + "Tests.Generated.cs"); #>
+      fileManager.StartNewFile(entity.Name + "BOTests.cs"); #>
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
+// <copyright file="<#=code.Escape(entity)#>BOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
@@ -66,7 +66,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq.Expressions;
     using System.Collections.Generic;
 
-	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#> partial class <#=code.Escape(entity)#>Tests 
+	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#> partial class <#=code.Escape(entity)#>BOTests 
 	{
 
 	}
@@ -74,16 +74,16 @@ namespace <#= code.VsNamespaceSuggestion() #>
 	}
 	else
 	{
-		fileManager.StartNewFile(entity.Name + "Tests.Generated.cs");
-		this.Write(OutputFile(entity.Name + "Tests.Generated.cs"));
+		fileManager.StartNewFile(entity.Name + "BOTests.cs");
+		this.Write(OutputFile(entity.Name + "BOTests.cs"));
 	}
 #>
 <#	
-	if(!DoesFileExist(entity.Name + "Testscs"))
+	if(!DoesFileExist(entity.Name + "BOTests.Generated.cs"))
 	{   
-		fileManager.StartNewFile(entity.Name + "Tests.cs");
+		fileManager.StartNewFile(entity.Name + "BOTests.Generated.cs");
 		#>// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="<#=code.Escape(entity)#>Tests.cs" company="Megadotnet">
+// <copyright file="<#=code.Escape(entity)#>BOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
@@ -96,19 +96,23 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
 using DataTransferObject;
 using BusinessObject;
+using DataAccessObject;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
     /// <summary>
     /// <#=code.Escape(entity)#> Tests object
     /// </summary>
-	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Tests
+	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>BOTests
 	{       
+        #region BoTest
+
         /// <summary>
         /// Tests the add.
         /// </summary>
@@ -220,14 +224,41 @@ namespace <#= code.VsNamespaceSuggestion() #>
             Assert.True(isDeleted);
         }
 
+        #endregion
+
+        /// <summary>
+        /// Tests the <#=code.Escape(entity)#> repository add.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>">The _ <#=code.Escape(entity)#>.</param>
+        [Theory, AutoData, AutoRollback]
+        public void Test<#=code.Escape(entity)#>RepositoryAdd(<#=code.Escape(entity)#> _<#=code.Escape(entity)#>)
+        {
+            var _<#=code.Escape(entity)#>Repository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository();
+            _<#=code.Escape(entity)#>Repository.Add(_<#=code.Escape(entity)#>);
+            _<#=code.Escape(entity)#>Repository.Save();
+        }
+
+        /// <summary>
+        /// Tests the <#=code.Escape(entity)#> repository get.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Id">The _ <#=code.Escape(entity)#> identifier.</param>
+        [Theory, AutoData]
+        public void Test<#=code.Escape(entity)#>RepositoryGet(int  _<#=code.Escape(entity)#>Id)
+        {
+            var _<#=code.Escape(entity)#>Repository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository();
+            var _<#=code.Escape(entity)#>=_<#=code.Escape(entity)#>Repository.Repository.Find(entity=>entity.<#=codeStringGenerator.PK(entity)#>==_<#=code.Escape(entity)#>Id);
+            Assert.NotNull(_<#=code.Escape(entity)#>);
+        }
+
+
 
 	}
 }<#
 	}
 	else
 	{
-		fileManager.StartNewFile(entity.Name + "Tests.cs");
-		this.Write(OutputFile(entity.Name + "Tests.cs"));
+		fileManager.StartNewFile(entity.Name + "BOTests.Generated.cs");
+		this.Write(OutputFile(entity.Name + "BOTests.Generated.cs"));
 	}
 }
 

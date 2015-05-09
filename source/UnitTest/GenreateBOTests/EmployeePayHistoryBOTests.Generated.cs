@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EmployeePayHistoryTests.cs" company="Megadotnet">
+// <copyright file="EmployeePayHistoryBOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
@@ -12,19 +12,23 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
 using DataTransferObject;
 using BusinessObject;
+using DataAccessObject;
 	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
     /// EmployeePayHistory Tests object
     /// </summary>
-	public partial class EmployeePayHistoryTests
+	public partial class EmployeePayHistoryBOTests
 	{       
+        #region BoTest
+
         /// <summary>
         /// Tests the add.
         /// </summary>
@@ -135,6 +139,33 @@ namespace UnitTest.GenreateBOTests
             bool isDeleted = _EmployeePayHistoryBO.DeleteEntiy(_EmployeePayHistoryDto);
             Assert.True(isDeleted);
         }
+
+        #endregion
+
+        /// <summary>
+        /// Tests the EmployeePayHistory repository add.
+        /// </summary>
+        /// <param name="_EmployeePayHistory">The _ EmployeePayHistory.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestEmployeePayHistoryRepositoryAdd(EmployeePayHistory _EmployeePayHistory)
+        {
+            var _EmployeePayHistoryRepository = RepositoryHelper.GetEmployeePayHistoryRepository();
+            _EmployeePayHistoryRepository.Add(_EmployeePayHistory);
+            _EmployeePayHistoryRepository.Save();
+        }
+
+        /// <summary>
+        /// Tests the EmployeePayHistory repository get.
+        /// </summary>
+        /// <param name="_EmployeePayHistoryId">The _ EmployeePayHistory identifier.</param>
+        [Theory, AutoData]
+        public void TestEmployeePayHistoryRepositoryGet(int  _EmployeePayHistoryId)
+        {
+            var _EmployeePayHistoryRepository = RepositoryHelper.GetEmployeePayHistoryRepository();
+            var _EmployeePayHistory=_EmployeePayHistoryRepository.Repository.Find(entity=>entity.EmployeeID==_EmployeePayHistoryId);
+            Assert.NotNull(_EmployeePayHistory);
+        }
+
 
 
 	}

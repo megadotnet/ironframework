@@ -1,9 +1,9 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AddressRepository.cs" company="Megadotnet">
+// <copyright file="EmployeeBOTests.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
-//   The Address repository.
+//   The Employee repository.
 //   This file is auto generated and will be overwritten as soon as the template is executed
 //   Do not modify this file...
 // </summary>
@@ -15,7 +15,7 @@ namespace UnitTest.GenreateBOTests
     using System.Linq.Expressions;
     using System.Collections.Generic;
 
-	public  partial class AddressTests 
+	public  partial class EmployeeBOTests 
 	{
 
 	}
