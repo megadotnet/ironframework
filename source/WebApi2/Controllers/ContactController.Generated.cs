@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using WebApi2.Controllers;
 	
 namespace WebApi2.Controllers
 {   
@@ -58,6 +59,18 @@ namespace WebApi2.Controllers
         public async Task<PagedList<ContactDto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _ContactBO.FindEntiesAsync(pageIndex, pageSize);
+        }
+
+        // GET: api/Contact/GetAync?pageindex=1&pagesize=10
+        [HttpGet]
+        [Route("api/Contact/GetPageListAync")]
+        [PagedListActionFilter] 
+        public async Task<PagedList<ContactDto>> GetPageListAync()
+        {
+            int index = Request.GetPageIndex();
+            int size = Request.GetPageSize();
+
+            return await _ContactBO.FindEntiesAsync(index, size);
         }
 
 

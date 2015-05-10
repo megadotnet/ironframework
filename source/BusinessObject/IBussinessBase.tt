@@ -323,7 +323,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public async Task<PagedList<<#=code.Escape(entity)#>Dto>> FindEntiesAsync(int? pageIndex, int pageSize)
         {
             var entities = await entiesrepository.Repository.FindAsync(p => p.<#=codeStringGenerator.PK(entity)#> > 0, p => p.<#=codeStringGenerator.PK(entity)#>, pageIndex, pageSize);
-            var listDtos = new PagedList<<#=code.Escape(entity)#>Dto>() { TotalCount = entities.TotalCount };
+            var listDtos = new PagedList<<#=code.Escape(entity)#>Dto>() { TotalCount = entities.TotalCount, PageIndex=pageIndex.Value,PageSize=pageSize  };
             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
             return listDtos;
         }
@@ -335,11 +335,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns><#=code.Escape(entity)#> list</returns>
         private EasyuiDatagridData<<#=code.Escape(entity)#>Dto> ConvertTOUIModel(PagedList<<#=code.Escape(entity)#>> entities)
         {
-            var listDtos = new EasyuiDatagridData<<#=code.Escape(entity)#>Dto>() { total = entities.TotalCount };
+            var listDtos = new EasyuiDatagridData<<#=code.Escape(entity)#>Dto>() { Total = entities.TotalCount };
             var lists = new List<<#=code.Escape(entity)#>Dto>();
             
             entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
-            listDtos.rows = lists.ToArray();
+            listDtos.Rows = lists.ToArray();
             return listDtos;
         }
 

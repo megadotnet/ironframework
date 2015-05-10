@@ -81,6 +81,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using <#= code.VsNamespaceSuggestion() #>;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
@@ -128,6 +129,18 @@ namespace <#= code.VsNamespaceSuggestion() #>
         public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _<#=code.Escape(entity)#>BO.FindEntiesAsync(pageIndex, pageSize);
+        }
+
+        // GET: api/<#=code.Escape(entity)#>/GetAync?pageindex=1&pagesize=10
+        [HttpGet]
+        [Route("api/<#=code.Escape(entity)#>/GetPageListAync")]
+        [PagedListActionFilter] 
+        public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetPageListAync()
+        {
+            int index = Request.GetPageIndex();
+            int size = Request.GetPageSize();
+
+            return await _<#=code.Escape(entity)#>BO.FindEntiesAsync(index, size);
         }
 
 

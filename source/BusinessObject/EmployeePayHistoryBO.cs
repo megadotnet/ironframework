@@ -78,7 +78,7 @@ namespace BusinessObject
         public async Task<PagedList<EmployeePayHistoryDto>> FindEntiesAsync(int? pageIndex, int pageSize)
         {
             var entities = await entiesrepository.Repository.FindAsync(p => p.EmployeeID > 0, p => p.EmployeeID, pageIndex, pageSize);
-            var listDtos = new PagedList<EmployeePayHistoryDto>() { TotalCount = entities.TotalCount };
+            var listDtos = new PagedList<EmployeePayHistoryDto>() { TotalCount = entities.TotalCount, PageIndex=pageIndex.Value,PageSize=pageSize  };
             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
             return listDtos;
         }
