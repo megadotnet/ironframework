@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 	
 namespace WebApi2.Controllers
@@ -51,6 +52,15 @@ namespace WebApi2.Controllers
             return _AddressBO.GetEntiyByPK(id);
         }
 
+        // GET: api/Address/GetAync?pageindex=1&pagesize=10
+        [HttpGet]
+        [Route("api/Address/GetAync")]
+        public async Task<PagedList<AddressDto>> GetAync([FromUri] int pageIndex, int pageSize)
+        {
+            return await _AddressBO.FindEntiesAsync(pageIndex, pageSize);
+        }
+
+
         // POST: api/Address
         [ValidateModel]
         public void Post(AddressDto value)
@@ -72,5 +82,35 @@ namespace WebApi2.Controllers
             _AddressBO.DeleteWithAttachEntiy(entity);
         }
 
+
+        /// <summary>
+        /// Deletes the specified identifier. 
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example>
+        /// POST http://localhost:14488/api/Address
+        /// BODY: {
+        /// "Ids": ["1621","1622"]
+        ///}
+        /// 
+        /// </example>
+        [HttpPut]
+        [Route("api/Address/DeleteByList")]
+        public void DeleteByList(DeleteObject deletedObjectList)
+        {
+            if (deletedObjectList != null)
+            {
+                int[] id = deletedObjectList.Ids;
+                if (id != null && id.Length > 0)
+                {
+                    var listEnties = new List<AddressDto>();
+                    foreach (int i in id)
+                    {
+                        listEnties.Add(new AddressDto() { AddressID = i });
+                    }
+                    _AddressBO.DeleteWithAttachEntiy(listEnties.ToArray());
+                }
+            }
+        }
 	}
 }

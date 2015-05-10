@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 	
 namespace WebApi2.Controllers
@@ -51,6 +52,15 @@ namespace WebApi2.Controllers
             return _EmployeeBO.GetEntiyByPK(id);
         }
 
+        // GET: api/Employee/GetAync?pageindex=1&pagesize=10
+        [HttpGet]
+        [Route("api/Employee/GetAync")]
+        public async Task<PagedList<EmployeeDto>> GetAync([FromUri] int pageIndex, int pageSize)
+        {
+            return await _EmployeeBO.FindEntiesAsync(pageIndex, pageSize);
+        }
+
+
         // POST: api/Employee
         [ValidateModel]
         public void Post(EmployeeDto value)
@@ -72,5 +82,35 @@ namespace WebApi2.Controllers
             _EmployeeBO.DeleteWithAttachEntiy(entity);
         }
 
+
+        /// <summary>
+        /// Deletes the specified identifier. 
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example>
+        /// POST http://localhost:14488/api/Employee
+        /// BODY: {
+        /// "Ids": ["1621","1622"]
+        ///}
+        /// 
+        /// </example>
+        [HttpPut]
+        [Route("api/Employee/DeleteByList")]
+        public void DeleteByList(DeleteObject deletedObjectList)
+        {
+            if (deletedObjectList != null)
+            {
+                int[] id = deletedObjectList.Ids;
+                if (id != null && id.Length > 0)
+                {
+                    var listEnties = new List<EmployeeDto>();
+                    foreach (int i in id)
+                    {
+                        listEnties.Add(new EmployeeDto() { EmployeeID = i });
+                    }
+                    _EmployeeBO.DeleteWithAttachEntiy(listEnties.ToArray());
+                }
+            }
+        }
 	}
 }

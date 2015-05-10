@@ -81,6 +81,13 @@ namespace BusinessObject
         bool CreateEntiy(T t);
 
         /// <summary>
+        /// Creates the entiy asynchronous.
+        /// </summary>
+        /// <param name="tDTo">The t d to.</param>
+        /// <returns></returns>
+        Task<int> CreateEntiyAsync(T tDTo);
+
+        /// <summary>
         /// The get entiy.
         /// </summary>
         /// <param name="_id">
@@ -112,6 +119,14 @@ namespace BusinessObject
         /// The <see cref="bool"/>.
         /// </returns>
         bool DeleteWithAttachEntiy(T t);
+
+
+        /// <summary>
+        /// Deletes the with attach entiy asynchronous.
+        /// </summary>
+        /// <param name="tDTo">The t d to.</param>
+        /// <returns></returns>
+        Task<int> DeleteWithAttachEntiyAsync(T tDTo);
 
 
         /// <summary>
@@ -152,6 +167,21 @@ namespace BusinessObject
         /// <param name="t">The t.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</return>
         bool UpdateEntiyWithGet(T entity);
+
+        /// <summary>
+        /// Updates the with attach entiy asynchronous.
+        /// </summary>
+        /// <param name="tDTo">The t d to.</param>
+        /// <returns></returns>
+        Task<int> UpdateWithAttachEntiyAsync(T tDTo);
+
+        /// <summary>
+        /// Updates the entiy with get asynchronous.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        Task<int> UpdateEntiyWithGetAsync(T entity);
+
         #endregion
     }
 }

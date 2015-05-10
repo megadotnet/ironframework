@@ -32,6 +32,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+
     /// <summary>
     /// a interface of data acccess repository.
     /// </summary>
@@ -78,6 +79,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
@@ -120,6 +122,15 @@ namespace <#= code.VsNamespaceSuggestion() #>
             return _<#=code.Escape(entity)#>BO.GetEntiyByPK(id);
         }
 
+        // GET: api/<#=code.Escape(entity)#>/GetAync?pageindex=1&pagesize=10
+        [HttpGet]
+        [Route("api/<#=code.Escape(entity)#>/GetAync")]
+        public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetAync([FromUri] int pageIndex, int pageSize)
+        {
+            return await _<#=code.Escape(entity)#>BO.FindEntiesAsync(pageIndex, pageSize);
+        }
+
+
         // POST: api/<#=code.Escape(entity)#>
         [ValidateModel]
         public void Post(<#=code.Escape(entity)#>Dto value)
@@ -141,6 +152,36 @@ namespace <#= code.VsNamespaceSuggestion() #>
             _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(entity);
         }
 
+
+        /// <summary>
+        /// Deletes the specified identifier. 
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example>
+        /// POST http://localhost:14488/api/<#=code.Escape(entity)#>
+        /// BODY: {
+        /// "Ids": ["1621","1622"]
+        ///}
+        /// 
+        /// </example>
+        [HttpPut]
+        [Route("api/<#=code.Escape(entity)#>/DeleteByList")]
+        public void DeleteByList(DeleteObject deletedObjectList)
+        {
+            if (deletedObjectList != null)
+            {
+                int[] id = deletedObjectList.Ids;
+                if (id != null && id.Length > 0)
+                {
+                    var listEnties = new List<<#=code.Escape(entity)#>Dto>();
+                    foreach (int i in id)
+                    {
+                        listEnties.Add(new <#=code.Escape(entity)#>Dto() { <#=codeStringGenerator.PK(entity)#> = i });
+                    }
+                    _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(listEnties.ToArray());
+                }
+            }
+        }
 	}
 }
 <#	
@@ -655,20 +696,19 @@ public class TypeMapper
 }
 bool DoesFileExist(string filename)
 {			
-	return File.Exists(Path.Combine(GetCurrentDirectory2(),filename));	
+	return File.Exists(Path.Combine(GetCurrentT4Directory(),filename));	
 }
 
 string OutputFile(string filename)
 {
-	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentDirectory2(),filename)))
+	using(StreamReader sr = new StreamReader(Path.Combine(GetCurrentT4Directory(),filename)))
 	{
 		string contents = sr.ReadToEnd();
 		return contents;
 	}
 }
 
-
-     string GetCurrentDirectory2()
+         string GetCurrentT4Directory()
         {
             string executingDirectoryName = "";
             string stackTraceFileName = new StackTrace(true).GetFrame(0).GetFileName();

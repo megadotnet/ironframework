@@ -168,6 +168,18 @@ namespace BusinessObject
         }
 
         /// <summary>
+        /// Creates the entiy asynchronous.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        public async Task<int> CreateEntiyAsync(AddressDto tDTo)
+        {
+            var dbEntity = typeAdapter.ConvertDtoToEntities(tDTo);
+            entiesrepository.Add(dbEntity);
+            return await entiesrepository.SaveAsync();
+        }
+
+        /// <summary>
         /// Gets the Entiy
         /// </summary>
         /// <param name="pid">The pid.</param>
@@ -191,6 +203,19 @@ namespace BusinessObject
             entiesrepository.Delete(dbEntity);
             entiesrepository.Save();
             return true;
+        }
+
+        /// <summary>
+        /// Deletes the with attach entiy asynchronous.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        public async Task<int> DeleteWithAttachEntiyAsync(AddressDto tDTo)
+        {
+            var dbEntity = typeAdapter.ConvertDtoToEntities(tDTo);
+            entiesrepository.Attach(dbEntity);
+            entiesrepository.Delete(dbEntity);
+            return await entiesrepository.SaveAsync();
         }
 
         /// <summary>
@@ -273,6 +298,52 @@ namespace BusinessObject
             dbEntity = typeAdapter.ConvertDtoToEntities(entity,dbEntity,skipNullPropertyValue:true);
             uow.Save();
             return true;
+        }
+
+        /// <summary>
+        /// Updates the entiy asynchronous.
+        /// </summary>
+        /// <param name="tDTo">The t d to.</param>
+        /// <returns></returns>
+        public async Task<int> UpdateEntiyAsync(AddressDto tDTo)
+        {
+            var dbentity = typeAdapter.ConvertDtoToEntities(tDTo);
+            dbentity.State = State.Modified;
+            context.ChangeObjectState<Address>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+
+            return await uow.SaveAsync();
+        }
+
+
+        /// <summary>
+        /// Updates the with attach entiy asynchronous.
+        /// </summary>
+        /// <param name="tDTo">The t d to.</param>
+        /// <returns></returns>
+        public async Task<int> UpdateWithAttachEntiyAsync(AddressDto tDTo)
+        {
+            var dbentity = typeAdapter.ConvertDtoToEntities(tDTo);
+            if (StateHelpers.GetEquivalentEntityState(dbentity.State) == StateHelpers.GetEquivalentEntityState(State.Detached))
+            {
+                entiesrepository.Attach(dbentity);
+            }
+
+            dbentity.State = State.Modified;
+            context.ChangeObjectState<Address>(dbentity, StateHelpers.GetEquivalentEntityState(dbentity.State));
+
+            return await uow.SaveAsync();
+        }
+
+        /// <summary>
+        /// Updates the entiy with get asynchronous.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        public async Task<int> UpdateEntiyWithGetAsync(AddressDto entity)
+        {
+            var dbEntity = entiesrepository.Repository.Single(e => e.AddressID == entity.AddressID);
+            dbEntity = typeAdapter.ConvertDtoToEntities(entity, dbEntity, skipNullPropertyValue: true);
+            return await uow.SaveAsync();
         }
 	}
 }
