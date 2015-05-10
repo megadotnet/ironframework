@@ -90,11 +90,11 @@ namespace BusinessObject
         /// <returns>EmployeePayHistory list</returns>
         private EasyuiDatagridData<EmployeePayHistoryDto> ConvertTOUIModel(PagedList<EmployeePayHistory> entities)
         {
-            var listDtos = new EasyuiDatagridData<EmployeePayHistoryDto>() { total = entities.TotalCount };
+            var listDtos = new EasyuiDatagridData<EmployeePayHistoryDto>() { Total = entities.TotalCount };
             var lists = new List<EmployeePayHistoryDto>();
             
             entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
-            listDtos.rows = lists.ToArray();
+            listDtos.Rows = lists.ToArray();
             return listDtos;
         }
 

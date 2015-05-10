@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DataTransferObject.Model
 {
@@ -50,7 +51,7 @@ namespace DataTransferObject.Model
     ///
     /// JSON Data:
     /// {
-    ///  "rows": [
+    ///  "Rows": [
     ///    {
     ///      "APP_CODE": "SMP",
     ///      "CLIENT_TX_SEQ": "1",
@@ -96,7 +97,7 @@ namespace DataTransferObject.Model
     ///      "PartialViewList": null
     ///    }
     ///  ],
-    ///  "total": 18423
+    ///  "Total": 18423
     ///}
     /// 
     /// 
@@ -105,19 +106,21 @@ namespace DataTransferObject.Model
     public class EasyuiDatagridData<T>
     {
         /// <summary>
-        /// Gets or sets the rows.
+        /// Gets or sets the Rows.
         /// </summary>
         /// <value>
-        /// The rows.
+        /// The Rows.
         /// </value>
-        public T[] rows { get; set; }
+        [JsonProperty("rows")]
+        public T[] Rows { get; set; }
 
         /// <summary>
-        /// Gets or sets the total.
+        /// Gets or sets the Total.
         /// </summary>
         /// <value>
-        /// The total.
+        /// The Total.
         /// </value>
-        public int total { get; set; }
+       [JsonProperty("total")]
+        public int Total { get; set; }
     }
 }

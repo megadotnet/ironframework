@@ -63,7 +63,7 @@ namespace UnitTest.GenreateBOTests
             var _AddressBO = new AddressBO();
             var dbResult=_AddressBO.FindAll(_AddressDto);
             Assert.NotNull(dbResult);
-		    Assert.True(dbResult.total>0);
+		    Assert.True(dbResult.Total>0);
         }
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace UnitTest.GenreateBOTests
             var _AddressBO = new AddressBO();
             var dbResult=_AddressBO.FindEnties(_AddressDto);
             Assert.NotNull(dbResult);
-			Assert.True(dbResult.total>0);
+			Assert.True(dbResult.Total>0);
         }
 
         /// <summary>

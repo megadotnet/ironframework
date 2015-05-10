@@ -63,7 +63,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeeBO = new EmployeeBO();
             var dbResult=_EmployeeBO.FindAll(_EmployeeDto);
             Assert.NotNull(dbResult);
-		    Assert.True(dbResult.total>0);
+		    Assert.True(dbResult.Total>0);
         }
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeeBO = new EmployeeBO();
             var dbResult=_EmployeeBO.FindEnties(_EmployeeDto);
             Assert.NotNull(dbResult);
-			Assert.True(dbResult.total>0);
+			Assert.True(dbResult.Total>0);
         }
 
         /// <summary>

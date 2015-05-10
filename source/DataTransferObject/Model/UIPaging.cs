@@ -59,10 +59,10 @@ namespace DataTransferObject
         }
 
         /// <summary>
-        /// Gets or sets the total count.
+        /// Gets or sets the Total count.
         /// </summary>
         /// <value>
-        /// The total count.
+        /// The Total count.
         /// </value>
         public int TotalCount { get; set; }
     }

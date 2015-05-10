@@ -90,11 +90,11 @@ namespace BusinessObject
         /// <returns>Address list</returns>
         private EasyuiDatagridData<AddressDto> ConvertTOUIModel(PagedList<Address> entities)
         {
-            var listDtos = new EasyuiDatagridData<AddressDto>() { total = entities.TotalCount };
+            var listDtos = new EasyuiDatagridData<AddressDto>() { Total = entities.TotalCount };
             var lists = new List<AddressDto>();
             
             entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
-            listDtos.rows = lists.ToArray();
+            listDtos.Rows = lists.ToArray();
             return listDtos;
         }
 

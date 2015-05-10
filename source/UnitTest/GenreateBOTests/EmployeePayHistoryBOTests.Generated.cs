@@ -63,7 +63,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             var dbResult=_EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
-		    Assert.True(dbResult.total>0);
+		    Assert.True(dbResult.Total>0);
         }
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace UnitTest.GenreateBOTests
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO();
             var dbResult=_EmployeePayHistoryBO.FindEnties(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
-			Assert.True(dbResult.total>0);
+			Assert.True(dbResult.Total>0);
         }
 
         /// <summary>

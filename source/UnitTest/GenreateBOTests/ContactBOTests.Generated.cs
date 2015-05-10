@@ -63,7 +63,7 @@ namespace UnitTest.GenreateBOTests
             var _ContactBO = new ContactBO();
             var dbResult=_ContactBO.FindAll(_ContactDto);
             Assert.NotNull(dbResult);
-		    Assert.True(dbResult.total>0);
+		    Assert.True(dbResult.Total>0);
         }
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace UnitTest.GenreateBOTests
             var _ContactBO = new ContactBO();
             var dbResult=_ContactBO.FindEnties(_ContactDto);
             Assert.NotNull(dbResult);
-			Assert.True(dbResult.total>0);
+			Assert.True(dbResult.Total>0);
         }
 
         /// <summary>
