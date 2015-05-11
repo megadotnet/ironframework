@@ -14,6 +14,7 @@ namespace UnitTest.GenreateBOTests
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
+	using System.Threading.Tasks;
 
 	public  partial class ContactBOTests 
 	{

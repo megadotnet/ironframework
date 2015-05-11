@@ -16,6 +16,7 @@ using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
+using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
@@ -166,7 +167,19 @@ namespace UnitTest.GenreateBOTests
             Assert.NotNull(_Employee);
         }
 
-
+        /// <summary>
+        /// TestEmployeeRepositoryFindAsyc
+        /// </summary>
+        /// <param name="_AddressId"></param>
+        /// <returns></returns>
+        [Theory, AutoData]
+        public async Task<IEnumerable<Employee>> TestEmployeeRepositoryFindAsyc(int _EmployeeId)
+        {
+            var _EmployeeRepository = RepositoryHelper.GetEmployeeRepository();
+            var _Employee =await _EmployeeRepository.Repository.FindAsync(entity => entity.EmployeeID == _EmployeeId);
+            Assert.NotNull(_Employee);
+            return _Employee;
+        }
 
 	}
 }

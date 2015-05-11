@@ -65,6 +65,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
     using System.Linq;
     using System.Linq.Expressions;
     using System.Collections.Generic;
+	using System.Threading.Tasks;
 
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#> partial class <#=code.Escape(entity)#>BOTests 
 	{
@@ -100,6 +101,7 @@ using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
 using Ploeh.AutoFixture.Xunit;
+using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
@@ -147,7 +149,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             var dbResult=_<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
-		    Assert.True(dbResult.total>0);
+		    Assert.True(dbResult.Total>0);
         }
 
 		/// <summary>
@@ -160,7 +162,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO();
             var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
-			Assert.True(dbResult.total>0);
+			Assert.True(dbResult.Total>0);
         }
 
         /// <summary>
@@ -250,7 +252,19 @@ namespace <#= code.VsNamespaceSuggestion() #>
             Assert.NotNull(_<#=code.Escape(entity)#>);
         }
 
-
+        /// <summary>
+        /// Test<#=code.Escape(entity)#>RepositoryFindAsyc
+        /// </summary>
+        /// <param name="_AddressId"></param>
+        /// <returns></returns>
+        [Theory, AutoData]
+        public async Task<IEnumerable<<#=code.Escape(entity)#>>> Test<#=code.Escape(entity)#>RepositoryFindAsyc(int _<#=code.Escape(entity)#>Id)
+        {
+            var _<#=code.Escape(entity)#>Repository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository();
+            var _<#=code.Escape(entity)#> =await _<#=code.Escape(entity)#>Repository.Repository.FindAsync(entity => entity.<#=codeStringGenerator.PK(entity)#> == _<#=code.Escape(entity)#>Id);
+            Assert.NotNull(_<#=code.Escape(entity)#>);
+            return _<#=code.Escape(entity)#>;
+        }
 
 	}
 }<#
