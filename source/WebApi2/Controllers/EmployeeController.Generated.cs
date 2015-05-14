@@ -16,6 +16,7 @@ using WebApi2.Controllers;
 namespace WebApi2.Controllers
 {   
 
+    [RoutePrefix("api/Employee")]
 	public partial class EmployeeController : BaseWebAPIController 
 	{
 
@@ -34,28 +35,49 @@ namespace WebApi2.Controllers
         }
 
 
-
-        // GET: api/Employee/?pageindex=1&pagesize=10&....
+         /// <summary>
+        /// Get the List ofEmployeedto.
+        /// </summary>
+        /// <param name="_EmployeeDto">The Employee dto.</param>
+        /// <example><code> HTTP GET: api/Employee/?pageindex=1&pagesize=10&....</code></example>
+        /// <returns>DatagridData List of EmployeeDto</returns>
         public EasyuiDatagridData<EmployeeDto> Get([FromUri] EmployeeDto _EmployeeDto)
         {
            return  _EmployeeBO.FindAll(_EmployeeDto);
         }
 
-		// GET: api/Employee/?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the specified page index.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/Employee/?pageindex=1&pagesize=10</code></example>
+        /// <returns>DatagridData List of EmployeeDto</returns>
         public EasyuiDatagridData<EmployeeDto> Get([FromUri] int pageIndex, int pageSize)
         {
             return _EmployeeBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
-        // GET: api/Employee/5
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example><code>GET: api/Employee/5</code></example>
+        /// <returns>EmployeeDto</returns>
         public EmployeeDto Get(int id)
         {
             return _EmployeeBO.GetEntiyByPK(id);
         }
 
-        // GET: api/Employee/GetAync?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the Employee with aync 
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/Employee/GetAync?pageindex=1&pagesize=10</code></example>
+        /// <returns>EmployeeDto</returns>
         [HttpGet]
-        [Route("api/Employee/GetAync")]
+        [Route("GetAync")]
         public async Task<PagedList<EmployeeDto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _EmployeeBO.FindEntiesAsync(pageIndex, pageSize);
@@ -63,7 +85,7 @@ namespace WebApi2.Controllers
 
         // GET: api/Employee/GetAync?pageindex=1&pagesize=10
         [HttpGet]
-        [Route("api/Employee/GetPageListAync")]
+        [Route("GetPageListAync")]
         [PagedListActionFilter] 
         public async Task<PagedList<EmployeeDto>> GetPageListAync()
         {
@@ -108,7 +130,7 @@ namespace WebApi2.Controllers
         /// 
         /// </example>
         [HttpPut]
-        [Route("api/Employee/DeleteByList")]
+        [Route("DeleteByList")]
         public void DeleteByList(DeleteObject deletedObjectList)
         {
             if (deletedObjectList != null)

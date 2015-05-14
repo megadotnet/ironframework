@@ -16,6 +16,7 @@ using WebApi2.Controllers;
 namespace WebApi2.Controllers
 {   
 
+    [RoutePrefix("api/Address")]
 	public partial class AddressController : BaseWebAPIController 
 	{
 
@@ -34,28 +35,49 @@ namespace WebApi2.Controllers
         }
 
 
-
-        // GET: api/Address/?pageindex=1&pagesize=10&....
+         /// <summary>
+        /// Get the List ofAddressdto.
+        /// </summary>
+        /// <param name="_AddressDto">The Address dto.</param>
+        /// <example><code> HTTP GET: api/Address/?pageindex=1&pagesize=10&....</code></example>
+        /// <returns>DatagridData List of AddressDto</returns>
         public EasyuiDatagridData<AddressDto> Get([FromUri] AddressDto _AddressDto)
         {
            return  _AddressBO.FindAll(_AddressDto);
         }
 
-		// GET: api/Address/?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the specified page index.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/Address/?pageindex=1&pagesize=10</code></example>
+        /// <returns>DatagridData List of AddressDto</returns>
         public EasyuiDatagridData<AddressDto> Get([FromUri] int pageIndex, int pageSize)
         {
             return _AddressBO.FindEnties(new AddressDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
-        // GET: api/Address/5
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example><code>GET: api/Address/5</code></example>
+        /// <returns>AddressDto</returns>
         public AddressDto Get(int id)
         {
             return _AddressBO.GetEntiyByPK(id);
         }
 
-        // GET: api/Address/GetAync?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the Address with aync 
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/Address/GetAync?pageindex=1&pagesize=10</code></example>
+        /// <returns>AddressDto</returns>
         [HttpGet]
-        [Route("api/Address/GetAync")]
+        [Route("GetAync")]
         public async Task<PagedList<AddressDto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _AddressBO.FindEntiesAsync(pageIndex, pageSize);
@@ -63,7 +85,7 @@ namespace WebApi2.Controllers
 
         // GET: api/Address/GetAync?pageindex=1&pagesize=10
         [HttpGet]
-        [Route("api/Address/GetPageListAync")]
+        [Route("GetPageListAync")]
         [PagedListActionFilter] 
         public async Task<PagedList<AddressDto>> GetPageListAync()
         {
@@ -108,7 +130,7 @@ namespace WebApi2.Controllers
         /// 
         /// </example>
         [HttpPut]
-        [Route("api/Address/DeleteByList")]
+        [Route("DeleteByList")]
         public void DeleteByList(DeleteObject deletedObjectList)
         {
             if (deletedObjectList != null)

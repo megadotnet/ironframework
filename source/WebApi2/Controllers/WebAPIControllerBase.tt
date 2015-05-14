@@ -86,6 +86,7 @@ using <#= code.VsNamespaceSuggestion() #>;
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
 
+    [RoutePrefix("api/<#=code.Escape(entity)#>")]
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Controller : BaseWebAPIController 
 	{
 
@@ -104,28 +105,49 @@ namespace <#= code.VsNamespaceSuggestion() #>
         }
 
 
-
-        // GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10&....
+         /// <summary>
+        /// Get the List of<#=code.Escape(entity)#>dto.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#> dto.</param>
+        /// <example><code> HTTP GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10&....</code></example>
+        /// <returns>DatagridData List of <#=code.Escape(entity)#>Dto</returns>
         public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] <#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
            return  _<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
         }
 
-		// GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the specified page index.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10</code></example>
+        /// <returns>DatagridData List of <#=code.Escape(entity)#>Dto</returns>
         public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
         {
             return _<#=code.Escape(entity)#>BO.FindEnties(new <#=code.Escape(entity)#>Dto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
-        // GET: api/<#=code.Escape(entity)#>/5
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example><code>GET: api/<#=code.Escape(entity)#>/5</code></example>
+        /// <returns><#=code.Escape(entity)#>Dto</returns>
         public <#=code.Escape(entity)#>Dto Get(int id)
         {
             return _<#=code.Escape(entity)#>BO.GetEntiyByPK(id);
         }
 
-        // GET: api/<#=code.Escape(entity)#>/GetAync?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the <#=code.Escape(entity)#> with aync 
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/<#=code.Escape(entity)#>/GetAync?pageindex=1&pagesize=10</code></example>
+        /// <returns><#=code.Escape(entity)#>Dto</returns>
         [HttpGet]
-        [Route("api/<#=code.Escape(entity)#>/GetAync")]
+        [Route("GetAync")]
         public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _<#=code.Escape(entity)#>BO.FindEntiesAsync(pageIndex, pageSize);
@@ -133,7 +155,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 
         // GET: api/<#=code.Escape(entity)#>/GetAync?pageindex=1&pagesize=10
         [HttpGet]
-        [Route("api/<#=code.Escape(entity)#>/GetPageListAync")]
+        [Route("GetPageListAync")]
         [PagedListActionFilter] 
         public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetPageListAync()
         {
@@ -178,7 +200,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// 
         /// </example>
         [HttpPut]
-        [Route("api/<#=code.Escape(entity)#>/DeleteByList")]
+        [Route("DeleteByList")]
         public void DeleteByList(DeleteObject deletedObjectList)
         {
             if (deletedObjectList != null)

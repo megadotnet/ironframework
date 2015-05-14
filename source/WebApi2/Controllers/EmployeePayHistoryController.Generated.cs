@@ -16,6 +16,7 @@ using WebApi2.Controllers;
 namespace WebApi2.Controllers
 {   
 
+    [RoutePrefix("api/EmployeePayHistory")]
 	public partial class EmployeePayHistoryController : BaseWebAPIController 
 	{
 
@@ -34,28 +35,49 @@ namespace WebApi2.Controllers
         }
 
 
-
-        // GET: api/EmployeePayHistory/?pageindex=1&pagesize=10&....
+         /// <summary>
+        /// Get the List ofEmployeePayHistorydto.
+        /// </summary>
+        /// <param name="_EmployeePayHistoryDto">The EmployeePayHistory dto.</param>
+        /// <example><code> HTTP GET: api/EmployeePayHistory/?pageindex=1&pagesize=10&....</code></example>
+        /// <returns>DatagridData List of EmployeePayHistoryDto</returns>
         public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
            return  _EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
         }
 
-		// GET: api/EmployeePayHistory/?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the specified page index.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/EmployeePayHistory/?pageindex=1&pagesize=10</code></example>
+        /// <returns>DatagridData List of EmployeePayHistoryDto</returns>
         public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] int pageIndex, int pageSize)
         {
             return _EmployeePayHistoryBO.FindEnties(new EmployeePayHistoryDto { pageIndex=pageIndex,pageSize=pageSize});
         }
 
-        // GET: api/EmployeePayHistory/5
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <example><code>GET: api/EmployeePayHistory/5</code></example>
+        /// <returns>EmployeePayHistoryDto</returns>
         public EmployeePayHistoryDto Get(int id)
         {
             return _EmployeePayHistoryBO.GetEntiyByPK(id);
         }
 
-        // GET: api/EmployeePayHistory/GetAync?pageindex=1&pagesize=10
+        /// <summary>
+        /// Gets the EmployeePayHistory with aync 
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <example><code>GET: api/EmployeePayHistory/GetAync?pageindex=1&pagesize=10</code></example>
+        /// <returns>EmployeePayHistoryDto</returns>
         [HttpGet]
-        [Route("api/EmployeePayHistory/GetAync")]
+        [Route("GetAync")]
         public async Task<PagedList<EmployeePayHistoryDto>> GetAync([FromUri] int pageIndex, int pageSize)
         {
             return await _EmployeePayHistoryBO.FindEntiesAsync(pageIndex, pageSize);
@@ -63,7 +85,7 @@ namespace WebApi2.Controllers
 
         // GET: api/EmployeePayHistory/GetAync?pageindex=1&pagesize=10
         [HttpGet]
-        [Route("api/EmployeePayHistory/GetPageListAync")]
+        [Route("GetPageListAync")]
         [PagedListActionFilter] 
         public async Task<PagedList<EmployeePayHistoryDto>> GetPageListAync()
         {
@@ -108,7 +130,7 @@ namespace WebApi2.Controllers
         /// 
         /// </example>
         [HttpPut]
-        [Route("api/EmployeePayHistory/DeleteByList")]
+        [Route("DeleteByList")]
         public void DeleteByList(DeleteObject deletedObjectList)
         {
             if (deletedObjectList != null)
