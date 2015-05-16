@@ -27,7 +27,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     var collectionNavigationProperties = entity.NavigationProperties.Where(np => np.DeclaringType == entity && np.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many);
       var complexProperties = entity.Properties.Where(p => p.TypeUsage.EdmType is ComplexType && p.DeclaringType == entity);
 
-    fileManager.StartNewFile(entity.Name + "Dto.cs");
+    fileManager.StartNewFile(entity.Name + "Converter.cs");
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(false)#>

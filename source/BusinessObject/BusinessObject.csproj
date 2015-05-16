@@ -172,10 +172,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SaveOutput.tt</DependentUpon>
     </Compile>
-    <Compile Include="Util\AddressDto.cs">
+    <Compile Include="Util\AddressConverter.cs">
       <DependentUpon>ConverterGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Util\ContactDto.cs">
+    <Compile Include="Util\ContactConverter.cs">
       <DependentUpon>ConverterGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Util\ConverterGenerator.cs">
@@ -183,10 +183,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConverterGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Util\EmployeeDto.cs">
+    <Compile Include="Util\EmployeeConverter.cs">
       <DependentUpon>ConverterGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Util\EmployeePayHistoryDto.cs">
+    <Compile Include="Util\EmployeePayHistoryConverter.cs">
       <DependentUpon>ConverterGenerator.tt</DependentUpon>
     </Compile>
   </ItemGroup>
