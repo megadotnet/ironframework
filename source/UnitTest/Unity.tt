@@ -28,10 +28,18 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
        <register  type="BusinessObject.I<#=code.Escape(entity)#>BO, BusinessObject" 
                   mapTo="BusinessObject.<#=code.Escape(entity)#>BO, BusinessObject">
         <lifetime type="singleton" />
-        <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
+
+	   <register  type="BusinessObject.Util.I<#=code.Escape(entity)#>Converter, BusinessObject" 
+                  mapTo="BusinessObject.Util.<#=code.Escape(entity)#>Converter, BusinessObject">
+        <lifetime type="singleton" />
+		<constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
 <#	
 }
 #>

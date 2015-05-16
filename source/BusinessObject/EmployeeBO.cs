@@ -20,6 +20,7 @@ using DataTransferObject;
 using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
+using Microsoft.Practices.Unity;
 	
 namespace BusinessObject
 {   
@@ -31,7 +32,7 @@ namespace BusinessObject
         /// <summary>
         /// The type adapter
         /// </summary>
-        private IEmployeeConverter typeAdapter = new EmployeeConverter();
+        private IEmployeeConverter typeAdapter;
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -48,11 +49,13 @@ namespace BusinessObject
         /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeBusniessLogicObject"/> class.
         /// </summary>
-        public EmployeeBO()
+	    [InjectionConstructor]
+        public EmployeeBO(IEmployeeConverter _EmployeeConverter)
         {
             context = RepositoryHelper.GetDbContext();
             uow = RepositoryHelper.GetUnitOfWork(context);
             this.entiesrepository = RepositoryHelper.GetEmployeeRepository(context);
+			this.typeAdapter = _EmployeeConverter;
         }
 
         /// <summary>

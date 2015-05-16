@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
+using BusinessObject.Util;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -37,7 +38,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             bool hasAdded=_AddressBO.CreateEntiy(_AddressDto);
             Assert.True(hasAdded);
         }
@@ -49,7 +50,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(int pkid)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult = _AddressBO.GetEntiyByPK(pkid);
             Assert.NotNull(dbResult);
         }
@@ -61,7 +62,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindAll(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult=_AddressBO.FindAll(_AddressDto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -74,7 +75,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEnties(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult=_AddressBO.FindEnties(_AddressDto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -87,7 +88,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
         {
-             var _AddressBO = new AddressBO();
+             var _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult = _AddressBO.FindEnties(pageIndex, pageSize);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
@@ -100,7 +101,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult = _AddressBO.UpdateEntiyWithGet(_AddressDto);
             Assert.NotNull(dbResult);
         }
@@ -112,7 +113,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isUpdated = _AddressBO.UpdateWithAttachEntiy(_AddressDto);
             Assert.True(isUpdated);
         }
@@ -124,7 +125,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isDeleted = _AddressBO.DeleteWithAttachEntiy(_AddressDto);
             Assert.True(isDeleted);
         }
@@ -136,7 +137,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO();
+            var _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isDeleted = _AddressBO.DeleteEntiy(_AddressDto);
             Assert.True(isDeleted);
         }

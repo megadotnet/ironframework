@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
+using BusinessObject.Util;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -37,7 +38,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             bool hasAdded=_ContactBO.CreateEntiy(_ContactDto);
             Assert.True(hasAdded);
         }
@@ -49,7 +50,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(int pkid)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult = _ContactBO.GetEntiyByPK(pkid);
             Assert.NotNull(dbResult);
         }
@@ -61,7 +62,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindAll(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult=_ContactBO.FindAll(_ContactDto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -74,7 +75,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEnties(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult=_ContactBO.FindEnties(_ContactDto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -87,7 +88,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
         {
-             var _ContactBO = new ContactBO();
+             var _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult = _ContactBO.FindEnties(pageIndex, pageSize);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
@@ -100,7 +101,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult = _ContactBO.UpdateEntiyWithGet(_ContactDto);
             Assert.NotNull(dbResult);
         }
@@ -112,7 +113,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             bool isUpdated = _ContactBO.UpdateWithAttachEntiy(_ContactDto);
             Assert.True(isUpdated);
         }
@@ -124,7 +125,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             bool isDeleted = _ContactBO.DeleteWithAttachEntiy(_ContactDto);
             Assert.True(isDeleted);
         }
@@ -136,7 +137,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO();
+            var _ContactBO = new ContactBO(new FakeContactConverter());
             bool isDeleted = _ContactBO.DeleteEntiy(_ContactDto);
             Assert.True(isDeleted);
         }

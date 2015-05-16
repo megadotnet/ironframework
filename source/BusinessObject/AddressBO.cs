@@ -20,6 +20,7 @@ using DataTransferObject;
 using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
+using Microsoft.Practices.Unity;
 	
 namespace BusinessObject
 {   
@@ -31,7 +32,7 @@ namespace BusinessObject
         /// <summary>
         /// The type adapter
         /// </summary>
-        private IAddressConverter typeAdapter = new AddressConverter();
+        private IAddressConverter typeAdapter;
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -48,11 +49,13 @@ namespace BusinessObject
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBusniessLogicObject"/> class.
         /// </summary>
-        public AddressBO()
+	    [InjectionConstructor]
+        public AddressBO(IAddressConverter _AddressConverter)
         {
             context = RepositoryHelper.GetDbContext();
             uow = RepositoryHelper.GetUnitOfWork(context);
             this.entiesrepository = RepositoryHelper.GetAddressRepository(context);
+			this.typeAdapter = _AddressConverter;
         }
 
         /// <summary>

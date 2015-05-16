@@ -265,6 +265,7 @@ using DataTransferObject;
 using BusinessObject.Util;
 using IronFramework.Utility.UI;
 using IronFramework.Utility.EntityFramewrok;
+using Microsoft.Practices.Unity;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
@@ -276,7 +277,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <summary>
         /// The type adapter
         /// </summary>
-        private I<#=code.Escape(entity)#>Converter typeAdapter = new <#=code.Escape(entity)#>Converter();
+        private I<#=code.Escape(entity)#>Converter typeAdapter;
         /// <summary>
         /// The dbcontext
         /// </summary>
@@ -293,11 +294,13 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <summary>
         /// Initializes a new instance of the <see cref="<#=code.Escape(entity)#>BusniessLogicObject"/> class.
         /// </summary>
-        public <#=code.Escape(entity)#>BO()
+	    [InjectionConstructor]
+        public <#=code.Escape(entity)#>BO(I<#=code.Escape(entity)#>Converter _<#=code.Escape(entity)#>Converter)
         {
             context = RepositoryHelper.GetDbContext();
             uow = RepositoryHelper.GetUnitOfWork(context);
             this.entiesrepository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository(context);
+			this.typeAdapter = _<#=code.Escape(entity)#>Converter;
         }
 
         /// <summary>
