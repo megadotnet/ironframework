@@ -62,7 +62,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindAll(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            var _ContactBO = new ContactBO(new ContactConverter());
+		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
             var dbResult=_ContactBO.FindAll(_ContactDto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -75,7 +76,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEnties(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            var _ContactBO = new ContactBO(new ContactConverter());
+		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
             var dbResult=_ContactBO.FindEnties(_ContactDto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -86,10 +88,11 @@ namespace UnitTest.GenreateBOTests
         /// </summary>
         /// <param name="_ContactDto">The _Contact dto.</param>
         [Theory, AutoData]
-        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        public void TestFindEntiesWithSimplePaging(ContactDto _ContactDto)
         {
-             var _ContactBO = new ContactBO(new FakeContactConverter());
-            var dbResult = _ContactBO.FindEnties(pageIndex, pageSize);
+             var _ContactBO = new ContactBO(new ContactConverter());
+			bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
+            var dbResult = _ContactBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
         }

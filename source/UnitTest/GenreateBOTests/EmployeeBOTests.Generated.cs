@@ -62,7 +62,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindAll(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
             var dbResult=_EmployeeBO.FindAll(_EmployeeDto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -75,7 +76,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEnties(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
             var dbResult=_EmployeeBO.FindEnties(_EmployeeDto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -86,10 +88,11 @@ namespace UnitTest.GenreateBOTests
         /// </summary>
         /// <param name="_EmployeeDto">The _Employee dto.</param>
         [Theory, AutoData]
-        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        public void TestFindEntiesWithSimplePaging(EmployeeDto _EmployeeDto)
         {
-             var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
-            var dbResult = _EmployeeBO.FindEnties(pageIndex, pageSize);
+             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+			bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
+            var dbResult = _EmployeeBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
         }

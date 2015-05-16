@@ -62,7 +62,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindAll(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             var dbResult=_EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -75,7 +76,8 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestFindEnties(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             var dbResult=_EmployeePayHistoryBO.FindEnties(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -86,10 +88,11 @@ namespace UnitTest.GenreateBOTests
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
         [Theory, AutoData]
-        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        public void TestFindEntiesWithSimplePaging(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
-            var dbResult = _EmployeePayHistoryBO.FindEnties(pageIndex, pageSize);
+             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+			bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
+            var dbResult = _EmployeePayHistoryBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
         }

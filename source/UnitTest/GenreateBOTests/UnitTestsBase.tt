@@ -147,7 +147,8 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData]
         public void TestFindAll(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             var dbResult=_<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
@@ -160,7 +161,8 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData]
         public void TestFindEnties(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
@@ -171,10 +173,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
         [Theory, AutoData]
-        public void TestFindEntiesWithSimplePaging(int? pageIndex, int pageSize)
+        public void TestFindEntiesWithSimplePaging(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
-            var dbResult = _<#=code.Escape(entity)#>BO.FindEnties(pageIndex, pageSize);
+             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+			bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
+            var dbResult = _<#=code.Escape(entity)#>BO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Count>0);
         }
