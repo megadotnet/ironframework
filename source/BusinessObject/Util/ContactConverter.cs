@@ -176,4 +176,32 @@ namespace BusinessObject.Util
     
         //public virtual EmployeeDto [] Employeess { get; set; }
     }
+           public class FakeContactConverter:IContactConverter
+           {
+    
+            public Contact ConvertDtoToEntities(ContactDto _ContactDto)
+            {
+                return new Contact();
+            }
+    
+            public Contact ConvertDtoToEntities(ContactDto _ContactDto, Contact efContact)
+            {
+                return new Contact();
+            }
+    
+            public Contact ConvertDtoToEntities(ContactDto _ContactDto, bool skipNullPropertyValue)
+            {
+                return new Contact();
+            }
+    
+            public Contact ConvertDtoToEntities(ContactDto _ContactDto, Contact efContact, bool skipNullPropertyValue)
+            {
+                return new Contact();
+            }
+    
+            public ContactDto ConvertEntitiesToDto(Contact _Contact)
+            {
+                return new ContactDto();
+            }
+          }
 }

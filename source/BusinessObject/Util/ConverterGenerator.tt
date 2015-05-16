@@ -167,6 +167,34 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     }
 #>
 }
+       public class Fake<#=code.Escape(entity)#>Converter:I<#=code.Escape(entity)#>Converter
+       {
+
+        public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        {
+            return new <#=code.Escape(entity)#>();
+        }
+
+        public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>)
+        {
+            return new <#=code.Escape(entity)#>();
+        }
+
+        public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, bool skipNullPropertyValue)
+        {
+            return new <#=code.Escape(entity)#>();
+        }
+
+        public <#=code.Escape(entity)#> ConvertDtoToEntities(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto, <#=code.Escape(entity)#> ef<#=code.Escape(entity)#>, bool skipNullPropertyValue)
+        {
+            return new <#=code.Escape(entity)#>();
+        }
+
+        public <#=code.Escape(entity)#>Dto ConvertEntitiesToDto(<#=code.Escape(entity)#> _<#=code.Escape(entity)#>)
+        {
+            return new <#=code.Escape(entity)#>Dto();
+        }
+      }
 <#
     EndNamespace(code);
 }

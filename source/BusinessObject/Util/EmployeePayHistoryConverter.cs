@@ -136,4 +136,32 @@ namespace BusinessObject.Util
     
         //public virtual EmployeeDto Employees { get; set; }
     }
+           public class FakeEmployeePayHistoryConverter:IEmployeePayHistoryConverter
+           {
+    
+            public EmployeePayHistory ConvertDtoToEntities(EmployeePayHistoryDto _EmployeePayHistoryDto)
+            {
+                return new EmployeePayHistory();
+            }
+    
+            public EmployeePayHistory ConvertDtoToEntities(EmployeePayHistoryDto _EmployeePayHistoryDto, EmployeePayHistory efEmployeePayHistory)
+            {
+                return new EmployeePayHistory();
+            }
+    
+            public EmployeePayHistory ConvertDtoToEntities(EmployeePayHistoryDto _EmployeePayHistoryDto, bool skipNullPropertyValue)
+            {
+                return new EmployeePayHistory();
+            }
+    
+            public EmployeePayHistory ConvertDtoToEntities(EmployeePayHistoryDto _EmployeePayHistoryDto, EmployeePayHistory efEmployeePayHistory, bool skipNullPropertyValue)
+            {
+                return new EmployeePayHistory();
+            }
+    
+            public EmployeePayHistoryDto ConvertEntitiesToDto(EmployeePayHistory _EmployeePayHistory)
+            {
+                return new EmployeePayHistoryDto();
+            }
+          }
 }

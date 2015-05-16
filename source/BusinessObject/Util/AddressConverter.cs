@@ -147,4 +147,32 @@ namespace BusinessObject.Util
                   efAddress.ModifiedDate=_AddressDto.ModifiedDate; 
               }
     }
+           public class FakeAddressConverter:IAddressConverter
+           {
+    
+            public Address ConvertDtoToEntities(AddressDto _AddressDto)
+            {
+                return new Address();
+            }
+    
+            public Address ConvertDtoToEntities(AddressDto _AddressDto, Address efAddress)
+            {
+                return new Address();
+            }
+    
+            public Address ConvertDtoToEntities(AddressDto _AddressDto, bool skipNullPropertyValue)
+            {
+                return new Address();
+            }
+    
+            public Address ConvertDtoToEntities(AddressDto _AddressDto, Address efAddress, bool skipNullPropertyValue)
+            {
+                return new Address();
+            }
+    
+            public AddressDto ConvertEntitiesToDto(Address _Address)
+            {
+                return new AddressDto();
+            }
+          }
 }
