@@ -21,9 +21,8 @@ using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
 using BusinessObject.Util;
-using System.Data.Entity.Infrastructure;
-using System.Threading;
 using Moq;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 	
 namespace UnitTest.GenreateBOTests
@@ -181,9 +180,9 @@ namespace UnitTest.GenreateBOTests
         /// <param name="_AddressId"></param>
         /// <returns></returns>
         [Theory, AutoData]
-        public async Task<IEnumerable<Address>> TestAddressRepositoryFindAsyc(List<Address> AddressModel)
+        public async Task<IEnumerable<Address>> TestAddressRepositoryFindAsyc(List<Address> _AddressModel)
         {
-            var data = AddressModel.AsQueryable();
+		    var data = _AddressModel.AsQueryable();
             var mockSet = new Mock<DbSet<Address>>();
             mockSet.As<IDbAsyncEnumerable<Address>>()
                 .Setup(m => m.GetAsyncEnumerator())
@@ -199,7 +198,7 @@ namespace UnitTest.GenreateBOTests
 
             var mockContext = new Mock<AdventureWorksEntities>();
             mockContext.Setup(c => c.Addresses).Returns(mockSet.Object);
-
+		
             //var mockObjectContextAdapter = new Mock<IObjectContextAdapter>();
             //mockObjectContextAdapter.Setup(c => c.ObjectContext).Returns(mockContext);
 
@@ -210,6 +209,9 @@ namespace UnitTest.GenreateBOTests
 
             var _AddressRepository = mockContext.Object;
             var _Address = await _AddressRepository.Addresses.Where(entity => entity.AddressID == data.FirstOrDefault().AddressID).ToListAsync();
+            Assert.NotNull(_Address);
+            return _Address;
+
             Assert.NotNull(_Address);
             return _Address;
         }

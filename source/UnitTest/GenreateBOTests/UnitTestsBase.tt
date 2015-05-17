@@ -106,6 +106,9 @@ using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
 using BusinessObject.Util;
+using Moq;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
@@ -262,9 +265,9 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <param name="_AddressId"></param>
         /// <returns></returns>
         [Theory, AutoData]
-        public async Task<IEnumerable<<#=code.Escape(entity)#>>> Test<#=code.Escape(entity)#>RepositoryFindAsyc(<#=code.Escape(entity)#> _<#=code.Escape(entity)#>Model)
+        public async Task<IEnumerable<<#=code.Escape(entity)#>>> Test<#=code.Escape(entity)#>RepositoryFindAsyc(List<<#=code.Escape(entity)#>> _<#=code.Escape(entity)#>Model)
         {
-		    var data = <#=code.Escape(entity)#>Model.AsQueryable();
+		    var data = _<#=code.Escape(entity)#>Model.AsQueryable();
             var mockSet = new Mock<DbSet<<#=code.Escape(entity)#>>>();
             mockSet.As<IDbAsyncEnumerable<<#=code.Escape(entity)#>>>()
                 .Setup(m => m.GetAsyncEnumerator())
@@ -279,8 +282,8 @@ namespace <#= code.VsNamespaceSuggestion() #>
             mockSet.As<IQueryable<<#=code.Escape(entity)#>>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
             var mockContext = new Mock<AdventureWorksEntities>();
-            mockContext.Setup(c => c.<#=code.Escape(entity)#>).Returns(mockSet.Object);
-
+            mockContext.Setup(c => c.<#=codeStringGenerator.EntityNameToPlural(entity)#>).Returns(mockSet.Object);
+		
             //var mockObjectContextAdapter = new Mock<IObjectContextAdapter>();
             //mockObjectContextAdapter.Setup(c => c.ObjectContext).Returns(mockContext);
 
@@ -290,7 +293,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
             //var _Address = await _AddressRepository.Repository.FindAsync(entity => entity.AddressID == data.FirstOrDefault().AddressID);
 
             var _<#=code.Escape(entity)#>Repository = mockContext.Object;
-            var _<#=code.Escape(entity)#> = await _<#=code.Escape(entity)#> Repository.<#=code.Escape(entity)#>.Where(entity => entity.<#=codeStringGenerator.PK(entity)#> == data.FirstOrDefault().<#=codeStringGenerator.PK(entity)#>).ToListAsync();
+            var _<#=code.Escape(entity)#> = await _<#=code.Escape(entity)#>Repository.<#=codeStringGenerator.EntityNameToPlural(entity)#>.Where(entity => entity.<#=codeStringGenerator.PK(entity)#> == data.FirstOrDefault().<#=codeStringGenerator.PK(entity)#>).ToListAsync();
             Assert.NotNull(_Address);
             return _Address;
 
@@ -401,6 +404,37 @@ public class CodeStringGenerator
             return null;
           
     }
+
+	public string EntityNameToPlural(EntityType entity)
+    {
+          return ToPlural(_code.Escape(entity));	
+    }
+
+
+	     /// <summary>
+        /// 单词变成复数形式
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public string ToPlural(string word)
+        {
+            var plural1 = new System.Text.RegularExpressions.Regex("(?<keep>[^aeiou])y$");
+            var plural2 = new System.Text.RegularExpressions.Regex("(?<keep>[aeiou]y)$");
+            var plural3 = new System.Text.RegularExpressions.Regex("(?<keep>[sxzh])$");
+            var plural4 = new System.Text.RegularExpressions.Regex("(?<keep>[^sxzhy])$");
+
+            if (plural1.IsMatch(word))
+                return plural1.Replace(word, "${keep}ies");
+            else if (plural2.IsMatch(word))
+                return plural2.Replace(word, "${keep}s");
+            else if (plural3.IsMatch(word))
+                return plural3.Replace(word, "${keep}es");
+            else if (plural4.IsMatch(word))
+                return plural4.Replace(word, "${keep}s");
+
+            return word;
+        }
+
 
     public string NavigationProperty(NavigationProperty navigationProperty)
     {
