@@ -17,13 +17,13 @@ focus on enterprise solution based on Microsoft .Net Framework. Features:
 
  Enterprise Library extension 
 
- Entity Framework POCO and T4 template code generation 
+ Entity Framework async and T4 template code generation 
 
- Cross cutting with Enterprise library application block 
+ Cross cutting with Enterprise Library Application Block 
 
  Repository and Unit of Work Pattern 
 
- Unit test with the Moq Framework 
+ Unit testing with the Moq Framework 
 
  RESTful service 
 
