@@ -141,6 +141,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\SectionHandler.cs" />
+    <Compile Include="Config\SecurityConfig.cs" />
+    <Compile Include="Config\ServiceConfig.cs" />
     <Compile Include="EntityFramewrok\PredicateBuilder.cs" />
     <Compile Include="EntLib\Interceptor\CachingBehavior.cs" />
     <Compile Include="EntLib\Interceptor\ExceptionLoggingBehavior.cs" />
@@ -149,6 +152,7 @@
     <Compile Include="EntLib\IoC\HttpContextLifetimeManager.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Security\VerifyTransactionSN.cs" />
     <Compile Include="UtilityExtention.cs" />
     <Compile Include="Web\HttpModule\BaseHttpModule.cs" />
     <Compile Include="Web\HttpModule\CompressOptions.cs" />
