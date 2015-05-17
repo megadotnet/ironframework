@@ -144,7 +144,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// Tests the get.
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindAll(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
@@ -158,7 +158,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// Tests the get.
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEnties(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
@@ -172,7 +172,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// Tests the get.
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The _<#=code.Escape(entity)#> dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
              var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());

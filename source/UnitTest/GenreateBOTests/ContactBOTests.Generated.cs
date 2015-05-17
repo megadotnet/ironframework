@@ -59,7 +59,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_ContactDto">The _Contact dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindAll(ContactDto _ContactDto)
         {
             var _ContactBO = new ContactBO(new ContactConverter());
@@ -73,7 +73,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_ContactDto">The _Contact dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEnties(ContactDto _ContactDto)
         {
             var _ContactBO = new ContactBO(new ContactConverter());
@@ -87,7 +87,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_ContactDto">The _Contact dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(ContactDto _ContactDto)
         {
              var _ContactBO = new ContactBO(new ContactConverter());

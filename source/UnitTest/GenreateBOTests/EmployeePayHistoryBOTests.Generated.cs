@@ -59,7 +59,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindAll(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
@@ -73,7 +73,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEnties(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
@@ -87,7 +87,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The _EmployeePayHistory dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
              var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());

@@ -59,7 +59,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_AddressDto">The _Address dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindAll(AddressDto _AddressDto)
         {
             var _AddressBO = new AddressBO(new AddressConverter());
@@ -73,7 +73,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_AddressDto">The _Address dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEnties(AddressDto _AddressDto)
         {
             var _AddressBO = new AddressBO(new AddressConverter());
@@ -87,7 +87,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_AddressDto">The _Address dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(AddressDto _AddressDto)
         {
              var _AddressBO = new AddressBO(new AddressConverter());
@@ -179,9 +179,6 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public async Task<IEnumerable<Address>> TestAddressRepositoryFindAsyc(int _AddressId)
         {
-            //TODO System.InvalidOperationException : The source IQueryable doesn't implement IDbAsyncEnumerable<BusinessEntities.Address>.
-            //Only sources that implement IDbAsyncEnumerable can be used for Entity Framework asynchronous operations. 
-            //For more details see http://go.microsoft.com/fwlink/?LinkId=287068.
             var _AddressRepository = RepositoryHelper.GetAddressRepository();
             var _Address =await _AddressRepository.Repository.FindAsync(entity => entity.AddressID == _AddressId);
             Assert.NotNull(_Address);

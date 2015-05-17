@@ -59,7 +59,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeeDto">The _Employee dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindAll(EmployeeDto _EmployeeDto)
         {
             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
@@ -73,7 +73,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeeDto">The _Employee dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEnties(EmployeeDto _EmployeeDto)
         {
             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
@@ -87,7 +87,7 @@ namespace UnitTest.GenreateBOTests
         /// Tests the get.
         /// </summary>
         /// <param name="_EmployeeDto">The _Employee dto.</param>
-        [Theory, AutoData]
+        [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(EmployeeDto _EmployeeDto)
         {
              var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
