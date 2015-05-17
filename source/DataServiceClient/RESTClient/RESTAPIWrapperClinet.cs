@@ -17,14 +17,12 @@ namespace DataServiceClient
     using System.Threading.Tasks;
     using System.Web;
 
-
-
     using System.Text;
     using IronFramework.Utility;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    ///     RESTAPIWrapperClinet
+    ///     RESTAPIWrapperClinet For DTO transfer with Front-end
     /// </summary>
     public class RESTAPIWrapperClinet : IRESTAPIWrapperClinet
     {

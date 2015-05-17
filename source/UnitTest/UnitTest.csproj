@@ -195,6 +195,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ConfigTests.cs" />
     <Compile Include="DataAccess\BusinessObjectTest.cs" />
     <Compile Include="GenreateBOTests\AddressBOTests.cs">
       <DependentUpon>UnitTestsBase.tt</DependentUpon>
