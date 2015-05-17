@@ -247,9 +247,9 @@
       <Project>{bf154a8b-0142-4570-b840-5974e88e2df7}</Project>
       <Name>BoService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
-      <Project>{b7bad4bb-923b-44d8-b908-7c0d257fa78b}</Project>
-      <Name>BusinessObject</Name>
+    <ProjectReference Include="..\DataServiceClient\DataServiceClient.csproj">
+      <Project>{87fb76b7-9138-4981-aa38-f85beeae905b}</Project>
+      <Name>DataServiceClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>

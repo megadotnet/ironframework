@@ -4,52 +4,52 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().BirthDate)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().BirthDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ContactID)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().ContactID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().CurrentFlag)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().CurrentFlag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().Gender)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().Gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().HireDate)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().HireDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().LoginID)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().LoginID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ManagerID)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().ManagerID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().MaritalStatus)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().MaritalStatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().ModifiedDate)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().ModifiedDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().NationalIDNumber)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().NationalIDNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().SalariedFlag)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().SalariedFlag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().SickLeaveHours)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().SickLeaveHours)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().Title)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().VacationHours)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().VacationHours)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rows.FirstOrDefault().rowguid)
+            @Html.DisplayNameFor(model => model.Rows.FirstOrDefault().rowguid)
         </th>
     </tr>
-    @foreach (var item in Model.rows)
+    @foreach (var item in Model.Rows)
     {
         <tr>
             <td>
@@ -110,9 +110,9 @@
     @Html.Raw(Ajax.Pager(
         new Options
         {
-            PageSize = Model.rows.FirstOrDefault().pageSize,
-            TotalItemCount = Model.total,
-            CurrentPage = Model.rows.FirstOrDefault().pageIndex.Value,
+            PageSize = Model.Rows.FirstOrDefault().pageSize,
+            TotalItemCount = Model.Total,
+            CurrentPage = Model.Rows.FirstOrDefault().pageIndex.Value,
             ItemTexts = new ItemTexts() { Next = "Next", Previous = "Previous", Page = "P" },
             ItemIcon = new ItemIcon() { First = "icon-backward", Previous = "icon-chevron-left", Next = "icon-chevron-right", Last = "icon-forward" },
             TooltipTitles = new TooltipTitles() { Next = "Next page", Previous = "Previous page", Page = "Go to page {0}.", First = "Go To First Page", Last = "Go To Last Page" },
@@ -131,7 +131,7 @@
 
         }, new { controller = "Employee", action = "Index", employee_name = ViewData["employee_name"] }))
  <div class="well">
-        <span class="badge badge-info">@Model.total</span> entries
+        <span class="badge badge-info">@Model.Total</span> entries
     </div>
  </div>
 
