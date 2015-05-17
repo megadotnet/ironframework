@@ -21,6 +21,9 @@ using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
 using BusinessObject.Util;
+using Moq;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -177,10 +180,37 @@ namespace UnitTest.GenreateBOTests
         /// <param name="_AddressId"></param>
         /// <returns></returns>
         [Theory, AutoData]
-        public async Task<IEnumerable<Employee>> TestEmployeeRepositoryFindAsyc(int _EmployeeId)
+        public async Task<IEnumerable<Employee>> TestEmployeeRepositoryFindAsyc(List<Employee> _EmployeeModel)
         {
-            var _EmployeeRepository = RepositoryHelper.GetEmployeeRepository();
-            var _Employee =await _EmployeeRepository.Repository.FindAsync(entity => entity.EmployeeID == _EmployeeId);
+		    var data = _EmployeeModel.AsQueryable();
+            var mockSet = new Mock<DbSet<Employee>>();
+            mockSet.As<IDbAsyncEnumerable<Employee>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<Employee>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<Employee>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<Employee>(data.Provider));
+
+            mockSet.As<IQueryable<Employee>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Employee>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Employee>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<AdventureWorksEntities>();
+            mockContext.Setup(c => c.Employees).Returns(mockSet.Object);
+		
+            //var mockObjectContextAdapter = new Mock<IObjectContextAdapter>();
+            //mockObjectContextAdapter.Setup(c => c.ObjectContext).Returns(mockContext);
+
+            //var objectcontext = ((IObjectContextAdapter)mockContext.Object).ObjectContext;
+
+            //var _AddressRepository = RepositoryHelper.GetAddressRepository(dbcontext.Object);
+            //var _Address = await _AddressRepository.Repository.FindAsync(entity => entity.AddressID == data.FirstOrDefault().AddressID);
+
+            var _EmployeeRepository = mockContext.Object;
+            var _Employee = await _EmployeeRepository.Employees.Where(entity => entity.EmployeeID == data.FirstOrDefault().EmployeeID).ToListAsync();
+
+
             Assert.NotNull(_Employee);
             return _Employee;
         }

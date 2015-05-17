@@ -21,6 +21,9 @@ using DataTransferObject;
 using BusinessObject;
 using DataAccessObject;
 using BusinessObject.Util;
+using Moq;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -177,10 +180,37 @@ namespace UnitTest.GenreateBOTests
         /// <param name="_AddressId"></param>
         /// <returns></returns>
         [Theory, AutoData]
-        public async Task<IEnumerable<EmployeePayHistory>> TestEmployeePayHistoryRepositoryFindAsyc(int _EmployeePayHistoryId)
+        public async Task<IEnumerable<EmployeePayHistory>> TestEmployeePayHistoryRepositoryFindAsyc(List<EmployeePayHistory> _EmployeePayHistoryModel)
         {
-            var _EmployeePayHistoryRepository = RepositoryHelper.GetEmployeePayHistoryRepository();
-            var _EmployeePayHistory =await _EmployeePayHistoryRepository.Repository.FindAsync(entity => entity.EmployeeID == _EmployeePayHistoryId);
+		    var data = _EmployeePayHistoryModel.AsQueryable();
+            var mockSet = new Mock<DbSet<EmployeePayHistory>>();
+            mockSet.As<IDbAsyncEnumerable<EmployeePayHistory>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<EmployeePayHistory>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<EmployeePayHistory>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<EmployeePayHistory>(data.Provider));
+
+            mockSet.As<IQueryable<EmployeePayHistory>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<EmployeePayHistory>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<EmployeePayHistory>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<AdventureWorksEntities>();
+            mockContext.Setup(c => c.EmployeePayHistories).Returns(mockSet.Object);
+		
+            //var mockObjectContextAdapter = new Mock<IObjectContextAdapter>();
+            //mockObjectContextAdapter.Setup(c => c.ObjectContext).Returns(mockContext);
+
+            //var objectcontext = ((IObjectContextAdapter)mockContext.Object).ObjectContext;
+
+            //var _AddressRepository = RepositoryHelper.GetAddressRepository(dbcontext.Object);
+            //var _Address = await _AddressRepository.Repository.FindAsync(entity => entity.AddressID == data.FirstOrDefault().AddressID);
+
+            var _EmployeePayHistoryRepository = mockContext.Object;
+            var _EmployeePayHistory = await _EmployeePayHistoryRepository.EmployeePayHistories.Where(entity => entity.EmployeeID == data.FirstOrDefault().EmployeeID).ToListAsync();
+
+
             Assert.NotNull(_EmployeePayHistory);
             return _EmployeePayHistory;
         }

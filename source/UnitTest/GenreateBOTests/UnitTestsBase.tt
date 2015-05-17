@@ -294,8 +294,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 
             var _<#=code.Escape(entity)#>Repository = mockContext.Object;
             var _<#=code.Escape(entity)#> = await _<#=code.Escape(entity)#>Repository.<#=codeStringGenerator.EntityNameToPlural(entity)#>.Where(entity => entity.<#=codeStringGenerator.PK(entity)#> == data.FirstOrDefault().<#=codeStringGenerator.PK(entity)#>).ToListAsync();
-            Assert.NotNull(_Address);
-            return _Address;
+
 
             Assert.NotNull(_<#=code.Escape(entity)#>);
             return _<#=code.Escape(entity)#>;

@@ -209,8 +209,7 @@ namespace UnitTest.GenreateBOTests
 
             var _AddressRepository = mockContext.Object;
             var _Address = await _AddressRepository.Addresses.Where(entity => entity.AddressID == data.FirstOrDefault().AddressID).ToListAsync();
-            Assert.NotNull(_Address);
-            return _Address;
+
 
             Assert.NotNull(_Address);
             return _Address;
