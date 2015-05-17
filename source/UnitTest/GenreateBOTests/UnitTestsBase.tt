@@ -262,10 +262,38 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <param name="_AddressId"></param>
         /// <returns></returns>
         [Theory, AutoData]
-        public async Task<IEnumerable<<#=code.Escape(entity)#>>> Test<#=code.Escape(entity)#>RepositoryFindAsyc(int _<#=code.Escape(entity)#>Id)
+        public async Task<IEnumerable<<#=code.Escape(entity)#>>> Test<#=code.Escape(entity)#>RepositoryFindAsyc(<#=code.Escape(entity)#> _<#=code.Escape(entity)#>Model)
         {
-            var _<#=code.Escape(entity)#>Repository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository();
-            var _<#=code.Escape(entity)#> =await _<#=code.Escape(entity)#>Repository.Repository.FindAsync(entity => entity.<#=codeStringGenerator.PK(entity)#> == _<#=code.Escape(entity)#>Id);
+		    var data = <#=code.Escape(entity)#>Model.AsQueryable();
+            var mockSet = new Mock<DbSet<<#=code.Escape(entity)#>>>();
+            mockSet.As<IDbAsyncEnumerable<<#=code.Escape(entity)#>>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<<#=code.Escape(entity)#>>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<<#=code.Escape(entity)#>>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<<#=code.Escape(entity)#>>(data.Provider));
+
+            mockSet.As<IQueryable<<#=code.Escape(entity)#>>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<<#=code.Escape(entity)#>>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<<#=code.Escape(entity)#>>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<AdventureWorksEntities>();
+            mockContext.Setup(c => c.<#=code.Escape(entity)#>).Returns(mockSet.Object);
+
+            //var mockObjectContextAdapter = new Mock<IObjectContextAdapter>();
+            //mockObjectContextAdapter.Setup(c => c.ObjectContext).Returns(mockContext);
+
+            //var objectcontext = ((IObjectContextAdapter)mockContext.Object).ObjectContext;
+
+            //var _AddressRepository = RepositoryHelper.GetAddressRepository(dbcontext.Object);
+            //var _Address = await _AddressRepository.Repository.FindAsync(entity => entity.AddressID == data.FirstOrDefault().AddressID);
+
+            var _<#=code.Escape(entity)#>Repository = mockContext.Object;
+            var _<#=code.Escape(entity)#> = await _<#=code.Escape(entity)#> Repository.<#=code.Escape(entity)#>.Where(entity => entity.<#=codeStringGenerator.PK(entity)#> == data.FirstOrDefault().<#=codeStringGenerator.PK(entity)#>).ToListAsync();
+            Assert.NotNull(_Address);
+            return _Address;
+
             Assert.NotNull(_<#=code.Escape(entity)#>);
             return _<#=code.Escape(entity)#>;
         }

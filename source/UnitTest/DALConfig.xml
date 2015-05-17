@@ -25,14 +25,14 @@
       </register >
 
       <register  type="DataAccessObject.IObjectContext, DataAccessObject"
-    mapTo="DataAccessObject.ObjectContextAdapter, DataAccessObject">
+    mapTo="DataAccessObject.FakeContextAdapter, DataAccessObject">
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
-      <register  type="DataAccessObject.IObjectContext, DataAccessObject"
-mapTo="DataAccessObject.FakeContextAdapter, DataAccessObject" name="fakeContextAdapter">
+      <!--<register  type="DataAccessObject.IObjectContext, DataAccessObject"
+    mapTo="DataAccessObject.ObjectContextAdapter, DataAccessObject">
         <interceptor type="InterfaceInterceptor"/>
-      </register >
+      </register >-->
 
       <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject"
                    mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject">
