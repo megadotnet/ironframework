@@ -249,5 +249,18 @@ namespace DataServiceClient
         /// The <see cref="Task"/>.
         /// </returns>
         Task<bool> ClientHttpPOST<TResult>(TResult model);
+
+        Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL) where T : new();
+
+        Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL, bool isawait) where T : new();
+        Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL)
+            where T : new()
+            where ReturnObject : new();
+
+        Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri);
+
+        Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new();
+
+        Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new();
     }
 }

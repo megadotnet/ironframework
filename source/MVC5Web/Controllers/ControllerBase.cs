@@ -11,13 +11,14 @@
 
 namespace MVC5Web.Controllers
 {
-    using DataServiceClient;
-using IronFramework.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+     using DataServiceClient;
+    using IronFramework.Utility;
+    using Microsoft.Practices.Unity;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
 
     /// <summary>
     /// a interface of data acccess repository.
@@ -38,6 +39,9 @@ using System.Web.Mvc;
             set; 
         }
 
+        [Dependency]
+        public IRESTAPIWrapperClinet rESTAPIWrapperClinet { get; set; }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseWebController"/> class.
@@ -54,9 +58,9 @@ using System.Web.Mvc;
         /// <typeparam name="T"></typeparam>
         /// <param name="model">The model.</param>
         /// <returns></returns>
-        public async Task<bool> ClientInvokeHttpPOST<T>(T model) where T : new()
+        public async Task<bool> ClientInvokeHttpPOST<TResult>(TResult model) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHttpPOST<T>(model);
+            return await rESTAPIWrapperClinet.ClientHttpPOST<TResult>(model);
         }
 
         /// <summary>
@@ -69,7 +73,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientInvokeHttpPOST<T, Query>(Query query, string customURL) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHttpPOST<T, Query>(query, customURL);
+            return await rESTAPIWrapperClinet.ClientHttpPOST<T,Query>(query, customURL);
         }
 
         /// <summary>
@@ -83,7 +87,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientInvokeHttpPOST<T, Query>(Query query, string customURL, bool isawait) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHttpPOST<T, Query>(query, customURL, isawait);
+            return await rESTAPIWrapperClinet.ClientHttpPOST<T, Query>(query, customURL, isawait);
         }
 
         /// <summary>
@@ -99,7 +103,7 @@ using System.Web.Mvc;
             where T : new()
             where ReturnObject : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHttpPOST<ReturnObject, T, Query>(query, customURL);
+            return await rESTAPIWrapperClinet.ClientHttpPOST<ReturnObject, T, Query>(query, customURL);
         }
 
         /// <summary>
@@ -110,7 +114,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGet<TResult>(int id) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGet<TResult>(id);
+            return await rESTAPIWrapperClinet.ClientHTTPGet<TResult>(id);
         }
 
         /// <summary>
@@ -122,7 +126,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<TResult, Query>(query);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(query);
         }
 
         /// <summary>
@@ -177,7 +181,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<T> ClientHTTPGetList<T, Query>(string partialURI, Query query) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<T, Query>(query, partialURI);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<T, Query>(query, partialURI);
         }
 
         /// <summary>
@@ -189,7 +193,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string queryString) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<TResult, Query>(queryString);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(queryString);
         }
 
         /// <summary>
@@ -202,7 +206,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<TResult, Query>(partialURI, isawait);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(partialURI, isawait);
         }
 
         /// <summary>
@@ -215,7 +219,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, string queryString) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<TResult, Query>(partialURI, queryString);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(partialURI, queryString);
         }
 
         /// <summary>
@@ -228,7 +232,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, string queryString, bool isawait) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGetList<TResult, Query>(partialURI, queryString, isawait);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(partialURI, queryString, isawait);
         }
 
         /// <summary>
@@ -240,7 +244,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGet<TResult>(int id, string customURL) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPGet<TResult>(id, customURL);
+            return await rESTAPIWrapperClinet.ClientHTTPGet<TResult>(id, customURL);
         }
 
         /// <summary>
@@ -251,7 +255,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientHTTPPut<T>(T model) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPPut<T>(model);
+            return await rESTAPIWrapperClinet.ClientHTTPPut<T>(model);
         }
 
 
@@ -265,7 +269,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri)
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPPut<TResult, Query>(model, customPartialUri);
+            return await rESTAPIWrapperClinet.ClientHTTPPut<TResult, Query>(model, customPartialUri);
         }
 
         /// <summary>
@@ -279,7 +283,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new()
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPPut<TResult, TQueryDto, Query>(model, customPartialUri);
+            return await rESTAPIWrapperClinet.ClientHTTPPut<TResult, TQueryDto, Query>(model, customPartialUri);
         }
 
         /// <summary>
@@ -290,7 +294,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientHTTPDelete<T>(int id)
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPDelete<T>(id);
+            return await rESTAPIWrapperClinet.ClientHTTPDelete<T>(id);
         }
 
         /// <summary>
@@ -302,7 +306,7 @@ using System.Web.Mvc;
         /// <returns></returns>
         public async Task<bool> ClientHTTPDelete<T>(int id, string customPartialUri)
         {
-            return await RESTAPIWrapperClinet.Instance(this.webapiURI).ClientHTTPDelete<T>(id, customPartialUri);
+            return await rESTAPIWrapperClinet.ClientHTTPDelete<T>(id, customPartialUri);
         } 
         #endregion
 

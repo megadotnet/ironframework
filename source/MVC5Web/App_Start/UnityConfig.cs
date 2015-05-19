@@ -1,6 +1,9 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using System.IO;
+using System.Configuration;
+using IronFramework.Utility;
 
 namespace MVC5Web.App_Start
 {
@@ -12,8 +15,14 @@ namespace MVC5Web.App_Start
         #region Unity Container
         private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
         {
-            var container = new UnityContainer();
-            RegisterTypes(container);
+            IUnityContainer container = Singleton.GetInstance<IUnityContainer>(() => new UnityContainer());
+
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EntLib.config.xml");
+            var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
+            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+
+            var section = (UnityConfigurationSection)config.GetSection("unity");
+            section.Configure(container, "DefContainer");
             return container;
         });
 

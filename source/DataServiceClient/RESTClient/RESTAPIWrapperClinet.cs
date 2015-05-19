@@ -823,97 +823,14 @@ where TResult : new()
         }
 
 
-        /// <summary>
-        /// Clients the HTTP post.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <typeparam name="Query">The type of the uery.</typeparam>
-        /// <param name="model">The model.</param>
-        /// <param name="customUrl">The custom URL.</param>
-        /// <returns></returns>
-        public async Task<bool> ClientHttpPOST<TResult, Query>(Query model, string customUrl)
-        {
-            return await ClientHttpPOST<TResult, Query>(model, customUrl, true);
-        }
 
-        /// <summary>
-        /// Clients the Http post with isawait sign
-        /// </summary>
-        /// <typeparam name="TResult"></typeparam>
-        /// <typeparam name="Query"></typeparam>
-        /// <param name="model"></param>
-        /// <param name="customUrl"></param>
-        /// <param name="isawait"></param>
-        /// <returns></returns>
-        public async Task<bool> ClientHttpPOST<TResult, Query>(Query model, string customUrl, bool isawait)
-        {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
 
-                // HTTP POST
-                HttpResponseMessage response = await DoHttpPost<TResult, Query>(model, customUrl, client,isawait);
 
-                return response.IsSuccessStatusCode;
-            }
-        }
-
-        /// <summary>
-        /// Clients the HTTP post.
-        /// </summary>
-        /// <typeparam name="ResultObject">The type of the esult object.</typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <typeparam name="Query">The type of the uery.</typeparam>
-        /// <param name="model">The model.</param>
-        /// <param name="customUrl">The custom URL.</param>
-        /// <returns></returns>
-        public async Task<ResultObject> ClientHttpPOST<ResultObject, TResult, Query>(Query model, string customUrl) where ResultObject : new()
-        {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP POST
-                HttpResponseMessage response = await DoHttpPost<TResult, Query>(model, customUrl, client,true);
-
-                var results = new ResultObject();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
-        }
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Does the HTTP post.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <typeparam name="Query">The type of the uery.</typeparam>
-        /// <param name="model">The model.</param>
-        /// <param name="customUrl">The custom URL.</param>
-        /// <param name="client">The client.</param>
-        /// <returns></returns>
-        private static async Task<HttpResponseMessage> DoHttpPost<TResult, Query>(Query model, string customUrl, HttpClient client,bool isawait)
-        {
-            string entityname = typeof(TResult).Name;
-            entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-            string routingUrl = "api/" + entityname + "/" + customUrl + "/?" + VerifyTransactionSN.GenerateRandomInt();
-
-            HttpResponseMessage response = await client.PostAsJsonAsync<Query>(routingUrl, model).ConfigureAwait(isawait);
-
-            log.DebugFormat(
-                "请求URL:{0}  object {1}  结果:{2}",
-                client.BaseAddress + routingUrl,
-                model,
-                response.IsSuccessStatusCode);
-            if (!response.IsSuccessStatusCode)
-            {
-                log.Error(response.Content.ReadAsStringAsync().Result);
-            }
-            return response;
-        }
 
 
         /// <summary>
@@ -1021,5 +938,119 @@ where TResult : new()
         }
 
         #endregion
+
+
+        public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL) where T : new()
+        {
+            using (var client = new HttpClient())
+            {
+                this.CreateHttpHeader(client);
+
+                // HTTP PUT
+                string entityname = typeof(T).Name;
+                int dtoindex = entityname.IndexOf("Dto");
+
+                if (dtoindex > 0)
+                {
+                    entityname = entityname.Substring(0, dtoindex);
+                }
+
+                string routingUrl = "api/" + entityname;
+
+                if (!string.IsNullOrEmpty(customURL))
+                {
+                    routingUrl += "/" + customURL;
+                }
+
+                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
+                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query);
+
+                log.DebugFormat(
+                    "请求URL:{0}  object {1}  结果:{2}",
+                    client.BaseAddress + routingUrl,
+                    query,
+                    response.IsSuccessStatusCode);
+                if (!response.IsSuccessStatusCode)
+                {
+                    log.Error(response.Content.ReadAsStringAsync().Result);
+                }
+
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL, bool isawait) where T : new()
+        {
+            using (var client = new HttpClient())
+            {
+                this.CreateHttpHeader(client);
+
+                // HTTP PUT
+                string entityname = typeof(T).Name;
+                int dtoindex = entityname.IndexOf("Dto");
+
+                if (dtoindex > 0)
+                {
+                    entityname = entityname.Substring(0, dtoindex);
+                }
+
+                string routingUrl = "api/" + entityname;
+
+                if (!string.IsNullOrEmpty(customURL))
+                {
+                    routingUrl += "/" + customURL;
+                }
+
+                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
+                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
+
+                log.DebugFormat(
+                    "请求URL:{0}  object {1}  结果:{2}",
+                    client.BaseAddress + routingUrl,
+                    query,
+                    response.IsSuccessStatusCode);
+                if (!response.IsSuccessStatusCode)
+                {
+                    log.Error(response.Content.ReadAsStringAsync().Result);
+                }
+
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        public async Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL)
+            where ReturnObject : new()
+            where T : new()
+        {
+            using (var client = new HttpClient())
+            {
+                this.CreateHttpHeader(client);
+
+                // HTTP PUT
+                string entityname = typeof(T).Name;
+                int dtoindex = entityname.IndexOf("Dto");
+
+                if (dtoindex > 0)
+                {
+                    entityname = entityname.Substring(0, dtoindex);
+                }
+
+                string routingUrl = "api/" + entityname;
+
+                if (!string.IsNullOrEmpty(customURL))
+                {
+                    routingUrl += "/" + customURL;
+                }
+
+                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
+                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query);
+
+                var results = new ReturnObject();
+                results = await ReadAsObject(response, results);
+                return results;
+            }
+        }
+
+     
     }
 }
