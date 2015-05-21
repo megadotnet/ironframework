@@ -21,6 +21,7 @@ namespace DataTransferObject
         /// <value>
         /// The size of the page.
         /// </value>
+        [DataMember]
         public int pageSize
         {
             get
@@ -43,6 +44,7 @@ namespace DataTransferObject
         /// <value>
         /// The index of the page.
         /// </value>
+        [DataMember]
         public int? pageIndex
         {
             get
@@ -64,6 +66,7 @@ namespace DataTransferObject
         /// <value>
         /// The Total count.
         /// </value>
+        [DataMember]
         public int TotalCount { get; set; }
     }
 

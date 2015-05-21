@@ -341,7 +341,12 @@ namespace <#= code.VsNamespaceSuggestion() #>
             var listDtos = new EasyuiDatagridData<<#=code.Escape(entity)#>Dto>() { Total = entities.TotalCount };
             var lists = new List<<#=code.Escape(entity)#>Dto>();
             
-            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
+             entities.ForEach(entity => {
+                var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
+                dto.pageIndex = entities.PageIndex;
+                dto.pageSize = entities.PageSize;
+                lists.Add(dto); });
+
             listDtos.Rows = lists.ToArray();
             return listDtos;
         }

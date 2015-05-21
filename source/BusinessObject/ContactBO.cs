@@ -96,7 +96,12 @@ namespace BusinessObject
             var listDtos = new EasyuiDatagridData<ContactDto>() { Total = entities.TotalCount };
             var lists = new List<ContactDto>();
             
-            entities.ForEach(entity => { lists.Add(this.typeAdapter.ConvertEntitiesToDto(entity)); });
+             entities.ForEach(entity => {
+                var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
+                dto.pageIndex = entities.PageIndex;
+                dto.pageSize = entities.PageSize;
+                lists.Add(dto); });
+
             listDtos.Rows = lists.ToArray();
             return listDtos;
         }
