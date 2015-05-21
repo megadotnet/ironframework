@@ -22,7 +22,8 @@ namespace MVC5Web.App_Start
             Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
 
             var section = (UnityConfigurationSection)config.GetSection("unity");
-            section.Configure(container, "DefContainer");
+            container.LoadConfiguration(section, "DefContainer");
+            
             return container;
         });
 

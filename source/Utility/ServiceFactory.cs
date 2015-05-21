@@ -19,6 +19,7 @@ namespace IronFramework.Utility
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.Logging;
     using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
+    using System.Diagnostics;
 
     /// <summary>
     /// Service Factory
@@ -75,7 +76,8 @@ namespace IronFramework.Utility
             }
             catch (InvalidOperationException ioe)
             {
-                Microsoft.Practices.EnterpriseLibrary.Logging.Logger.Write(ioe, "ExceptionLogger");
+                Debug.WriteLine(ioe);
+               // Microsoft.Practices.EnterpriseLibrary.Logging.Logger.Write(ioe, "ExceptionLogger");
                 throw;
             }
             return container;

@@ -88,8 +88,11 @@
     <container name="DefContainer">
       <extension type="Interception" />
 
-      <register  type="DataServiceClient.IRESTAPIWrapperClinet, DataServiceClient"
-                   mapTo="DataServiceClient.RESTAPIWrapperClinet, DataServiceClient">
+      <register  type="DataServiceClient.IRESTAPIWrapperClinet,DataServiceClient"
+             mapTo="DataServiceClient.RESTAPIWrapperClinet,DataServiceClient">
+        <constructor>
+          <param name="uRI" value="http://localhost:3956/" />
+        </constructor>
         <lifetime type="singleton" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
