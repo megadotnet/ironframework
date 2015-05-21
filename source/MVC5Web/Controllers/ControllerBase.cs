@@ -25,7 +25,7 @@ namespace MVC5Web.Controllers
     /// </summary>
     public class BaseWebController : Controller
     {
-       #region Public WebApi client Methods
+          #region Public WebApi client Methods
 
         /// <summary>
         /// Gets or sets the webapi URI.
@@ -139,7 +139,7 @@ namespace MVC5Web.Controllers
         /// <returns></returns>
         public async Task<T> ClientHTTPGetList<T, Query>(Query query, bool isAwait) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance().ClientHTTPGetList<T, Query>(query, isAwait);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<T, Query>(query, isAwait);
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace MVC5Web.Controllers
         /// <returns></returns>
         public async Task<T> ClientHTTPGetList<T, Query>(string partialURI, Query query, bool isAwait) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance().ClientHTTPGetList<T, Query>(partialURI, query, isAwait);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<T, Query>(partialURI, query, isAwait);
         }
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace MVC5Web.Controllers
         /// <returns></returns>
         public async Task<T> ClientHTTPGetList<T, TQueryDto, Query>(string partialURI, Query query, bool isAwait) where T : new()
         {
-            return await RESTAPIWrapperClinet.Instance().ClientHTTPGetList<T, TQueryDto, Query>(partialURI, query, isAwait);
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<T, TQueryDto, Query>(partialURI, query, isAwait);
         }
 
         /// <summary>

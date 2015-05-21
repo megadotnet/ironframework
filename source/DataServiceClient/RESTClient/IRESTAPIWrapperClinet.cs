@@ -209,6 +209,19 @@ namespace DataServiceClient
             bool configureAwait) where TResult : new();
 
         /// <summary>
+        /// Clients the HTTP get list.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="TQueryDto">The type of the query dto.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="partialURI">The partial URI.</param>
+        /// <param name="query">The query.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
+        Task<TResult> ClientHTTPGetList<TResult, TQueryDto, Query>(string partialURI, Query query, bool isawait)
+where TResult : new();
+
+        /// <summary>
         /// Clients the HTTP put.
         /// </summary>
         /// <typeparam name="TResult">
