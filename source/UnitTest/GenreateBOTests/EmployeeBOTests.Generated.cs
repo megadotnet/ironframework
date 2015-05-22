@@ -174,6 +174,18 @@ namespace UnitTest.GenreateBOTests
             Assert.NotNull(_Employee);
         }
 
+		/// <summary>
+        /// Tests the Employee repository Delete.
+        /// </summary>
+        /// <param name="_Employee">The _ Employee entity.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestEmployeeRepositoryDelete(Employee _Employee)
+        {
+            var _EmployeeRepository = RepositoryHelper.GetEmployeeRepository();
+           _EmployeeRepository.Repository.Delete(_Employee);
+           _EmployeeRepository.Save();
+        }
+
         /// <summary>
         /// TestEmployeeRepositoryFindAsyc
         /// </summary>

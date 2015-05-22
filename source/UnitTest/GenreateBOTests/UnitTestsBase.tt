@@ -259,6 +259,18 @@ namespace <#= code.VsNamespaceSuggestion() #>
             Assert.NotNull(_<#=code.Escape(entity)#>);
         }
 
+		/// <summary>
+        /// Tests the <#=code.Escape(entity)#> repository Delete.
+        /// </summary>
+        /// <param name="_<#=code.Escape(entity)#>">The _ <#=code.Escape(entity)#> entity.</param>
+        [Theory, AutoData, AutoRollback]
+        public void Test<#=code.Escape(entity)#>RepositoryDelete(<#=code.Escape(entity)#> _<#=code.Escape(entity)#>)
+        {
+            var _<#=code.Escape(entity)#>Repository = RepositoryHelper.Get<#=code.Escape(entity)#>Repository();
+           _<#=code.Escape(entity)#>Repository.Repository.Delete(_<#=code.Escape(entity)#>);
+           _<#=code.Escape(entity)#>Repository.Save();
+        }
+
         /// <summary>
         /// Test<#=code.Escape(entity)#>RepositoryFindAsyc
         /// </summary>

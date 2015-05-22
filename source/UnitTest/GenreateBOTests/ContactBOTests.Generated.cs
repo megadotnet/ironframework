@@ -174,6 +174,18 @@ namespace UnitTest.GenreateBOTests
             Assert.NotNull(_Contact);
         }
 
+		/// <summary>
+        /// Tests the Contact repository Delete.
+        /// </summary>
+        /// <param name="_Contact">The _ Contact entity.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestContactRepositoryDelete(Contact _Contact)
+        {
+            var _ContactRepository = RepositoryHelper.GetContactRepository();
+           _ContactRepository.Repository.Delete(_Contact);
+           _ContactRepository.Save();
+        }
+
         /// <summary>
         /// TestContactRepositoryFindAsyc
         /// </summary>

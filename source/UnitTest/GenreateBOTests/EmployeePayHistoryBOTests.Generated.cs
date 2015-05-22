@@ -174,6 +174,18 @@ namespace UnitTest.GenreateBOTests
             Assert.NotNull(_EmployeePayHistory);
         }
 
+		/// <summary>
+        /// Tests the EmployeePayHistory repository Delete.
+        /// </summary>
+        /// <param name="_EmployeePayHistory">The _ EmployeePayHistory entity.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestEmployeePayHistoryRepositoryDelete(EmployeePayHistory _EmployeePayHistory)
+        {
+            var _EmployeePayHistoryRepository = RepositoryHelper.GetEmployeePayHistoryRepository();
+           _EmployeePayHistoryRepository.Repository.Delete(_EmployeePayHistory);
+           _EmployeePayHistoryRepository.Save();
+        }
+
         /// <summary>
         /// TestEmployeePayHistoryRepositoryFindAsyc
         /// </summary>

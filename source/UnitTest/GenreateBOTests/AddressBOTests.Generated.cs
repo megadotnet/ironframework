@@ -174,6 +174,18 @@ namespace UnitTest.GenreateBOTests
             Assert.NotNull(_Address);
         }
 
+		/// <summary>
+        /// Tests the Address repository Delete.
+        /// </summary>
+        /// <param name="_Address">The _ Address entity.</param>
+        [Theory, AutoData, AutoRollback]
+        public void TestAddressRepositoryDelete(Address _Address)
+        {
+            var _AddressRepository = RepositoryHelper.GetAddressRepository();
+           _AddressRepository.Repository.Delete(_Address);
+           _AddressRepository.Save();
+        }
+
         /// <summary>
         /// TestAddressRepositoryFindAsyc
         /// </summary>
