@@ -142,6 +142,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\BaseConfig.cs" />
     <Compile Include="Config\SectionHandler.cs" />
     <Compile Include="Config\SecurityConfig.cs" />
     <Compile Include="Config\ServiceConfig.cs" />

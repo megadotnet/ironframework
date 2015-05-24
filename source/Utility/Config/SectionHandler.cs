@@ -1,9 +1,11 @@
-﻿namespace IronFramework.Utility
+﻿using System;
+namespace IronFramework.Utility
 {
     /// <summary>
     /// SectionHandler
     /// </summary>
-    public class SectionHandler : System.Configuration.IConfigurationSectionHandler
+    public class SectionHandler<T> : System.Configuration.IConfigurationSectionHandler
+        where T : BaseConfig
     {
         /// <summary>
         /// Creates a configuration section handler.
@@ -16,7 +18,9 @@
         /// </returns>
         public object Create(object parent, object configContext, System.Xml.XmlNode section)
         {
-            return new ServiceConfig(section);
+           var t=(T)Activator.CreateInstance(typeof(T), section);
+           
+            return t;
         }
     }
 }
