@@ -199,9 +199,9 @@ namespace BusinessObject
         /// </summary>
         /// <param name="pid">The pid.</param>
         /// <returns>Entiy</returns>
-        public ContactDto GetEntiyByPK(int _ContactID)
+        public ContactDto GetEntiyByPK(ContactDto tDTo)
         {
-            var entity=entiesrepository.Repository.Single(e => e.ContactID == _ContactID);
+            var entity=entiesrepository.Repository.Single(e => e.ContactID == tDTo.ContactID);
             return typeAdapter.ConvertEntitiesToDto(entity);
          
         }

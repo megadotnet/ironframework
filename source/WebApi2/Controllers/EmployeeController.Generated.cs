@@ -64,9 +64,10 @@ namespace WebApi2.Controllers
         /// <param name="id">The identifier.</param>
         /// <example><code>GET: api/Employee/5</code></example>
         /// <returns>EmployeeDto</returns>
-        public EmployeeDto Get(int id)
+        public EmployeeDto Get(Int32 id)
         {
-            return _EmployeeBO.GetEntiyByPK(id);
+            var dtoEntity = new EmployeeDto() { EmployeeID=id};
+            return _EmployeeBO.GetEntiyByPK(dtoEntity);
         }
 
         /// <summary>

@@ -192,9 +192,9 @@ namespace BusinessObject
         /// </summary>
         /// <param name="pid">The pid.</param>
         /// <returns>Entiy</returns>
-        public AddressDto GetEntiyByPK(int _AddressID)
+        public AddressDto GetEntiyByPK(AddressDto tDTo)
         {
-            var entity=entiesrepository.Repository.Single(e => e.AddressID == _AddressID);
+            var entity=entiesrepository.Repository.Single(e => e.AddressID == tDTo.AddressID);
             return typeAdapter.ConvertEntitiesToDto(entity);
          
         }

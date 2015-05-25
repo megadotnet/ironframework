@@ -51,10 +51,11 @@ namespace UnitTest.GenreateBOTests
         /// </summary>
         /// <param name="pkid">The PK int</param>
         [Theory, AutoData]
-        public void TestGetEntiyByPK(int pkid)
+        public void TestGetEntiyByPK(Int32 pkid)
         {
             var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
-            var dbResult = _EmployeeBO.GetEntiyByPK(pkid);
+            var dtoEntity=new EmployeeDto(){EmployeeID=pkid};
+            var dbResult = _EmployeeBO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
         }
 

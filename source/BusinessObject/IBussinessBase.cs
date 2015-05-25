@@ -96,7 +96,7 @@ namespace BusinessObject
         /// <returns>
         /// The <see cref="T"/>.
         /// </returns>
-        T GetEntiyByPK(int _id);
+         T GetEntiyByPK(T _id);
 
         /// <summary>
         /// The del entiy.

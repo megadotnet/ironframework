@@ -64,9 +64,10 @@ namespace WebApi2.Controllers
         /// <param name="id">The identifier.</param>
         /// <example><code>GET: api/Address/5</code></example>
         /// <returns>AddressDto</returns>
-        public AddressDto Get(int id)
+        public AddressDto Get(Int32 id)
         {
-            return _AddressBO.GetEntiyByPK(id);
+            var dtoEntity = new AddressDto() { AddressID=id};
+            return _AddressBO.GetEntiyByPK(dtoEntity);
         }
 
         /// <summary>
