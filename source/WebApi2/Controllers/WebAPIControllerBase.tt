@@ -134,9 +134,10 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <param name="id">The identifier.</param>
         /// <example><code>GET: api/<#=code.Escape(entity)#>/5</code></example>
         /// <returns><#=code.Escape(entity)#>Dto</returns>
-        public <#=code.Escape(entity)#>Dto Get(int id)
+        public <#=code.Escape(entity)#>Dto Get(<#=codeStringGenerator.PKType(entity)#> id)
         {
-            return _<#=code.Escape(entity)#>BO.GetEntiyByPK(id);
+            var dtoEntity = new <#=code.Escape(entity)#>Dto() { <#=codeStringGenerator.PK(entity)#>=id};
+            return _<#=code.Escape(entity)#>BO.GetEntiyByPK(dtoEntity);
         }
 
         /// <summary>
@@ -304,6 +305,24 @@ public class CodeStringGenerator
             return null;
           
     }
+    
+    public string PKType(EntityType entity)
+    {
+         var simpleProperties = _typeMapper.GetSimpleProperties(entity);
+          if (simpleProperties.Any())
+         {
+             foreach (var edmProperty in simpleProperties)
+             {
+              if (_ef.IsKey(edmProperty))
+              {
+                       
+                  return edmProperty.TypeUsage.EdmType.Name;
+              }
+             }
+         }
+            return null;
+    }
+
 
     public string NavigationProperty(NavigationProperty navigationProperty)
     {

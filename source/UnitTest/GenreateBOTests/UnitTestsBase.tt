@@ -136,10 +136,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         /// <param name="pkid">The PK int</param>
         [Theory, AutoData]
-        public void TestGetEntiyByPK(int pkid)
+        public void TestGetEntiyByPK(<#=codeStringGenerator.PKType(entity)#> pkid)
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
-            var dbResult = _<#=code.Escape(entity)#>BO.GetEntiyByPK(pkid);
+            var dtoEntity=new <#=code.Escape(entity)#>Dto(){<#=codeStringGenerator.PK(entity)#>=pkid};
+            var dbResult = _<#=code.Escape(entity)#>BO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
         }
 
@@ -414,6 +415,23 @@ public class CodeStringGenerator
          }
             return null;
           
+    }
+
+      public string PKType(EntityType entity)
+    {
+         var simpleProperties = _typeMapper.GetSimpleProperties(entity);
+          if (simpleProperties.Any())
+         {
+             foreach (var edmProperty in simpleProperties)
+             {
+              if (_ef.IsKey(edmProperty))
+              {
+                       
+                  return edmProperty.TypeUsage.EdmType.Name;
+              }
+             }
+         }
+            return null;
     }
 
 	public string EntityNameToPlural(EntityType entity)

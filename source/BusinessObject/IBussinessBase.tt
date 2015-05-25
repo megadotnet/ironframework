@@ -109,7 +109,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns>
         /// The <see cref="T"/>.
         /// </returns>
-        T GetEntiyByPK(int _id);
+         T GetEntiyByPK(T _id);
 
         /// <summary>
         /// The del entiy.
@@ -441,9 +441,9 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         /// <param name="pid">The pid.</param>
         /// <returns>Entiy</returns>
-        public <#=code.Escape(entity)#>Dto GetEntiyByPK(int _<#=codeStringGenerator.PK(entity)#>)
+        public <#=code.Escape(entity)#>Dto GetEntiyByPK(<#=code.Escape(entity)#>Dto tDTo)
         {
-            var entity=entiesrepository.Repository.Single(e => e.<#=codeStringGenerator.PK(entity)#> == _<#=codeStringGenerator.PK(entity)#>);
+            var entity=entiesrepository.Repository.Single(e => e.<#=codeStringGenerator.PK(entity)#> == tDTo.<#=codeStringGenerator.PK(entity)#>);
             return typeAdapter.ConvertEntitiesToDto(entity);
          
         }

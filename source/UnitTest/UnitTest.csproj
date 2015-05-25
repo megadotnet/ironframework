@@ -224,9 +224,9 @@
       <DependentUpon>UnitTestsBase.tt</DependentUpon>
     </Compile>
     <Compile Include="GenreateBOTests\UnitTestsBase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>UnitTestsBase.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Lib\Http\HttpWebService.cs" />
     <Compile Include="Service\RESTServiceTest.cs" />

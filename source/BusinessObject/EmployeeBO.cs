@@ -96,7 +96,7 @@ namespace BusinessObject
             var listDtos = new EasyuiDatagridData<EmployeeDto>() { Total = entities.TotalCount };
             var lists = new List<EmployeeDto>();
             
-            entities.ForEach(entity => {
+             entities.ForEach(entity => {
                 var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
                 dto.pageIndex = entities.PageIndex;
                 dto.pageSize = entities.PageSize;
@@ -200,9 +200,9 @@ namespace BusinessObject
         /// </summary>
         /// <param name="pid">The pid.</param>
         /// <returns>Entiy</returns>
-        public EmployeeDto GetEntiyByPK(int _EmployeeID)
+        public EmployeeDto GetEntiyByPK(EmployeeDto tDTo)
         {
-            var entity=entiesrepository.Repository.Single(e => e.EmployeeID == _EmployeeID);
+            var entity=entiesrepository.Repository.Single(e => e.EmployeeID == tDTo.EmployeeID);
             return typeAdapter.ConvertEntitiesToDto(entity);
          
         }
