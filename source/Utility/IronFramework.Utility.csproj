@@ -155,6 +155,7 @@
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Security\VerifyTransactionSN.cs" />
+    <Compile Include="TypeAdapter.cs" />
     <Compile Include="UtilityExtention.cs" />
     <Compile Include="Web\HttpModule\BaseHttpModule.cs" />
     <Compile Include="Web\HttpModule\CompressOptions.cs" />
