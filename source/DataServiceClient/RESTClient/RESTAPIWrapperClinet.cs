@@ -20,6 +20,8 @@ namespace DataServiceClient
     using System.Text;
     using IronFramework.Utility;
     using System.ComponentModel.DataAnnotations;
+    using Newtonsoft.Json;
+    using System.Net.Http.Formatting;
 
     /// <summary>
     ///     RESTAPIWrapperClinet For DTO transfer with Front-end
@@ -878,7 +880,16 @@ where TResult : new()
         {
             if (response.IsSuccessStatusCode)
             {
-                results = await response.Content.ReadAsAsync<TResult>();
+
+                //http://stackoverflow.com/questions/13915485/net-httpclient-with-custom-jsonconverter
+                results = await response.Content.ReadAsAsync<TResult>(new[] {new JsonMediaTypeFormatter {
+          SerializerSettings = new JsonSerializerSettings { 
+              Converters = new List<JsonConverter> {
+                //list of your converters
+               }
+             } 
+          }
+    });
             }
             else
             {

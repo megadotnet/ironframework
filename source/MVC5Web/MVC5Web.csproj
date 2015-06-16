@@ -155,6 +155,7 @@
     <Compile Include="Controllers\AddressController.Generated.cs">
       <DependentUpon>ControllerBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\JsonNetResult.cs" />
     <Compile Include="Controllers\ContactController.cs">
       <DependentUpon>ControllerBase.tt</DependentUpon>
     </Compile>

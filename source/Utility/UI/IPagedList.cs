@@ -45,6 +45,8 @@ namespace IronFramework.Utility.UI
          [DataMember]
         int TotalCount { get; set; }
 
+         //IPagedList GetMetaData();
+
         #endregion
     }
 }
