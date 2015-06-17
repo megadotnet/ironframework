@@ -230,14 +230,25 @@ namespace IronFramework.Utility.UI
 
          #endregion
 
+         /// <summary>
+         /// IsNextPage
+         /// </summary>
          public bool IsNextPage { get;  set; }
 
-
+         /// <summary>
+         /// IsPreviousPage
+         /// </summary>
          public bool IsPreviousPage { get;  set; }
 
-
+         /// <summary>
+         /// TotalCount
+         /// </summary>
          public int TotalCount { get;  set; }
 
+         /// <summary>
+         /// GetMetaData
+         /// </summary>
+         /// <returns></returns>
          public IPagedList GetMetaData()
          {
              throw new NotImplementedException();

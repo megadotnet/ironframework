@@ -45,7 +45,12 @@ namespace IronFramework.Utility.UI
          [DataMember]
         int TotalCount { get; set; }
 
-         IPagedList GetMetaData();
+        /// <summary>
+         /// Just for Serializable JSON data by JSON.net
+        /// </summary>
+         /// <returns>IPagedList</returns>
+        /// <see cref="http://stackoverflow.com/questions/10870618/newtonsoft-json-serialization-of-pagedlistt-is-not-including-some-properties"/>
+        IPagedList GetMetaData();
 
         #endregion
     }
