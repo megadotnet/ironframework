@@ -15,9 +15,26 @@ namespace WebApi2.Controllers
     using System.Linq.Expressions;
     using System.Collections.Generic;
     using BusinessEntities;
+    using System.Threading.Tasks;
+    using System.Web.Http;
+    using IronFramework.Utility.UI;
+    using DataTransferObject;
 
 	public partial class EmployeeController : BaseWebAPIController
 	{
+        [HttpGet]
+        [Route("GetPageListAync2")]
+        [PagedListActionFilter]
+        public async Task<object> GetPageListAync2()
+        {
+            int index = Request.GetPageIndex();
+            int size = Request.GetPageSize();
+           var results=await _EmployeeBO.FindEntiesAsync(index, size);
+
+
+           return new { Items = results, MetaData = results.GetMetaData() };
+        }
+
 
 	}
 }

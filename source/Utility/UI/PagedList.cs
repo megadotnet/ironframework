@@ -31,7 +31,7 @@ namespace IronFramework.Utility.UI
     /// </example>
      [Serializable]
      [CollectionDataContract]
-     [JsonObject]
+     //[JsonObject]
     public class PagedList<T> : List<T>, IPagedList
     {
 
@@ -171,9 +171,76 @@ namespace IronFramework.Utility.UI
          /// </summary>
          /// <returns></returns>
         /// <see cref="http://stackoverflow.com/questions/10870618/newtonsoft-json-serialization-of-pagedlistt-is-not-including-some-properties"/>
-        //public IPagedList GetMetaData()
-        //{
-        //    return this;
-        //}
+        public IPagedList GetMetaData()
+        {
+            return new PagedListMetaData(this);
+        }
     }
+
+     ///<summary>
+     /// Non-enumerable version of the PagedList class.
+     ///</summary>
+     //[Serializable]
+     public class PagedListMetaData : IPagedList
+     {
+         /// <summary>
+         /// Protected constructor that allows for instantiation without passing in a separate list.
+         /// </summary>
+         protected PagedListMetaData()
+         {
+         }
+
+         ///<summary>
+         /// Non-enumerable version of the PagedList class.
+         ///</summary>
+         ///<param name="pagedList">A PagedList (likely enumerable) to copy metadata from.</param>
+         public PagedListMetaData(IPagedList pagedList)
+         {
+             TotalCount = pagedList.TotalCount;
+             PageIndex = pagedList.PageIndex;
+             PageSize = pagedList.PageSize;
+         }
+
+         #region IPagedList Members
+
+         /// <summary>
+         /// 	Total number of subsets within the superset.
+         /// </summary>
+         /// <value>
+         /// 	Total number of subsets within the superset.
+         /// </value>
+         public int PageCount { get;  set; }
+
+         /// <summary>
+         /// 	One-based index of this subset within the superset.
+         /// </summary>
+         /// <value>
+         /// 	One-based index of this subset within the superset.
+         /// </value>
+         public int PageIndex { get;  set; }
+
+         /// <summary>
+         /// 	Maximum size any individual subset.
+         /// </summary>
+         /// <value>
+         /// 	Maximum size any individual subset.
+         /// </value>
+         public int PageSize { get;  set; }
+
+
+         #endregion
+
+         public bool IsNextPage { get;  set; }
+
+
+         public bool IsPreviousPage { get;  set; }
+
+
+         public int TotalCount { get;  set; }
+
+         public IPagedList GetMetaData()
+         {
+             throw new NotImplementedException();
+         }
+     }
 }

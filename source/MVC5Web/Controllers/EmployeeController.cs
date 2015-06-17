@@ -54,6 +54,21 @@ namespace MVC5Web.Controllers
                 return View(dbresults);
         }
 
+        public async Task<ActionResult> IndexAsync2(string employee_name, int? page)
+        {
+            //int count = 0;
+            int pageindex = page.HasValue ? page.Value : 1;
+            int pagesize = 5;
+            var dbresults = await ClientHTTPGetList<PagedListViewModel2<EmployeeDto>, EmployeeDto>("GetPageListAync2",
+                string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
+                );
+
+            if (Request.IsAjaxRequest())
+                return PartialView("_PartialEmployee", dbresults);
+            else
+                return View(dbresults);
+        }
+
         /// <summary>
         /// The create.
         /// </summary>
