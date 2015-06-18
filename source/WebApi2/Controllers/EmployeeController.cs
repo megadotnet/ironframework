@@ -22,18 +22,6 @@ namespace WebApi2.Controllers
 
 	public partial class EmployeeController : BaseWebAPIController
 	{
-        [HttpGet]
-        [Route("GetPageListAync2")]
-        [PagedListActionFilter]
-        public async Task<object> GetPageListAync2()
-        {
-            int index = Request.GetPageIndex();
-            int size = Request.GetPageSize();
-           var results=await _EmployeeBO.FindEntiesAsync(index, size);
-
-
-           return new { Items = results, MetaData = results.GetMetaData() };
-        }
 
 
 	}

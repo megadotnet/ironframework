@@ -59,7 +59,7 @@ namespace MVC5Web.Controllers
             //int count = 0;
             int pageindex = page.HasValue ? page.Value : 1;
             int pagesize = 5;
-            var dbresults = await ClientHTTPGetList<PagedListViewModel2<EmployeeDto>, EmployeeDto>("GetPageListAync2",
+            var dbresults = await ClientHTTPGetList<PagedListViewModel2<EmployeeDto>, EmployeeDto>("GetPageListAync",
                 string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
                 );
 

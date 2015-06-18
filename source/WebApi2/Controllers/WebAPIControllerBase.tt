@@ -158,12 +158,13 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [HttpGet]
         [Route("GetPageListAync")]
         [PagedListActionFilter] 
-        public async Task<PagedList<<#=code.Escape(entity)#>Dto>> GetPageListAync()
+        public async Task<object> GetPageListAync()
         {
-            int index = Request.GetPageIndex();
+		    int index = Request.GetPageIndex();
             int size = Request.GetPageSize();
+            var results = await _<#=code.Escape(entity)#>BO.FindEntiesAsync(index, size);
 
-            return await _<#=code.Escape(entity)#>BO.FindEntiesAsync(index, size);
+            return new { Items = results, MetaData = results.GetMetaData() };
         }
 
 

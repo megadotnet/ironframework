@@ -88,12 +88,13 @@ namespace WebApi2.Controllers
         [HttpGet]
         [Route("GetPageListAync")]
         [PagedListActionFilter] 
-        public async Task<PagedList<ContactDto>> GetPageListAync()
+        public async Task<object> GetPageListAync()
         {
-            int index = Request.GetPageIndex();
+		    int index = Request.GetPageIndex();
             int size = Request.GetPageSize();
+            var results = await _ContactBO.FindEntiesAsync(index, size);
 
-            return await _ContactBO.FindEntiesAsync(index, size);
+            return new { Items = results, MetaData = results.GetMetaData() };
         }
 
 
