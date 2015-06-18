@@ -1,0 +1,42 @@
+﻿@model IronFramework.Utility.UI.PagedListViewModel2<DataTransferObject.EmployeeDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Ajax.BeginForm("Index", "Employee",
+                            new AjaxOptions { UpdateTargetId = "grid-list", HttpMethod = "get", LoadingElementId = "loading", OnBegin = "beginPaging", OnSuccess = "successPaging", OnFailure = "failurePaging" },
+                            new { id = "frm-search" }))
+{
+    <div class="input-append">
+        <input class="span2" id="appendedInputButton" type="text" name="employee_name" placeholder="Name" />
+        <button class="btn" type="submit">
+            <i class="icon-search"></i>&nbsp;Search
+        </button>
+    </div>
+<div id="grid-list">
+    @{ Html.RenderPartial("_PartialEmployeeAsync", Model); }
+</div>
+}
+<script type="text/javascript">
+
+    function beginPaging(args) {
+        // Animate
+        $('#grid-list').fadeOut('normal');
+    }
+
+    function successPaging() {
+        // Animate
+        $('#grid-list').fadeIn('normal');
+    }
+
+    function failurePaging() {
+        alert("Could not retrieve list.");
+    }
+
+</script>

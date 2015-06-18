@@ -217,6 +217,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Employee\_PartialEmployeeAsync.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -238,6 +241,7 @@
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\_PartialEmployee.cshtml" />
+    <Content Include="Views\Employee\IndexAsync.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

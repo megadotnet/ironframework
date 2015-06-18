@@ -1,0 +1,137 @@
+﻿@using MvcPaging
+@model IronFramework.Utility.UI.PagedListViewModel2<DataTransferObject.EmployeeDto>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().ContactID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().CurrentFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().HireDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().LoginID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().ManagerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().MaritalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().NationalIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().SalariedFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().SickLeaveHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().VacationHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().rowguid)
+        </th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentFlag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoginID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalIDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalariedFlag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SickLeaveHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rowguid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="pager1">
+    @Html.Raw(Ajax.Pager(
+        new Options
+        {
+            PageSize = Model.MetaData.PageIndex,
+            TotalItemCount = Model.MetaData.TotalCount,
+            CurrentPage = Model.MetaData.PageSize,
+            ItemTexts = new ItemTexts() { Next = "Next", Previous = "Previous", Page = "P" },
+            ItemIcon = new ItemIcon() { First = "icon-backward", Previous = "icon-chevron-left", Next = "icon-chevron-right", Last = "icon-forward" },
+            TooltipTitles = new TooltipTitles() { Next = "Next page", Previous = "Previous page", Page = "Go to page {0}.", First = "Go To First Page", Last = "Go To Last Page" },
+            Size = Size.normal,
+            Alignment = Alignment.centered,
+            IsShowControls = true,
+            IsShowFirstLast = true
+
+        },
+        new AjaxOptions
+        {
+            UpdateTargetId = "grid-list",
+            OnBegin = "beginPaging",
+            OnSuccess = "successPaging",
+            OnFailure = "failurePaging"
+
+        }, new { controller = "Employee", action = "Index", employee_name = ViewData["employee_name"] }))
+ <div class="well">
+        <span class="badge badge-info">@Model.MetaData.TotalCount</span> entries
+    </div>
+ </div>
+
