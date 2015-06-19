@@ -28,15 +28,17 @@ namespace MVC5Web.Controllers
 
         public async Task<ActionResult> Index(string employee_name, int? page)
         {
-            //int count = 0;
-            int pageindex = page.HasValue ? page.Value : 1;
-            int pagesize = 5;
-            var dbresults = await ClientHTTPGetList<PagedListViewModel<EmployeeDto>, EmployeeDto>("GetPageListAync",
-                string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
-                );
+            int pageIndex;
+            int pageSize = 5;
+            string pageQueryString = string.Empty;
+     
+            pageIndex = page.HasValue ? page.Value : 1;
+            
+            pageQueryString = string.Format("&pageIndex={0}&pageSize={1}", pageIndex, pageSize);
+            var dbresults = await ClientHTTPGetList<EasyuiDatagridData<EmployeeDto>, EmployeeDto>(new EmployeeDto(), pageQueryString);
 
             if (Request.IsAjaxRequest())
-                return PartialView("_PartialEmployeeAsync", dbresults);
+                return PartialView("_PartialEmployee", dbresults);
             else
                 return View(dbresults);
         }

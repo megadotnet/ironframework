@@ -120,7 +120,13 @@ namespace DataTransferObject.Model
         /// <value>
         /// The Total.
         /// </value>
-       [JsonProperty("total")]
+        [JsonProperty("total")]
         public int Total { get; set; }
+
+        [JsonProperty("pageSize")]
+        public int PageSize { get; set; }
+
+        [JsonProperty("page")]
+        public int PageIndex { get; set; }
     }
 }

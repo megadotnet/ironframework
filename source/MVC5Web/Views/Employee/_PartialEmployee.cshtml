@@ -110,9 +110,9 @@
     @Html.Raw(Ajax.Pager(
         new Options
         {
-            PageSize = Model.Rows.FirstOrDefault().pageSize,
+            PageSize = Model.PageSize,
             TotalItemCount = Model.Total,
-            CurrentPage = Model.Rows.FirstOrDefault().pageIndex.Value,
+            CurrentPage = Model.PageIndex,
             ItemTexts = new ItemTexts() { Next = "Next", Previous = "Previous", Page = "P" },
             ItemIcon = new ItemIcon() { First = "icon-backward", Previous = "icon-chevron-left", Next = "icon-chevron-right", Last = "icon-forward" },
             TooltipTitles = new TooltipTitles() { Next = "Next page", Previous = "Previous page", Page = "Go to page {0}.", First = "Go To First Page", Last = "Go To Last Page" },

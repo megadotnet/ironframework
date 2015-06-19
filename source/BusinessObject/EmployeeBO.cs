@@ -102,6 +102,8 @@ namespace BusinessObject
 
             listDtos.Rows = lists.ToArray();
 		    listDtos.Total = entities.TotalCount;
+            listDtos.PageIndex = entities.PageIndex;
+            listDtos.PageSize = entities.PageSize;
             return listDtos;
         }
 
@@ -154,10 +156,10 @@ namespace BusinessObject
     if (!string.IsNullOrEmpty(_employeeDto.MaritalStatus)) list.Add(c => c.MaritalStatus.Contains(_employeeDto.MaritalStatus));
     if (!string.IsNullOrEmpty(_employeeDto.Gender)) list.Add(c => c.Gender.Contains(_employeeDto.Gender));
     
-    if (_employeeDto.SalariedFlag != null) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
+   // if (_employeeDto.SalariedFlag != null) list.Add(c => c.SalariedFlag == _employeeDto.SalariedFlag);
     
     
-    if (_employeeDto.CurrentFlag != null) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
+   // if (_employeeDto.CurrentFlag != null) list.Add(c => c.CurrentFlag == _employeeDto.CurrentFlag);
     
     
           //Add more condition
