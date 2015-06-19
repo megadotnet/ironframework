@@ -71,16 +71,16 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <summary>
         /// Finds the enties.
         /// </summary>
-        /// <param name="tDTo">The t d to.</param>
+        /// <param name="tDTo">The Pagedlist of dto.</param>
         /// <returns></returns>
-        EasyuiDatagridData<T> FindEnties(T tDTo);
+        EasyuiDatagridData<T> FindEnties(PagedList<T> tDTo);
 
         /// <summary>
         /// Finds the enties with search
         /// </summary>
-        /// <param name="tDTo">The t d to.</param>
+        /// <param name="tDTo">The Pagedlist of dto</param>
         /// <returns></returns>
-        EasyuiDatagridData<T> FindAll(T tDTo);
+        EasyuiDatagridData<T> FindAll(PagedList<T> tDTo);
 
         /// <summary>
         /// The create entiy.
@@ -343,11 +343,10 @@ namespace <#= code.VsNamespaceSuggestion() #>
             
              entities.ForEach(entity => {
                 var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
-                dto.pageIndex = entities.PageIndex;
-                dto.pageSize = entities.PageSize;
                 lists.Add(dto); });
 
             listDtos.Rows = lists.ToArray();
+		    listDtos.Total = entities.TotalCount;
             return listDtos;
         }
 
@@ -356,9 +355,10 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         /// <param name="<#=code.Escape(entity)#>">The <#=code.Escape(entity)#> dto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> FindEnties(<#=code.Escape(entity)#>Dto  _<#=code.Escape(entity).ToLower()#>Dto)
+        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> FindEnties(PagedList<<#=code.Escape(entity)#>Dto>  _<#=code.Escape(entity).ToLower()#>Dto)
         {
-            var entities = entiesrepository.Repository.Find(<#=codeStringGenerator.PKTypeSearchStr(entity)#>, p => p.<#=codeStringGenerator.PK(entity)#>, _<#=code.Escape(entity).ToLower()#>Dto.pageIndex, _<#=code.Escape(entity).ToLower()#>Dto.pageSize);
+            var entities = entiesrepository.Repository.Find(<#=codeStringGenerator.PKTypeSearchStr(entity)#>, p => p.<#=codeStringGenerator.PK(entity)#>
+			    , _<#=code.Escape(entity).ToLower()#>Dto.PageIndex, _<#=code.Escape(entity).ToLower()#>Dto.PageSize);
             var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
@@ -369,13 +369,13 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </summary>
         /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#>dto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> FindAll(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity).ToLower()#>Dto)
+        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> FindAll(PagedList<<#=code.Escape(entity)#>Dto> _<#=code.Escape(entity).ToLower()#>Dto)
         {
            var dbResults=this.entiesrepository.Repository.Find(
-                BuildAllQuery(_<#=code.Escape(entity).ToLower()#>Dto),
+                BuildAllQuery(_<#=code.Escape(entity).ToLower()#>Dto.FirstOrDefault()),
                 e => e.<#=codeStringGenerator.PK(entity)#>,
-                _<#=code.Escape(entity).ToLower()#>Dto.pageIndex,
-                _<#=code.Escape(entity).ToLower()#>Dto.pageSize);
+                _<#=code.Escape(entity).ToLower()#>Dto.PageIndex,
+                _<#=code.Escape(entity).ToLower()#>Dto.PageSize);
            return ConvertTOUIModel(dbResults);
         }
 

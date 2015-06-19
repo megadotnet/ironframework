@@ -98,11 +98,10 @@ namespace BusinessObject
             
              entities.ForEach(entity => {
                 var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
-                dto.pageIndex = entities.PageIndex;
-                dto.pageSize = entities.PageSize;
                 lists.Add(dto); });
 
-            listDtos.Rows = lists.ToArray();
+             listDtos.Rows = lists.ToArray();
+             listDtos.Total = entities.TotalCount;
             return listDtos;
         }
 
@@ -111,9 +110,10 @@ namespace BusinessObject
         /// </summary>
         /// <param name="Address">The Address dto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<AddressDto> FindEnties(AddressDto  _addressDto)
+        public EasyuiDatagridData<AddressDto> FindEnties(PagedList<AddressDto> _addressDto)
         {
-            var entities = entiesrepository.Repository.Find(p => p.AddressID > 0, p => p.AddressID, _addressDto.pageIndex, _addressDto.pageSize);
+            var entities = entiesrepository.Repository.Find(p => p.AddressID > 0, p => p.AddressID
+                , _addressDto.PageIndex, _addressDto.PageSize);
             var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
@@ -124,13 +124,13 @@ namespace BusinessObject
         /// </summary>
         /// <param name="_AddressDto">The Addressdto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<AddressDto> FindAll(AddressDto _addressDto)
+        public EasyuiDatagridData<AddressDto> FindAll(PagedList<AddressDto> _addressDto)
         {
            var dbResults=this.entiesrepository.Repository.Find(
-                BuildAllQuery(_addressDto),
+                BuildAllQuery(_addressDto.Items.FirstOrDefault()),
                 e => e.AddressID,
-                _addressDto.pageIndex,
-                _addressDto.pageSize);
+                _addressDto.PageIndex,
+                _addressDto.PageSize);
            return ConvertTOUIModel(dbResults);
         }
 

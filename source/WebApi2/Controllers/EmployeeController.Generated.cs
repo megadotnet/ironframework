@@ -41,21 +41,12 @@ namespace WebApi2.Controllers
         /// <param name="_EmployeeDto">The Employee dto.</param>
         /// <example><code> HTTP GET: api/Employee/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of EmployeeDto</returns>
-        public EasyuiDatagridData<EmployeeDto> Get([FromUri] EmployeeDto _EmployeeDto)
+        public object Get([FromUri] EmployeeDto _EmployeeDtos, int pageIndex = 1, int pageSize = 10)
         {
-           return  _EmployeeBO.FindAll(_EmployeeDto);
-        }
-
-        /// <summary>
-        /// Gets the specified page index.
-        /// </summary>
-        /// <param name="pageIndex">Index of the page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <example><code>GET: api/Employee/?pageindex=1&pagesize=10</code></example>
-        /// <returns>DatagridData List of EmployeeDto</returns>
-        public EasyuiDatagridData<EmployeeDto> Get([FromUri] int pageIndex, int pageSize)
-        {
-            return _EmployeeBO.FindEnties(new EmployeeDto { pageIndex=pageIndex,pageSize=pageSize});
+		    var pagedlist = new PagedList<EmployeeDto>  {_EmployeeDtos };
+            pagedlist.PageIndex = pageIndex;
+            pagedlist.PageSize = pageSize;
+            return _EmployeeBO.FindAll(pagedlist);
         }
 
         /// <summary>

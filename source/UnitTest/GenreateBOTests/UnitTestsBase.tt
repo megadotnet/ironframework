@@ -109,6 +109,7 @@ using BusinessObject.Util;
 using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using IronFramework.Utility.UI;
 	
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
@@ -153,7 +154,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
 		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
-            var dbResult=_<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
+            var dbResult=_<#=code.Escape(entity)#>BO.FindAll(new PagedList<<#=code.Escape(entity)#>Dto> {_<#=code.Escape(entity)#>Dto});
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
         }
@@ -167,7 +168,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         {
             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
 		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
-            var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(_<#=code.Escape(entity)#>Dto);
+            var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(new PagedList<<#=code.Escape(entity)#>Dto> {_<#=code.Escape(entity)#>Dto});
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
         }

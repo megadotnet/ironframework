@@ -58,16 +58,16 @@ namespace BusinessObject
         /// <summary>
         /// Finds the enties.
         /// </summary>
-        /// <param name="tDTo">The t d to.</param>
+        /// <param name="tDTo">The Pagedlist of dto.</param>
         /// <returns></returns>
-        EasyuiDatagridData<T> FindEnties(T tDTo);
+        EasyuiDatagridData<T> FindEnties(PagedList<T> tDTo);
 
         /// <summary>
         /// Finds the enties with search
         /// </summary>
-        /// <param name="tDTo">The t d to.</param>
+        /// <param name="tDTo">The Pagedlist of dto</param>
         /// <returns></returns>
-        EasyuiDatagridData<T> FindAll(T tDTo);
+        EasyuiDatagridData<T> FindAll(PagedList<T> tDTo);
 
         /// <summary>
         /// The create entiy.

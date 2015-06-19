@@ -1,5 +1,5 @@
 ﻿@using MvcPaging
-@model IronFramework.Utility.UI.PagedListViewModel2<DataTransferObject.EmployeeDto>
+@model IronFramework.Utility.UI.PagedListViewModel<DataTransferObject.EmployeeDto>
 
 <table class="table table-bordered table-hover">
     <tr>
@@ -110,9 +110,9 @@
     @Html.Raw(Ajax.Pager(
         new Options
         {
-            PageSize = Model.MetaData.PageIndex,
+            PageSize = Model.MetaData.PageSize,
             TotalItemCount = Model.MetaData.TotalCount,
-            CurrentPage = Model.MetaData.PageSize,
+            CurrentPage = Model.MetaData.PageIndex,
             ItemTexts = new ItemTexts() { Next = "Next", Previous = "Previous", Page = "P" },
             ItemIcon = new ItemIcon() { First = "icon-backward", Previous = "icon-chevron-left", Next = "icon-chevron-right", Last = "icon-forward" },
             TooltipTitles = new TooltipTitles() { Next = "Next page", Previous = "Previous page", Page = "Go to page {0}.", First = "Go To First Page", Last = "Go To Last Page" },

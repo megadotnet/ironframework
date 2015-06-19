@@ -16,13 +16,16 @@ namespace MVC5Web.Controllers
 	{
 
         // GET: EmployeePayHistory/Find/?pageindex=1&pagesize=10&....
-        public async Task<JsonResult> Find(EmployeePayHistoryDto _EmployeePayHistoryDto)
+        public async Task<JsonResult> Find(EmployeePayHistoryDto _EmployeePayHistoryDto,int pageIndex=1,int pageSize=10)
         {
+          string pageQueryString = string.Empty;
+           //for EASYUI datagrid
            if (Request["page"] != null)
            {
-                _EmployeePayHistoryDto.pageIndex = Convert.ToInt32(Request["page"].ToString());
+               pageIndex = Convert.ToInt32(Request["page"].ToString());
            }
-           return Json(await ClientHTTPGetList<EasyuiDatagridData<EmployeePayHistoryDto>,EmployeePayHistoryDto>(_EmployeePayHistoryDto));
+		    pageQueryString = string.Format("&pageIndex={0}&pageSize={1}", pageIndex, pageSize);
+           return Json(await ClientHTTPGetList<EasyuiDatagridData<EmployeePayHistoryDto>, EmployeePayHistoryDto>(_EmployeePayHistoryDto, pageQueryString));
         }
 
         // GET: EmployeePayHistory/Get/14

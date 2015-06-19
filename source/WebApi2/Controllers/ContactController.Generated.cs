@@ -41,21 +41,12 @@ namespace WebApi2.Controllers
         /// <param name="_ContactDto">The Contact dto.</param>
         /// <example><code> HTTP GET: api/Contact/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of ContactDto</returns>
-        public EasyuiDatagridData<ContactDto> Get([FromUri] ContactDto _ContactDto)
+        public EasyuiDatagridData<ContactDto> Get([FromUri] ContactDto _ContactDtos, int pageIndex =1, int pageSize =10)
         {
-           return  _ContactBO.FindAll(_ContactDto);
-        }
-
-        /// <summary>
-        /// Gets the specified page index.
-        /// </summary>
-        /// <param name="pageIndex">Index of the page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <example><code>GET: api/Contact/?pageindex=1&pagesize=10</code></example>
-        /// <returns>DatagridData List of ContactDto</returns>
-        public EasyuiDatagridData<ContactDto> Get([FromUri] int pageIndex, int pageSize)
-        {
-            return _ContactBO.FindEnties(new ContactDto { pageIndex=pageIndex,pageSize=pageSize});
+		    var pagedlist = new PagedList<ContactDto>  {_ContactDtos };
+            pagedlist.PageIndex = pageIndex;
+            pagedlist.PageSize = pageSize;
+            return _ContactBO.FindAll(pagedlist);
         }
 
         /// <summary>

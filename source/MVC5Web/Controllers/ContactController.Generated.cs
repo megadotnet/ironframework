@@ -16,13 +16,16 @@ namespace MVC5Web.Controllers
 	{
 
         // GET: Contact/Find/?pageindex=1&pagesize=10&....
-        public async Task<JsonResult> Find(ContactDto _ContactDto)
+        public async Task<JsonResult> Find(ContactDto _ContactDto,int pageIndex=1,int pageSize=10)
         {
+          string pageQueryString = string.Empty;
+           //for EASYUI datagrid
            if (Request["page"] != null)
            {
-                _ContactDto.pageIndex = Convert.ToInt32(Request["page"].ToString());
+               pageIndex = Convert.ToInt32(Request["page"].ToString());
            }
-           return Json(await ClientHTTPGetList<EasyuiDatagridData<ContactDto>,ContactDto>(_ContactDto));
+		    pageQueryString = string.Format("&pageIndex={0}&pageSize={1}", pageIndex, pageSize);
+           return Json(await ClientHTTPGetList<EasyuiDatagridData<ContactDto>, ContactDto>(_ContactDto, pageQueryString));
         }
 
         // GET: Contact/Get/14

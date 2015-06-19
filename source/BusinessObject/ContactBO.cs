@@ -66,7 +66,7 @@ namespace BusinessObject
         /// <returns>Enties</returns>
         public PagedList<ContactDto> FindEnties(int? pageIndex, int pageSize)
         {
-            var entities=entiesrepository.Repository.Find(p => p.ContactID>0, p => p.ContactID, pageIndex, pageSize);
+            var entities=entiesrepository.Repository.Find(p => p.ContactID!=null, p => p.ContactID, pageIndex, pageSize);
             var listDtos=new PagedList<ContactDto>() { TotalCount = entities.TotalCount };
              entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
@@ -80,7 +80,7 @@ namespace BusinessObject
         /// <returns>Enties</returns>
         public async Task<PagedList<ContactDto>> FindEntiesAsync(int? pageIndex, int pageSize)
         {
-            var entities = await entiesrepository.Repository.FindAsync(p => p.ContactID > 0, p => p.ContactID, pageIndex, pageSize);
+            var entities = await entiesrepository.Repository.FindAsync(p => p.ContactID!=null, p => p.ContactID, pageIndex, pageSize);
             var listDtos = new PagedList<ContactDto>() { TotalCount = entities.TotalCount, PageIndex=pageIndex.Value,PageSize=pageSize  };
             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
             return listDtos;
@@ -98,11 +98,10 @@ namespace BusinessObject
             
              entities.ForEach(entity => {
                 var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
-                dto.pageIndex = entities.PageIndex;
-                dto.pageSize = entities.PageSize;
                 lists.Add(dto); });
 
             listDtos.Rows = lists.ToArray();
+		    listDtos.Total = entities.TotalCount;
             return listDtos;
         }
 
@@ -111,9 +110,10 @@ namespace BusinessObject
         /// </summary>
         /// <param name="Contact">The Contact dto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<ContactDto> FindEnties(ContactDto  _contactDto)
+        public EasyuiDatagridData<ContactDto> FindEnties(PagedList<ContactDto>  _contactDto)
         {
-            var entities = entiesrepository.Repository.Find(p => p.ContactID > 0, p => p.ContactID, _contactDto.pageIndex, _contactDto.pageSize);
+            var entities = entiesrepository.Repository.Find(p => p.ContactID!=null, p => p.ContactID
+			    , _contactDto.PageIndex, _contactDto.PageSize);
             var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
@@ -124,13 +124,13 @@ namespace BusinessObject
         /// </summary>
         /// <param name="_ContactDto">The Contactdto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<ContactDto> FindAll(ContactDto _contactDto)
+        public EasyuiDatagridData<ContactDto> FindAll(PagedList<ContactDto> _contactDto)
         {
            var dbResults=this.entiesrepository.Repository.Find(
-                BuildAllQuery(_contactDto),
+                BuildAllQuery(_contactDto.FirstOrDefault()),
                 e => e.ContactID,
-                _contactDto.pageIndex,
-                _contactDto.pageSize);
+                _contactDto.PageIndex,
+                _contactDto.PageSize);
            return ConvertTOUIModel(dbResults);
         }
 

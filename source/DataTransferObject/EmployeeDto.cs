@@ -14,7 +14,7 @@ namespace DataTransferObject
     using System.Collections.Generic;
     
     [DataContract()]
-    public partial class EmployeeDto : UIPaging
+    public partial class EmployeeDto 
     {
         [Key()] 
         [Required] 

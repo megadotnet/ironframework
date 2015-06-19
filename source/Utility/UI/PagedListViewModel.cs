@@ -19,17 +19,17 @@ namespace IronFramework.Utility.UI
     /// ]]>
     /// </code>
     /// </example>
-    public class PagedListViewModel<T> where T : class
-    {
-        public bool IsNextPage { get; set; }
-        public bool IsPreviousPage { get; set; }
-        public int PageIndex { get; set; }
-        public int PageSize { get; set; }
-        public int TotalCount { get; set; }
-        public List<T> Items { get; set; }
-        public int Capacity { get; set; }
-        public int Count { get; set; }
-    }
+    //public class PagedListViewModel<T> where T : class
+    //{
+    //    public bool IsNextPage { get; set; }
+    //    public bool IsPreviousPage { get; set; }
+    //    public int PageIndex { get; set; }
+    //    public int PageSize { get; set; }
+    //    public int TotalCount { get; set; }
+    //    public List<T> Items { get; set; }
+    //    public int Capacity { get; set; }
+    //    public int Count { get; set; }
+    //}
 
     /// <summary>
     /// PagedListViewModel2
@@ -42,7 +42,7 @@ namespace IronFramework.Utility.UI
     /// ]]>
     /// </code>
     /// </example>
-    public class PagedListViewModel2<T> where T : class
+    public class PagedListViewModel<T> where T : class
     {
         public List<T> Items { get; set; }
         public MetaData MetaData { get; set; }

@@ -24,6 +24,7 @@ using BusinessObject.Util;
 using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using IronFramework.Utility.UI;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -68,7 +69,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
 		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
-            var dbResult=_EmployeeBO.FindAll(_EmployeeDto);
+            var dbResult=_EmployeeBO.FindAll(new PagedList<EmployeeDto> {_EmployeeDto});
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
         }
@@ -82,7 +83,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
 		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
-            var dbResult=_EmployeeBO.FindEnties(_EmployeeDto);
+            var dbResult=_EmployeeBO.FindEnties(new PagedList<EmployeeDto> {_EmployeeDto});
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
         }

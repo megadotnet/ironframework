@@ -24,6 +24,7 @@ using BusinessObject.Util;
 using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using IronFramework.Utility.UI;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -68,7 +69,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _ContactBO = new ContactBO(new ContactConverter());
 		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
-            var dbResult=_ContactBO.FindAll(_ContactDto);
+            var dbResult=_ContactBO.FindAll(new PagedList<ContactDto> {_ContactDto});
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
         }
@@ -82,7 +83,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _ContactBO = new ContactBO(new ContactConverter());
 		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
-            var dbResult=_ContactBO.FindEnties(_ContactDto);
+            var dbResult=_ContactBO.FindEnties(new PagedList<ContactDto> {_ContactDto});
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
         }

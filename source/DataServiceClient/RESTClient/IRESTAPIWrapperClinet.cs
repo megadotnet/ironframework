@@ -275,5 +275,7 @@ where TResult : new();
         Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new();
 
         Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new();
+
+        string GetQueryString(object obj);
     }
 }

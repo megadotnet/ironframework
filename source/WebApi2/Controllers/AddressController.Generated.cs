@@ -41,21 +41,12 @@ namespace WebApi2.Controllers
         /// <param name="_AddressDto">The Address dto.</param>
         /// <example><code> HTTP GET: api/Address/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of AddressDto</returns>
-        public EasyuiDatagridData<AddressDto> Get([FromUri] AddressDto _AddressDto)
+        public EasyuiDatagridData<AddressDto> Get([FromUri] AddressDto _AddressDtos, int pageIndex =1, int pageSize =10)
         {
-           return  _AddressBO.FindAll(_AddressDto);
-        }
-
-        /// <summary>
-        /// Gets the specified page index.
-        /// </summary>
-        /// <param name="pageIndex">Index of the page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <example><code>GET: api/Address/?pageindex=1&pagesize=10</code></example>
-        /// <returns>DatagridData List of AddressDto</returns>
-        public EasyuiDatagridData<AddressDto> Get([FromUri] int pageIndex, int pageSize)
-        {
-            return _AddressBO.FindEnties(new AddressDto { pageIndex=pageIndex,pageSize=pageSize});
+		    var pagedlist = new PagedList<AddressDto>  {_AddressDtos };
+            pagedlist.PageIndex = pageIndex;
+            pagedlist.PageSize = pageSize;
+            return _AddressBO.FindAll(pagedlist);
         }
 
         /// <summary>

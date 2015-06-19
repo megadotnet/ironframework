@@ -25,46 +25,33 @@ namespace MVC5Web.Controllers
 
 	public partial class EmployeeController : BaseWebController
 	{
+
         public async Task<ActionResult> Index(string employee_name, int? page)
         {
             //int count = 0;
             int pageindex = page.HasValue ? page.Value : 1;
             int pagesize = 5;
-            var dbresults = await ClientHTTPGetList<EasyuiDatagridData<EmployeeDto>, EmployeeDto>(
+            var dbresults = await ClientHTTPGetList<PagedListViewModel<EmployeeDto>, EmployeeDto>("GetPageListAync",
                 string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
                 );
+
             if (Request.IsAjaxRequest())
-                return PartialView("_PartialEmployee", dbresults);
+                return PartialView("_PartialEmployeeAsync", dbresults);
             else
                 return View(dbresults);
         }
-
-        //public async Task<ActionResult> IndexAsync(string employee_name, int? page)
-        //{
-        //    //int count = 0;
-        //    int pageindex = page.HasValue ? page.Value : 1;
-        //    int pagesize = 5;
-        //    var dbresults = await ClientHTTPGetList<PagedListViewModel<EmployeeDto>, EmployeeDto>("GetAync",
-        //        string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
-        //        );
-
-        //    if (Request.IsAjaxRequest())
-        //        return PartialView("_PartialEmployee", dbresults);
-        //    else
-        //        return View(dbresults);
-        //}
 
         public async Task<ActionResult> IndexAsync(string employee_name, int? page)
         {
             //int count = 0;
             int pageindex = page.HasValue ? page.Value : 1;
             int pagesize = 5;
-            var dbresults = await ClientHTTPGetList<PagedListViewModel2<EmployeeDto>, EmployeeDto>("GetPageListAync",
+            var dbresults = await ClientHTTPGetList<PagedListViewModel<EmployeeDto>, EmployeeDto>("GetPageListAync",
                 string.Format("pageindex={0}&pagesize={1}", pageindex, pagesize)
                 );
 
             if (Request.IsAjaxRequest())
-                return PartialView("_PartialEmployee", dbresults);
+                return PartialView("_PartialEmployeeAsync", dbresults);
             else
                 return View(dbresults);
         }

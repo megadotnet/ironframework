@@ -111,21 +111,12 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <param name="_<#=code.Escape(entity)#>Dto">The <#=code.Escape(entity)#> dto.</param>
         /// <example><code> HTTP GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of <#=code.Escape(entity)#>Dto</returns>
-        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] <#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
+        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] <#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dtos, int pageIndex =1, int pageSize =10)
         {
-           return  _<#=code.Escape(entity)#>BO.FindAll(_<#=code.Escape(entity)#>Dto);
-        }
-
-        /// <summary>
-        /// Gets the specified page index.
-        /// </summary>
-        /// <param name="pageIndex">Index of the page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <example><code>GET: api/<#=code.Escape(entity)#>/?pageindex=1&pagesize=10</code></example>
-        /// <returns>DatagridData List of <#=code.Escape(entity)#>Dto</returns>
-        public EasyuiDatagridData<<#=code.Escape(entity)#>Dto> Get([FromUri] int pageIndex, int pageSize)
-        {
-            return _<#=code.Escape(entity)#>BO.FindEnties(new <#=code.Escape(entity)#>Dto { pageIndex=pageIndex,pageSize=pageSize});
+		    var pagedlist = new PagedList<<#=code.Escape(entity)#>Dto>  {_<#=code.Escape(entity)#>Dtos };
+            pagedlist.PageIndex = pageIndex;
+            pagedlist.PageSize = pageSize;
+            return _<#=code.Escape(entity)#>BO.FindAll(pagedlist);
         }
 
         /// <summary>

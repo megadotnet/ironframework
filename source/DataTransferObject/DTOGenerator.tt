@@ -204,7 +204,7 @@ public class CodeStringGenerator
     {
             return string.Format(
                 CultureInfo.InvariantCulture,
-                "[DataContract()]\r\n{0} {1}partial class {2}Dto{3} : UIPaging",
+                "[DataContract()]\r\n{0} {1}partial class {2}Dto{3} ",
                 Accessibility.ForType(entity),
                 _code.SpaceAfter(_code.AbstractOption(entity)),
                 _code.Escape(entity),

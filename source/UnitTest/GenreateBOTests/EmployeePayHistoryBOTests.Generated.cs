@@ -24,6 +24,7 @@ using BusinessObject.Util;
 using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using IronFramework.Utility.UI;
 	
 namespace UnitTest.GenreateBOTests
 {   
@@ -68,7 +69,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
 		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
-            var dbResult=_EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
+            var dbResult=_EmployeePayHistoryBO.FindAll(new PagedList<EmployeePayHistoryDto> {_EmployeePayHistoryDto});
             Assert.NotNull(dbResult);
 		    Assert.True(dbResult.Total>0);
         }
@@ -82,7 +83,7 @@ namespace UnitTest.GenreateBOTests
         {
             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
 		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
-            var dbResult=_EmployeePayHistoryBO.FindEnties(_EmployeePayHistoryDto);
+            var dbResult=_EmployeePayHistoryBO.FindEnties(new PagedList<EmployeePayHistoryDto> {_EmployeePayHistoryDto});
             Assert.NotNull(dbResult);
 			Assert.True(dbResult.Total>0);
         }

@@ -1,4 +1,4 @@
-﻿@model DataTransferObject.Model.EasyuiDatagridData<DataTransferObject.EmployeeDto>
+﻿@model IronFramework.Utility.UI.PagedListViewModel<DataTransferObject.EmployeeDto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,7 +20,7 @@
         </button>
     </div>
 <div id="grid-list">
-    @{ Html.RenderPartial("_PartialEmployee", Model); }
+    @{ Html.RenderPartial("_PartialEmployeeAsync", Model); }
 </div>
 }
 <script type="text/javascript">

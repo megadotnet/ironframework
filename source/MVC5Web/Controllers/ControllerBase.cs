@@ -235,6 +235,20 @@ namespace MVC5Web.Controllers
             return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(partialURI, queryString, isawait);
         }
 
+		/// <summary>
+        /// ClientHTTPGetList
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="Query"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="queryString"></param>
+        /// <returns></returns>
+        public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string queryString) where TResult : new()
+        {
+            string querystringCombine = rESTAPIWrapperClinet.GetQueryString(query) + queryString;
+            return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(querystringCombine);
+        }
+
         /// <summary>
         /// Clients the HTTP get.
         /// </summary>

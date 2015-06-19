@@ -849,7 +849,17 @@ where TResult : new()
         /// </exception>
         private static string GetAPIControllerName<QueryDto>()
         {
-            string entityname = typeof(QueryDto).Name;
+            string entityname = string.Empty;
+            if (typeof(QueryDto).IsGenericType)
+            {
+                entityname = typeof(QueryDto).GenericTypeArguments.FirstOrDefault().Name;
+            }
+            else
+            {
+                entityname=typeof(QueryDto).Name;
+            }
+
+
             int pos = entityname.IndexOf("Dto");
             if (pos <= 0)
             {
@@ -929,7 +939,7 @@ where TResult : new()
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        private string GetQueryString(object obj)
+        public string GetQueryString(object obj)
         {
             if (obj != null)
             {
@@ -944,7 +954,6 @@ where TResult : new()
 
                 return string.Join("&", properties.ToArray());
             }
-
             return string.Empty;
         }
 

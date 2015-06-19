@@ -66,7 +66,7 @@ namespace BusinessObject
         /// <returns>Enties</returns>
         public PagedList<EmployeePayHistoryDto> FindEnties(int? pageIndex, int pageSize)
         {
-            var entities=entiesrepository.Repository.Find(p => p.EmployeeID>0, p => p.EmployeeID, pageIndex, pageSize);
+            var entities=entiesrepository.Repository.Find(p => p.EmployeeID!=null, p => p.EmployeeID, pageIndex, pageSize);
             var listDtos=new PagedList<EmployeePayHistoryDto>() { TotalCount = entities.TotalCount };
              entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
              return listDtos;
@@ -80,7 +80,7 @@ namespace BusinessObject
         /// <returns>Enties</returns>
         public async Task<PagedList<EmployeePayHistoryDto>> FindEntiesAsync(int? pageIndex, int pageSize)
         {
-            var entities = await entiesrepository.Repository.FindAsync(p => p.EmployeeID > 0, p => p.EmployeeID, pageIndex, pageSize);
+            var entities = await entiesrepository.Repository.FindAsync(p => p.EmployeeID!=null, p => p.EmployeeID, pageIndex, pageSize);
             var listDtos = new PagedList<EmployeePayHistoryDto>() { TotalCount = entities.TotalCount, PageIndex=pageIndex.Value,PageSize=pageSize  };
             entities.ForEach(entity => { listDtos.Add(typeAdapter.ConvertEntitiesToDto(entity)); });
             return listDtos;
@@ -98,11 +98,10 @@ namespace BusinessObject
             
              entities.ForEach(entity => {
                 var dto=this.typeAdapter.ConvertEntitiesToDto(entity);
-                dto.pageIndex = entities.PageIndex;
-                dto.pageSize = entities.PageSize;
                 lists.Add(dto); });
 
             listDtos.Rows = lists.ToArray();
+		    listDtos.Total = entities.TotalCount;
             return listDtos;
         }
 
@@ -111,9 +110,10 @@ namespace BusinessObject
         /// </summary>
         /// <param name="EmployeePayHistory">The EmployeePayHistory dto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<EmployeePayHistoryDto> FindEnties(EmployeePayHistoryDto  _employeepayhistoryDto)
+        public EasyuiDatagridData<EmployeePayHistoryDto> FindEnties(PagedList<EmployeePayHistoryDto>  _employeepayhistoryDto)
         {
-            var entities = entiesrepository.Repository.Find(p => p.EmployeeID > 0, p => p.EmployeeID, _employeepayhistoryDto.pageIndex, _employeepayhistoryDto.pageSize);
+            var entities = entiesrepository.Repository.Find(p => p.EmployeeID!=null, p => p.EmployeeID
+			    , _employeepayhistoryDto.PageIndex, _employeepayhistoryDto.PageSize);
             var listDtos = ConvertTOUIModel(entities);
             return listDtos;
         }
@@ -124,13 +124,13 @@ namespace BusinessObject
         /// </summary>
         /// <param name="_EmployeePayHistoryDto">The EmployeePayHistorydto.</param>
         /// <returns></returns>
-        public EasyuiDatagridData<EmployeePayHistoryDto> FindAll(EmployeePayHistoryDto _employeepayhistoryDto)
+        public EasyuiDatagridData<EmployeePayHistoryDto> FindAll(PagedList<EmployeePayHistoryDto> _employeepayhistoryDto)
         {
            var dbResults=this.entiesrepository.Repository.Find(
-                BuildAllQuery(_employeepayhistoryDto),
+                BuildAllQuery(_employeepayhistoryDto.FirstOrDefault()),
                 e => e.EmployeeID,
-                _employeepayhistoryDto.pageIndex,
-                _employeepayhistoryDto.pageSize);
+                _employeepayhistoryDto.PageIndex,
+                _employeepayhistoryDto.PageSize);
            return ConvertTOUIModel(dbResults);
         }
 

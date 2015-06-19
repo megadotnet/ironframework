@@ -41,21 +41,12 @@ namespace WebApi2.Controllers
         /// <param name="_EmployeePayHistoryDto">The EmployeePayHistory dto.</param>
         /// <example><code> HTTP GET: api/EmployeePayHistory/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of EmployeePayHistoryDto</returns>
-        public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] EmployeePayHistoryDto _EmployeePayHistoryDto)
+        public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] EmployeePayHistoryDto _EmployeePayHistoryDtos, int pageIndex =1, int pageSize =10)
         {
-           return  _EmployeePayHistoryBO.FindAll(_EmployeePayHistoryDto);
-        }
-
-        /// <summary>
-        /// Gets the specified page index.
-        /// </summary>
-        /// <param name="pageIndex">Index of the page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <example><code>GET: api/EmployeePayHistory/?pageindex=1&pagesize=10</code></example>
-        /// <returns>DatagridData List of EmployeePayHistoryDto</returns>
-        public EasyuiDatagridData<EmployeePayHistoryDto> Get([FromUri] int pageIndex, int pageSize)
-        {
-            return _EmployeePayHistoryBO.FindEnties(new EmployeePayHistoryDto { pageIndex=pageIndex,pageSize=pageSize});
+		    var pagedlist = new PagedList<EmployeePayHistoryDto>  {_EmployeePayHistoryDtos };
+            pagedlist.PageIndex = pageIndex;
+            pagedlist.PageSize = pageSize;
+            return _EmployeePayHistoryBO.FindAll(pagedlist);
         }
 
         /// <summary>
