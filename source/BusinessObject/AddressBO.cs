@@ -102,6 +102,8 @@ namespace BusinessObject
 
              listDtos.Rows = lists.ToArray();
              listDtos.Total = entities.TotalCount;
+             listDtos.PageIndex = entities.PageIndex;
+             listDtos.PageSize = entities.PageSize;
             return listDtos;
         }
 
