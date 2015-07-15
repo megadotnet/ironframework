@@ -2,6 +2,9 @@ namespace DataServiceClient
 {
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IRESTAPIWrapperClinet
     {
         /// <summary>
