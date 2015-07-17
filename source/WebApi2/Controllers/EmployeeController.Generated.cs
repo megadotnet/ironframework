@@ -41,7 +41,7 @@ namespace WebApi2.Controllers
         /// <param name="_EmployeeDto">The Employee dto.</param>
         /// <example><code> HTTP GET: api/Employee/?pageindex=1&pagesize=10&....</code></example>
         /// <returns>DatagridData List of EmployeeDto</returns>
-        public object Get([FromUri] EmployeeDto _EmployeeDtos, int pageIndex = 1, int pageSize = 10)
+        public object Get([FromUri] EmployeeDto _EmployeeDtos, int pageIndex =1, int pageSize =10)
         {
 		    var pagedlist = new PagedList<EmployeeDto>  {_EmployeeDtos };
             pagedlist.PageIndex = pageIndex;
@@ -91,23 +91,23 @@ namespace WebApi2.Controllers
 
         // POST: api/Employee
         [ValidateModel]
-        public void Post(EmployeeDto value)
+        public bool Post(EmployeeDto value)
         {
-            _EmployeeBO.CreateEntiy(value);
+            return _EmployeeBO.CreateEntiy(value);
         }
 
         // PUT: api/Employee/
         [ValidateModel]
-        public void Put(EmployeeDto value)
+        public bool Put(EmployeeDto value)
         {
-            _EmployeeBO.UpdateWithAttachEntiy(value);
+            return _EmployeeBO.UpdateWithAttachEntiy(value);
         }
 
         // DELETE: api/Employee/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var entity = new EmployeeDto() { EmployeeID = id };
-            _EmployeeBO.DeleteWithAttachEntiy(entity);
+            return _EmployeeBO.DeleteWithAttachEntiy(entity);
         }
 
 
@@ -124,8 +124,9 @@ namespace WebApi2.Controllers
         /// </example>
         [HttpPut]
         [Route("DeleteByList")]
-        public void DeleteByList(DeleteObject deletedObjectList)
+        public bool DeleteByList(DeleteObject deletedObjectList)
         {
+		    bool deleteflag = false;
             if (deletedObjectList != null)
             {
                 int[] id = deletedObjectList.Ids;
@@ -139,6 +140,7 @@ namespace WebApi2.Controllers
                     _EmployeeBO.DeleteWithAttachEntiy(listEnties.ToArray());
                 }
             }
+			return deleteflag;
         }
 	}
 }

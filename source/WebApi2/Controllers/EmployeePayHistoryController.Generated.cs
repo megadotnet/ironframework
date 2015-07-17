@@ -91,23 +91,23 @@ namespace WebApi2.Controllers
 
         // POST: api/EmployeePayHistory
         [ValidateModel]
-        public void Post(EmployeePayHistoryDto value)
+        public bool Post(EmployeePayHistoryDto value)
         {
-            _EmployeePayHistoryBO.CreateEntiy(value);
+            return _EmployeePayHistoryBO.CreateEntiy(value);
         }
 
         // PUT: api/EmployeePayHistory/
         [ValidateModel]
-        public void Put(EmployeePayHistoryDto value)
+        public bool Put(EmployeePayHistoryDto value)
         {
-            _EmployeePayHistoryBO.UpdateWithAttachEntiy(value);
+            return _EmployeePayHistoryBO.UpdateWithAttachEntiy(value);
         }
 
         // DELETE: api/EmployeePayHistory/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var entity = new EmployeePayHistoryDto() { EmployeeID = id };
-            _EmployeePayHistoryBO.DeleteWithAttachEntiy(entity);
+            return _EmployeePayHistoryBO.DeleteWithAttachEntiy(entity);
         }
 
 
@@ -124,8 +124,9 @@ namespace WebApi2.Controllers
         /// </example>
         [HttpPut]
         [Route("DeleteByList")]
-        public void DeleteByList(DeleteObject deletedObjectList)
+        public bool DeleteByList(DeleteObject deletedObjectList)
         {
+		    bool deleteflag = false;
             if (deletedObjectList != null)
             {
                 int[] id = deletedObjectList.Ids;
@@ -139,6 +140,7 @@ namespace WebApi2.Controllers
                     _EmployeePayHistoryBO.DeleteWithAttachEntiy(listEnties.ToArray());
                 }
             }
+			return deleteflag;
         }
 	}
 }

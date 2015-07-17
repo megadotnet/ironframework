@@ -91,23 +91,23 @@ namespace WebApi2.Controllers
 
         // POST: api/Contact
         [ValidateModel]
-        public void Post(ContactDto value)
+        public bool Post(ContactDto value)
         {
-            _ContactBO.CreateEntiy(value);
+            return _ContactBO.CreateEntiy(value);
         }
 
         // PUT: api/Contact/
         [ValidateModel]
-        public void Put(ContactDto value)
+        public bool Put(ContactDto value)
         {
-            _ContactBO.UpdateWithAttachEntiy(value);
+            return _ContactBO.UpdateWithAttachEntiy(value);
         }
 
         // DELETE: api/Contact/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var entity = new ContactDto() { ContactID = id };
-            _ContactBO.DeleteWithAttachEntiy(entity);
+            return _ContactBO.DeleteWithAttachEntiy(entity);
         }
 
 
@@ -124,8 +124,9 @@ namespace WebApi2.Controllers
         /// </example>
         [HttpPut]
         [Route("DeleteByList")]
-        public void DeleteByList(DeleteObject deletedObjectList)
+        public bool DeleteByList(DeleteObject deletedObjectList)
         {
+		    bool deleteflag = false;
             if (deletedObjectList != null)
             {
                 int[] id = deletedObjectList.Ids;
@@ -139,6 +140,7 @@ namespace WebApi2.Controllers
                     _ContactBO.DeleteWithAttachEntiy(listEnties.ToArray());
                 }
             }
+			return deleteflag;
         }
 	}
 }

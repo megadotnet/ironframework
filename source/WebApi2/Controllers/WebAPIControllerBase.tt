@@ -161,23 +161,23 @@ namespace <#= code.VsNamespaceSuggestion() #>
 
         // POST: api/<#=code.Escape(entity)#>
         [ValidateModel]
-        public void Post(<#=code.Escape(entity)#>Dto value)
+        public bool Post(<#=code.Escape(entity)#>Dto value)
         {
-            _<#=code.Escape(entity)#>BO.CreateEntiy(value);
+            return _<#=code.Escape(entity)#>BO.CreateEntiy(value);
         }
 
         // PUT: api/<#=code.Escape(entity)#>/
         [ValidateModel]
-        public void Put(<#=code.Escape(entity)#>Dto value)
+        public bool Put(<#=code.Escape(entity)#>Dto value)
         {
-            _<#=code.Escape(entity)#>BO.UpdateWithAttachEntiy(value);
+            return _<#=code.Escape(entity)#>BO.UpdateWithAttachEntiy(value);
         }
 
         // DELETE: api/<#=code.Escape(entity)#>/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var entity = new <#=code.Escape(entity)#>Dto() { <#=codeStringGenerator.PK(entity)#> = id };
-            _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(entity);
+            return _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(entity);
         }
 
 
@@ -194,8 +194,9 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// </example>
         [HttpPut]
         [Route("DeleteByList")]
-        public void DeleteByList(DeleteObject deletedObjectList)
+        public bool DeleteByList(DeleteObject deletedObjectList)
         {
+		    bool deleteflag = false;
             if (deletedObjectList != null)
             {
                 int[] id = deletedObjectList.Ids;
@@ -209,6 +210,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
                     _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(listEnties.ToArray());
                 }
             }
+			return deleteflag;
         }
 	}
 }

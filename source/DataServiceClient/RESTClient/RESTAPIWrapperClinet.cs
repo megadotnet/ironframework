@@ -960,6 +960,14 @@ where TResult : new()
         #endregion
 
 
+        /// <summary>
+        /// Clients the HTTP post.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="query">The query.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <returns></returns>
         public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL) where T : new()
         {
             using (var client = new HttpClient())
@@ -999,6 +1007,15 @@ where TResult : new()
             }
         }
 
+        /// <summary>
+        /// Clients the HTTP post.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="query">The query.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
         public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL, bool isawait) where T : new()
         {
             using (var client = new HttpClient())
@@ -1038,6 +1055,15 @@ where TResult : new()
             }
         }
 
+        /// <summary>
+        /// Clients the HTTP post.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="query">The query.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <returns></returns>
         public async Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL)
             where ReturnObject : new()
             where T : new()
