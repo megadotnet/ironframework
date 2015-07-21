@@ -3,7 +3,7 @@ namespace DataServiceClient
     using System.Threading.Tasks;
 
     /// <summary>
-    /// 
+    /// IRESTAPIWrapperClinet
     /// </summary>
     public interface IRESTAPIWrapperClinet
     {
@@ -15,6 +15,14 @@ namespace DataServiceClient
         /// </value>
         string URI { get; set; }
 
+        /// <summary>
+        /// Clients the HTTP get string.
+        /// </summary>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="paramstr">The paramstr.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
         Task<string> ClientHTTPGetString<Query>(string paramstr, string customURL, bool isawait) where Query : new();
 
         /// <summary>
