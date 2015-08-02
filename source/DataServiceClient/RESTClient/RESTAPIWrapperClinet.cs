@@ -1018,41 +1018,7 @@ where TResult : new()
         /// <returns></returns>
         public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL, bool isawait) where T : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP PUT
-                string entityname = typeof(T).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-                string routingUrl = "api/" + entityname;
-
-                if (!string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl += "/" + customURL;
-                }
-
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
-
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    query,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
-            }
+            return await ClientHttpPOST<bool, T, Query>(query, customURL, isawait);
         }
 
         /// <summary>
@@ -1065,6 +1031,23 @@ where TResult : new()
         /// <param name="customURL">The custom URL.</param>
         /// <returns></returns>
         public async Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL)
+            where ReturnObject : new()
+            where T : new()
+        {
+             return await ClientHttpPOST<ReturnObject,T,Query>(query,customURL,true);
+        }
+
+        /// <summary>
+        /// Clients the HTTP post.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="query">The query.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
+        public async Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL, bool isawait)
             where ReturnObject : new()
             where T : new()
         {
@@ -1089,7 +1072,7 @@ where TResult : new()
                 }
 
                 routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query);
+                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
 
                 var results = new ReturnObject();
                 results = await ReadAsObject(response, results);

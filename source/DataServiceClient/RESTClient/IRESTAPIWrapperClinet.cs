@@ -281,6 +281,20 @@ where TResult : new();
             where T : new()
             where ReturnObject : new();
 
+      /// <summary>
+     /// Clients the HTTP post.
+     /// </summary>
+     /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+     /// <typeparam name="T"></typeparam>
+     /// <typeparam name="Query">The type of the uery.</typeparam>
+     /// <param name="query">The query.</param>
+     /// <param name="customURL">The custom URL.</param>
+    /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+     /// <returns></returns>
+        Task<ReturnObject> ClientHttpPOST<ReturnObject, T, Query>(Query query, string customURL, bool isawait)
+            where ReturnObject : new()
+            where T : new();
+
         Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri);
 
         Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new();

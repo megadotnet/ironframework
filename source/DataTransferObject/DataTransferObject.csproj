@@ -66,6 +66,8 @@
     </Compile>
     <Compile Include="Model\DeleteObject.cs" />
     <Compile Include="Model\EasyuiDatagridData.cs" />
+    <Compile Include="Model\ReturnResult.cs" />
+    <Compile Include="Model\ReturnResultWithData.cs" />
     <Compile Include="Model\UIPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
