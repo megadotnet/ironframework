@@ -26,6 +26,12 @@ namespace MVC5Web.Controllers
 	public partial class EmployeeController : BaseWebController
 	{
 
+        /// <summary>
+        /// Indexes the specified employee_name.
+        /// </summary>
+        /// <param name="employee_name">The employee_name.</param>
+        /// <param name="page">The page.</param>
+        /// <returns></returns>
         public async Task<ActionResult> Index(string employee_name, int? page)
         {
             int pageIndex;
@@ -43,6 +49,12 @@ namespace MVC5Web.Controllers
                 return View(dbresults);
         }
 
+        /// <summary>
+        /// Indexes the asynchronous.
+        /// </summary>
+        /// <param name="employee_name">The employee_name.</param>
+        /// <param name="page">The page.</param>
+        /// <returns></returns>
         public async Task<ActionResult> IndexAsync(string employee_name, int? page)
         {
             //int count = 0;

@@ -636,6 +636,7 @@ where TResult : new()
             }
         }
 
+        #region ClientHTTPPut
         /// <summary>
         /// Clients the HTTP put.
         /// </summary>
@@ -668,44 +669,33 @@ where TResult : new()
         /// </returns>
         public async Task<bool> ClientHTTPPut<TResult>(TResult model, string customPartialUri)
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP PUT
-                string entityname = typeof(TResult).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-                string routingUrl = "api/" + entityname;
-
-                if (!string.IsNullOrEmpty(customPartialUri))
-                {
-                    routingUrl += "/" + customPartialUri;
-                }
-
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
-
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    model,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
-            }
+            return await ClientHTTPPut<bool, TResult, TResult>(model, customPartialUri);
         }
 
-        public async Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new()
+        /// <summary>
+        /// Clients the HTTP put.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="model">The model.</param>
+        /// <param name="customPartialUri">The custom partial URI.</param>
+        /// <returns></returns>
+        public async Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri)
+        {
+            return await ClientHTTPPut<bool, TResult, Query>(model, customPartialUri);
+        }
+
+
+        /// <summary>
+        /// Clients the HTTP put.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="TQueryDto">The type of the query dto.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="model">The model.</param>
+        /// <param name="customPartialUri">The custom partial URI.</param>
+        /// <returns></returns>
+        public async Task<ReturnObject> ClientHTTPPut<ReturnObject, TQueryDto, Query>(Query model, string customPartialUri) where ReturnObject : new()
         {
             using (var client = new HttpClient())
             {
@@ -740,94 +730,12 @@ where TResult : new()
                     log.Error(response.Content.ReadAsStringAsync().Result);
                 }
 
-                var results = new TResult();
+                var results = new ReturnObject();
                 results = await ReadAsObject(response, results);
                 return results;
             }
-        }
-
-
-        public async Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri)
-        {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP PUT
-                string entityname = typeof(TResult).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-                string routingUrl = "api/" + entityname;
-
-                if (!string.IsNullOrEmpty(customPartialUri))
-                {
-                    routingUrl += "/" + customPartialUri;
-                }
-
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
-
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    model,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
-            }
-        }
-
-        /// <summary>
-        /// Clients the invoke HTTP post.
-        /// </summary>
-        /// <typeparam name="TResult">
-        /// </typeparam>
-        /// <param name="model">
-        /// The model.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
-        public async Task<bool> ClientHttpPOST<TResult>(TResult model)
-        {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP POST
-                string entityname = typeof(TResult).Name;
-                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-                string routingUrl = "api/" + entityname + "/?" + VerifyTransactionSN.GenerateRandomInt();
-
-                HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, model);
-
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    model,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
-            }
-        }
-
-
-
-
-
+        } 
+        #endregion
 
         #endregion
 
@@ -960,6 +868,25 @@ where TResult : new()
         #endregion
 
 
+        #region ClientHttpPOST
+
+        /// <summary>
+        /// Clients the invoke HTTP post.
+        /// </summary>
+        /// <typeparam name="TResult">
+        /// </typeparam>
+        /// <param name="model">
+        /// The model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public async Task<bool> ClientHttpPOST<TResult>(TResult model)
+        {
+            return await ClientHttpPOST<bool, TResult>(model, null);
+        }
+
+
         /// <summary>
         /// Clients the HTTP post.
         /// </summary>
@@ -970,41 +897,7 @@ where TResult : new()
         /// <returns></returns>
         public async Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL) where T : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                // HTTP PUT
-                string entityname = typeof(T).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-                string routingUrl = "api/" + entityname;
-
-                if (!string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl += "/" + customURL;
-                }
-
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query);
-
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    query,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
-            }
+            return await ClientHttpPOST<bool, T, Query>(query, customURL);
         }
 
         /// <summary>
@@ -1034,7 +927,7 @@ where TResult : new()
             where ReturnObject : new()
             where T : new()
         {
-             return await ClientHttpPOST<ReturnObject,T,Query>(query,customURL,true);
+            return await ClientHttpPOST<ReturnObject, T, Query>(query, customURL, true);
         }
 
         /// <summary>
@@ -1078,7 +971,8 @@ where TResult : new()
                 results = await ReadAsObject(response, results);
                 return results;
             }
-        }
+        } 
+        #endregion
 
      
     }

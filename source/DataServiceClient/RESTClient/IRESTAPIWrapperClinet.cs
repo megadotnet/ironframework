@@ -295,10 +295,35 @@ where TResult : new();
             where ReturnObject : new()
             where T : new();
 
+        /// <summary>
+        /// Clients the HTTP put.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="model">The model.</param>
+        /// <param name="customPartialUri">The custom partial URI.</param>
+        /// <returns></returns>
         Task<bool> ClientHTTPPut<TResult, Query>(Query model, string customPartialUri);
 
-        Task<TResult> ClientHTTPPut<TResult, TQueryDto, Query>(Query model, string customPartialUri) where TResult : new();
+        /// <summary>
+        /// Clients the HTTP put.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="TQueryDto">The type of the query dto.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="model">The model.</param>
+        /// <param name="customPartialUri">The custom partial URI.</param>
+        /// <returns></returns>
+        Task<ReturnObject> ClientHTTPPut<ReturnObject, TQueryDto, Query>(Query model, string customPartialUri) where ReturnObject : new();
 
+        /// <summary>
+        /// Clients the HTTP get list.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="partialURI">The partial URI.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
         Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new();
 
         string GetQueryString(object obj);

@@ -51,5 +51,24 @@ namespace UnitTest.Infrastructure
             Assert.Equal(returnobj, result);
         }
 
+         /// <summary>
+         /// Clients the client HTTP put_ return boolean test.
+         /// </summary>
+         /// <returns></returns>
+         [Fact]
+         public async Task ClientClientHTTPPut_ReturnBooleanTest()
+         {
+             var queryObj = new Customer();
+             var mockClient = new Mock<IRESTAPIWrapperClinet>();
+             mockClient.Setup(d => d.ClientHTTPPut<Customer, Customer>(It.IsAny<Customer>(), It.IsAny<string>()))
+                 .Returns(Task.FromResult<bool>(true));
+
+
+             var client = mockClient.Object;
+             var result = await client.ClientHTTPPut<Customer, Customer>(queryObj,"UpdateData");
+
+             Assert.True(result);
+         }
+
     }
 }
