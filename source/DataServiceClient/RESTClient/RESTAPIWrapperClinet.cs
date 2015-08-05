@@ -328,24 +328,7 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string url,bool isawait=true) where TResult : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<Query>();
-
-                string querystring = this.GetQueryString(query);
-                string routingUrl = string.Format("api/{0}/{1}?{2}", entityname, url, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            return await this.ClientHTTPGetList<TResult, Query>(url, query, isawait);
         }
 
         /// <summary>
@@ -383,24 +366,7 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, bool isawait) where TResult : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<Query>();
-
-                string querystring = this.GetQueryString(query);
-                string routingUrl = string.Format("api/{0}/?{1}", entityname, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
-
-                // ?pageindex=1&pagesize=10
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            return await this.ClientHTTPGetList<TResult, Query>(query, isawait);
         }
 
         /// <summary>
@@ -427,24 +393,7 @@ namespace DataServiceClient
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, Query query, bool isawait)
             where TResult : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<Query>();
-
-                string querystring = this.GetQueryString(query);
-                string routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
-
-                // ?pageindex=1&pagesize=10
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            return await this.ClientHTTPGetList<TResult, Query,Query>(partialURI, query, isawait);
         }
 
         /// <summary>
@@ -497,24 +446,7 @@ where TResult : new()
         /// </returns>
         public async Task<TResult> ClientHTTPGetList<TResult, QueryDto>(string queryString) where TResult : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<QueryDto>();
-
-                string querystring = queryString;
-                string routingUrl = string.Format("api/{0}/?{1}", entityname, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
-
-                // ?pageindex=1&pagesize=10
-                HttpResponseMessage response = await client.GetAsync(routingUrl);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            return await this.ClientHTTPGetList<TResult, QueryDto>(null,queryString);
         }
 
         /// <summary>
@@ -576,8 +508,17 @@ where TResult : new()
                 string entityname = GetAPIControllerName<QueryDto>();
 
                 string querystring = queryString;
-                string routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
+
+                string routingUrl = string.Format("api/{0}/?{1}", entityname, querystring) + "&random="
+                         + VerifyTransactionSN.GenerateRandomInt();
+
+                if (!string.IsNullOrEmpty(partialURI))
+                {
+                     routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
+                         + VerifyTransactionSN.GenerateRandomInt();
+                }
+
+     
 
                 // ?pageindex=1&pagesize=10
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
