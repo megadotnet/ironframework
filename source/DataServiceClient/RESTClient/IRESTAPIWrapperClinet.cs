@@ -272,7 +272,7 @@ where TResult : new();
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        Task<bool> ClientHttpPOST<TResult>(TResult model);
+        Task<bool> ClientHttpPOST<TResult>(TResult model) where TResult : new();
 
         Task<bool> ClientHttpPOST<T, Query>(Query query, string customURL) where T : new();
 

@@ -822,9 +822,9 @@ where TResult : new()
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<bool> ClientHttpPOST<TResult>(TResult model)
+        public async Task<bool> ClientHttpPOST<TResult>(TResult model) where TResult : new()
         {
-            return await ClientHttpPOST<bool, TResult>(model, null);
+            return await ClientHttpPOST<TResult, TResult>(model, string.Empty);
         }
 
 
@@ -906,7 +906,7 @@ where TResult : new()
                 }
 
                 routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
+                HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
 
                 var results = new ReturnObject();
                 results = await ReadAsObject(response, results);
