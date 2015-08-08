@@ -101,6 +101,7 @@ namespace DataServiceClient
             return new RESTAPIWrapperClinet(_uRI);
         }
 
+        #region ClientHTTPDelete
         /// <summary>
         /// Clients the HTTP delete.
         /// </summary>
@@ -124,7 +125,20 @@ namespace DataServiceClient
         /// <param name="id">The identifier.</param>
         /// <param name="customURL">The custom URL.</param>
         /// <returns></returns>
-        public async Task<bool> ClientHTTPDelete<TResult>(int id, string customURL) 
+        public async Task<bool> ClientHTTPDelete<TResult>(int id, string customURL)
+        {
+            return await ClientHTTPDelete<bool, TResult>(id, customURL);
+        }
+
+        /// <summary>
+        /// Clients the HTTP delete.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="id">The identifier.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <returns></returns>
+        public async Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject:new()
         {
             using (var client = new HttpClient())
             {
@@ -150,14 +164,13 @@ namespace DataServiceClient
 
                 log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
-                return response.IsSuccessStatusCode;
+                var results = new ReturnObject();
+                results = await ReadAsObject(response, results);
+                return results;
             }
-        }
+        } 
+
+        #endregion
 
 
         /// <summary>
