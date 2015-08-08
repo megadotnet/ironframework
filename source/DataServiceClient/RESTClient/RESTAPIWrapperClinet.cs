@@ -197,7 +197,9 @@ namespace DataServiceClient
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl);
 
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
+
+                log.DebugFormat("请求{2} URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode
+                    , response.RequestMessage.Method.Method);
 
                 var results = new TResult();
                 results = await ReadAsObject(response, results);
@@ -531,11 +533,8 @@ where TResult : new()
                          + VerifyTransactionSN.GenerateRandomInt();
                 }
 
-     
-
-                // ?pageindex=1&pagesize=10
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
+                log.DebugFormat("请求 {2} URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode, response.RequestMessage.Method.Method);
 
                 var results = new TResult();
                 results = await ReadAsObject(response, results);

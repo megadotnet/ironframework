@@ -255,13 +255,13 @@ namespace UnitTest
                 Gender = "M",
                 MaritalStatus = "M",
                 ModifiedDate = DateTime.Now,
-                NationalIDNumber = "2",
-                rowguid = new Guid(),
+                NationalIDNumber = DateTime.Now.ToString("hhmmddss"),
+                rowguid = Guid.NewGuid(),
                 CurrentFlag = true,
                 VacationHours = 2,
                 SickLeaveHours = 3,
                 SalariedFlag = false,
-                LoginID = "adventure-works\\peter"
+                LoginID = "peter" + DateTime.Now.Ticks.ToString()
             };
             return employee;
         }
