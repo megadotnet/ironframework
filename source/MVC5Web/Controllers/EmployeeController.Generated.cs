@@ -56,10 +56,10 @@ namespace MVC5Web.Controllers
         }
 
         // DELETE: Employee/Delete/5
-        //public async Task<bool> Delete(int id)
-        //{
-        //    return await ClientHTTPDelete<EmployeeDto>(id);
-        //}
+        public async Task<bool> Delete(int id)
+        {
+            return await ClientHTTPDelete<EmployeeDto>(id);
+        }
 
         /// <summary>
         /// Deletes the specified identifier.

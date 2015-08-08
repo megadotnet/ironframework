@@ -114,11 +114,11 @@ namespace MVC5Web.Controllers
         /// </param>
         /// <returns>
         /// </returns>
-        public async Task<ActionResult> Delete(int id)
-        {
-            var model = await ClientHTTPGet<EmployeeDto>(id);
-            return View(model);
-        }
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    var model = await ClientHTTPGet<EmployeeDto>(id);
+        //    return View(model);
+        //}
 
         // POST: /Employee/Delete/5
 
