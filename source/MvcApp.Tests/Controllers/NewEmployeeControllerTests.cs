@@ -33,7 +33,6 @@ namespace MvcApp.Tests.Controllers
 
             var dto=results.Data as EmployeeDto;
             Assert.NotNull(dto);
-            //dto.Title = dto.Title + "1";
         }
 
         /// <summary>
@@ -47,9 +46,11 @@ namespace MvcApp.Tests.Controllers
             controller2.SetFakeAuthenticatedControllerContext();
             controller2.rESTAPIWrapperClinet = new RESTAPIWrapperClinet(ServiceConfig.URI);
             var dto = CreateDTO();
+            //create
             bool flag = await controller2.Post(dto);
             Assert.True(flag);
 
+            //Get and Find it
             var getDto=await controller2.Find(dto, 1, 1);
             Assert.NotNull(getDto.Data);
             var dbEntity=getDto.Data as EasyuiDatagridData<EmployeeDto>;
@@ -59,9 +60,11 @@ namespace MvcApp.Tests.Controllers
             var pendingUpdateDto = dbEntity.Rows.FirstOrDefault();
             pendingUpdateDto.Title = "xxxx";
 
+            //Update
             bool updateflag=await controller2.Put(pendingUpdateDto);
             Assert.True(updateflag);
 
+            //Delete
              bool deleteflag=await controller2.Delete(pendingUpdateDto.EmployeeID);
              Assert.True(deleteflag);
         }
