@@ -7,34 +7,70 @@
     <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
     <container name="DefContainer">
       <extension type="Interception" />
+
        <register  type="BusinessObject.IAddressBO, BusinessObject" 
                   mapTo="BusinessObject.AddressBO, BusinessObject">
         <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IAddressBO, BusinessObject]], IronFramework.Utility" />
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
+	    <register  type="BusinessObject.Util.IAddressConverter, BusinessObject"
+             mapTo="BusinessObject.Util.AddressConverter, BusinessObject">
+        <lifetime type="singleton" />
         <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
+
+
        <register  type="BusinessObject.IContactBO, BusinessObject" 
                   mapTo="BusinessObject.ContactBO, BusinessObject">
         <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], IronFramework.Utility" />
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
+	    <register  type="BusinessObject.Util.IContactConverter, BusinessObject"
+             mapTo="BusinessObject.Util.ContactConverter, BusinessObject">
+        <lifetime type="singleton" />
         <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
+
+
        <register  type="BusinessObject.IEmployeeBO, BusinessObject" 
                   mapTo="BusinessObject.EmployeeBO, BusinessObject">
         <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], IronFramework.Utility" />
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
+	    <register  type="BusinessObject.Util.IEmployeeConverter, BusinessObject"
+             mapTo="BusinessObject.Util.EmployeeConverter, BusinessObject">
+        <lifetime type="singleton" />
         <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
+
+
        <register  type="BusinessObject.IEmployeePayHistoryBO, BusinessObject" 
                   mapTo="BusinessObject.EmployeePayHistoryBO, BusinessObject">
         <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], IronFramework.Utility" />
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
+	    <register  type="BusinessObject.Util.IEmployeePayHistoryConverter, BusinessObject"
+             mapTo="BusinessObject.Util.EmployeePayHistoryConverter, BusinessObject">
+        <lifetime type="singleton" />
         <constructor/>
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
+
     </container>
   </unity>
 </configuration>
