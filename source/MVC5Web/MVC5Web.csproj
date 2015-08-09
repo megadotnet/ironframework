@@ -53,6 +53,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Common.Logging.NLog40.3.2.0\lib\net40\Common.Logging.NLog40.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Glimpse.Ado">
       <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
     </Reference>
@@ -91,6 +97,9 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NLog.4.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Elmah">
+      <HintPath>..\packages\NLog.Elmah.2.0.0.0\lib\net35\NLog.Elmah.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
