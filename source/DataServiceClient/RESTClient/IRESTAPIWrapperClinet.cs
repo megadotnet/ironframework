@@ -23,40 +23,7 @@ namespace DataServiceClient
         /// <param name="customURL">The custom URL.</param>
         /// <param name="isawait">if set to <c>true</c> [isawait].</param>
         /// <returns></returns>
-        Task<string> ClientHTTPGetString<Query>(string paramstr, string customURL, bool isawait) where Query : new();
-
-        /// <summary>
-        /// Clients the HTTP delete.
-        /// </summary>
-        /// <typeparam name="TResult">
-        /// </typeparam>
-        /// <param name="id">
-        /// The id.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
-        Task<bool> ClientHTTPDelete<TResult>(int id);
-
-
-        /// <summary>
-        /// Clients the HTTP delete.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="id">The identifier.</param>
-        /// <param name="customURL">The custom URL.</param>
-        /// <returns></returns>
-        Task<bool> ClientHTTPDelete<TResult>(int id, string customURL);
-
-        /// <summary>
-        /// Clients the HTTP delete.
-        /// </summary>
-        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="id">The identifier.</param>
-        /// <param name="customURL">The custom URL.</param>
-        /// <returns></returns>
-        Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject : new();
+        Task<string> ClientHTTPGetString<Query>(string querystring, string customURL, bool isawait) where Query : new();
 
         /// <summary>
         /// Clients the HTTP get.
@@ -200,6 +167,16 @@ namespace DataServiceClient
         /// </returns>
         Task<TResult> ClientHTTPGetList<TResult, QueryDto>(string partialURI, string queryString)
             where TResult : new();
+
+        /// <summary>
+        /// Clients the HTTP get list.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="Query">The type of the uery.</typeparam>
+        /// <param name="partialURI">The partial URI.</param>
+        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <returns></returns>
+        Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new();
 
         /// <summary>
         /// Clients the HTTP get list.
@@ -352,15 +329,40 @@ where TResult : new();
         /// <returns></returns>
         Task<ReturnObject> ClientHTTPPut<ReturnObject, TQueryDto, Query>(Query model, string customPartialUri) where ReturnObject : new();
 
+
+
         /// <summary>
-        /// Clients the HTTP get list.
+        /// Clients the HTTP delete.
+        /// </summary>
+        /// <typeparam name="TResult">
+        /// </typeparam>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        Task<bool> ClientHTTPDelete<TResult>(int id);
+
+
+        /// <summary>
+        /// Clients the HTTP delete.
         /// </summary>
         /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <typeparam name="Query">The type of the uery.</typeparam>
-        /// <param name="partialURI">The partial URI.</param>
-        /// <param name="isawait">if set to <c>true</c> [isawait].</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="customURL">The custom URL.</param>
         /// <returns></returns>
-        Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait) where TResult : new();
+        Task<bool> ClientHTTPDelete<TResult>(int id, string customURL);
+
+        /// <summary>
+        /// Clients the HTTP delete.
+        /// </summary>
+        /// <typeparam name="ReturnObject">The type of the eturn object.</typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="id">The identifier.</param>
+        /// <param name="customURL">The custom URL.</param>
+        /// <returns></returns>
+        Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject : new();
 
         /// <summary>
         /// Gets the query string.

@@ -173,6 +173,7 @@ namespace DataServiceClient
         #endregion
 
 
+        #region ClientHTTPGet
         /// <summary>
         /// Clients the HTTP get.
         /// </summary>
@@ -186,25 +187,7 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGet<TResult>(int id) where TResult : new()
         {
-            using (var client = new HttpClient())
-            {
-                this.CreateHttpHeader(client);
-
-                string entityname = typeof(TResult).Name;
-                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-                string routingUrl = string.Format("api/{0}/{1}", entityname, id) + "/?"
-                                    + VerifyTransactionSN.GenerateRandomInt();
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl);
-
-
-                log.DebugFormat("请求{2} URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode
-                    , response.RequestMessage.Method.Method);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            return await ClientHTTPGet<TResult>(id, null);
         }
 
         /// <summary>
@@ -263,7 +246,7 @@ namespace DataServiceClient
         /// <param name="customURL">The custom URL.</param>
         /// <param name="isawait">if set to <c>true</c> [isawait].</param>
         /// <returns></returns>
-        public async Task<string> ClientHTTPGetString<Query>(string paramstr, string customURL, bool isawait) where Query : new()
+        public async Task<string> ClientHTTPGetString<Query>(string querystring, string customURL, bool isawait) where Query : new()
         {
             using (var client = new HttpClient())
             {
@@ -276,11 +259,11 @@ namespace DataServiceClient
 
                 if (string.IsNullOrEmpty(customURL))
                 {
-                    routingUrl = string.Format("api/{0}/{1}", entityname, paramstr);
+                    routingUrl = string.Format("api/{0}/{1}", entityname, querystring);
                 }
                 else
                 {
-                    routingUrl = string.Format("api/{0}/{1}?{2}", entityname, customURL, paramstr);
+                    routingUrl = string.Format("api/{0}/{1}?{2}", entityname, customURL, querystring);
                 }
 
                 routingUrl += "&" + VerifyTransactionSN.GenerateRandomInt();
@@ -321,7 +304,7 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string url) where TResult : new()
         {
-            return await ClientHTTPGetList<TResult,Query>(query, url, true);
+            return await ClientHTTPGetList<TResult, Query>(query, url, true);
         }
 
         /// <summary>
@@ -341,7 +324,7 @@ namespace DataServiceClient
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string url,bool isawait=true) where TResult : new()
+        public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string url, bool isawait = true) where TResult : new()
         {
             return await this.ClientHTTPGetList<TResult, Query>(url, query, isawait);
         }
@@ -408,7 +391,7 @@ namespace DataServiceClient
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, Query query, bool isawait)
             where TResult : new()
         {
-            return await this.ClientHTTPGetList<TResult, Query,Query>(partialURI, query, isawait);
+            return await this.ClientHTTPGetList<TResult, Query, Query>(partialURI, query, isawait);
         }
 
         /// <summary>
@@ -461,7 +444,7 @@ where TResult : new()
         /// </returns>
         public async Task<TResult> ClientHTTPGetList<TResult, QueryDto>(string queryString) where TResult : new()
         {
-            return await this.ClientHTTPGetList<TResult, QueryDto>(null,queryString);
+            return await this.ClientHTTPGetList<TResult, QueryDto>(null, queryString);
         }
 
         /// <summary>
@@ -529,8 +512,8 @@ where TResult : new()
 
                 if (!string.IsNullOrEmpty(partialURI))
                 {
-                     routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
-                         + VerifyTransactionSN.GenerateRandomInt();
+                    routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
+                        + VerifyTransactionSN.GenerateRandomInt();
                 }
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
@@ -550,10 +533,10 @@ where TResult : new()
         /// <param name="partialURI">The partial URI.</param>
         /// <param name="isawait">if set to <c>true</c> [isawait].</param>
         /// <returns>ClientHTTPGetList</returns>
-          public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait)
-    where TResult : new()
+        public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait)
+  where TResult : new()
         {
-              return await ClientHTTPGetList<TResult, Query>(partialURI, isawait, true);
+            return await ClientHTTPGetList<TResult, Query>(partialURI, isawait, true);
         }
 
         /// <summary>
@@ -579,7 +562,7 @@ where TResult : new()
                 {
                     routingUrl += VerifyTransactionSN.GenerateRandomInt();
                 }
-                  
+
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
                 log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
 
@@ -587,7 +570,8 @@ where TResult : new()
                 results = await ReadAsObject(response, results);
                 return results;
             }
-        }
+        } 
+        #endregion
 
         #region ClientHTTPPut
         /// <summary>
