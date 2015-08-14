@@ -22,7 +22,7 @@ namespace MvcApp.Tests.Controllers
     /// <summary>
     /// The employee controller test.
     /// </summary>
-    public class EmployeeControllerTest
+    public class EmployeeWCFControllerTest
     {
         #region Public Methods
 
@@ -128,9 +128,9 @@ namespace MvcApp.Tests.Controllers
         /// <returns>
         /// Employee Controller
         /// </returns>
-        private static EmployeeController GetEmployeeController(IEmployeeBoService service)
+        private static EmployeeWCFController GetEmployeeController(IEmployeeBoService service)
         {
-            var controller = new EmployeeController(service);
+            var controller = new EmployeeWCFController(service);
 
             controller.ControllerContext = new ControllerContext
                 {

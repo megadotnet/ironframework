@@ -13,6 +13,7 @@ namespace MvcApp.Tests.Controllers
 
     using MvcApp.Controllers;
     using Xunit;
+    using MVC5Web.Controllers;
 
     /// <summary>
     /// The home controller test.
