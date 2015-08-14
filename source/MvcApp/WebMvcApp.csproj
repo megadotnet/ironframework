@@ -239,19 +239,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\EmployeeWCF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\EmployeeWCF\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\EmployeeWCF\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\EmployeeWCF\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\EmployeeWCF\Delete.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

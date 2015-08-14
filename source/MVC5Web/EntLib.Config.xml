@@ -98,6 +98,13 @@
         <policyInjection />
       </register >
 
+      <register  type="ServicePoxry.AWServiceReference.IEmployeeBoService,ServicePoxry"
+       mapTo="ServicePoxry.AWServiceReference.EmployeeBoServiceClient,ServicePoxry">
+        <constructor/>
+        <interceptor type="TransparentProxyInterceptor" />
+        <policyInjection />
+      </register >
+
     </container>
 
   </unity>
