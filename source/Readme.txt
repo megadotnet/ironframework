@@ -12,6 +12,7 @@ recommend install from NuGet
  Moq 
  ASP.NET MVC RTM Tools Update
  WCF Web API 
+ OData
  AutoMapper or higher version
  ASP.NET MVC RTM 
 
@@ -29,14 +30,14 @@ recommend install from NuGet
 -- Development IDE/Tools 
 --------------------------------------------
 
-For Visual Studio 2012/2013 or latest version :
+For Visual Studio 2012/2013/2015 or latest version :
 
 NuGet Package Manager  
 SQL SERVER 2012/2014 
 TestDriven.Net  
 StyleCop   
 AnkhSVN - Subversion Support for Visual Studio 
-Visual Studio2013 Update4
+Visual Studio2013 Update5
 
 
 
