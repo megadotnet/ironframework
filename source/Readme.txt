@@ -11,8 +11,10 @@ recommend install from NuGet
  Newtonsoft.Json 
  Moq 
  ASP.NET MVC RTM Tools Update
- WCF Web API 
- OData
+ WCF 
+ Asp.net Web API 
+ Asp.net Web API OData
+ OData Lib
  AutoMapper or higher version
  ASP.NET MVC RTM 
 
@@ -33,7 +35,7 @@ recommend install from NuGet
 For Visual Studio 2012/2013/2015 or latest version :
 
 NuGet Package Manager  
-SQL SERVER 2012/2014 
+SQL SERVER 2008 R2/2012/2014 
 TestDriven.Net  
 StyleCop   
 AnkhSVN - Subversion Support for Visual Studio 
