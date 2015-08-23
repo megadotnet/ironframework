@@ -23,7 +23,7 @@ namespace DataAccessObject
         #region Public Methods
 
         /// <summary>
-        /// The include.
+        /// The include (EF has same method so we do not need it)
         /// </summary>
         /// <param name="source">
         /// The source.
@@ -36,16 +36,16 @@ namespace DataAccessObject
         /// <returns>
         ///  as queryable entities
         /// </returns>
-        public static IQueryable<T> Include<T>(this IQueryable<T> source, string path)
-        {
-            var objectQuery = source as ObjectQuery<T>;
-            if (objectQuery != null)
-            {
-                return objectQuery.Include(path);
-            }
+        //public static IQueryable<T> Include<T>(this IQueryable<T> source, string path)
+        //{
+        //    var objectQuery = source as ObjectQuery<T>;
+        //    if (objectQuery != null)
+        //    {
+        //        return objectQuery.Include(path);
+        //    }
 
-            return source;
-        }
+        //    return source;
+        //}
 
         /// <summary>
         /// The to paged list.

@@ -325,12 +325,24 @@ namespace <#= code.VsNamespaceSuggestion() #>
 	if(!DoesFileExist(entity.Name + "Repository.cs"))
 	{
 		fileManager.StartNewFile(entity.Name + "Repository.cs");
-		#>using System;
-using System.Linq;
-using System.Collections.Generic;
-	
+		#>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
+//   Copyright (c) 2010-2015 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The <#=code.Escape(entity)#>Repository 
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 namespace <#= code.VsNamespaceSuggestion() #>
 {   
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+	using System.Threading.Tasks;
+    using System.Data.Entity;
+    using System.Collections.Generic;
+
 	<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#>Repository
 	{
 		// Add your own data access methods.
@@ -1009,7 +1021,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         #region Public Methods
 
         /// <summary>
-        /// The include.
+        /// The include (EF has same method so we do not need it)
         /// </summary>
         /// <param name="source">
         /// The source.
@@ -1022,16 +1034,16 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns>
         ///  as queryable entities
         /// </returns>
-        public static IQueryable<T> Include<T>(this IQueryable<T> source, string path)
-        {
-            var objectQuery = source as ObjectQuery<T>;
-            if (objectQuery != null)
-            {
-                return objectQuery.Include(path);
-            }
+        //public static IQueryable<T> Include<T>(this IQueryable<T> source, string path)
+        //{
+        //    var objectQuery = source as ObjectQuery<T>;
+        //    if (objectQuery != null)
+        //    {
+        //        return objectQuery.Include(path);
+        //    }
 
-            return source;
-        }
+        //    return source;
+        //}
 
         /// <summary>
         /// The to paged list.
