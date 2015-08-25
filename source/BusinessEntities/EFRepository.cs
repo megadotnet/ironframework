@@ -94,7 +94,7 @@ namespace DataAccessObject
         /// <returns>
         /// collection of entities
         /// </returns>
-        public virtual IEnumerable<T> All()
+        public virtual IQueryable<T> All()
         {
             return this.ObjectSet.AsQueryable();
         }
