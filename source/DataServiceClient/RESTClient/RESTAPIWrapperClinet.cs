@@ -46,18 +46,17 @@ namespace DataServiceClient
         /// </summary>
         public RESTAPIWrapperClinet()
         {
-            this.URI = ServiceConfig.URI;
+            this.Section = ServiceConfig.SectionName;
         }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RESTAPIWrapperClinet"/> class.
         /// </summary>
-        /// <param name="uRI">
-        /// The u ri.
-        /// </param>
-        public RESTAPIWrapperClinet(string uRI)
+        /// <param name="sectionName">Name of the section.</param>
+        public RESTAPIWrapperClinet(string sectionName)
         {
-            this.URI = uRI;
+            this.Section = sectionName;
         }
 
         #endregion
@@ -70,7 +69,7 @@ namespace DataServiceClient
         /// <value>
         ///     The URI.
         /// </value>
-        public string URI { get; set; }
+        public string Section { get; set; }
 
         #endregion
 
@@ -764,15 +763,14 @@ where TResult : new()
         /// </param>
         private void CreateHttpHeader(HttpClient client)
         {
-            string webapiURI = this.URI;
-            if (string.IsNullOrEmpty(webapiURI))
+            if (string.IsNullOrEmpty(this.Section))
             {
-                throw new ArgumentNullException("REST Service API should not be null");
+                throw new ArgumentNullException("REST Service API config section should not be null");
             }
 
             //http://stackoverflow.com/questions/5792218/encrypt-custom-section-in-web-config-any-improvements-in-net3-5-and-higher
             Hashtable remoteDataSource =
-(Hashtable)WebConfigurationManager.GetSection("remoteDataAPI");
+(Hashtable)WebConfigurationManager.GetSection(this.Section);
             string username = (string)remoteDataSource["username"];
             string password = (string)remoteDataSource["password"];
             string url = (string)remoteDataSource["url"];

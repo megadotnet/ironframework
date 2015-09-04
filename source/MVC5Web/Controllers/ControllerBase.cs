@@ -48,7 +48,7 @@ namespace MVC5Web.Controllers
         /// </summary>
         public BaseWebController()
         {
-            this.webapiURI=ServiceConfig.URI;
+            this.webapiURI=ServiceConfig.SectionName;
         }
 
         #region Wrap REST CRUD method API

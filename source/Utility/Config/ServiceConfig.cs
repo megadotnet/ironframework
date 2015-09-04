@@ -25,6 +25,20 @@
         /// <value>
         /// The mq ip address.
         /// </value>
+        public static string SectionName
+        {
+            get
+            {
+                return configSection["SectionName"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the URI.
+        /// </summary>
+        /// <value>
+        /// The URI.
+        /// </value>
         public static string URI
         {
             get
@@ -34,6 +48,12 @@
         }
 
 
+        /// <summary>
+        /// Gets the access control URI.
+        /// </summary>
+        /// <value>
+        /// The access control URI.
+        /// </value>
         public static string AccessControlURI
         {
             get

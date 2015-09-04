@@ -28,7 +28,7 @@ namespace MvcApp.Tests.Controllers
         public async Task GetEntityTest()
         {
             var controller = new EmployeeController();
-            controller.rESTAPIWrapperClinet = new RESTAPIWrapperClinet(ServiceConfig.URI);
+            controller.rESTAPIWrapperClinet = new RESTAPIWrapperClinet(ServiceConfig.SectionName);
             var results=await controller.Get(1);
 
             var dto=results.Data as EmployeeDto;
@@ -44,7 +44,7 @@ namespace MvcApp.Tests.Controllers
         {
             var controller2 = new EmployeeController();
             controller2.SetFakeAuthenticatedControllerContext();
-            controller2.rESTAPIWrapperClinet = new RESTAPIWrapperClinet(ServiceConfig.URI);
+            controller2.rESTAPIWrapperClinet = new RESTAPIWrapperClinet(ServiceConfig.SectionName);
             var dto = CreateDTO();
             //create
             bool flag = await controller2.Post(dto);

@@ -13,7 +13,7 @@ namespace DataServiceClient
         /// <value>
         ///     The URI.
         /// </value>
-        string URI { get; set; }
+        string Section { get; set; }
 
         /// <summary>
         /// Clients the HTTP get string.

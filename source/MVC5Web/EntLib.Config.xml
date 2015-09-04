@@ -91,7 +91,7 @@
       <register  type="DataServiceClient.IRESTAPIWrapperClinet,DataServiceClient"
              mapTo="DataServiceClient.RESTAPIWrapperClinet,DataServiceClient">
         <constructor>
-          <param name="uRI" value="http://localhost:3956/" />
+          <param name="sectionName" value="remoteDataAPI" />
         </constructor>
         <lifetime type="singleton" />
         <interceptor type="TransparentProxyInterceptor" />
