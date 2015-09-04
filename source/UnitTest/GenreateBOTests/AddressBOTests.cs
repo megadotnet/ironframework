@@ -15,9 +15,27 @@ namespace UnitTest.GenreateBOTests
     using System.Linq.Expressions;
     using System.Collections.Generic;
 	using System.Threading.Tasks;
+    using Xunit;
+    using BusinessObject.Util;
+    using BusinessObject;
+    using DataTransferObject;
+    using DataAccessObject;
 
 	public  partial class AddressBOTests 
 	{
+        /// <summary>
+        /// Tests the get entiy by pk by own.
+        /// </summary>
+        [Fact]
+        public void TestGetEntiyByPKByOwn()
+        {
+            var dbcontext = new AdventureWorksEntities();
+            var dbresults=dbcontext.Employees.Where(cc => cc.EmployeeID == 1);
+
+            Assert.NotNull(dbresults);
+            Assert.NotNull(dbresults.FirstOrDefault());
+            Assert.NotNull(dbresults.FirstOrDefault().NationalIDNumber);
+        }
 
 	}
 }
