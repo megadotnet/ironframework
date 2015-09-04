@@ -22,6 +22,8 @@ namespace DataServiceClient
     using System.ComponentModel.DataAnnotations;
     using Newtonsoft.Json;
     using System.Net.Http.Formatting;
+    using System.Collections;
+    using System.Web.Configuration;
 
     /// <summary>
     ///     RESTAPIWrapperClinet For DTO transfer with Front-end
@@ -768,11 +770,18 @@ where TResult : new()
                 throw new ArgumentNullException("REST Service API should not be null");
             }
 
-            client.BaseAddress = new Uri(webapiURI);
+            //http://stackoverflow.com/questions/5792218/encrypt-custom-section-in-web-config-any-improvements-in-net3-5-and-higher
+            Hashtable remoteDataSource =
+(Hashtable)WebConfigurationManager.GetSection("remoteDataAPI");
+            string username = (string)remoteDataSource["username"];
+            string password = (string)remoteDataSource["password"];
+            string url = (string)remoteDataSource["url"];
+
+            client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //auth
-            client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", SecurityConfig.UserID, SecurityConfig.Password));
+            client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", username, password));
         }
 
         /// <summary>
