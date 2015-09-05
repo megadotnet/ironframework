@@ -91,6 +91,7 @@
       <register  type="DataServiceClient.IRESTAPIWrapperClinet,DataServiceClient"
              mapTo="DataServiceClient.RESTAPIWrapperClinet,DataServiceClient">
         <constructor>
+          <!--remoteDataAPI is sectionName of web.config-->
           <param name="sectionName" value="remoteDataAPI" />
         </constructor>
         <lifetime type="singleton" />
