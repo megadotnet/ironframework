@@ -132,7 +132,7 @@ namespace WebApi2.App_Start
 
             if ((!string.IsNullOrEmpty(user_id)) && (!string.IsNullOrEmpty(password_str)))
             {
-                //You may stored username and password to database
+                //You may store the username and password to database
                 if (user_id == "SystemUser" && password_str == "MUDuoRc612/mHpsVmidUdNDyqfBAylVPwD48hE21I5A=")
                 {
                     isAuthRequest = true;

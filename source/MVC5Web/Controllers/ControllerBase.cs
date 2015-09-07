@@ -33,11 +33,11 @@ namespace MVC5Web.Controllers
         /// <value>
         /// The webapi URI.
         /// </value>
-        public string webapiURI
-        { 
-            get; 
-            set; 
-        }
+        //public string webapiURI
+        //{ 
+        //    get; 
+        //    set; 
+        //}
 
         [Dependency]
         public IRESTAPIWrapperClinet rESTAPIWrapperClinet { get; set; }
@@ -48,7 +48,8 @@ namespace MVC5Web.Controllers
         /// </summary>
         public BaseWebController()
         {
-            this.webapiURI=ServiceConfig.SectionName;
+		    // We may inject from XML files reside with project
+            //this.webapiURI=ServiceConfig.SectionName;
         }
 
         #region Wrap REST CRUD method API
