@@ -8,14 +8,25 @@ using System.Text;
 
 namespace WCFServiceClient
 {
+    /// <summary>
+    /// EmployeeServiceClient
+    /// </summary>
     public class EmployeeServiceClient : ClientBase<IEmployeeBoService>, IEmployeeBoService
     {
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeServiceClient"/> class.
+        /// </summary>
         public EmployeeServiceClient()
             : base()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeServiceClient"/> class.
+        /// </summary>
+        /// <param name="binding">The binding.</param>
+        /// <param name="remoteAddress">The remote address.</param>
         public EmployeeServiceClient(Binding binding, EndpointAddress remoteAddress)
             : base(binding, remoteAddress)
         {
