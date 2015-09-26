@@ -188,7 +188,6 @@
     <Content Include="..\BusinessEntities\DALConfig.xml">
       <Link>DALConfig.xml</Link>
       <DependentUpon>IRepository.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GenSproc.sql">
       <AutoGen>True</AutoGen>
