@@ -19,7 +19,7 @@ using DataTransferObject.Model;
 using DataTransferObject;
 using BusinessObject.Util;
 using IronFramework.Utility.UI;
-using IronFramework.Utility.EntityFramewrok;
+using IronFramework.Common.Data.EntityFramework;
 using Microsoft.Practices.Unity;
 	
 namespace BusinessObject

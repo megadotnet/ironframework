@@ -149,6 +149,10 @@
       <Project>{5e9d240e-1271-4963-9c3f-fdf2f5522ade}</Project>
       <Name>DataAccessObject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
+      <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>
+      <Name>IronFramework.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
       <Name>IronFramework.Utility</Name>

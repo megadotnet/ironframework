@@ -1,4 +1,4 @@
-﻿namespace IronFramework.Common.Data.EntityFramewrok
+﻿namespace IronFramework.Common.Data.EntityFramework
 {
     using System;
     using System.Collections.Generic;

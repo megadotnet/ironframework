@@ -272,6 +272,10 @@
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
+      <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>
+      <Name>IronFramework.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
       <Project>{90CE0470-475D-4D58-98C0-A1D2D86FF266}</Project>
       <Name>ServiceProxy</Name>

@@ -158,6 +158,10 @@
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
+      <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>
+      <Name>IronFramework.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVC5Web\MVC5Web.csproj">
       <Project>{5fd82166-c8c7-4d0a-b1a1-203ddf398a66}</Project>
       <Name>MVC5Web</Name>

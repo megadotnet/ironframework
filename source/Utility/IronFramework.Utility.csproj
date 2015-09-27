@@ -154,7 +154,6 @@
     <Compile Include="Config\SectionHandler.cs" />
     <Compile Include="Config\SecurityConfig.cs" />
     <Compile Include="Config\ServiceConfig.cs" />
-    <Compile Include="EntityFramewrok\PredicateBuilder.cs" />
     <Compile Include="EntLib\Interceptor\CachingBehavior.cs" />
     <Compile Include="EntLib\Interceptor\ExceptionLoggingBehavior.cs" />
     <Compile Include="EntLib\Interceptor\LoggingInterceptor.cs" />
@@ -170,8 +169,6 @@
     <Compile Include="Web\HttpModule\CompressOptions.cs" />
     <Compile Include="Web\HttpModule\CompressWhitespaceFilter.cs" />
     <Compile Include="WCF\CyclicReferencesAwareContractBehavior.cs" />
-    <Compile Include="EntityFramewrok\IEntity.cs" />
-    <Compile Include="EntityFramewrok\StateHelpers.cs" />
     <Compile Include="EntLib\CallHandler\CachingCallHandlerAttribute.cs" />
     <Compile Include="EntLib\Configuration\FileConfigurationSource.cs" />
     <Compile Include="EntLib\Configuration\FileConfigurationSourceElement.cs" />

@@ -179,6 +179,10 @@
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
       <Name>BusinessEntities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
+      <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>
+      <Name>IronFramework.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>

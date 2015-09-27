@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramewrok\IEntity.cs" />
-    <Compile Include="EntityFramewrok\PredicateBuilder.cs" />
-    <Compile Include="EntityFramewrok\StateHelpers.cs" />
+    <Compile Include="EntityFramework\IEntity.cs" />
+    <Compile Include="EntityFramework\PredicateBuilder.cs" />
+    <Compile Include="EntityFramework\StateHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

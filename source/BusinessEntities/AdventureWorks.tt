@@ -22,7 +22,7 @@ foreach (var entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using IronFramework.Utility.EntityFramewrok;
+using IronFramework.Common.Data.EntityFramework;
 
 [DataContract]
 <#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#><#=code.StringBefore(" : ", code.Escape(entity.BaseType))#> : IEntity

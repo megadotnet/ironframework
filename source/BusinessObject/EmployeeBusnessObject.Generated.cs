@@ -14,8 +14,7 @@ namespace BusinessObject
     using BusinessEntities;
 
     using DataAccessObject;
-
-    using IronFramework.Utility.EntityFramewrok;
+    using IronFramework.Common.Data.EntityFramework;
 
     /// <summary>
     /// Employee Business Object
