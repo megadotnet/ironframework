@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "WebApi2\WebApi2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServiceClient", "DataServiceClient\DataServiceClient.csproj", "{87FB76B7-9138-4981-AA38-F85BEEAE905B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Common.Data", "IronFramework.Common.Data\IronFramework.Common.Data.csproj", "{05AB9A19-A841-4023-AB49-F0DF261B0BF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -156,6 +158,10 @@ Global
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05AB9A19-A841-4023-AB49-F0DF261B0BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05AB9A19-A841-4023-AB49-F0DF261B0BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05AB9A19-A841-4023-AB49-F0DF261B0BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05AB9A19-A841-4023-AB49-F0DF261B0BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +187,7 @@ Global
 		{8A550FC8-2CE5-4774-A565-B38899352366} = {25A86981-9091-4D52-B4C6-FA68876FDA23}
 		{46CFD862-718B-47EA-A971-519F5FBE151D} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B} = {841F75D3-AFB0-41B5-9A1F-A389E6A04CF8}
+		{05AB9A19-A841-4023-AB49-F0DF261B0BF9} = {C4C69A57-F9F2-45A5-834D-75D03B6EFA26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.PolicyInjection.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
