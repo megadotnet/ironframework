@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace IronFramework.Utility
 {
+    /// <summary>
+    /// VerifyTransactionSN
+    /// </summary>
     public class VerifyTransactionSN
     {
 
