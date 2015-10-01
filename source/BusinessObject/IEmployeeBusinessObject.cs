@@ -18,9 +18,8 @@ namespace BusinessObject
     using Microsoft.Practices.EnterpriseLibrary.Validation.PolicyInjection;
     using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
-    using IronFramework.Utility.EntLib.CallHandler;
-    using IronFramework.Utility.PolicyInjection.CallHandlers;
     using IronFramework.Utility.UI;
+    using IronFramework.Common.IOC.EntLib.CallHandler;
 
     /// <summary>
     /// The interface of employee business object

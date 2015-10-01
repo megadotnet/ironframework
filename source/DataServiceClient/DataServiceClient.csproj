@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IronFramework.Common.Logging\IronFramework.Common.Logging.csproj">
+      <Project>{7e511144-7fa1-47c7-909a-e5331a186809}</Project>
+      <Name>IronFramework.Common.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
       <Name>IronFramework.Utility</Name>

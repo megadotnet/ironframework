@@ -8,10 +8,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace UnitTest.TestUtility
 {
+    using IronFramework.Common.IOC.EntLib.IoC;
     using System;
     using System.IO;
     using System.Web;
-    using IronFramework.Utility.EntLib.IoC;
     using Xunit;
 
     /// <summary>

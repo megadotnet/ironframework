@@ -10,7 +10,6 @@ namespace UnitTest.TestUtility
 {
     using System;
     using IronFramework.Utility.UI;
-    using IronFramework.Utility.EntLib.IoC;
     using Xunit;
     using System.Web.Mvc;
     using Microsoft.Practices.Unity;
@@ -19,56 +18,56 @@ namespace UnitTest.TestUtility
     /// <summary>
     /// TestUnityDependencyResolver
     /// </summary>
-    public class TestUnityDependencyResolver
-    {
+   // public class TestUnityDependencyResolver
+   // {
         /// <summary>
         /// Tests the get service from dependency resolver.
         /// </summary>
-        [Fact]
-        public void TestGetServiceFromDependencyResolver()
-        {
-            //arrange
-            IUnityContainer container = InitialUnityContainer();
-            IDependencyResolver dependencyResolver = new UnityDependencyResolver(container);
+        //[Fact]
+        //public void TestGetServiceFromDependencyResolver()
+        //{
+        //    //arrange
+        //    IUnityContainer container = InitialUnityContainer();
+        //    IDependencyResolver dependencyResolver = new UnityDependencyResolver(container);
 
-            //act
-            var controllerActivator = dependencyResolver.GetService<IControllerActivator>();
+        //    //act
+        //    var controllerActivator = dependencyResolver.GetService<IControllerActivator>();
        
-            //assert
-            Assert.NotNull(controllerActivator);
-        }
+        //    //assert
+        //    Assert.NotNull(controllerActivator);
+        //}
 
-        [Fact]
-        public void TestCreateContronllerFromCustomControllerActivatorWithUnity()
-        {
-            //arrange
-            IUnityContainer container = InitialUnityContainer();
-            IDependencyResolver dependencyResolver = new UnityDependencyResolver(container);
+        //[Fact]
+        //public void TestCreateContronllerFromCustomControllerActivatorWithUnity()
+        //{
+        //    //arrange
+        //    IUnityContainer container = InitialUnityContainer();
+        //    IDependencyResolver dependencyResolver = new UnityDependencyResolver(container);
 
-            //act
-            var controllerActivator = dependencyResolver.GetService<IControllerActivator>();
-            var requestContext = new RequestContext();
-            var controller = controllerActivator.Create(requestContext, typeof(TestingController));
+        //    //act
+        //    var controllerActivator = dependencyResolver.GetService<IControllerActivator>();
+        //    var requestContext = new RequestContext();
+        //    var controller = controllerActivator.Create(requestContext, typeof(TestingController));
 
-            //assert
-            Assert.NotNull(controllerActivator);
-            Assert.NotNull(controller);
-            Assert.IsType<TestingController>(controller);
-        }
+        //    //assert
+        //    Assert.NotNull(controllerActivator);
+        //    Assert.NotNull(controller);
+        //    Assert.IsType<TestingController>(controller);
+        //}
 
         /// <summary>
         /// Gets the unity container.
         /// </summary>
         /// <returns></returns>
-        private IUnityContainer InitialUnityContainer()
-        {
-            var container = new UnityContainer()
-                .RegisterType<IControllerActivator, CustomControllerActivator>()
-                .RegisterType<IController, TestingController>();
+        //private IUnityContainer InitialUnityContainer()
+        //{
+        //    var container = new UnityContainer()
+        //        .RegisterType<IControllerActivator, CustomControllerActivator>()
+        //        .RegisterType<IController, TestingController>();
 
-            return container;
-        }
-    }
+        //    return container;
+        //}
+    //}
 
     /// <summary>
     /// Unit test object

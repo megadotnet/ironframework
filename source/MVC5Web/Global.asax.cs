@@ -1,5 +1,4 @@
 ﻿using BoService;
-using IronFramework.Utility.EntLib.IoC;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
