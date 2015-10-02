@@ -25,6 +25,7 @@ namespace DataServiceClient
     using System.Collections;
     using System.Web.Configuration;
     using IronFramework.Common.Logging.Logger;
+    using IronFramework.Common.Config;
 
     /// <summary>
     ///     RESTAPIWrapperClinet For DTO transfer with Front-end

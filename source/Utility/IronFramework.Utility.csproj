@@ -150,10 +150,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\BaseConfig.cs" />
-    <Compile Include="Config\SectionHandler.cs" />
-    <Compile Include="Config\SecurityConfig.cs" />
-    <Compile Include="Config\ServiceConfig.cs" />
     <Compile Include="Security\VerifyTransactionSN.cs" />
     <Compile Include="TypeAdapter.cs" />
     <Compile Include="UI\PagedListViewModel.cs" />

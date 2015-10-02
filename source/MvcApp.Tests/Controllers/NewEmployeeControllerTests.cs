@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Extensions;
 using MvcApp.Tests.Controllers;
+using IronFramework.Common.Config;
 
 namespace MvcApp.Tests.Controllers
 {
