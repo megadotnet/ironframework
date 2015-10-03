@@ -110,15 +110,16 @@
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register>
-    
-       <register  type="BusinessObject.IAddressBO, BusinessObject" 
-                  mapTo="BusinessObject.AddressBO, BusinessObject">
-        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IAddressBO, BusinessObject]], IronFramework.Utility" />
+
+      <!--Generate by T4 template-->
+      <register  type="BusinessObject.IAddressBO, BusinessObject"
+                 mapTo="BusinessObject.AddressBO, BusinessObject">
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IAddressBO, BusinessObject]], IronFramework.Common.IOC" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
 
-	    <register  type="BusinessObject.Util.IAddressConverter, BusinessObject"
+      <register  type="BusinessObject.Util.IAddressConverter, BusinessObject"
              mapTo="BusinessObject.Util.AddressConverter, BusinessObject">
         <lifetime type="singleton" />
         <constructor/>
@@ -127,14 +128,14 @@
       </register >
 
 
-       <register  type="BusinessObject.IContactBO, BusinessObject" 
-                  mapTo="BusinessObject.ContactBO, BusinessObject">
-        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], IronFramework.Utility" />
+      <register  type="BusinessObject.IContactBO, BusinessObject"
+                 mapTo="BusinessObject.ContactBO, BusinessObject">
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], IronFramework.Common.IOC" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
 
-	    <register  type="BusinessObject.Util.IContactConverter, BusinessObject"
+      <register  type="BusinessObject.Util.IContactConverter, BusinessObject"
              mapTo="BusinessObject.Util.ContactConverter, BusinessObject">
         <lifetime type="singleton" />
         <constructor/>
@@ -143,14 +144,14 @@
       </register >
 
 
-       <register  type="BusinessObject.IEmployeeBO, BusinessObject" 
-                  mapTo="BusinessObject.EmployeeBO, BusinessObject">
-        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], IronFramework.Utility" />
+      <register  type="BusinessObject.IEmployeeBO, BusinessObject"
+                 mapTo="BusinessObject.EmployeeBO, BusinessObject">
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], IronFramework.Common.IOC" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
 
-	    <register  type="BusinessObject.Util.IEmployeeConverter, BusinessObject"
+      <register  type="BusinessObject.Util.IEmployeeConverter, BusinessObject"
              mapTo="BusinessObject.Util.EmployeeConverter, BusinessObject">
         <lifetime type="singleton" />
         <constructor/>
@@ -159,14 +160,14 @@
       </register >
 
 
-       <register  type="BusinessObject.IEmployeePayHistoryBO, BusinessObject" 
-                  mapTo="BusinessObject.EmployeePayHistoryBO, BusinessObject">
-        <lifetime type="IronFramework.Utility.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], IronFramework.Utility" />
+      <register  type="BusinessObject.IEmployeePayHistoryBO, BusinessObject"
+                 mapTo="BusinessObject.EmployeePayHistoryBO, BusinessObject">
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], IronFramework.Common.IOC" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
 
-	    <register  type="BusinessObject.Util.IEmployeePayHistoryConverter, BusinessObject"
+      <register  type="BusinessObject.Util.IEmployeePayHistoryConverter, BusinessObject"
              mapTo="BusinessObject.Util.EmployeePayHistoryConverter, BusinessObject">
         <lifetime type="singleton" />
         <constructor/>
