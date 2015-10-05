@@ -130,8 +130,60 @@ namespace IronFramework.Utility
 
             return Hex(md5.ComputeHash(Encoding.ASCII.GetBytes(dt.ToString("MMddHHmmss") + GetNewGuid()))).Substring(0, 30).ToUpper();
 
-        } 
+        }
 
+        /// <summary>
+        /// Generates the Variant hash string.
+        /// </summary>
+        /// <param name="workFactor">The work factor.</param>
+        /// <param name="contextString">The context string.</param>
+        /// <returns>
+        /// Hash string
+        /// </returns>
+        /// <see cref="http://codahale.com/how-to-safely-store-a-password/" />
+        /// <seealso cref="http://bcrypt.codeplex.com/" />
+        /// <example>
+        ///   <code>
+        /// public void BCryptTest()
+        /// {
+        /// const string password = "PASSWORD";
+        /// const int workFactor = 13;
+        /// var start = DateTime.UtcNow;
+        /// var hashed = BCrypt.Net.BCrypt.HashPassword(password, workFactor);
+        /// var end = DateTime.UtcNow;
+        /// Console.WriteLine("hash length is {0} chars", hashed.Length);
+        /// Console.WriteLine("Processing time is {0} with workFactor {1}", end - start, workFactor);
+        /// Console.WriteLine("Hashed password: {0} ", hashed);
+        /// Console.WriteLine("correct password {0}", BCrypt.Net.BCrypt.Verify("PASSWORD", hashed));
+        /// Console.WriteLine("incorrect password {0}", BCrypt.Net.BCrypt.Verify("PASSWORd", hashed));
+        /// }
+        /// </code>
+        /// </example>
+        public static string GenerateVariantHashString(string contextString,int workFactor=13)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(contextString, workFactor);
+        }
+
+        /// <summary>
+        /// Generates the variant hash string.
+        /// </summary>
+        /// <param name="contextString">The context string.</param>
+        /// <returns></returns>
+        public static string GenerateVariantHashString(string contextString)
+        {
+            return GenerateVariantHashString(contextString, 13);
+        }
+
+        /// <summary>
+        /// Verifies the variant hash.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="hash">The hash.</param>
+        /// <returns></returns>
+        public static bool VerifyVariantHash(string text, string hash)
+        {
+            return BCrypt.Net.BCrypt.Verify(text, hash);
+        }
 
     }
 }

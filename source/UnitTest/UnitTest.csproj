@@ -229,6 +229,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Infrastructure\RESTAPIWrapperClinetTests.cs" />
+    <Compile Include="Infrastructure\SecurityTest.cs" />
     <Compile Include="Lib\Http\HttpWebService.cs" />
     <Compile Include="Service\RESTServiceTest.cs" />
     <Compile Include="Infrastructure\TestCutCrossingConcerns.cs" />
