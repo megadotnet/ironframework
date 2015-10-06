@@ -26,6 +26,7 @@ namespace DataServiceClient
     using System.Web.Configuration;
     using IronFramework.Common.Logging.Logger;
     using IronFramework.Common.Config;
+    using System.Security.Cryptography;
 
     /// <summary>
     ///     RESTAPIWrapperClinet For DTO transfer with Front-end
@@ -415,10 +416,15 @@ where TResult : new()
                 this.CreateHttpHeader(client);
 
                 string entityname = GetAPIControllerName<TQueryDto>();
+                string date = DateTime.UtcNow.ToString("u");
+                string querystring = this.GetQueryString(query,null);
+                string routingUrl = string.Format("api/{0}/{1}/", entityname, partialURI);
+                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
+                string token = ComputeHash("password", message);
+                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
+                client.DefaultRequestHeaders.Add("Timestamp", date);
 
-                string querystring = this.GetQueryString(query);
-                string routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
-                                    + VerifyTransactionSN.GenerateRandomInt();
+                routingUrl = routingUrl + "?" + querystring;
 
                 // ?pageindex=1&pagesize=10
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
@@ -508,16 +514,21 @@ where TResult : new()
 
                 string entityname = GetAPIControllerName<QueryDto>();
 
+                string date = DateTime.UtcNow.ToString("u");
                 string querystring = queryString;
-
-                string routingUrl = string.Format("api/{0}/?{1}", entityname, querystring) + "&random="
-                         + VerifyTransactionSN.GenerateRandomInt();
-
+                string routingUrl = string.Format("/api/{0}/", entityname);
                 if (!string.IsNullOrEmpty(partialURI))
                 {
-                    routingUrl = string.Format("api/{0}/{1}/?{2}", entityname, partialURI, querystring) + "&random="
-                        + VerifyTransactionSN.GenerateRandomInt();
+                    routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
                 }
+
+                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
+                string token = ComputeHash("password", message);
+                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
+                client.DefaultRequestHeaders.Add("Timestamp", date);
+
+
+                routingUrl = routingUrl + "?" + querystring;
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
                 log.DebugFormat("请求 {2} URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode, response.RequestMessage.Method.Method);
@@ -793,20 +804,40 @@ where TResult : new()
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        public string GetQueryString(object obj)
+        public string GetQueryString(object obj,IList<KeyValuePair<string, string>> querystrings)
         {
             if (obj != null)
             {
-                IEnumerable<string> properties = from p in obj.GetType().GetProperties()
+                var parameterCollection = new List<KeyValuePair<string, string>>();
+                var properties = from p in obj.GetType().GetProperties()
                                                  where
                                                      p.GetValue(obj, null) != null
                                                      && p.CustomAttributes.All(
                                                          attc => attc.AttributeType != typeof(KeyAttribute))
+                                                 orderby p.Name
                                                  select
-                                                     p.Name + "="
-                                                     + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString());
+                                                    new KeyValuePair<string, string>(p.Name, HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
 
-                return string.Join("&", properties.ToArray());
+                parameterCollection.AddRange(properties);
+
+                if (querystrings!=null)
+                    parameterCollection.AddRange(querystrings);
+
+                var keyValueStrings = parameterCollection.OrderBy(cc => cc.Key).Select(pair => string.Format("{0}={1}", pair.Key, pair.Value));
+
+                return string.Join("&", keyValueStrings);
+
+                //IEnumerable<string> properties = from p in obj.GetType().GetProperties()
+                //                                 where
+                //                                     p.GetValue(obj, null) != null
+                //                                     && p.CustomAttributes.All(
+                //                                         attc => attc.AttributeType != typeof(KeyAttribute))
+                //                                         orderby p.Name
+                //                                 select
+                //                                     p.Name + "="
+                //                                     + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString());
+
+                //return string.Join("&", properties.ToArray());
             }
             return string.Empty;
         }
@@ -920,6 +951,20 @@ where TResult : new()
         } 
         #endregion
 
+
+        private static string ComputeHash(string hashedPassword, string message)
+        {
+            var key = Encoding.UTF8.GetBytes(hashedPassword.ToUpper());
+            string hashString;
+
+            using (var hmac = new HMACSHA256(key))
+            {
+                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
+                hashString = Convert.ToBase64String(hash);
+            }
+
+            return hashString;
+        }
      
     }
 }

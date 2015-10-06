@@ -23,6 +23,7 @@ using System.Web.Http.Filters;
     /// <summary>
     /// a interface of data acccess repository.
     /// </summary>
+    [Authenticate]
     public class BaseWebAPIController : ApiController
     {
         #region Public Methods

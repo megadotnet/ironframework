@@ -11,13 +11,14 @@
 
 namespace MVC5Web.Controllers
 {
-     using DataServiceClient;
+    using DataServiceClient;
     using IronFramework.Utility;
     using Microsoft.Practices.Unity;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Web;
     using System.Web.Mvc;
 
     /// <summary>
@@ -246,7 +247,17 @@ namespace MVC5Web.Controllers
         /// <returns></returns>
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(Query query, string queryString) where TResult : new()
         {
-            string querystringCombine = rESTAPIWrapperClinet.GetQueryString(query) + queryString;
+            var nameValueCollection = HttpUtility.ParseQueryString(queryString);
+            var parameterCollection = new List<KeyValuePair<string, string>>();
+           foreach (var key in nameValueCollection.AllKeys)
+           {
+               var value = nameValueCollection[key];
+               var pair = new KeyValuePair<string, string>(key, HttpUtility.UrlEncode(value));
+
+               parameterCollection.Add(pair);
+           }
+
+           string querystringCombine = rESTAPIWrapperClinet.GetQueryString(query, parameterCollection);
             return await rESTAPIWrapperClinet.ClientHTTPGetList<TResult, Query>(querystringCombine);
         }
 

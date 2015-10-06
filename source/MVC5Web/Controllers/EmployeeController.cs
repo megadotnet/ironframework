@@ -40,7 +40,7 @@ namespace MVC5Web.Controllers
      
             pageIndex = page.HasValue ? page.Value : 1;
             
-            pageQueryString = string.Format("&pageIndex={0}&pageSize={1}", pageIndex, pageSize);
+            pageQueryString = string.Format("pageIndex={0}&pageSize={1}", pageIndex, pageSize);
             var dbresults = await ClientHTTPGetList<EasyuiDatagridData<EmployeeDto>, EmployeeDto>(new EmployeeDto(), pageQueryString);
 
             if (Request.IsAjaxRequest())

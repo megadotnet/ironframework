@@ -1,5 +1,6 @@
 namespace DataServiceClient
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -369,6 +370,6 @@ where TResult : new();
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <returns></returns>
-        string GetQueryString(object obj);
+        string GetQueryString(object obj,IList<KeyValuePair<string, string>> querystrings);
     }
 }
