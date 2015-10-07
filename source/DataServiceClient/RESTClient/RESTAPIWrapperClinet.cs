@@ -218,18 +218,19 @@ namespace DataServiceClient
                 string entityname = typeof(TResult).Name;
                 entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
 
-                string routingUrl = string.Empty;
+          
 
-                if (string.IsNullOrEmpty(customURL))
+                string date = DateTime.UtcNow.ToString("u");
+                string querystring = "";
+                string routingUrl = string.Format("/api/{0}/{1}", entityname,id);
+                if (!string.IsNullOrEmpty(customURL))
                 {
-                    routingUrl = string.Format("api/{0}/{1}", entityname, id);
+                    routingUrl = string.Format("/api/{0}/{1}/{2}", entityname, customURL, id);
                 }
-                else
-                {
-                    routingUrl = string.Format("api/{0}/{1}/{2}", entityname, customURL, id);
-                }
-
-                routingUrl += "/?" + VerifyTransactionSN.GenerateRandomInt();
+                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
+                string token = ComputeHash("password", message);
+                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
+                client.DefaultRequestHeaders.Add("Timestamp", date);
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl);
 
@@ -419,7 +420,7 @@ where TResult : new()
                 string date = DateTime.UtcNow.ToString("u");
                 string querystring = this.GetQueryString(query,null);
                 string routingUrl = string.Format("api/{0}/{1}/", entityname, partialURI);
-                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
+                string message = string.Join("\n", HttpMethod.Get, date, routingUrl.ToLower(), querystring);
                 string token = ComputeHash("password", message);
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
                 client.DefaultRequestHeaders.Add("Timestamp", date);
@@ -521,8 +522,7 @@ where TResult : new()
                 {
                     routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
                 }
-
-                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
+                string message = string.Join("\n", HttpMethod.Get, date, routingUrl.ToLower(), querystring);
                 string token = ComputeHash("password", message);
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
                 client.DefaultRequestHeaders.Add("Timestamp", date);
@@ -925,7 +925,7 @@ where TResult : new()
             {
                 this.CreateHttpHeader(client);
 
-                // HTTP PUT
+                // HTTP POST
                 string entityname = typeof(T).Name;
                 int dtoindex = entityname.IndexOf("Dto");
 
@@ -934,14 +934,20 @@ where TResult : new()
                     entityname = entityname.Substring(0, dtoindex);
                 }
 
-                string routingUrl = "api/" + entityname;
-
+                string date = DateTime.UtcNow.ToString("u");
+                string querystring = "";
+                string routingUrl = string.Format("/api/{0}/", entityname);
                 if (!string.IsNullOrEmpty(customURL))
                 {
-                    routingUrl += "/" + customURL;
+                    routingUrl = string.Format("/api/{0}/{1}/", entityname, customURL);
                 }
 
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
+                string message = string.Join("\n", HttpMethod.Post, date, routingUrl.ToLower(), querystring);
+                string token = ComputeHash("password", message);
+                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
+                client.DefaultRequestHeaders.Add("Timestamp", date);
+
+              
                 HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
 
                 var results = new ReturnObject();
