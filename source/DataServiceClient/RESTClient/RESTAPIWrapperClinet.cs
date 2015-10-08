@@ -227,10 +227,8 @@ namespace DataServiceClient
                 {
                     routingUrl = string.Format("/api/{0}/{1}/{2}", entityname, customURL, id);
                 }
-                string message = string.Join("\n", "GET", date, routingUrl.ToLower(), querystring);
-                string token = ComputeHash("password", message);
-                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
-                client.DefaultRequestHeaders.Add("Timestamp", date);
+
+                CreateAuthenticationHeader(client, date, querystring, routingUrl,HttpMethod.Get);
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl);
 
@@ -522,10 +520,8 @@ where TResult : new()
                 {
                     routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
                 }
-                string message = string.Join("\n", HttpMethod.Get, date, routingUrl.ToLower(), querystring);
-                string token = ComputeHash("password", message);
-                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
-                client.DefaultRequestHeaders.Add("Timestamp", date);
+
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
 
 
                 routingUrl = routingUrl + "?" + querystring;
@@ -942,10 +938,7 @@ where TResult : new()
                     routingUrl = string.Format("/api/{0}/{1}/", entityname, customURL);
                 }
 
-                string message = string.Join("\n", HttpMethod.Post, date, routingUrl.ToLower(), querystring);
-                string token = ComputeHash("password", message);
-                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
-                client.DefaultRequestHeaders.Add("Timestamp", date);
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
 
               
                 HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
@@ -954,10 +947,36 @@ where TResult : new()
                 results = await ReadAsObject(response, results);
                 return results;
             }
+        }
+
+        /// <summary>
+        /// Creates the authentication header.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="date">The date.</param>
+        /// <param name="querystring">The querystring.</param>
+        /// <param name="routingUrl">The routing URL.</param>
+        private void CreateAuthenticationHeader(HttpClient client, string date, string querystring, string routingUrl, HttpMethod httpMethod)
+        {
+            string message = string.Join("\n", httpMethod.Method, date, routingUrl.ToLower(), querystring);
+
+            Hashtable remoteDataSource =
+(Hashtable)WebConfigurationManager.GetSection(this.Section);
+            string password = (string)remoteDataSource["password"];
+
+            string token = ComputeHash(password, message);
+            client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
+            client.DefaultRequestHeaders.Add("Timestamp", date);
         } 
         #endregion
 
 
+        /// <summary>
+        /// Computes the hash.
+        /// </summary>
+        /// <param name="hashedPassword">The hashed password.</param>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
         private static string ComputeHash(string hashedPassword, string message)
         {
             var key = Encoding.UTF8.GetBytes(hashedPassword.ToUpper());

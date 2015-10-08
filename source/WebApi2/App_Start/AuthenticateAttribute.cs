@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObject.Auth;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;

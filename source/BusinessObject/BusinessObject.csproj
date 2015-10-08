@@ -113,6 +113,8 @@
     <Compile Include="AddressBO.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Auth\AccountRepository.cs" />
+    <Compile Include="Auth\IAccountRepository.cs" />
     <Compile Include="BLLCustom.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -228,6 +230,10 @@
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Config\IronFramework.Common.Config.csproj">
+      <Project>{3140ad4f-b33d-421d-b8ef-25ea384e8c76}</Project>
+      <Name>IronFramework.Common.Config</Name>
     </ProjectReference>
     <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
       <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>

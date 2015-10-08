@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApi2
+namespace BusinessObject.Auth
 {
     public interface IAccountRepository
     {
