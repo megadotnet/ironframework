@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
     <Compile Include="Controllers\WebAPIWCFTests.cs" />
+    <Compile Include="WebAPIAuthTesting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -197,6 +198,10 @@
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.Config\IronFramework.Common.Config.csproj">
+      <Project>{3140ad4f-b33d-421d-b8ef-25ea384e8c76}</Project>
+      <Name>IronFramework.Common.Config</Name>
     </ProjectReference>
     <ProjectReference Include="..\IronFramework.Common.Data\IronFramework.Common.Data.csproj">
       <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>

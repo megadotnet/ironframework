@@ -417,11 +417,9 @@ where TResult : new()
                 string entityname = GetAPIControllerName<TQueryDto>();
                 string date = DateTime.UtcNow.ToString("u");
                 string querystring = this.GetQueryString(query,null);
-                string routingUrl = string.Format("api/{0}/{1}/", entityname, partialURI);
-                string message = string.Join("\n", HttpMethod.Get, date, routingUrl.ToLower(), querystring);
-                string token = ComputeHash("password", message);
-                client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", "password", token));
-                client.DefaultRequestHeaders.Add("Timestamp", date);
+                string routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
+
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
 
                 routingUrl = routingUrl + "?" + querystring;
 
