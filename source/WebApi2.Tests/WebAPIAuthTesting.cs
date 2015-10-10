@@ -1,4 +1,5 @@
 ﻿using IronFramework.Common.Config;
+using IronFramework.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -38,8 +39,8 @@ namespace WebApi2.Tests
 
                 string message = string.Join("\n", methodType, date, uri.ToLower(), querystring);
 
-               
-                string token = ComputeHash(SecurityConfig.Password, message);
+
+                string token = VerifyTransactionSN.ComputeHash(SecurityConfig.Password, message);
                 Console.WriteLine(token);
                 // token = "ppj7m0bW4feYueB770wEb8t+wds/09Gy7ZONlbLTxes=";
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", SecurityConfig.Password, token));
@@ -80,7 +81,7 @@ namespace WebApi2.Tests
                 string querystring = "";
 
                 string message = string.Join("\n", methodType, date, uri.ToLower(), querystring);
-                string token = ComputeHash(SecurityConfig.Password, message);
+                string token = VerifyTransactionSN.ComputeHash(SecurityConfig.Password, message);
                 Console.WriteLine(token);
 
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", SecurityConfig.Password, token));
@@ -115,7 +116,7 @@ namespace WebApi2.Tests
                 string querystring = GetQueryString(postmodel, null);
 
                 string message = string.Join("\n", methodType, date, uri.ToLower(), querystring);
-                string token = ComputeHash(SecurityConfig.Password, message);
+                string token = VerifyTransactionSN.ComputeHash(SecurityConfig.Password, message);
                 Console.WriteLine(token);
 
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", SecurityConfig.Password, token));
@@ -130,20 +131,6 @@ namespace WebApi2.Tests
 
         }
 
-
-        private static string ComputeHash(string hashedPassword, string message)
-        {
-            var key = Encoding.UTF8.GetBytes(hashedPassword.ToUpper());
-            string hashString;
-
-            using (var hmac = new HMACSHA256(key))
-            {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
-                hashString = Convert.ToBase64String(hash);
-            }
-
-            return hashString;
-        }
 
 
         public string GetQueryString(object obj, IList<KeyValuePair<string, string>> querystrings)

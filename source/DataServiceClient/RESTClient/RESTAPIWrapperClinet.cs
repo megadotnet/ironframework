@@ -962,32 +962,14 @@ where TResult : new()
 (Hashtable)WebConfigurationManager.GetSection(this.Section);
             string password = (string)remoteDataSource["password"];
 
-            string token = ComputeHash(password, message);
+            string token = VerifyTransactionSN.ComputeHash(password, message);
             client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
             client.DefaultRequestHeaders.Add("Timestamp", date);
         } 
         #endregion
 
 
-        /// <summary>
-        /// Computes the hash.
-        /// </summary>
-        /// <param name="hashedPassword">The hashed password.</param>
-        /// <param name="message">The message.</param>
-        /// <returns></returns>
-        private static string ComputeHash(string hashedPassword, string message)
-        {
-            var key = Encoding.UTF8.GetBytes(hashedPassword.ToUpper());
-            string hashString;
 
-            using (var hmac = new HMACSHA256(key))
-            {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
-                hashString = Convert.ToBase64String(hash);
-            }
-
-            return hashString;
-        }
      
     }
 }
