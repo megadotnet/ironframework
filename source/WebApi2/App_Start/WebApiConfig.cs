@@ -30,6 +30,9 @@ namespace WebApi2
              HttpContext.Current.Server.MapPath("~/App_Data/WebApi2.XML")));
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+
+            //http://stackoverflow.com/a/9521363
+            FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AuthenticateAttribute.cs" company="">
+// <copyright file="AuthenticateAttribute.cs" company="Megadotnet">
 //   AuthenticateAttribute
 // </copyright>
 // <summary>
