@@ -1,4 +1,5 @@
-﻿using IronFramework.Common.Config;
+﻿using DataServiceClient;
+using IronFramework.Common.Config;
 using IronFramework.Utility;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace WebApi2.Tests
 {
     public class WebAPIAuthTesting
     {
+        private IRESTAPIWrapperClinet restclient = new RESTAPIWrapperClinet();
+
         /// <summary>
         /// Tests the client.
         /// </summary>
@@ -24,7 +27,7 @@ namespace WebApi2.Tests
         /// <seealso cref="http://stackoverflow.com/questions/27361358/dealing-with-long-bearer-tokens-from-webapi-by-providing-a-surrogate-token"/>
         /// <seealso cref="http://www.jayway.com/2012/03/13/httpclient-makes-get-and-post-very-simple/"/>
         [Fact]
-        public async Task TestClient()
+        public async Task TestWithHttpClient()
         {
             using (var client = new HttpClient())
             {
@@ -64,7 +67,7 @@ namespace WebApi2.Tests
         }
 
         [Fact]
-        public async Task TestClientPost()
+        public async Task TestHttpClientPost()
         {
             using (var client = new HttpClient())
             {
@@ -113,7 +116,7 @@ namespace WebApi2.Tests
                 string methodType = "POST";
                 var postmodel = new OurModel { CityShortName = "文山", IcaoCode = "ZPPP" };
 
-                string querystring = GetQueryString(postmodel, null);
+                string querystring = restclient.GetQueryString(postmodel, null);
 
                 string message = string.Join("\n", methodType, date, uri.ToLower(), querystring);
                 string token = VerifyTransactionSN.ComputeHash(SecurityConfig.Password, message);
@@ -131,59 +134,6 @@ namespace WebApi2.Tests
 
         }
 
-
-
-        public string GetQueryString(object obj, IList<KeyValuePair<string, string>> querystrings)
-        {
-            if (obj != null)
-            {
-                var parameterCollection = new List<KeyValuePair<string, string>>();
-                var properties = from p in obj.GetType().GetProperties()
-                                 where
-                                     p.GetValue(obj, null) != null
-                                     && p.CustomAttributes.All(
-                                         attc => attc.AttributeType != typeof(KeyAttribute))
-                                 orderby p.Name
-                                 select
-                                    new KeyValuePair<string, string>(p.Name, HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
-
-                parameterCollection.AddRange(properties);
-
-                if (querystrings != null)
-                    parameterCollection.AddRange(querystrings);
-
-                var keyValueStrings = parameterCollection.OrderBy(cc => cc.Key).Select(pair => string.Format("{0}={1}", pair.Key, pair.Value));
-
-                return string.Join("&", keyValueStrings);
-
-                //IEnumerable<string> properties = from p in obj.GetType().GetProperties()
-                //                                 where
-                //                                     p.GetValue(obj, null) != null
-                //                                     && p.CustomAttributes.All(
-                //                                         attc => attc.AttributeType != typeof(KeyAttribute))
-                //                                         orderby p.Name
-                //                                 select
-                //                                     p.Name + "="
-                //                                     + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString());
-
-                //return string.Join("&", properties.ToArray());
-            }
-            return string.Empty;
-        }
-
-
-        private string CreateToken(string message, string secret)
-        {
-            secret = secret ?? "";
-            var encoding = new System.Text.ASCIIEncoding();
-            byte[] keyByte = encoding.GetBytes(secret);
-            byte[] messageBytes = encoding.GetBytes(message);
-            using (var hmacsha256 = new HMACSHA256(keyByte))
-            {
-                byte[] hashmessage = hmacsha256.ComputeHash(messageBytes);
-                return Convert.ToBase64String(hashmessage);
-            }
-        }
 
 
         public class OurModel
