@@ -1,8 +1,10 @@
 ﻿using DataServiceClient;
 using IronFramework.Common.Config;
 using IronFramework.Utility;
+using Moq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Http;
@@ -11,13 +13,16 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Controllers;
+using System.Web.Mvc;
+using System.Web.Routing;
 using Xunit;
 
 namespace WebApi2.Tests
 {
     public class WebAPIAuthTesting
     {
-        private IRESTAPIWrapperClinet restclient = new RESTAPIWrapperClinet();
+        private IRESTAPIWrapperClinet restclient = new RESTAPIWrapperClinet("http://localhost:3956/");
 
         /// <summary>
         /// Tests the client.
@@ -132,6 +137,31 @@ namespace WebApi2.Tests
                 Assert.True(response.IsSuccessStatusCode);
             };
 
+        }
+   
+
+        [Fact]
+        public void should_not_be_able_to_continue_if_the_employee_id_is_a_group()
+        {
+            // Mock out the context to run the action filter.
+            var header = new Mock<HttpRequestHeaders>();
+            
+            var request = new Mock<HttpRequestMessage>();
+            request.Setup(r => r.Headers).Returns(header.Object);
+
+            var routeData = new RouteData(); //
+            routeData.Values.Add("employeeId", "123");
+
+            var actionExecutedContext = new Mock<HttpActionContext>();
+            actionExecutedContext.SetupGet(c => c.Request).Returns(request.Object);
+
+            var filter = new AuthenticateAttribute();
+
+            filter.OnActionExecuting(actionExecutedContext.Object);
+
+            // Assert
+            //Assert.That(actionExecutedContext.Object.Result, Is.InstanceOfType(typeof(ContentResult)));
+            //Assert.That((actionExecutedContext.Object.Result as ContentResult).Content, Is.EqualTo(filter.HtmlResultString));
         }
 
 
