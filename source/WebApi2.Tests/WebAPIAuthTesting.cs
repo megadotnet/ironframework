@@ -3,6 +3,7 @@ using IronFramework.Common.Config;
 using IronFramework.Utility;
 using Moq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -13,9 +14,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Http.Controllers;
 using System.Web.Mvc;
 using System.Web.Routing;
+using WebApi2.Controllers;
 using Xunit;
 
 namespace WebApi2.Tests
@@ -96,7 +99,7 @@ namespace WebApi2.Tests
 
                 string routingUrl = uri + "?" + querystring;
 
-                var postmodel = new OurModel { CityShortName = "文山", IcaoCode = "ZPPP" };
+                var postmodel = new CityModel { CityShortName = "文山", IcaoCode = "ZPPP" };
 
                 var response = await client.PostAsJsonAsync(uri, postmodel);
                 Assert.True(response.IsSuccessStatusCode);
@@ -110,6 +113,19 @@ namespace WebApi2.Tests
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:3956/");
+
+                Hashtable remoteDataSource =
+(Hashtable)WebConfigurationManager.GetSection("remoteDataAPI");
+                string username = (string)remoteDataSource["username"];
+                string password = (string)remoteDataSource["password"];
+                string url = (string)remoteDataSource["url"];
+
+
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //auth
+                client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", username, password));
+
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 string date = DateTime.UtcNow.ToString("u");
@@ -119,13 +135,13 @@ namespace WebApi2.Tests
                 // HTTP GET
                 string uri = "/api/Values/PostCity";
                 string methodType = "POST";
-                var postmodel = new OurModel { CityShortName = "文山", IcaoCode = "ZPPP" };
+                var postmodel = new CityModel { CityShortName = "文山", IcaoCode = "ZPPP" };
 
                 string querystring = restclient.GetQueryString(postmodel, null);
 
                 string message = string.Join("\n", methodType, date, uri.ToLower(), querystring);
                 string token = VerifyTransactionSN.ComputeHash(SecurityConfig.Password, message);
-                Console.WriteLine(token);
+                Console.WriteLine("message:{0} token:{1}", message,token);
 
                 client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", SecurityConfig.Password, token));
 
@@ -166,10 +182,6 @@ namespace WebApi2.Tests
 
 
 
-        public class OurModel
-        {
-            public string IcaoCode { get; set; }
-            public string CityShortName { get; set; }
-        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -35,5 +36,18 @@ namespace WebApi2.Controllers
         public void Delete(int id)
         {
         }
+
+        [HttpPost]
+        [Route("api/Values/PostCity")]
+        public void PostCity(CityModel value)
+        {
+            Debug.WriteLine(value);
+        }
+    }
+
+    public class CityModel
+    {
+        public string IcaoCode { get; set; }
+        public string CityShortName { get; set; }
     }
 }
