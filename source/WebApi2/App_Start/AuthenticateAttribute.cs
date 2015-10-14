@@ -24,6 +24,7 @@ namespace WebApi2
 
     using BusinessObject.Auth;
     using IronFramework.Utility;
+    using Newtonsoft.Json;
 
     /// <summary>
     ///     AuthenticateAttribute
@@ -159,14 +160,49 @@ namespace WebApi2
             // Use the list of keyvalue pair in order to allow the same key instead of dictionary
             var parameterCollection = new List<KeyValuePair<string, string>>();
 
-            NameValueCollection queryStringCollection = actionContext.Request.RequestUri.ParseQueryString();
-            NameValueCollection formCollection = HttpContext.Current.Request.Form;
+            var queryStringCollection = actionContext.Request.RequestUri.ParseQueryString();
+
+            //POST http://localhost:3250/api/Values/PostCity HTTP/1.1
+            //Timestamp: 2015-10-07 06:09:56Z
+            //Content-Type: application/x-www-form-urlencoded
+            //Authentication: password:aaI2g+jsdonUOsff/jdrpZVJ29ekYb9kEALhPrO/o8=
+            //IcaoCode=ZPWS&CityShortName=文山
+            var formCollection = HttpContext.Current.Request.Form;
 
             AddNameValuesToCollection(parameterCollection, queryStringCollection);
-            AddNameValuesToCollection(parameterCollection, formCollection);
+
+            if (formCollection.Count == 0)
+            {
+                //For JSON string in HTTP Request Body
+                #region JSON string in HTTP Request Body
+                string jsonstr = string.Empty;
+                using (var sr = new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
+                {
+                    jsonstr = sr.ReadToEnd();
+                    sr.Close();
+                }
+                var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
+                var jsonCollection = new NameValueCollection();
+                foreach (var kvp in dict)
+                {
+                    string value = null;
+                    if (kvp.Value != null)
+                        value = kvp.Value.ToString();
+
+                    jsonCollection.Add(kvp.Key.ToString(), value);
+                }
+                AddNameValuesToCollection(parameterCollection, jsonCollection);
+                #endregion
+            }
+            else
+            {
+                AddNameValuesToCollection(parameterCollection, formCollection);
+            }
+
 
             return parameterCollection.OrderBy(pair => pair.Key).ToList();
         }
+
 
         /// <summary>
         /// The build parameter message.

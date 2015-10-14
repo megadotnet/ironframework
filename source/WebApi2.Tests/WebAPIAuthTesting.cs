@@ -119,14 +119,12 @@ namespace WebApi2.Tests
                 string username = (string)remoteDataSource["username"];
                 string password = (string)remoteDataSource["password"];
                 string url = (string)remoteDataSource["url"];
-
-
                 client.DefaultRequestHeaders.Accept.Clear();
 
                 //auth
                 client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", username, password));
 
-                client.DefaultRequestHeaders.Accept.Clear();
+
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 string date = DateTime.UtcNow.ToString("u");
                 client.DefaultRequestHeaders.Add("Timestamp", date);
