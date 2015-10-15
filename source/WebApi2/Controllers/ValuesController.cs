@@ -30,16 +30,25 @@ namespace WebApi2.Controllers
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
+            Debug.WriteLine(value);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            Debug.WriteLine(id);
         }
 
         [HttpPost]
         [Route("api/Values/PostCity")]
         public void PostCity(CityModel value)
+        {
+            Debug.WriteLine(value);
+        }
+
+        [HttpPut]
+        [Route("api/Values/UpdateWithPut")]
+        public void UpdateWithPut(CityModel value)
         {
             Debug.WriteLine(value);
         }
