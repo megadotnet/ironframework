@@ -181,17 +181,21 @@ namespace WebApi2
                     jsonstr = sr.ReadToEnd();
                     sr.Close();
                 }
-                var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
-                var jsonCollection = new NameValueCollection();
-                foreach (var kvp in dict)
-                {
-                    string value = null;
-                    if (kvp.Value != null)
-                        value = kvp.Value.ToString();
 
-                    jsonCollection.Add(kvp.Key.ToString(), value);
+                if (!string.IsNullOrEmpty(jsonstr))
+                {
+                    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
+                    var jsonCollection = new NameValueCollection();
+                    foreach (var kvp in dict)
+                    {
+                        string value = null;
+                        if (kvp.Value != null)
+                            value = kvp.Value.ToString();
+
+                        jsonCollection.Add(kvp.Key.ToString(), value);
+                    }
+                    AddNameValuesToCollection(parameterCollection, jsonCollection);
                 }
-                AddNameValuesToCollection(parameterCollection, jsonCollection);
                 #endregion
             }
             else

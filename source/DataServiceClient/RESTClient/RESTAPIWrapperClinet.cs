@@ -655,14 +655,17 @@ where TResult : new()
                     entityname = entityname.Substring(0, dtoindex);
                 }
 
-                string routingUrl = "api/" + entityname;
 
+                string date = DateTime.UtcNow.ToString("u");
+                string querystring = "";
+                string routingUrl = string.Format("/api/{0}/", entityname);
                 if (!string.IsNullOrEmpty(customPartialUri))
                 {
-                    routingUrl += "/" + customPartialUri;
+                    routingUrl = string.Format("/api/{0}/{1}/", entityname, customPartialUri);
                 }
 
-                routingUrl += "?randmo=" + VerifyTransactionSN.GenerateRandomInt();
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Put);
+
                 HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
 
                 log.DebugFormat(
