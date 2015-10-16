@@ -164,7 +164,7 @@ namespace MVC5Web.Controllers
         {
             var model = await ClientHTTPGet<EmployeeDto>(id);
 
-            int count = 0;
+            //int count = 0;
             //var employeelist = this.serviceClient.FindEmployeeByTitle(null, 1, 10, out count);
 
             //var contactlist = this.serviceClient.GetPagedListContact(1, 10, out count);
@@ -172,6 +172,13 @@ namespace MVC5Web.Controllers
             //this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
             //this.ViewBag.ManagerID = new SelectList(employeelist, "EmployeeID", "LoginID", employee.ManagerID);
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> EditConfirm(EmployeeDto dto)
+        {
+            bool updateflag=await Put(dto);
+            return Json(updateflag);
         }
 
 	}
