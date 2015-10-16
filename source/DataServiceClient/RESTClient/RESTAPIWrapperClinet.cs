@@ -151,17 +151,6 @@ namespace DataServiceClient
                 string entityname = typeof(TResult).Name;
                 entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
 
-                //string routingUrl = string.Empty;
-
-                //if (string.IsNullOrEmpty(customURL))
-                //{
-                //    routingUrl = string.Format("api/{0}/{1}", entityname, id);
-                //}
-                //else
-                //{
-                //    routingUrl = string.Format("api/{0}/{1}/{2}", entityname, customURL, id);
-                //}
-
                 string date = DateTime.UtcNow.ToString("u");
                 string querystring = "";
                 string routingUrl = string.Format("/api/{0}/{1}", entityname,id);
@@ -171,7 +160,7 @@ namespace DataServiceClient
                     routingUrl = string.Format("api/{0}/{1}/{2}", entityname, customURL,id);
                 }
 
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Put);
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Delete);
 
                 HttpResponseMessage response = await client.DeleteAsync(routingUrl);
 

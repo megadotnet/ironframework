@@ -215,6 +215,10 @@ namespace WebApi2.Tests
             };
         }
 
+        /// <summary>
+        /// Creates the authentication delegate header.
+        /// </summary>
+        /// <param name="client">The client.</param>
         private static void CreateAuthDelegateHeader(HttpClient client)
         {
             Hashtable remoteDataSource =
