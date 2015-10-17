@@ -25,6 +25,9 @@ namespace WebApi2
     using BusinessObject.Auth;
     using IronFramework.Utility;
     using Newtonsoft.Json;
+using IronFramework.Common.Logging.Logger;
+    using Newtonsoft.Json.Converters;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     ///     AuthenticateAttribute
@@ -42,6 +45,9 @@ namespace WebApi2
         /// The timestamp header name.
         /// </summary>
         private static readonly string TimestampHeaderName = "Timestamp";
+
+
+        private static readonly ILogger log = new Logger("AuthenticateAttribute");
 
         #endregion
 
@@ -171,31 +177,42 @@ namespace WebApi2
 
             AddNameValuesToCollection(parameterCollection, queryStringCollection);
 
-            if (formCollection.Count == 0)
+            //Just for empty formCollection 
+            if (parameterCollection.Count==0 && formCollection.Count == 0)
             {
                 //For JSON string in HTTP Request Body
                 #region JSON string in HTTP Request Body
-                string jsonstr = string.Empty;
-                using (var sr = new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
+
+
+                var actionArguments=actionContext.ActionArguments;
+                foreach(var argDic in actionArguments)
                 {
-                    jsonstr = sr.ReadToEnd();
-                    sr.Close();
+                    var parameters= ConvertObjectAsKeyValuePairList(argDic.Value,null);
+                    parameterCollection.AddRange(parameters);
                 }
 
-                if (!string.IsNullOrEmpty(jsonstr))
-                {
-                    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
-                    var jsonCollection = new NameValueCollection();
-                    foreach (var kvp in dict)
-                    {
-                        string value = null;
-                        if (kvp.Value != null)
-                            value = kvp.Value.ToString();
+                return parameterCollection.OrderBy(pair => pair.Key).ToList();
+                //string jsonstr = string.Empty;
+                //using (var sr = new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
+                //{
+                //    jsonstr = sr.ReadToEnd();
+                //    sr.Close();
+                //}
 
-                        jsonCollection.Add(kvp.Key.ToString(), value);
-                    }
-                    AddNameValuesToCollection(parameterCollection, jsonCollection);
-                }
+                //if (!string.IsNullOrEmpty(jsonstr))
+                //{
+                //    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
+                //    var jsonCollection = new NameValueCollection();
+                //    foreach (var kvp in dict)
+                //    {
+                //        string value = null;
+                //        if (kvp.Value != null)
+                //            value = kvp.Value.ToString();
+
+                //        jsonCollection.Add(kvp.Key.ToString(), value);
+                //    }
+                //    AddNameValuesToCollection(parameterCollection, jsonCollection);
+                //}
                 #endregion
             }
             else
@@ -207,6 +224,36 @@ namespace WebApi2
             return parameterCollection.OrderBy(pair => pair.Key).ToList();
         }
 
+        /// <summary>
+        /// Converts the object as key value pair list.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="querystrings">The querystrings.</param>
+        /// <returns></returns>
+        private static List<KeyValuePair<string, string>> ConvertObjectAsKeyValuePairList(object obj, IList<KeyValuePair<string, string>> querystrings)
+        {
+            if (obj != null)
+            {
+                var parameterCollection = new List<KeyValuePair<string, string>>();
+                var properties = from p in obj.GetType().GetProperties()
+                                 where
+                                     p.GetValue(obj, null) != null
+                                     && p.CustomAttributes.All(
+                                         attc => attc.AttributeType != typeof(KeyAttribute))
+                                 orderby p.Name
+                                 select
+                                    new KeyValuePair<string, string>(p.Name, HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
+
+                parameterCollection.AddRange(properties);
+
+                if (querystrings != null)
+                    parameterCollection.AddRange(querystrings);
+
+                return parameterCollection;
+
+            }
+            return null; 
+        }
 
         /// <summary>
         /// The build parameter message.
@@ -274,8 +321,9 @@ namespace WebApi2
             {
                 return false;
             }
-
+            log.DebugFormat("Server Side Message:{0}", message);
             var verifiedHash = VerifyTransactionSN.ComputeHash(hashedPassword, message);
+            log.DebugFormat("Server Side verifiedHash:{0}", verifiedHash);
             if (signature != null && signature.Equals(verifiedHash))
             {
                 return true;
@@ -406,7 +454,7 @@ namespace WebApi2
 
             string hashedPassword = this.GetHashedPassword(username);
             string baseString = BuildBaseString(actionContext);
-
+           
             return IsAuthenticated(hashedPassword, baseString, signature);
         }
 
