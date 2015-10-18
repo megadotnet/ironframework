@@ -177,7 +177,7 @@ using IronFramework.Common.Logging.Logger;
 
             AddNameValuesToCollection(parameterCollection, queryStringCollection);
 
-            //Just for empty formCollection 
+            //Just for empty formCollection When pass JSON request
             if (parameterCollection.Count==0 && formCollection.Count == 0)
             {
                 //For JSON string in HTTP Request Body
@@ -192,27 +192,6 @@ using IronFramework.Common.Logging.Logger;
                 }
 
                 return parameterCollection.OrderBy(pair => pair.Key).ToList();
-                //string jsonstr = string.Empty;
-                //using (var sr = new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
-                //{
-                //    jsonstr = sr.ReadToEnd();
-                //    sr.Close();
-                //}
-
-                //if (!string.IsNullOrEmpty(jsonstr))
-                //{
-                //    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonstr);
-                //    var jsonCollection = new NameValueCollection();
-                //    foreach (var kvp in dict)
-                //    {
-                //        string value = null;
-                //        if (kvp.Value != null)
-                //            value = kvp.Value.ToString();
-
-                //        jsonCollection.Add(kvp.Key.ToString(), value);
-                //    }
-                //    AddNameValuesToCollection(parameterCollection, jsonCollection);
-                //}
                 #endregion
             }
             else
