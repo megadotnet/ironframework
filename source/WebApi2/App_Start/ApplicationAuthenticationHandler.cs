@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,6 +8,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
 
 namespace WebApi2.App_Start
 {
@@ -29,7 +31,8 @@ namespace WebApi2.App_Start
         /// <summary>
         /// The HTT p_ heade r_ aut h_ keyname
         /// </summary>
-        private static readonly string HTTP_HEADER_AUTH_KEYNAME = "X-MonsterAppApiKey";
+        private static readonly string HTTP_HEADER_AUTH_KEYNAME =
+            (string)(((Hashtable)WebConfigurationManager.GetSection("AuthenticationHandlerConfig"))["keyname"]);
 
         /// <summary>
         /// 以异步操作发送 HTTP 请求到内部管理器以发送到服务器。
