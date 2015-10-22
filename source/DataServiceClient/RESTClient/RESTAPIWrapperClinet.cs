@@ -930,14 +930,14 @@ where TResult : new()
                 }
 
                 string date = DateTime.UtcNow.ToString("u");
-                string querystring = "";
+                string querystring = GetQueryString(query, null);
                 string routingUrl = string.Format("/api/{0}/", entityname);
                 if (!string.IsNullOrEmpty(customURL))
                 {
                     routingUrl = string.Format("/api/{0}/{1}/", entityname, customURL);
                 }
 
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
+                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Post);
 
               
                 HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
