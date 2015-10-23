@@ -5,9 +5,15 @@ using WebApi2.Controllers;
 
 namespace WebApi2.Tests.Controllers
 {
+    /// <summary>
+    /// HomeControllerTest
+    /// </summary>
     [TestClass]
     public class HomeControllerTest
     {
+        /// <summary>
+        /// Indexes this instance.
+        /// </summary>
         [TestMethod]
         public void Index()
         {
