@@ -20,6 +20,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using WebApi2.Controllers;
 using Xunit;
+using FluentAssertions;
+using Microsoft.Owin.Testing;
+
 
 namespace WebApi2.Tests
 {
@@ -227,7 +230,7 @@ namespace WebApi2.Tests
             string password = (string)remoteDataSource["password"];
             string url = (string)remoteDataSource["url"];
             client.DefaultRequestHeaders.Accept.Clear();
-
+           
             //auth
             client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", username, password));
         }
@@ -252,10 +255,14 @@ namespace WebApi2.Tests
 
             filter.OnActionExecuting(actionExecutedContext.Object);
 
+         
+
             // Assert
             //Assert.That(actionExecutedContext.Object.Result, Is.InstanceOfType(typeof(ContentResult)));
             //Assert.That((actionExecutedContext.Object.Result as ContentResult).Content, Is.EqualTo(filter.HtmlResultString));
         }
+
+
 
 
 
