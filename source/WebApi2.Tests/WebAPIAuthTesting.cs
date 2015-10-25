@@ -224,15 +224,27 @@ namespace WebApi2.Tests
         /// <param name="client">The client.</param>
         private static void CreateAuthDelegateHeader(HttpClient client)
         {
-            Hashtable remoteDataSource =
-(Hashtable)WebConfigurationManager.GetSection("remoteDataAPI");
-            string username = (string)remoteDataSource["username"];
-            string password = (string)remoteDataSource["password"];
-            string url = (string)remoteDataSource["url"];
+            string username;
+            string password;
+            GetConfigSetionValues(out username, out password);
             client.DefaultRequestHeaders.Accept.Clear();
            
             //auth
             client.DefaultRequestHeaders.Add("X-MonsterAppApiKey", string.Format("{0}:{1}", username, password));
+        }
+
+        /// <summary>
+        /// Gets the configuration setion values.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        private static void GetConfigSetionValues(out string username, out string password)
+        {
+            Hashtable remoteDataSource =
+(Hashtable)WebConfigurationManager.GetSection("remoteDataAPI");
+            username = (string)remoteDataSource["username"];
+            password = (string)remoteDataSource["password"];
+            string url = (string)remoteDataSource["url"];
         }
    
 
