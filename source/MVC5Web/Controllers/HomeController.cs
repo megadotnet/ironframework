@@ -52,6 +52,7 @@ namespace MVC5Web.Controllers
             return View();
         }
 
+        [OutputCache(VaryByParam = "none", Duration = 3600)]
         public ActionResult About()
         {
             ViewBag.Message = "Iron framewok";
