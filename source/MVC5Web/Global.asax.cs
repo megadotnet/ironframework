@@ -1,5 +1,6 @@
 ﻿using BoService;
 using Microsoft.Practices.Unity;
+using MVC5Web.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,11 @@ namespace MVC5Web
             ViewEngines.Engines.Clear();
 
             //Add Razor view Engine
-            ViewEngines.Engines.Add(new RazorViewEngine());
+            //ViewEngines.Engines.Add(new RazorViewEngine());
+
+            //Add Custom view Engine Derived from Razor
+            ViewEngines.Engines.Add(new CSharpRazorViewEngine());
+
         }
 
 
