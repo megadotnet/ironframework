@@ -19,6 +19,9 @@ namespace MVC5Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //http://www.cnblogs.com/xuanhun/p/3611768.html
+            MvcHandler.DisableMvcResponseHeader = true;
             
             //Remove all view engine
             ViewEngines.Engines.Clear();
