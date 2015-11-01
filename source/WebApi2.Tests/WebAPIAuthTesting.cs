@@ -45,6 +45,9 @@ namespace WebApi2.Tests
                 client.BaseAddress = new Uri("http://localhost:3956/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                CreateAuthDelegateHeader(client);
+
                 string date = DateTime.UtcNow.ToString("u");
                 // HTTP GET
                 string uri = "/api/Values";
@@ -85,6 +88,9 @@ namespace WebApi2.Tests
                 client.BaseAddress = new Uri("http://localhost:3956/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                CreateAuthDelegateHeader(client);
+
                 string date = DateTime.UtcNow.ToString("u");
                 client.DefaultRequestHeaders.Add("Timestamp", date);
 
