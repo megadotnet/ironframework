@@ -7,4 +7,7 @@
     <AgentRule name="Execution Agents">
     </AgentRule>
   </Execution>
+  <Properties>
+    <Property name="TestSettingsUIType" value="LoadTest" />
+  </Properties>
 </TestSettings>
