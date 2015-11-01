@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Http.Filters;
 using System.Web.Mvc;
 
 namespace WebApi2
@@ -13,6 +14,7 @@ namespace WebApi2
         public static void RegisterWebApiFilters(System.Web.Http.Filters.HttpFilterCollection filters)
         {
             filters.Add(new AuthenticateAttribute());
+            filters.Add(new ExceptionFilterAttribute());
         }
     }
 
