@@ -14,7 +14,7 @@ namespace WebApi2
         public static void RegisterWebApiFilters(System.Web.Http.Filters.HttpFilterCollection filters)
         {
             filters.Add(new AuthenticateAttribute());
-            filters.Add(new ExceptionFilterAttribute());
+            //filters.Add(new ExceptionFilterAttribute());
         }
     }
 
