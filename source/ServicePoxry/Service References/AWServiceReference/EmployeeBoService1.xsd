@@ -56,7 +56,7 @@
   <xs:element name="FindEmployeeByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IronFramework.Utility.UI" minOccurs="0" name="FindEmployeeByTitleResult" nillable="true" type="q4:PagedListOfEmployeeuTvS1Dbc" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IronFramework.Utility.UI" minOccurs="0" name="FindEmployeeByTitleResult" nillable="true" type="q4:PagedListOfEmployeegSBaJWHs" />
         <xs:element minOccurs="0" name="totalcount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -100,7 +100,7 @@
   <xs:element name="GetPagedListContactResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IronFramework.Utility.UI" minOccurs="0" name="GetPagedListContactResult" nillable="true" type="q7:PagedListOfContactuTvS1Dbc" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IronFramework.Utility.UI" minOccurs="0" name="GetPagedListContactResult" nillable="true" type="q7:PagedListOfContactgSBaJWHs" />
         <xs:element minOccurs="0" name="totalcount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

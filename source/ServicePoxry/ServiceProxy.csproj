@@ -85,10 +85,10 @@
     <None Include="Service References\AWServiceReference\ServicePoxry.AWServiceReference.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AWServiceReference\ServicePoxry.AWServiceReference.PagedListOfContactuTvS1Dbc.datasource">
+    <None Include="Service References\AWServiceReference\ServicePoxry.AWServiceReference.PagedListOfContactgSBaJWHs.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AWServiceReference\ServicePoxry.AWServiceReference.PagedListOfEmployeeuTvS1Dbc.datasource">
+    <None Include="Service References\AWServiceReference\ServicePoxry.AWServiceReference.PagedListOfEmployeegSBaJWHs.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

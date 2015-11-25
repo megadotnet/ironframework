@@ -20,6 +20,7 @@ namespace WCFServiceClient
         public EmployeeServiceClient()
             : base()
         {
+            
         }
 
         /// <summary>
