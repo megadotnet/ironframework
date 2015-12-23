@@ -26,6 +26,10 @@ namespace ODataService
     public class ODataService : EntityFrameworkDataService<AdventureWorksEntities>
     {
         // This method is called only once to initialize service-wide policies.
+        /// <summary>
+        /// Initializes the service.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
         public static void InitializeService(DataServiceConfiguration config)
         {
            
