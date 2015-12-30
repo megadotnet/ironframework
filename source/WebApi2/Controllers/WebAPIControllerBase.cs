@@ -19,11 +19,13 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+    using WebApi2.App_Start;
 
     /// <summary>
     /// a interface of data acccess repository.
     /// </summary>
     //[Authenticate]
+    [LoggingFilter]
     public class BaseWebAPIController : ApiController
     {
         #region Public Methods
