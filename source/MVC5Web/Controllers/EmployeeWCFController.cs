@@ -56,7 +56,7 @@ namespace MvcApp.Controllers
         public ActionResult Create()
         {
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employees = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employees = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
             var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
@@ -84,7 +84,7 @@ namespace MvcApp.Controllers
             }
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
             var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
 
             this.ViewBag.ContactID = new SelectList(contactlist, "ContactID", "FirstName");
@@ -156,7 +156,7 @@ namespace MvcApp.Controllers
             Employee employee = this.serviceClient.GetEmployee(id);
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
 
             var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
             
@@ -187,7 +187,7 @@ namespace MvcApp.Controllers
             }
 
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
 
             var contactlist = this.serviceClient.GetPagedListContact(out count, 1, 10);
 
@@ -204,7 +204,7 @@ namespace MvcApp.Controllers
         public ViewResult Index()
         {
             int count = 0;
-            PagedListOfEmployeeuTvS1Dbc employee = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+            var employee = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
             return View(employee.ToList());
         }
 
@@ -221,7 +221,7 @@ namespace MvcApp.Controllers
             {
                 int count = 0;
                 //TODO:Change search text return Title column only
-                PagedListOfEmployeeuTvS1Dbc employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 20);
+                var employeelist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 20);
 
                 return Json(employeelist.Where(el => el.Title.ToLower().Contains(term.ToLower())).Select(ee => ee.Title)
                     , JsonRequestBehavior.AllowGet);
