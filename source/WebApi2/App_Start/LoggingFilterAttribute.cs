@@ -10,7 +10,8 @@ namespace WebApi2.App_Start
     /// <summary>
     /// LoggingFilterAttribute
     /// </summary>
-    public class LoggingFilterAttribute:ActionFilterAttribute
+    /// <seealso cref="http://blog.evizija.si/rest-web-api-logging-using-nlog/"/>
+    public class LoggingFilterAttribute : ActionFilterAttribute
     {
         private static readonly ILogger log = new Logger("LoggingFilterAttribute");
 
@@ -27,5 +28,6 @@ namespace WebApi2.App_Start
             log.Info(functionname);
             base.OnActionExecuting(actionContext);
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IronFramework.Common.Logging.Logger;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace WebApi2.App_Start
         /// The missing token
         /// </summary>
         private static readonly string MissingToken = "Missing Authorization-Token缺少验证标识";
+
+        /// <summary>
+        /// The log
+        /// </summary>
+        private static readonly ILogger log = new Logger("ApplicationAuthenticationHandler");
 
         /// <summary>
         /// The HTT p_ heade r_ aut h_ keyname
@@ -131,6 +137,7 @@ namespace WebApi2.App_Start
         /// <returns></returns>
         public bool Check(string user_id, string password_str)
         {
+
             bool isAuthRequest = false;
 
             if ((!string.IsNullOrEmpty(user_id)) && (!string.IsNullOrEmpty(password_str)))
@@ -138,11 +145,27 @@ namespace WebApi2.App_Start
                 //You may store the username and password to database
                 if (user_id == "SystemUser" && password_str == "MUDuoRc612/mHpsVmidUdNDyqfBAylVPwD48hE21I5A=")
                 {
+                    NLogLogger(1);
+
+                    log.InfoFormat("Check {0}",user_id);
                     isAuthRequest = true;
                 }
 
             }
             return isAuthRequest;
+        }
+
+        /// <summary>
+        /// ns the log logger.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <see cref="http://blog.evizija.si/rest-web-api-logging-using-nlog/"/>
+        private void NLogLogger(int? userId)
+        {
+            if (userId != null)
+            {
+                NLog.MappedDiagnosticsContext.Set("user_id", userId.ToString());
+            }
         }
     }
 }

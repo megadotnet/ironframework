@@ -47,6 +47,9 @@ using IronFramework.Common.Logging.Logger;
         private static readonly string TimestampHeaderName = "Timestamp";
 
 
+        /// <summary>
+        /// The log
+        /// </summary>
         private static readonly ILogger log = new Logger("AuthenticateAttribute");
 
         #endregion
