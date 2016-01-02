@@ -47,11 +47,19 @@ namespace MVC5Web.Controllers
            return View();
         }
 
+        /// <summary>
+        /// Indexes this instance.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Abouts this instance.
+        /// </summary>
+        /// <returns></returns>
         [OutputCache(VaryByParam = "none", Duration = 3600)]
         public ActionResult About()
         {

@@ -15,8 +15,11 @@ namespace MvcApp.Controllers
     using ServicePoxry.AWServiceReference;
 
     /// <summary>
-    /// The employee controller.
+    /// The employee WCF controller.
     /// </summary>
+    /// <remarks>
+    /// Get data from WCF Service 
+    /// </remarks>
     public class EmployeeWCFController : Controller
     {
         #region Constants and Fields
