@@ -41,7 +41,11 @@ namespace MvcApp.Controllers
         /// </param>
         public EmployeeWCFController(IEmployeeBoService _serviceClient)
         {
-            this.serviceClient = _serviceClient;
+            var orginalservice=_serviceClient as ServicePoxry.AWServiceReference.EmployeeBoServiceClient;
+            orginalservice.ClientCredentials.UserName.UserName = "test";
+            orginalservice.ClientCredentials.UserName.Password = "test123";
+            orginalservice.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode =System.ServiceModel.Security.X509CertificateValidationMode.None;
+            this.serviceClient = orginalservice;
         }
 
         #endregion
