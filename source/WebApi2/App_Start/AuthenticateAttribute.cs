@@ -171,11 +171,14 @@ using IronFramework.Common.Logging.Logger;
 
             var queryStringCollection = actionContext.Request.RequestUri.ParseQueryString();
 
+            #region Sample Data
             //POST http://localhost:3250/api/Values/PostCity HTTP/1.1
             //Timestamp: 2015-10-07 06:09:56Z
             //Content-Type: application/x-www-form-urlencoded
             //Authentication: password:aaI2g+jsdonUOsff/jdrpZVJ29ekYb9kEALhPrO/o8=
-            //IcaoCode=ZPWS&CityShortName=文山
+            //IcaoCode=ZPWS&CityShortName=文山 
+            #endregion
+
             var formCollection = HttpContext.Current.Request.Form;
 
             AddNameValuesToCollection(parameterCollection, queryStringCollection);
@@ -315,7 +318,7 @@ using IronFramework.Common.Logging.Logger;
         }
 
         /// <summary>
-        /// The is date validated.
+        /// The is date validated 
         /// </summary>
         /// <param name="timestampString">
         /// The timestamp string.
