@@ -20,6 +20,7 @@ namespace IronFramework.Utility
     using Microsoft.Practices.EnterpriseLibrary.Logging;
     using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
     using System.Diagnostics;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Service Factory
@@ -50,6 +51,10 @@ namespace IronFramework.Utility
             serviceLocator = new UnityServiceLocator(container);
         }
 
+        /// <summary>
+        /// Prepares the container.
+        /// </summary>
+        /// <returns></returns>
         public static IUnityContainer PrepareContainer()
         {
             var container = Singleton.GetInstance<IUnityContainer>(() => new UnityContainer());
@@ -110,6 +115,16 @@ namespace IronFramework.Utility
         public static T GetInstance<T>(string key)
         {
             return serviceLocator.GetInstance<T>(key);
+        }
+
+        /// <summary>
+        /// Gets all instance.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> GetAllInstance<T>()
+        {
+            return serviceLocator.GetAllInstances<T>();
         }
 
         #endregion
