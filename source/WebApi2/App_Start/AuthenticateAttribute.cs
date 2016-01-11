@@ -32,6 +32,22 @@ using IronFramework.Common.Logging.Logger;
     /// <summary>
     ///     AuthenticateAttribute
     /// </summary>
+    /// <example>
+    /// <code>
+    ///      private void CreateAuthenticationHeader(HttpClient client, string date, string querystring, string routingUrl, HttpMethod httpMethod)
+    ///        {
+    ///            string message = string.Join("\n", httpMethod.Method, date, routingUrl.ToLower(), querystring);
+    ///            log.DebugFormat("Client side Message {0}", message);
+    ///            Hashtable remoteDataSource =
+    ///(Hashtable)WebConfigurationManager.GetSection(this.Section);
+    ///            string password = (string)remoteDataSource["password"];
+    ///            string token = VerifyTransactionSN.ComputeHash(password, message);
+    ///            log.DebugFormat("Client side token {0}", token);
+    ///            client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
+    ///            client.DefaultRequestHeaders.Add("Timestamp", date);
+    ///        } 
+    /// </code>
+    /// </example>
     public class AuthenticateAttribute : ActionFilterAttribute
     {
         #region Static Fields

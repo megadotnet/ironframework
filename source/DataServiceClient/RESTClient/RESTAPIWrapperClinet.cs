@@ -955,6 +955,12 @@ where TResult : new()
         /// <param name="date">The date.</param>
         /// <param name="querystring">The querystring.</param>
         /// <param name="routingUrl">The routing URL.</param>
+        /// <example>
+        /// <code>
+        /// 2015-10-27 20:21:47.5215 RESTAPIWrapperClinet DEBUG  Client side token mxPc48qN5MVe2ZVOU4DdlaQklAt39Ac6rRbtJRr/16s= 
+        /// 2015-10-27 20:21:47.5675 RESTAPIWrapperClinet DEBUG  请求 GET URL:http://localhost:3956//api/Employee/?BirthDate=0001%2f1%2f1+0%3a00%3a00&ContactID=0&CurrentFlag=False&HireDate=0001%2f1%2f1+0%3a00%3a00&ModifiedDate=0001%2f1%2f1+0%3a00%3a00&pageIndex=1&pageSize=5&rowguid=00000000-0000-0000-0000-000000000000&SalariedFlag=False&SickLeaveHours=0&VacationHours=0  结果:True 
+        /// </code>
+        /// </example>
         private void CreateAuthenticationHeader(HttpClient client, string date, string querystring, string routingUrl, HttpMethod httpMethod)
         {
             string message = string.Join("\n", httpMethod.Method, date, routingUrl.ToLower(), querystring);
