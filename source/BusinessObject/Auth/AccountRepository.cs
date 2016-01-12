@@ -6,6 +6,11 @@ namespace BusinessObject.Auth
 {
     public class AccountRepository : IAccountRepository
     {
+        /// <summary>
+        /// Gets the hashed password.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
         public string GetHashedPassword(string username)
         {
             //Should get from database

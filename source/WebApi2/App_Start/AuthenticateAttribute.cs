@@ -30,7 +30,7 @@ using IronFramework.Common.Logging.Logger;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    ///     AuthenticateAttribute
+    ///     AuthenticateAttribute with HMAC
     /// </summary>
     /// <example>
     /// <code>
@@ -323,6 +323,7 @@ using IronFramework.Common.Logging.Logger;
                 return false;
             }
             log.DebugFormat("Server Side Message:{0}", message);
+            // Compute the hash with HMAC
             var verifiedHash = VerifyTransactionSN.ComputeHash(hashedPassword, message);
             log.DebugFormat("Server Side verifiedHash:{0}", verifiedHash);
             if (signature != null && signature.Equals(verifiedHash))
