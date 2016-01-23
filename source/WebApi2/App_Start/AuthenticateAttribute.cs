@@ -25,12 +25,12 @@ namespace WebApi2
     using BusinessObject.Auth;
     using IronFramework.Utility;
     using Newtonsoft.Json;
-using IronFramework.Common.Logging.Logger;
+    using IronFramework.Common.Logging.Logger;
     using Newtonsoft.Json.Converters;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    ///     AuthenticateAttribute with HMAC
+    ///     Authenticate Attribute with HMAC
     /// </summary>
     /// <example>
     /// <code>
