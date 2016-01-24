@@ -21,7 +21,7 @@ namespace ODataWebAPI.Controllers
         /// <summary>
         /// The database 
         /// </summary>
-        private AddressRepository db = RepositoryHelper.GetAddressRepository();
+        private AddressRepository addressRepository = RepositoryHelper.GetAddressRepository();
 
         /// <summary>
         /// Gets this instance.
@@ -30,7 +30,7 @@ namespace ODataWebAPI.Controllers
         [EnableQuery]
         public IQueryable<Address> Get()
         {
-            return db.All().AsQueryable();
+            return addressRepository.All().AsQueryable();
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace ODataWebAPI.Controllers
         [EnableQuery]
         public SingleResult<Address> Get([FromODataUri] int key)
         {
-            IQueryable<Address> result = db.Repository.Find(p => p.AddressID == key).AsQueryable();
+            IQueryable<Address> result = addressRepository.Repository.Find(p => p.AddressID == key).AsQueryable();
             return SingleResult.Create(result);
         }
     }
