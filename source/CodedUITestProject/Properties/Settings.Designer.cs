@@ -37,7 +37,7 @@ namespace CodedUITestProject.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")]
         public string FirefoxExePath {
             get {
                 return ((string)(this["FirefoxExePath"]));
