@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FacebookCodedUITestProject.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ChromeExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Google\Chrome\chrome.exe</Value>
+    </Setting>
+    <Setting Name="FirefoxExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="OperaExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IeExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\Internet Explorer\iexplore.exe</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
