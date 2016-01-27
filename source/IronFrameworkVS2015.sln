@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormApp", "WebApp\WebFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "WebApi2\WebApi2.csproj", "{46CFD862-718B-47EA-A971-519F5FBE151D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.TestCommon", "IronFramework.TestCommon\IronFramework.TestCommon.csproj", "{89B6D6EE-8682-4B61-9977-E012E04696FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUITestProject", "CodedUITestProject\CodedUITestProject.csproj", "{8C66FA18-D305-4B1F-87C8-6019426C1497}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +123,14 @@ Global
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C66FA18-D305-4B1F-87C8-6019426C1497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C66FA18-D305-4B1F-87C8-6019426C1497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C66FA18-D305-4B1F-87C8-6019426C1497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C66FA18-D305-4B1F-87C8-6019426C1497}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +149,8 @@ Global
 		{FD090D57-3540-4E7D-90FE-CB33DC797B7C} = {4A375043-6480-4ADA-B53A-64EA3DF5E056}
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12} = {4A375043-6480-4ADA-B53A-64EA3DF5E056}
 		{46CFD862-718B-47EA-A971-519F5FBE151D} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
+		{89B6D6EE-8682-4B61-9977-E012E04696FB} = {BE104F43-18A5-4592-A830-C861ACB0BBDE}
+		{8C66FA18-D305-4B1F-87C8-6019426C1497} = {BE104F43-18A5-4592-A830-C861ACB0BBDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45

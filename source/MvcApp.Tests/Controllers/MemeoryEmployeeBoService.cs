@@ -103,10 +103,10 @@ namespace MvcApp.Tests.Controllers
         /// </param>
         /// <returns>
         /// </returns>
-        public PagedListOfEmployeeuTvS1Dbc FindEmployeeByTitle(
+        public PagedListOfEmployeegSBaJWHs FindEmployeeByTitle(
             out int totalcount, string title, int? pageIndex, int pageSize)
         {
-            var list = new PagedListOfEmployeeuTvS1Dbc();
+            var list = new PagedListOfEmployeegSBaJWHs();
             list.AddRange(employeeList);
             totalcount = list.Count();
             return list;
@@ -127,25 +127,7 @@ namespace MvcApp.Tests.Controllers
             return employeeList.Where(e => e.EmployeeID == pid).SingleOrDefault();
         }
 
-        /// <summary>
-        /// Gets the paged list contact.
-        /// </summary>
-        /// <param name="totalcount">
-        /// The totalcount.
-        /// </param>
-        /// <param name="pageIndex">
-        /// Index of the page.
-        /// </param>
-        /// <param name="pageSize">
-        /// Size of the page.
-        /// </param>
-        /// <returns>
-        /// Paged list contact
-        /// </returns>
-        public PagedListOfContactuTvS1Dbc GetPagedListContact(out int totalcount, int? pageIndex, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+
 
         /// <summary>
         /// The update employee.
@@ -173,5 +155,11 @@ namespace MvcApp.Tests.Controllers
         #endregion
 
         #endregion
+
+
+        public PagedListOfContactgSBaJWHs GetPagedListContact(out int totalcount, int? pageIndex, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

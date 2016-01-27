@@ -103,10 +103,10 @@ namespace WebApi2.Tests.Controllers
         /// </param>
         /// <returns>
         /// </returns>
-        public PagedListOfEmployeeuTvS1Dbc FindEmployeeByTitle(
+        public PagedListOfEmployeegSBaJWHs FindEmployeeByTitle(
             out int totalcount, string title, int? pageIndex, int pageSize)
         {
-            var list = new PagedListOfEmployeeuTvS1Dbc();
+            var list = new PagedListOfEmployeegSBaJWHs();
             list.AddRange(employeeList);
             totalcount = list.Count();
             return list;
@@ -142,7 +142,7 @@ namespace WebApi2.Tests.Controllers
         /// <returns>
         /// Paged list contact
         /// </returns>
-        public PagedListOfContactuTvS1Dbc GetPagedListContact(out int totalcount, int? pageIndex, int pageSize)
+        public PagedListOfEmployeegSBaJWHs GetPagedListContact(out int totalcount, int? pageIndex, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -173,5 +173,11 @@ namespace WebApi2.Tests.Controllers
         #endregion
 
         #endregion
+
+
+        PagedListOfContactgSBaJWHs IEmployeeBoService.GetPagedListContact(out int totalcount, int? pageIndex, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace WebApp
             if (!this.IsPostBack)
             {
                 int count = 0;
-                PagedListOfEmployeeuTvS1Dbc datalist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
+                var datalist = this.serviceClient.FindEmployeeByTitle(out count, null, 1, 10);
 
                 this.pager.RecordCount = count;
                 this.BindData();
