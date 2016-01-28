@@ -39,7 +39,8 @@ SQL SERVER 2008 R2/2012/2014
 TestDriven.Net  
 StyleCop   
 AnkhSVN - Subversion Support for Visual Studio 
-Visual Studio2013 Update5
+Visual Studio 2013 Update5
+Visual Studio 2015
 
 
 
