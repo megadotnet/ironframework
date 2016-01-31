@@ -144,7 +144,7 @@ namespace DataServiceClient
         /// <returns></returns>
         public async Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject:new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -170,7 +170,8 @@ namespace DataServiceClient
                 results = await ReadAsObject(response, results);
                 return results;
             }
-        } 
+        }
+
 
         #endregion
 
@@ -209,7 +210,7 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGet<TResult>(int id, string customURL) where TResult : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -249,7 +250,7 @@ namespace DataServiceClient
         /// <returns></returns>
         public async Task<string> ClientHTTPGetString<Query>(string querystring, string customURL, bool isawait) where Query : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -408,7 +409,7 @@ namespace DataServiceClient
         public async Task<TResult> ClientHTTPGetList<TResult, TQueryDto, Query>(string partialURI, Query query, bool isawait)
 where TResult : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -503,7 +504,7 @@ where TResult : new()
             string queryString,
             bool configureAwait) where TResult : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -556,7 +557,7 @@ where TResult : new()
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait, bool enableRandomNumber)
     where TResult : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -640,7 +641,7 @@ where TResult : new()
         /// <returns></returns>
         public async Task<ReturnObject> ClientHTTPPut<ReturnObject, TQueryDto, Query>(Query model, string customPartialUri) where ReturnObject : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -916,7 +917,7 @@ where TResult : new()
             where ReturnObject : new()
             where T : new()
         {
-            using (var client = new HttpClient())
+            using (var client = CreateHttpClient())
             {
                 this.CreateHttpHeader(client);
 
@@ -976,7 +977,17 @@ where TResult : new()
             log.DebugFormat("Client side token {0}", token);
             client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
             client.DefaultRequestHeaders.Add("Timestamp", date);
+        }
+
+        /// <summary>
+        /// Creates the HTTP client.
+        /// </summary>
+        /// <returns></returns>
+        private static HttpClient CreateHttpClient()
+        {
+            return new HttpClient(new LoggingHandler(new HttpClientHandler()));
         } 
+
         #endregion
 
 
