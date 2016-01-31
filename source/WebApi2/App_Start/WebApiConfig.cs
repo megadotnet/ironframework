@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Tracing;
+using WebApi2.App_Start;
 using WebApi2.Areas.HelpPage;
 
 namespace WebApi2
@@ -33,6 +35,16 @@ namespace WebApi2
 
             //http://stackoverflow.com/a/9521363
             FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters);
+
+            //http://www.asp.net/web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
+            //IsVerbose: If false, each trace contains minimal information. If true, traces include more information.
+            //MinimumLevel: Sets the minimum trace level. Trace levels, in order, are Debug, Info, Warn, Error, and Fatal.
+            SystemDiagnosticsTraceWriter traceWriter = config.EnableSystemDiagnosticsTracing();
+            traceWriter.IsVerbose = false;
+            traceWriter.MinimumLevel = TraceLevel.Info;
+
+            config.EnableSystemDiagnosticsTracing();
+            config.Services.Replace(typeof(ITraceWriter), new  LoggingTracer());
         }
     }
 }

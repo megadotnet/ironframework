@@ -25,7 +25,7 @@ using System.Web.Http.Filters;
     /// a interface of data acccess repository.
     /// </summary>
     //[Authenticate]
-    [LoggingFilter]
+    [LogActionWebApiFilter]
     public class BaseWebAPIController : ApiController
     {
         #region Public Methods
