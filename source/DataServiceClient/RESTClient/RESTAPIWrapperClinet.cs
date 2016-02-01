@@ -36,7 +36,7 @@ namespace DataServiceClient
         #region Static Fields
 
         /// <summary>
-        ///     The log
+        ///     The logger
         /// </summary>
         private static readonly ILogger log = new Logger("RESTAPIWrapperClinet");
 
@@ -164,8 +164,6 @@ namespace DataServiceClient
 
                 HttpResponseMessage response = await client.DeleteAsync(routingUrl);
 
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
                 var results = new ReturnObject();
                 results = await ReadAsObject(response, results);
                 return results;
@@ -231,8 +229,6 @@ namespace DataServiceClient
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl);
 
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
-
                 var results = new TResult();
                 results = await ReadAsObject(response, results);
                 return results;
@@ -272,16 +268,11 @@ namespace DataServiceClient
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
 
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
 
                 string results = string.Empty;
                 if (response.IsSuccessStatusCode)
                 {
                     results = response.Content.ReadAsStringAsync().Result;
-                }
-                else
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
                 }
                 return results;
             }
@@ -424,7 +415,6 @@ where TResult : new()
 
                 // ?pageindex=1&pagesize=10
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
 
                 var results = new TResult();
                 results = await ReadAsObject(response, results);
@@ -524,7 +514,6 @@ where TResult : new()
                 routingUrl = routingUrl + "?" + querystring;
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
-                log.DebugFormat("请求 {2} URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode, response.RequestMessage.Method.Method);
 
                 var results = new TResult();
                 results = await ReadAsObject(response, results);
@@ -571,7 +560,6 @@ where TResult : new()
                 }
 
                 HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-                log.DebugFormat("请求URL:{0}  结果:{1}", client.BaseAddress + routingUrl, response.IsSuccessStatusCode);
 
                 var results = new TResult();
                 results = await ReadAsObject(response, results);
@@ -667,16 +655,6 @@ where TResult : new()
 
                 HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
 
-                log.DebugFormat(
-                    "请求URL:{0}  object {1}  结果:{2}",
-                    client.BaseAddress + routingUrl,
-                    model,
-                    response.IsSuccessStatusCode);
-                if (!response.IsSuccessStatusCode)
-                {
-                    log.Error(response.Content.ReadAsStringAsync().Result);
-                }
-
                 var results = new ReturnObject();
                 results = await ReadAsObject(response, results);
                 return results;
@@ -756,10 +734,7 @@ where TResult : new()
           }
     });
             }
-            else
-            {
-                log.Error(response.Content.ReadAsStringAsync().Result);
-            }
+
 
             return results;
         }
@@ -966,15 +941,13 @@ where TResult : new()
         {
             string message = string.Join("\n", httpMethod.Method, date, routingUrl.ToLower(), querystring);
 
-            log.DebugFormat("Client side Message {0}", message);
-
             Hashtable remoteDataSource =
 (Hashtable)WebConfigurationManager.GetSection(this.Section);
             string password = (string)remoteDataSource["password"];
 
             string token = VerifyTransactionSN.ComputeHash(password, message);
 
-            log.DebugFormat("Client side token {0}", token);
+            //log.DebugFormat("Client side token {0}", token);
             client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
             client.DefaultRequestHeaders.Add("Timestamp", date);
         }
