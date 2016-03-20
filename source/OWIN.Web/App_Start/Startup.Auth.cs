@@ -12,6 +12,8 @@ using OWIN.Web.Models;
 using OWIN.Web.Providers;
 using Owin.Security.Providers.GitHub;
 using Owin.Security.Providers.OpenID;
+using Owin.Security.Providers.LinkedIn;
+using Owin.Security.Providers.Yahoo;
 
 namespace OWIN.Web
 {
@@ -73,9 +75,9 @@ namespace OWIN.Web
             app.UseOAuthBearerTokens(OAuthOptions);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "Your API key",
+                clientSecret: "Your secret key");
 
             //app.UseTwitterAuthentication(
             //    consumerKey: "",
@@ -90,10 +92,14 @@ namespace OWIN.Web
             //    ClientId = "",
             //    ClientSecret = ""
             //});
-             
-            app.UseGitHubAuthentication(clientId: string.Empty, clientSecret : string.Empty);
+
+            app.UseGitHubAuthentication(clientId: "Your API Key", clientSecret: "Your secret key");
 
             app.UseOpenIDAuthentication("http://openid.orange.fr/server", "Orange", true);
+
+            app.UseLinkedInAuthentication("Your API Key", "Your secret key");
+
+            //app.UseYahooAuthentication("Your client ID", "Your client secret");
         }
     }
 }
