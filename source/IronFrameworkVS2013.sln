@@ -89,6 +89,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUITestProject", "Coded
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.TestCommon", "IronFramework.TestCommon\IronFramework.TestCommon.csproj", "{89B6D6EE-8682-4B61-9977-E012E04696FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWIN.Web", "OWIN.Web\OWIN.Web.csproj", "{57205BD7-C78A-4693-B8D6-21AA4EC92036}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +205,10 @@ Global
 		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57205BD7-C78A-4693-B8D6-21AA4EC92036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57205BD7-C78A-4693-B8D6-21AA4EC92036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57205BD7-C78A-4693-B8D6-21AA4EC92036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57205BD7-C78A-4693-B8D6-21AA4EC92036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,6 +242,7 @@ Global
 		{044EBA3C-A0AD-438D-8637-5A84E3DB3961} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
 		{8C66FA18-D305-4B1F-87C8-6019426C1497} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
 		{89B6D6EE-8682-4B61-9977-E012E04696FB} = {D3E13066-A38A-4898-9F4D-E56E9BCB3F7C}
+		{57205BD7-C78A-4693-B8D6-21AA4EC92036} = {C473E42B-4C5B-4C4C-81E5-55BF609BBB84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.PolicyInjection.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
