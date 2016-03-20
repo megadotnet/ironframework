@@ -10,6 +10,8 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using OWIN.Web.Models;
 using OWIN.Web.Providers;
+using Owin.Security.Providers.GitHub;
+using Owin.Security.Providers.OpenID;
 
 namespace OWIN.Web
 {
@@ -88,6 +90,10 @@ namespace OWIN.Web
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+             
+            app.UseGitHubAuthentication(clientId: string.Empty, clientSecret : string.Empty);
+
+            app.UseOpenIDAuthentication("http://openid.orange.fr/server", "Orange", true);
         }
     }
 }
