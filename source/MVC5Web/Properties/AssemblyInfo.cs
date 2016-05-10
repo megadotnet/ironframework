@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Megadotnet")]
 [assembly: AssemblyProduct("MVC5Web")]
-[assembly: AssemblyCopyright("Copyright © Megadotnet 2014")]
+[assembly: AssemblyCopyright("Copyright © Megadotnet 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
