@@ -40,6 +40,12 @@ namespace DataServiceClient
         /// </summary>
         private static readonly ILogger log = new Logger("RESTAPIWrapperClinet");
 
+        /// <summary>
+        /// The client
+        /// </summary>
+        /// <seealso cref="http://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/"/>
+        private readonly HttpClient client = CreateHttpClient();
+
         #endregion
 
         #region Constructors and Destructors
@@ -50,6 +56,8 @@ namespace DataServiceClient
         public RESTAPIWrapperClinet()
         {
             this.Section = ServiceConfig.SectionName;
+            this.CreateHttpHeader(client);
+
         }
 
 
@@ -60,6 +68,7 @@ namespace DataServiceClient
         public RESTAPIWrapperClinet(string sectionName)
         {
             this.Section = sectionName;
+            this.CreateHttpHeader(client);
         }
 
         #endregion
@@ -142,32 +151,28 @@ namespace DataServiceClient
         /// <param name="id">The identifier.</param>
         /// <param name="customURL">The custom URL.</param>
         /// <returns></returns>
-        public async Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject:new()
+        public async Task<ReturnObject> ClientHTTPDelete<ReturnObject, TResult>(int id, string customURL) where ReturnObject : new()
         {
-            using (var client = CreateHttpClient())
+
+            string entityname = typeof(TResult).Name;
+            entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
+
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = "";
+            string routingUrl = string.Format("/api/{0}/{1}", entityname, id);
+
+            if (!string.IsNullOrEmpty(customURL))
             {
-                this.CreateHttpHeader(client);
-
-                string entityname = typeof(TResult).Name;
-                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = "";
-                string routingUrl = string.Format("/api/{0}/{1}", entityname,id);
-
-                if (!string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl = string.Format("api/{0}/{1}/{2}", entityname, customURL,id);
-                }
-
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Delete);
-
-                HttpResponseMessage response = await client.DeleteAsync(routingUrl);
-
-                var results = new ReturnObject();
-                results = await ReadAsObject(response, results);
-                return results;
+                routingUrl = string.Format("api/{0}/{1}/{2}", entityname, customURL, id);
             }
+
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Delete);
+
+            HttpResponseMessage response = await client.DeleteAsync(routingUrl);
+
+            var results = new ReturnObject();
+            results = await ReadAsObject(response, results);
+            return results;
         }
 
 
@@ -208,31 +213,26 @@ namespace DataServiceClient
         /// </returns>
         public async Task<TResult> ClientHTTPGet<TResult>(int id, string customURL) where TResult : new()
         {
-            using (var client = CreateHttpClient())
+            string entityname = typeof(TResult).Name;
+            entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
+
+
+
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = "";
+            string routingUrl = string.Format("/api/{0}/{1}", entityname, id);
+            if (!string.IsNullOrEmpty(customURL))
             {
-                this.CreateHttpHeader(client);
-
-                string entityname = typeof(TResult).Name;
-                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-
-          
-
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = "";
-                string routingUrl = string.Format("/api/{0}/{1}", entityname,id);
-                if (!string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl = string.Format("/api/{0}/{1}/{2}", entityname, customURL, id);
-                }
-
-                CreateAuthenticationHeader(client, date, querystring, routingUrl,HttpMethod.Get);
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
+                routingUrl = string.Format("/api/{0}/{1}/{2}", entityname, customURL, id);
             }
+
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
+
+            HttpResponseMessage response = await client.GetAsync(routingUrl);
+
+            var results = new TResult();
+            results = await ReadAsObject(response, results);
+            return results;
         }
 
 
@@ -246,36 +246,32 @@ namespace DataServiceClient
         /// <returns></returns>
         public async Task<string> ClientHTTPGetString<Query>(string querystring, string customURL, bool isawait) where Query : new()
         {
-            using (var client = CreateHttpClient())
+            string entityname = typeof(Query).Name;
+            entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
+
+            string routingUrl = string.Empty;
+
+            if (string.IsNullOrEmpty(customURL))
             {
-                this.CreateHttpHeader(client);
-
-                string entityname = typeof(Query).Name;
-                entityname = entityname.Substring(0, entityname.IndexOf("Dto"));
-
-                string routingUrl = string.Empty;
-
-                if (string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl = string.Format("api/{0}/{1}", entityname, querystring);
-                }
-                else
-                {
-                    routingUrl = string.Format("api/{0}/{1}?{2}", entityname, customURL, querystring);
-                }
-
-                routingUrl += "&" + VerifyTransactionSN.GenerateRandomInt();
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-
-
-                string results = string.Empty;
-                if (response.IsSuccessStatusCode)
-                {
-                    results = response.Content.ReadAsStringAsync().Result;
-                }
-                return results;
+                routingUrl = string.Format("api/{0}/{1}", entityname, querystring);
             }
+            else
+            {
+                routingUrl = string.Format("api/{0}/{1}?{2}", entityname, customURL, querystring);
+            }
+
+            routingUrl += "&" + VerifyTransactionSN.GenerateRandomInt();
+
+            HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
+
+
+            string results = string.Empty;
+            if (response.IsSuccessStatusCode)
+            {
+                results = response.Content.ReadAsStringAsync().Result;
+            }
+            return results;
+
         }
 
         /// <summary>
@@ -400,26 +396,21 @@ namespace DataServiceClient
         public async Task<TResult> ClientHTTPGetList<TResult, TQueryDto, Query>(string partialURI, Query query, bool isawait)
 where TResult : new()
         {
-            using (var client = CreateHttpClient())
-            {
-                this.CreateHttpHeader(client);
+            string entityname = GetAPIControllerName<TQueryDto>();
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = this.GetQueryString(query, null);
+            string routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
 
-                string entityname = GetAPIControllerName<TQueryDto>();
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = this.GetQueryString(query,null);
-                string routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
 
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
+            routingUrl = routingUrl + "?" + querystring;
 
-                routingUrl = routingUrl + "?" + querystring;
+            // ?pageindex=1&pagesize=10
+            HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
 
-                // ?pageindex=1&pagesize=10
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
-            }
+            var results = new TResult();
+            results = await ReadAsObject(response, results);
+            return results;
         }
 
         /// <summary>
@@ -494,31 +485,27 @@ where TResult : new()
             string queryString,
             bool configureAwait) where TResult : new()
         {
-            using (var client = CreateHttpClient())
+
+            string entityname = GetAPIControllerName<QueryDto>();
+
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = queryString;
+            string routingUrl = string.Format("/api/{0}/", entityname);
+            if (!string.IsNullOrEmpty(partialURI))
             {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<QueryDto>();
-
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = queryString;
-                string routingUrl = string.Format("/api/{0}/", entityname);
-                if (!string.IsNullOrEmpty(partialURI))
-                {
-                    routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
-                }
-
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
-
-
-                routingUrl = routingUrl + "?" + querystring;
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
+                routingUrl = string.Format("/api/{0}/{1}/", entityname, partialURI);
             }
+
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Get);
+
+
+            routingUrl = routingUrl + "?" + querystring;
+
+            HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(configureAwait);
+
+            var results = new TResult();
+            results = await ReadAsObject(response, results);
+            return results;
         }
 
         /// <summary>
@@ -546,26 +533,22 @@ where TResult : new()
         public async Task<TResult> ClientHTTPGetList<TResult, Query>(string partialURI, bool isawait, bool enableRandomNumber)
     where TResult : new()
         {
-            using (var client = CreateHttpClient())
+            string entityname = GetAPIControllerName<Query>();
+
+            string routingUrl = string.Format("api/{0}/{1}/?", entityname, partialURI);
+
+            if (enableRandomNumber)
             {
-                this.CreateHttpHeader(client);
-
-                string entityname = GetAPIControllerName<Query>();
-
-                string routingUrl = string.Format("api/{0}/{1}/?", entityname, partialURI);
-
-                if (enableRandomNumber)
-                {
-                    routingUrl += VerifyTransactionSN.GenerateRandomInt();
-                }
-
-                HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
-
-                var results = new TResult();
-                results = await ReadAsObject(response, results);
-                return results;
+                routingUrl += VerifyTransactionSN.GenerateRandomInt();
             }
-        } 
+
+            HttpResponseMessage response = await client.GetAsync(routingUrl).ConfigureAwait(isawait);
+
+            var results = new TResult();
+            results = await ReadAsObject(response, results);
+            return results;
+
+        }
         #endregion
 
         #region ClientHTTPPut
@@ -629,37 +612,33 @@ where TResult : new()
         /// <returns></returns>
         public async Task<ReturnObject> ClientHTTPPut<ReturnObject, TQueryDto, Query>(Query model, string customPartialUri) where ReturnObject : new()
         {
-            using (var client = CreateHttpClient())
+            // HTTP PUT
+            string entityname = typeof(TQueryDto).Name;
+            int dtoindex = entityname.IndexOf("Dto");
+
+            if (dtoindex > 0)
             {
-                this.CreateHttpHeader(client);
-
-                // HTTP PUT
-                string entityname = typeof(TQueryDto).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = GetQueryString(model, null);
-                string routingUrl = string.Format("/api/{0}/", entityname);
-                if (!string.IsNullOrEmpty(customPartialUri))
-                {
-                    routingUrl = string.Format("/api/{0}/{1}/", entityname, customPartialUri);
-                }
-
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Put);
-
-                HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
-
-                var results = new ReturnObject();
-                results = await ReadAsObject(response, results);
-                return results;
+                entityname = entityname.Substring(0, dtoindex);
             }
-        } 
+
+
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = GetQueryString(model, null);
+            string routingUrl = string.Format("/api/{0}/", entityname);
+            if (!string.IsNullOrEmpty(customPartialUri))
+            {
+                routingUrl = string.Format("/api/{0}/{1}/", entityname, customPartialUri);
+            }
+
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Put);
+
+            HttpResponseMessage response = await client.PutAsJsonAsync(routingUrl, model);
+
+            var results = new ReturnObject();
+            results = await ReadAsObject(response, results);
+            return results;
+
+        }
         #endregion
 
         #endregion
@@ -689,7 +668,7 @@ where TResult : new()
             }
             else
             {
-                entityname=typeof(QueryDto).Name;
+                entityname = typeof(QueryDto).Name;
             }
 
 
@@ -775,23 +754,23 @@ where TResult : new()
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        public string GetQueryString(object obj,IList<KeyValuePair<string, string>> querystrings)
+        public string GetQueryString(object obj, IList<KeyValuePair<string, string>> querystrings)
         {
             if (obj != null)
             {
                 var parameterCollection = new List<KeyValuePair<string, string>>();
                 var properties = from p in obj.GetType().GetProperties()
-                                                 where
-                                                     p.GetValue(obj, null) != null
-                                                     && p.CustomAttributes.All(
-                                                         attc => attc.AttributeType != typeof(KeyAttribute))
-                                                 orderby p.Name
-                                                 select
-                                                    new KeyValuePair<string, string>(p.Name, p.GetValue(obj, null).ToString());
+                                 where
+                                     p.GetValue(obj, null) != null
+                                     && p.CustomAttributes.All(
+                                         attc => attc.AttributeType != typeof(KeyAttribute))
+                                 orderby p.Name
+                                 select
+                                    new KeyValuePair<string, string>(p.Name, p.GetValue(obj, null).ToString());
 
                 parameterCollection.AddRange(properties);
 
-                if (querystrings!=null)
+                if (querystrings != null)
                     parameterCollection.AddRange(querystrings);
 
                 var keyValueStrings = parameterCollection.OrderBy(cc => cc.Key).Select(pair => string.Format("{0}={1}", pair.Key, HttpUtility.UrlEncode(pair.Value)));
@@ -892,36 +871,32 @@ where TResult : new()
             where ReturnObject : new()
             where T : new()
         {
-            using (var client = CreateHttpClient())
+            // HTTP POST
+            string entityname = typeof(T).Name;
+            int dtoindex = entityname.IndexOf("Dto");
+
+            if (dtoindex > 0)
             {
-                this.CreateHttpHeader(client);
-
-                // HTTP POST
-                string entityname = typeof(T).Name;
-                int dtoindex = entityname.IndexOf("Dto");
-
-                if (dtoindex > 0)
-                {
-                    entityname = entityname.Substring(0, dtoindex);
-                }
-
-                string date = DateTime.UtcNow.ToString("u");
-                string querystring = GetQueryString(query, null);
-                string routingUrl = string.Format("/api/{0}/", entityname);
-                if (!string.IsNullOrEmpty(customURL))
-                {
-                    routingUrl = string.Format("/api/{0}/{1}/", entityname, customURL);
-                }
-
-                CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Post);
-
-              
-                HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
-
-                var results = new ReturnObject();
-                results = await ReadAsObject(response, results);
-                return results;
+                entityname = entityname.Substring(0, dtoindex);
             }
+
+            string date = DateTime.UtcNow.ToString("u");
+            string querystring = GetQueryString(query, null);
+            string routingUrl = string.Format("/api/{0}/", entityname);
+            if (!string.IsNullOrEmpty(customURL))
+            {
+                routingUrl = string.Format("/api/{0}/{1}/", entityname, customURL);
+            }
+
+            CreateAuthenticationHeader(client, date, querystring, routingUrl, HttpMethod.Post);
+
+
+            HttpResponseMessage response = await client.PostAsJsonAsync(routingUrl, query).ConfigureAwait(isawait);
+
+            var results = new ReturnObject();
+            results = await ReadAsObject(response, results);
+            return results;
+
         }
 
         /// <summary>
@@ -948,6 +923,8 @@ where TResult : new()
             string token = VerifyTransactionSN.ComputeHash(password, message);
 
             //log.DebugFormat("Client side token {0}", token);
+            client.DefaultRequestHeaders.Remove("Authentication");
+            client.DefaultRequestHeaders.Remove("Timestamp");
             client.DefaultRequestHeaders.Add("Authentication", string.Format("{0}:{1}", password, token));
             client.DefaultRequestHeaders.Add("Timestamp", date);
         }
@@ -959,12 +936,12 @@ where TResult : new()
         private static HttpClient CreateHttpClient()
         {
             return new HttpClient(new LoggingHandler(new HttpClientHandler()));
-        } 
+        }
 
         #endregion
 
 
 
-     
+
     }
 }
