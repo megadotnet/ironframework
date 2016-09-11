@@ -13,3 +13,6 @@ packages/
 *.user
 *.suo
 *.log
+/source/.vs/config/applicationhost.config
+/source/IronFrameworkVS2015.sln.GhostDoc.xml
+/source/IronFrameworkVS2013.sln.GhostDoc.xml

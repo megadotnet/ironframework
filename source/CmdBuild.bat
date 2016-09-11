@@ -8,4 +8,4 @@ if /i "%~1"=="" (
 )
 set build=%~1
 set out=%~f2
-C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe IronFramework.sln "/p:Configuration=%build%;OutputPath=%out%;DeployOnBuild=True;DeployTarget=Package;IncludeSetAclProviderOnDestination=False;RunCodeAnalysis=false"
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe IronFrameworkVS2013.sln "/p:Configuration=%build%;OutputPath=%out%;DeployOnBuild=True;DeployTarget=Package;IncludeSetAclProviderOnDestination=False;RunCodeAnalysis=false"
