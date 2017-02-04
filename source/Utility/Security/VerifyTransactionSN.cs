@@ -28,7 +28,7 @@ namespace IronFramework.Utility
             return hashString;
         }
 
-        #region "生成交易标记号"
+        #region 生成交易标记号返回一个20位长的字符串
         /// <summary>
         /// 生成交易标记号
         /// </summary>

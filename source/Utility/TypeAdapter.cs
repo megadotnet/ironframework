@@ -12,6 +12,9 @@ namespace IronFramework.Utility
     /// </summary>
     /// <typeparam name="S">Source</typeparam>
     /// <typeparam name="T">Target</typeparam>
+    /// <remarks>Due to AutoMapper threadsafe issue we not recommend use it with version 3.3.1.
+    /// later version is TBD.
+    /// </remarks>
     public class TypeAdapter : ITypeAdapter
     {
         /// <summary>
@@ -73,6 +76,14 @@ namespace IronFramework.Utility
 
 
 
+        /// <summary>
+        /// Transforms the specified source.
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="instance">The instance.</param>
+        /// <returns>T.</returns>
         public T Transform<S, T>(S source, T instance)
         {
             Mapper.Reset();

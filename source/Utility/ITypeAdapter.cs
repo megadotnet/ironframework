@@ -15,10 +15,11 @@ namespace IronFramework.Utility
     using AutoMapper;
 
     /// <summary>
-    /// Interface of TypeAdapter
+    /// Interface of TypeAdapter 
     /// </summary>
     /// <typeparam name="S">Source</typeparam>
     /// <typeparam name="T">Target</typeparam>
+    /// <remarks>interface</remarks>
     public interface ITypeAdapter
     {
         /// <summary>
@@ -31,6 +32,14 @@ namespace IronFramework.Utility
         T Transform<S, T>(S source);
 
 
+        /// <summary>
+        /// Transforms the specified source.
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="instance">The instance.</param>
+        /// <returns>T.</returns>
         T Transform<S, T>(S source, T instance);
     }
 
