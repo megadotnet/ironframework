@@ -31,15 +31,16 @@ recommend install from NuGet
 -- Development IDE/Tools 
 --------------------------------------------
 
-For Visual Studio 2012/2013/2015 or latest version :
+For Visual Studio 2012/2013/2015/2017 or latest version :
 
 NuGet Package Manager  
-SQL SERVER 2008 R2/2012/2014 
+SQL SERVER 2008 R2/2012/2014/2016 
 TestDriven.Net  
 StyleCop   
 AnkhSVN - Subversion Support for Visual Studio 
 Visual Studio 2013 Update 5
 Visual Studio 2015 Update 4 or later
+Visual Studio 2017
 
 
 
