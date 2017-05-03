@@ -1,0 +1,61 @@
+﻿syntax = "proto3";
+package gRPCEmployeeService;
+service gRPC {
+  rpc GetEmployeeList(GetEmployeeListRequest) returns (GetEmployeeListResponse){}
+  rpc GetOne(GetEmployeeOneRequest) returns (GetEmployeeOneReply){}
+  rpc Edit(EditEmployeeRequest) returns (EditEmployeeReply){}
+  rpc Remove(RemoveEmployeeRequest) returns (RemoveEmployeeReply){}
+}
+
+message GetEmployeeListRequest {
+  int32 EmployeeID = 1;
+  string NationalIDNumber = 2;
+  int32 ContactID = 3;
+  string Title = 4;
+}
+
+message GetEmployeeListResponse {
+  message EmployeeItem {
+    int32 EmployeeID = 1;
+    string NationalIDNumber = 2;
+    int32 ContactID = 3;
+    string Title = 4;
+  }
+  repeated EmployeeItem Items = 1;
+  int32 Count = 2;
+  bool IsSuccess = 3;
+  string ErrorMsg = 4;
+}
+
+message GetEmployeeOneRequest {
+  int32 EmployeeID = 1;
+}
+
+message GetEmployeeOneReply {
+  int32 EmployeeID = 1;
+  string Title = 2;
+  string NationalIDNumber = 3;
+  int32 ContactID = 4;
+  bool IsSuccess = 5;
+  string ErrorMsg = 6;
+}
+
+message EditEmployeeRequest {
+  int32 EmployeeID = 1;
+  string Title = 2;
+  string NationalIDNumber = 3;
+}
+
+message EditEmployeeReply {
+  bool IsSuccess = 1;
+  string ErrorMsg = 2;
+}
+
+message RemoveEmployeeRequest {
+  int32 EmployeeID = 1;
+}
+
+message RemoveEmployeeReply {
+  bool IsSuccess = 1;
+  string ErrorMsg = 2;
+}
