@@ -23,6 +23,7 @@ namespace IronFramework.GrpcService.Tests
 
             var client = new gRPC.gRPCClient(channel);
 
+            //Get one Employee entity 
             var responseEmployee = client.GetEmployeeList(new GetEmployeeListRequest { EmployeeID = 1 });
 
             Assert.NotNull(responseEmployee);

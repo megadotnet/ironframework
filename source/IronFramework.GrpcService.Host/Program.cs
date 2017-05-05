@@ -1,4 +1,6 @@
-﻿using Grpc.Core;
+﻿using BusinessObject;
+using BusinessObject.Util;
+using Grpc.Core;
 using GRPCEmployeeService;
 using IronFramework.GrpcService.Impl;
 using System;
@@ -14,6 +16,9 @@ namespace IronFramework.GrpcService.Host
     /// </summary>
     class Program
     {
+        /// <summary>
+        /// Rpc Server listen Port
+        /// </summary>
         public const int Port = 9007;
 
         /// <summary>
@@ -24,7 +29,7 @@ namespace IronFramework.GrpcService.Host
         {
             Server server = new Server
             {
-                Services = { gRPC.BindService(new GrpcEmployeeServiceImpl()) },
+                Services = { gRPC.BindService(new GrpcEmployeeServiceImpl(new EmployeeBO(new EmployeeConverter()))) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
             server.Start();
