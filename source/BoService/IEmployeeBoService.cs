@@ -17,7 +17,7 @@ namespace BoService
     using IronFramework.Utility.UI;
 
     /// <summary>
-    /// The i employee bo service.
+    /// The interface employee bo service.
     /// </summary>
     [ServiceContract]
     public interface IEmployeeBoService

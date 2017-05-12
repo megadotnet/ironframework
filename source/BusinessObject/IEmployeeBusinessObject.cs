@@ -22,7 +22,8 @@ namespace BusinessObject
     using IronFramework.Common.IOC.EntLib.CallHandler;
 
     /// <summary>
-    /// The interface of employee business object
+    /// The interface of employee business object, we have mark attribute on method
+    /// for AOP feature with Entlib 6 
     /// </summary>
     public interface IEmployeeBusinessObject
     {
@@ -40,7 +41,7 @@ namespace BusinessObject
         bool AttachEmployee(Employee employee);
 
         /// <summary>
-        /// The create employee.
+        /// The create employee
         /// </summary>
         /// <param name="employee">
         /// The employee.
@@ -48,6 +49,7 @@ namespace BusinessObject
         /// <returns>
         /// The create employee
         /// </returns>
+        /// <remarks>Cross cutting with Exception and Transcation</remarks>
         [ExceptionCallHandler("MyPolicy")]
         [TransactionScopeCallHandler]
         bool CreateEmployee(Employee employee);
@@ -96,6 +98,7 @@ namespace BusinessObject
         /// <returns>
         /// Single entity
         /// </returns>
+        /// <remarks>Cross cutting with the Parameters Validation Caching, and Logging</remarks>
         [ValidationCallHandler]
         [LogCallHandler(BeforeMessage = "before GetEmployee", AfterMessage = "after GetEmployee", 
             IncludeCallStack = true)]

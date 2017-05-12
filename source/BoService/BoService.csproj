@@ -130,7 +130,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplyDataContractResolverAttribute.cs" />
+    <Compile Include="Util\ApplyDataContractResolverAttribute.cs" />
     <Compile Include="IBoServiceContractGenerate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

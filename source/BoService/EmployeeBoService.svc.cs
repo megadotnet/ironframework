@@ -27,6 +27,10 @@ namespace BoService
         /// The ebo.
         /// </summary>
         private readonly IEmployeeBusinessObject ebo;
+
+        /// <summary>
+        /// IContactBusinessObject
+        /// </summary>
         private readonly IContactBusinessObject contactebo;
 
         #endregion

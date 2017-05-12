@@ -49,15 +49,6 @@ namespace IronFramework.Common.Logging.Logger
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Logger"/> class.
-        /// </summary>
-        public Logger()
-        {
-            this._log = LogManager.GetCurrentClassLogger();
-        }
-
-
-        /// <summary>
         /// Gets a value indicating whether is trace enabled.
         /// </summary>
         public bool IsTraceEnabled

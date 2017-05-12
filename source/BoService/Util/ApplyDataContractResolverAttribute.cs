@@ -16,8 +16,9 @@ namespace BoService
     using System.ServiceModel.Dispatcher;
 
     /// <summary>
-    /// http://msdn.microsoft.com/en-us/library/ee705457.aspx
+    ///ApplyDataContractResolverAttribute 
     /// </summary>
+    /// <see cref="http://msdn.microsoft.com/en-us/library/ee705457.aspx"/>
     public class ApplyDataContractResolverAttribute : Attribute, IOperationBehavior
     {
         #region Implemented Interfaces
