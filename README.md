@@ -20,26 +20,27 @@ There architectural styles offer flexible extension and rapid developed infrastr
 
 Technology
 
-1. 1)C#
-2. 2)WCF
-3. 3)Net
-4. 4)Silverlight
-5. 5)Visual Studio 2013/2015/2017
-6. 6)TFS 2013/2015/2017 (option)
-7. 7)Web Deployment Server/ IIS 7.5 or later
-8. 8)Windows Server 2012/2016 (option)
-9. 9)SQL Server 2012/2014/2016 Enterprise(option)
+1. C# with T4 template
+2. WCF
+3. Net
+4. Silverlight
+5. Visual Studio 2013/2015/2017
+6. TFS 2013/2015/2017 (option)
+7. Web Deployment Server/ IIS 7.5 or later
+8. Windows Server 2012/2016 (option)
+9. SQL Server 2012/2014/2016 Enterprise(option)
 
 Components and libraries:
 
-1. 1)ADO.Net Entity framework
-2. 2)Enterprise Library
-3. 3)Newtonsoft.Json for .net
-4. 4)Moq
-5. 5)ASP.NET MVC RTM
-6. 6)WCF Web API Preview
-7. 7)ASP.NET WebAPI
-8. 8)The SQL Server AdventureWorks sample database (option)
+1. ADO.Net Entity framework
+2. Enterprise Library
+3. Newtonsoft.Json for .net
+4. Moq
+5. NLOG
+6. ASP.NET MVC RTM
+7. WCF Web API Preview framework
+8. ASP.NET WebAPI
+9. The SQL Server AdventureWorks sample database (option)
 
 ## Design Goals and Non-Goals
 
