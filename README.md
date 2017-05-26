@@ -301,6 +301,8 @@ In Visual Studio, a T4 text template is a mixture of text blocks and control log
 
 You will find other t4 template in other project. It is by default generate general simply logic code. You can modify it depends on your requirement.
 
+The IronFramework bases its code generation on **entity data models (edmx)**. Whether or not you are eventually using Entity Framework or another data access technology for interaction with your data sources, you are encouraged to define your data models via edmx. 
+
 ## Deployment
 
 First you need deploy Business object service as host in IIS or single process.
