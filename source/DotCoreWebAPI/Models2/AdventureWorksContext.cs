@@ -6,6 +6,13 @@ namespace DotCoreWebAPI.Models2
 {
     public partial class AdventureWorksContext : DbContext
     {
+        /// <summary>
+        /// AdventureWorksContext
+        /// </summary>
+        /// <param name="options"></param>
+        /// <see cref="https://stackoverflow.com/questions/40745468/no-database-provider-has-been-configured-for-this-dbcontext"/>
+        public AdventureWorksContext(DbContextOptions options) : base(options) { }
+
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
 
@@ -13,11 +20,6 @@ namespace DotCoreWebAPI.Models2
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeePayHistory> EmployeePayHistory { get; set; }
        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Server=.;database=AdventureWorks;Trusted_Connection=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
