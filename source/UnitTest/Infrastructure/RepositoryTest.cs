@@ -130,6 +130,47 @@ namespace UnitTest
         }
 
         /// <summary>
+        /// TestFindWithIQueryable with AsNoTracking
+        /// </summary>
+        /// <see cref="http://www.c-sharpcorner.com/UploadFile/ff2f08/entity-framework-and-asnotracking/"/>
+        [Fact]
+        public void TestFindWithIQueryable()
+        {
+            //arrange
+            var mockobject = new Mock<IRepository<Customer>>();
+            mockobject.Setup(r => r.Add(It.IsAny<Customer>()));
+
+            var customer = new Customer() { CustomerId = 1 };
+            mockobject.Setup<IEnumerable<Customer>>(r => r.Find(c => c.CustomerId == customer.CustomerId))
+                .Returns(new List<Customer>() { customer });
+
+            var mockPagedlist = new PagedList<Customer>() { PageSize = 10, PageIndex = 1, TotalCount = 50 };
+            for (int i = 0; i <= 10; i++)
+            {
+                mockPagedlist.Add(customer);
+            }
+
+            mockobject.Setup<IEnumerable<Customer>>(r => r.Find<int>(c => c.CustomerId == customer.CustomerId, c => c.CustomerId, 1, 10))
+                .Returns(mockPagedlist);
+
+            var mockRepository = mockobject.Object;
+
+            //act
+            //Returns a new query where the entities returned will not be cached in the DbContext or ObjectContext.
+            var clist = mockRepository.All().Where(c => c.CustomerId == customer.CustomerId).AsNoTracking().ToPagedList(1, 10);
+            var cPagedlist = mockRepository.Find<int>(c => c.CustomerId == customer.CustomerId, c => c.CustomerId, 1, 10);
+
+            //assert
+            Assert.NotNull(clist);
+            Assert.True(clist.Count() > 0);
+
+            Assert.NotNull(cPagedlist);
+            Assert.Equal(10, cPagedlist.PageSize);
+            Assert.Equal(1, cPagedlist.PageIndex);
+            Assert.Equal(50, cPagedlist.TotalCount);
+        }
+
+        /// <summary>
         /// Tests the Find async
         /// </summary>
         /// <see cref="http://stackoverflow.com/a/21256276/709066"/>
@@ -149,7 +190,6 @@ namespace UnitTest
             //act
             var clist = await mockRepository.FindAsync(c => c.CustomerId == customer.CustomerId);
            
-
             //assert
             Assert.NotNull(clist);
             Assert.True(clist.Count() > 0);
