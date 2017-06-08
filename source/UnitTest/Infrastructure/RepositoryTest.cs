@@ -22,7 +22,8 @@ namespace UnitTest
     using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
     using System.Threading.Tasks;
-    
+    using BusinessEntities;
+
     /// <summary>
     /// The repository test.
     /// </summary>
@@ -242,7 +243,7 @@ namespace UnitTest
         /// Tests the single.
         /// </summary>
         [Fact]
-        public void TestSingle()
+        public void TestFetchSingle()
         {
             //arrange
             var mockobject = new Mock<IRepository<Customer>>();
@@ -256,6 +257,26 @@ namespace UnitTest
 
             //assert
             mockobject.Verify(r=> r.Single(c => c.CustomerId == 2));
+        }
+
+        /// <summary>
+        /// TestEagerLoading
+        /// </summary>
+        [Fact]
+        public void TestEagerLoading()
+        {
+            //arrange
+            var mockobject = new Mock<IRepository<Employee>>();
+            mockobject.Setup(r => r.All()).Returns(new List<Employee>().AsQueryable());
+
+            var customer = new Employee() { EmployeeID = 2 };
+            var mockRepository = mockobject.Object;
+
+            //act
+            mockRepository.All().Include(e => e.EmployeePayHistories);
+
+            //assert
+            mockobject.Verify(r => r.All().Include(e => e.EmployeePayHistories));
         }
 
         /// <summary>
