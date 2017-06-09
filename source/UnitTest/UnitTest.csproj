@@ -296,10 +296,6 @@
       <Project>{7e511144-7fa1-47c7-909a-e5331a186809}</Project>
       <Name>IronFramework.Common.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IronFramework.TestCommon\IronFramework.TestCommon.csproj">
-      <Project>{89b6d6ee-8682-4b61-9977-e012e04696fb}</Project>
-      <Name>IronFramework.TestCommon</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
       <Project>{90CE0470-475D-4D58-98C0-A1D2D86FF266}</Project>
       <Name>ServiceProxy</Name>
