@@ -17,6 +17,7 @@ namespace UnitTest
     using Xunit;
     using Xunit.Extensions;
     using System.Threading.Tasks;
+    using UnitTest.Util;
 
     public class TestEmployeeRepository : TestEmployeeBase
     {

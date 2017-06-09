@@ -31,6 +31,7 @@ namespace UnitTest
     using Xunit;
     using Xunit.Extensions;
     using System.Data.Entity.Core;
+    using UnitTest.Util;
 
     /// <summary>
     /// The business object test.

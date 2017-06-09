@@ -16,6 +16,7 @@ namespace UnitTest
     using ServicePoxry.AWServiceReference;
     using IronFramework.Utility.WCF;
     using BoService;
+    using UnitTest.Util;
 
     /// <summary>
     /// The test bo service, it depend on WCF Service. Currently,You need to host this service before you testing. Otherwise,they will failed.

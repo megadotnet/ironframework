@@ -23,6 +23,7 @@ namespace UnitTest
     using Xunit;
     using Xunit.Extensions;
     using DataTransferObject;
+    using UnitTest.Util;
 
     /// <summary>
     /// RESTServiceTest

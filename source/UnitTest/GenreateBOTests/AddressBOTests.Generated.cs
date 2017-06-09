@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
-using Ploeh.AutoFixture.Xunit;
 using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
@@ -25,7 +24,9 @@ using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using IronFramework.Utility.UI;
-	
+using Ploeh.AutoFixture.Xunit2;
+using UnitTest.Util;
+
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
