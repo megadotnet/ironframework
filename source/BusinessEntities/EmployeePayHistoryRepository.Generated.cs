@@ -37,7 +37,7 @@ namespace DataAccessObject
         /// Alls enties 
         /// </summary>
         /// <returns>Alls enties</returns>
-		public IEnumerable<EmployeePayHistory> All()
+		public IQueryable<EmployeePayHistory> All()
 		{
 			return Repository.All();
 		}

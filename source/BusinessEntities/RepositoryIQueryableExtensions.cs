@@ -16,7 +16,7 @@ namespace DataAccessObject
     using IronFramework.Utility.UI;
 
     /// <summary>
-    /// The repository IQueryable interface extensions.
+    /// The repository i queryable extensions.
     /// </summary>
     public static class RepositoryIQueryableExtensions
     {

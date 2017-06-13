@@ -274,7 +274,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// Alls enties 
         /// </summary>
         /// <returns>Alls enties</returns>
-		public IEnumerable<<#=code.Escape(entity)#>> All()
+		public IQueryable<<#=code.Escape(entity)#>> All()
 		{
 			return Repository.All();
 		}

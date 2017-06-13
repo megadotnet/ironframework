@@ -37,7 +37,7 @@ namespace DataAccessObject
         /// Alls enties 
         /// </summary>
         /// <returns>Alls enties</returns>
-		public IEnumerable<Contact> All()
+		public IQueryable<Contact> All()
 		{
 			return Repository.All();
 		}

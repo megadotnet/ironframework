@@ -37,7 +37,7 @@ namespace DataAccessObject
         /// Alls enties 
         /// </summary>
         /// <returns>Alls enties</returns>
-		public IEnumerable<Address> All()
+		public IQueryable<Address> All()
 		{
 			return Repository.All();
 		}
@@ -48,7 +48,7 @@ namespace DataAccessObject
         /// <param name="entity">The entity.</param>
 		public void Add(Address entity)
 		{
-			Repository.Add(entity);
+            Repository.Add(entity);
 		}
 		
 		 /// <summary>
