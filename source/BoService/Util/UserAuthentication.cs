@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IdentityModel.Policy;
 using System.IdentityModel.Selectors;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace BoService.Util
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 throw new FaultException("Unknown Username or Incorrect Password");
             }
         }
