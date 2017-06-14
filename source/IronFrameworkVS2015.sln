@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4E615AA-C130-4F4B-BF11-30113A3D9106}"
 	ProjectSection(SolutionItems) = preProject
@@ -55,8 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormApp", "WebApp\WebFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "WebApi2\WebApi2.csproj", "{46CFD862-718B-47EA-A971-519F5FBE151D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.TestCommon", "IronFramework.TestCommon\IronFramework.TestCommon.csproj", "{89B6D6EE-8682-4B61-9977-E012E04696FB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObject", "DataTransferObject\DataTransferObject.csproj", "{8A550FC8-2CE5-4774-A565-B38899352366}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Common.Data", "IronFramework.Common.Data\IronFramework.Common.Data.csproj", "{05AB9A19-A841-4023-AB49-F0DF261B0BF9}"
@@ -70,6 +68,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServiceClient", "DataServiceClient\DataServiceClient.csproj", "{87FB76B7-9138-4981-AA38-F85BEEAE905B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceClient", "WCFServiceClient\WCFServiceClient.csproj", "{3BC57283-C8C4-4840-A081-35F88830FD00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.UnitTestCommon", "IronFramework.TestCommon\IronFramework.UnitTestCommon.csproj", "{89B6D6EE-8682-4B61-9977-E012E04696FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,10 +121,6 @@ Global
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CFD862-718B-47EA-A971-519F5FBE151D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A550FC8-2CE5-4774-A565-B38899352366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A550FC8-2CE5-4774-A565-B38899352366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A550FC8-2CE5-4774-A565-B38899352366}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -153,6 +149,10 @@ Global
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,7 +169,6 @@ Global
 		{5FD82166-C8C7-4D0A-B1A1-203DDF398A66} = {4A375043-6480-4ADA-B53A-64EA3DF5E056}
 		{BE7BE133-9EBE-42E9-884B-A7B026FCDA12} = {4A375043-6480-4ADA-B53A-64EA3DF5E056}
 		{46CFD862-718B-47EA-A971-519F5FBE151D} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
-		{89B6D6EE-8682-4B61-9977-E012E04696FB} = {BE104F43-18A5-4592-A830-C861ACB0BBDE}
 		{8A550FC8-2CE5-4774-A565-B38899352366} = {76DBC519-398A-40A4-8013-487766546659}
 		{05AB9A19-A841-4023-AB49-F0DF261B0BF9} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
 		{3140AD4F-B33D-421D-B8EF-25EA384E8C76} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
@@ -177,6 +176,7 @@ Global
 		{D6D8E0DB-E92B-4946-AB74-716C99F8A45F} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
 		{3BC57283-C8C4-4840-A081-35F88830FD00} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
+		{89B6D6EE-8682-4B61-9977-E012E04696FB} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
