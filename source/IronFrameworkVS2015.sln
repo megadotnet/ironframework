@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServiceClient", "DataSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceClient", "WCFServiceClient\WCFServiceClient.csproj", "{3BC57283-C8C4-4840-A081-35F88830FD00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.UnitTestCommon", "IronFramework.TestCommon\IronFramework.UnitTestCommon.csproj", "{89B6D6EE-8682-4B61-9977-E012E04696FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC57283-C8C4-4840-A081-35F88830FD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B6D6EE-8682-4B61-9977-E012E04696FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,6 +176,7 @@ Global
 		{D6D8E0DB-E92B-4946-AB74-716C99F8A45F} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
 		{3BC57283-C8C4-4840-A081-35F88830FD00} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
+		{89B6D6EE-8682-4B61-9977-E012E04696FB} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
