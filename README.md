@@ -1,5 +1,7 @@
 Iron Framework
 =============
+[![Join the chat at https://gitter.im/IronFramework](
+https://badges.gitter.im/megadotnet/IronFramework.svg)](https://gitter.im/IronFramework/Lobby?source=orgpage)
 AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/eh3l42rv9suurw08?svg=true)](https://ci.appveyor.com/project/megadotnet/ironframework)
 
 ## Introduction
