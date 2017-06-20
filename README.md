@@ -39,11 +39,12 @@ Components and libraries:
 3. Newtonsoft.Json for .net
 4. Moq
 5. NLOG
-6. ASP.NET MVC RTM
+6. ASP.NET MVC with [MvcScaffolding](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
 7. WCF Web API Preview framework
 8. ASP.NET WebAPI
 9. The SQL Server AdventureWorks sample database (option)
 10.AutoFixture with xUnit.net
+
 
 ## Design Goals and Non-Goals
 
