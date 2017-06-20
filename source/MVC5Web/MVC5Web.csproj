@@ -66,6 +66,9 @@
     <Reference Include="Elmah.Mvc">
       <HintPath>..\packages\Elmah.MVC.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.4.1.10311.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Glimpse.Ado">
       <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
     </Reference>
@@ -119,6 +122,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
@@ -250,6 +254,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="EncryptConnectingstr.bat" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Index.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Create.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Details.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Edit.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\_CreateOrEdit.cs.t4" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
