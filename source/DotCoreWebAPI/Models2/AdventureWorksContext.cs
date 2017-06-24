@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DotCoreWebAPI.Models2
 {
+    /// <summary>
+    /// AdventureWorksContext
+    /// </summary>
     public partial class AdventureWorksContext : DbContext
     {
         /// <summary>
