@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Tracing;
 using WebApi2.App_Start;
 using WebApi2.Areas.HelpPage;
+using WebApiThrottle;
 
 namespace WebApi2
 {
@@ -25,9 +26,10 @@ namespace WebApi2
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            //http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+            //EnableCors http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api
             config.EnableCors();
 
+            //Documents
             config.SetDocumentationProvider(new XmlDocumentationProvider(
              HttpContext.Current.Server.MapPath("~/App_Data/WebApi2.XML")));
 
@@ -45,6 +47,13 @@ namespace WebApi2
 
             config.EnableSystemDiagnosticsTracing();
             config.Services.Replace(typeof(ITraceWriter), new  LoggingTracer());
+
+            //WebAPI Throttle //https://github.com/stefanprodan/WebApiThrottle
+            config.MessageHandlers.Add(new ThrottlingHandler()
+            {
+                Policy = ThrottlePolicy.FromStore(new PolicyConfigurationProvider()),
+                Repository = new CacheRepository()
+            });
         }
     }
 }

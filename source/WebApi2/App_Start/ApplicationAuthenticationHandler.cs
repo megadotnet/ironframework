@@ -13,9 +13,10 @@ using System.Web.Configuration;
 
 namespace WebApi2.App_Start
 {
-/// <summary>
-    /// ApplicationAuthenticationHandler
+    /// <summary>
+    /// ApplicationAuthenticationHandler for Basic Http Auth
     /// </summary>
+    /// <see cref="https://en.wikipedia.org/wiki/Basic_access_authentication"/>
     /// <seealso cref="http://www.tuicool.com/articles/goto?id=7FF7zy"/>
     public class ApplicationAuthenticationHandler : DelegatingHandler
     {

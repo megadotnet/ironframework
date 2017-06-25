@@ -15,7 +15,7 @@ namespace WebApi2.App_Start
     public class LogActionWebApiFilterAttribute : ActionFilterAttribute
     {
         /// <summary>
-        /// Instance of the  log.
+        /// Instance of the logger
         /// </summary>
         private static readonly ILogger log = new Logger("LogActionWebApiFilter");
 

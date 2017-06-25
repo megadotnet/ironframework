@@ -8,6 +8,9 @@ using System.Web.Http.Tracing;
 
 namespace WebApi2.App_Start
 {
+    /// <summary>
+    /// LoggingTracer
+    /// </summary>
     public class LoggingTracer : ITraceWriter
     {
         private static readonly ILogger log = new Logger("LoggingTracer");

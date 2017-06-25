@@ -51,6 +51,9 @@ namespace WebApi2.Controllers
         }
     }
 
+    /// <summary>
+    /// RequestExtensions
+    /// </summary>
     public static class RequestExtensions
     {
         public static int GetPageSize(this HttpRequestMessage requestMessage, int defaultSize = 5)

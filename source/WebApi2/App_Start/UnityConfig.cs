@@ -9,8 +9,14 @@ using Unity.WebApi;
 
 namespace WebApi2
 {
+    /// <summary>
+    /// Unity IOC container configuration 
+    /// </summary>
     public static class UnityConfig
     {
+        /// <summary>
+        /// RegisterComponents
+        /// </summary>
         public static void RegisterComponents()
         {
             IUnityContainer container = Singleton.GetInstance<IUnityContainer>(() => new UnityContainer());

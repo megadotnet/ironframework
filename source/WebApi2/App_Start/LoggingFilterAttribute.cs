@@ -13,6 +13,9 @@ namespace WebApi2.App_Start
     /// <seealso cref="http://blog.evizija.si/rest-web-api-logging-using-nlog/"/>
     public class LoggingFilterAttribute : ActionFilterAttribute
     {
+        /// <summary>
+        /// logger name
+        /// </summary>
         private static readonly ILogger log = new Logger("LoggingFilterAttribute");
 
         /// <summary>

@@ -48,6 +48,7 @@ namespace WebApi2
     ///        } 
     /// </code>
     /// </example>
+    /// <see cref="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication"/>
     public class AuthenticateAttribute : ActionFilterAttribute
     {
         #region Static Fields
@@ -64,7 +65,7 @@ namespace WebApi2
 
 
         /// <summary>
-        /// The log
+        /// The log name
         /// </summary>
         private static readonly ILogger log = new Logger("AuthenticateAttribute");
 

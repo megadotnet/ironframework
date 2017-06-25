@@ -7,8 +7,15 @@ using System.Web.Routing;
 
 namespace WebApi2
 {
+    /// <summary>
+    /// RouteConfig
+    /// </summary>
     public class RouteConfig
     {
+        /// <summary>
+        /// RegisterRoutes
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
