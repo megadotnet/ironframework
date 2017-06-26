@@ -34,19 +34,17 @@ Technology
 
 Components and libraries:
 
--  ADO.Net Entity framework
--  Enterprise Library
--  Newtonsoft.Json for .net
--  Moq
--  NLOG
--  ASP.NET MVC with [MvcScaffolding](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
--  WCF Web API framework
--  ASP.NET WebAPI
--  The SQL Server AdventureWorks sample database (option)
--  AutoFixture with xUnit.net
--  gRPC
--  Glimpse
--  Elmah
+1. ADO.Net Entity framework
+2. Enterprise Library
+3. Newtonsoft.Json for .net
+4. Moq
+5. NLOG
+6. ASP.NET MVC with [MvcScaffolding](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
+7. WCF Web API Preview framework
+8. ASP.NET WebAPI
+9. The SQL Server AdventureWorks sample database (option)
+10.AutoFixture with xUnit.net
+
 
 ## Design Goals and Non-Goals
 
@@ -254,7 +252,7 @@ It is include the DTO class of UI and service factory which is warp unity implem
 
 ## Unit Test
 
- We use the MS Test in the Unit test project. So you may also use Test Driven plug-in or the Jetbrains ReSharpr plug-in working on it conveniently.
+ We use the xUnit.net with Unit testing project. So you may also use Test Driven plug-in or the Jetbrains ReSharpr plug-in or  working on it conveniently.
 
   Because application block work with plug mode of framework, please verify assemblies have reside against bin folder that test case of unit test work well.
 
