@@ -219,6 +219,7 @@
     <Compile Include="App_Start\ApplicationAuthenticationHandler.cs" />
     <Compile Include="App_Start\AuthenticateAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CommonTracingThrottleLogger.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\LogActionWebApiFilter.cs">
       <SubType>Code</SubType>

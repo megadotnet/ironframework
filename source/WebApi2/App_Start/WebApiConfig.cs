@@ -11,6 +11,9 @@ using WebApiThrottle;
 
 namespace WebApi2
 {
+    /// <summary>
+    /// WebApiConfig
+    /// </summary>
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
@@ -52,7 +55,8 @@ namespace WebApi2
             config.MessageHandlers.Add(new ThrottlingHandler()
             {
                 Policy = ThrottlePolicy.FromStore(new PolicyConfigurationProvider()),
-                Repository = new CacheRepository()
+                Repository = new CacheRepository(),
+                Logger = new CommonTracingThrottleLogger()
             });
         }
     }
