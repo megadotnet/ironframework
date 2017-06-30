@@ -71,7 +71,7 @@
     <Compile Include="Contact.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\EmployeeAdapter.cs" />
+    <Compile Include="DTOAdapter\EmployeeAdapter.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>AdventureWorks.tt</DependentUpon>
     </Compile>
