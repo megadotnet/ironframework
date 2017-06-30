@@ -18,6 +18,31 @@ namespace BoService.Util
     /// <seealso cref="http://www.codeproject.com/Articles/33872/Custom-Authorization-in-WCF"/>
     /// <seealso cref="http://www.cnblogs.com/chucklu/p/4685783.html"/>
     /// <seealso cref="http://www.codebetter.com/petervanooijen/2010/03/22/a-simple-wcf-service-with-username-password-authentication-the-things-they-don-t-tell-you/"/>
+    /// <example><code>
+    /// <![CDATA[
+     ///       <serviceBehaviors>
+     ///  <behavior name = "ServiceBehaviour" >
+     ///    < serviceMetadata httpGetEnabled="true" />
+     ///    <serviceDebug includeExceptionDetailInFaults = "true" />
+     ///  </ behavior >
+     ///    < behavior name="customBehaviour">
+     ///    <!-- To avoid disclosing metadata information, set the value below to false and remove the metadata endpoint above before deployment -->
+     ///    <serviceMetadata httpGetEnabled = "true" />
+     ///    < !--To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+     ///    <serviceDebug includeExceptionDetailInFaults = "true" />
+     ///              < !--Specify the Custom Authentication policy that will be used and add the policy location--> 
+     ///    <serviceCredentials>
+     ///      <userNameAuthentication userNamePasswordValidationMode = "Custom" customUserNamePasswordValidatorType="BoService.Util.UserAuthentication,BoService" /> 
+     ///     <serviceCertificate findValue = "MyWcfSite" storeLocation="LocalMachine" storeName="My" x509FindType="FindBySubjectName" />
+     ///      <clientCertificate>
+     ///       <authentication certificateValidationMode = "PeerOrChainTrust" revocationMode="NoCheck" />
+     ///      </clientCertificate>
+     ///    </serviceCredentials>
+     ///  </behavior>
+     ///</serviceBehaviors>
+    /// 
+    /// ]]>
+    /// </code></example>
     public class UserAuthentication : UserNamePasswordValidator
     {
         /// <summary>

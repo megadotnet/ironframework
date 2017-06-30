@@ -174,6 +174,23 @@ Business Objects encapsulate business logic in the form of business rules. Busin
 
 We will expose the OData API structure in the future.
 
+### WCF Service
+Windows Communication Foundation comes with a rich set of security features such as transport level message and transport with message; each security type has its own advantages and overheads as well. The best possible solution is message level security using custom username - password authentication. 
+
+#### Installing the certificate and setup
+Download the Pluralsight SelfCert from the [link](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net) given at the beginning of the article. Run the tool as Administrator; 
+
+1.Generate certificate with name: MyWcfSite 
+
+2.Then you should update proxy project(ServiceProxy).
+
+3.Copy client identity section from app.config to web.config. Ex:
+
+        <identity>
+          <certificate encodedValue="AwAAAAEAAAAUAAAAbPq3/ENbW9Sn901o2naxkhhTVPggAAAAAQAAALQEAAAwggSwMIICmKADAgECAhAXT2zJ/YUhrEk4ipNRbpwtMA0GCSqGSIb3DQEBBQUAMBQxEjAQBgNVBAMTCU15V2NmU2l0ZTAeFw0xNzA2MjIxNjAwMDBaFw0yNzA2MjkxNjAwMDBaMBQxEjAQBgNVBAMTCU15V2NmU2l0ZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMDjMDqv+DXmNq3I/tf3ar6UViSc8O7/njE/u/UzmOZkKUrbYkmV0dmJNJHLNeF87SpeI8/BYuuYkK8/We3IrAvyXkTZ3hBH3rwJwrgW+XgrY8c9fNMlLPY+mhJZXbjP63B471whP52E3oaXaXciiYN99f1G7FvfoXvxXfnkUS7CVUofhQDXy5ZwgDZehKEpDKwFbXVospAUjh/Ky607IoUwca5a7VkIynaeBg016pZVyExrFuq4PCA5YOZOXBeYu54luTBRJm7YSLVwVly0L8zMNZmPtJFGXeS464vJvMdG2eO5Vq7kZ+zUC2E0qvHFqsI+nxtWPFkSKbMQ20IN/DLpbN4gFKlAWr+RgJJwtvdv2ZNdw+kV84LFAB0Mb7oq5oG2swsHhqQkPiUa9f4kfCXhXu8dM9qy5y/+4Lei7L59ZfIvBm5RXiix12f0xB3m7ps6N6dxWULdw1SIDbcBvgj0IxlfPyiRUKswOtam1TbHrlQYB+ogReMTtynyqFEXBjrLtLwZpj2CMGlSJbDkuGXO9f45AZ01vjl0UzY8jW7JL0iK804xijLrdcQB2GJTClYeu5XVF1kENKUd5S12USMrTvuL/wXmwZKLUSLMu5lGMRTZXFOpj/5mAUiSGuT0mFAYaxjSLFtTWJA0+m2IJrRh0slzQlpnIBpzYyjFqHIlAgMBAAEwDQYJKoZIhvcNAQEFBQADggIBAGDmbKZ8p5ipeONAipgNUs/uMwJNSR0bQpV38qRZlPo+8WKCmSPZ62KHTIbBpNsdqJzx9bWgSdjbWii4+lfRykts+KwvInuG1Dq9gUea4ICjUULbbXfGUiwPK4Gkr+HtTfCijK63MC+ByMlXCdYlOxMsaWgf50LRx/pTDRmUZTETbTevCKTun9lcZFPAnzOXPiIDsLcLpGfswHpp/R9y/Bn1K00txMuhGumREASZ5xYkM1DVKTBRl1vBmZka+J2cyaV8jR/JJEOyumJvWkn/mviyVSFQFvMjVot32nv1UI1kLurn/sLTR7RpkhytXctFfbM86NH85FQ/fOqbfy6Ughf/INZVj5A/MXMUfKDLXDVDrzIaZ416OSTw6sgdBQeTNwuEhTBXUsnnYpSrWiRSZlyANwYbDPhvdlwoLPpbGuyvRgGFXNZVtXweDiKzOt16SHBV2yTuWXjQeFzYGWpKpFmXWmpV1Dk1nfkDkhGcFOoN3e736acBj7a0w/HfnCz6b732N4xHBfHt1FGxq8Hl9DPx4+29cI2htTkCP6wEGQf1Mti76RE7mBuJ2Stjtmiuc1LwPD+4Y1QTPaczq11ITucWU3XXitEVF2TpY8mfsgNZbIQ1qCuQSX4hZSN+82k4mqcXcLOSoexhmnA24HdAL1r0/GJsuznN8K9hKS0wcnyu" />
+        </identity>
+
+
 ### RESTful Service
 
   It is implemented REST Service by WCF 4 Web API and Asp.net Web API
