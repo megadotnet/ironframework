@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
+using UnitTest.Util;
 using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
@@ -24,9 +26,7 @@ using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using IronFramework.Utility.UI;
-using Ploeh.AutoFixture.Xunit2;
-using UnitTest.Util;
-
+	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
@@ -43,7 +43,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             bool hasAdded=_EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             Assert.True(hasAdded);
         }
@@ -55,7 +55,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(Int32 pkid)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             var dtoEntity=new EmployeePayHistoryDto(){EmployeeID=pkid};
             var dbResult = _EmployeePayHistoryBO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
@@ -68,7 +68,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindAll(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
 		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             var dbResult=_EmployeePayHistoryBO.FindAll(new PagedList<EmployeePayHistoryDto> {_EmployeePayHistoryDto});
             Assert.NotNull(dbResult);
@@ -82,7 +82,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEnties(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
 		    bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             var dbResult=_EmployeePayHistoryBO.FindEnties(new PagedList<EmployeePayHistoryDto> {_EmployeePayHistoryDto});
             Assert.NotNull(dbResult);
@@ -96,7 +96,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-             var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new EmployeePayHistoryConverter());
 			bool hasAdded = _EmployeePayHistoryBO.CreateEntiy(_EmployeePayHistoryDto);
             var dbResult = _EmployeePayHistoryBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
@@ -110,7 +110,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             var dbResult = _EmployeePayHistoryBO.UpdateEntiyWithGet(_EmployeePayHistoryDto);
             Assert.NotNull(dbResult);
         }
@@ -122,7 +122,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             bool isUpdated = _EmployeePayHistoryBO.UpdateWithAttachEntiy(_EmployeePayHistoryDto);
             Assert.True(isUpdated);
         }
@@ -134,7 +134,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             bool isDeleted = _EmployeePayHistoryBO.DeleteWithAttachEntiy(_EmployeePayHistoryDto);
             Assert.True(isDeleted);
         }
@@ -146,7 +146,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(EmployeePayHistoryDto _EmployeePayHistoryDto)
         {
-            var _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
+            IEmployeePayHistoryBO _EmployeePayHistoryBO = new EmployeePayHistoryBO(new FakeEmployeePayHistoryConverter());
             bool isDeleted = _EmployeePayHistoryBO.DeleteEntiy(_EmployeePayHistoryDto);
             Assert.True(isDeleted);
         }

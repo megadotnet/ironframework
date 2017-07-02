@@ -308,6 +308,10 @@
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>
       <Name>IronFramework.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApi2\WebApi2.csproj">
+      <Project>{46cfd862-718b-47ea-a971-519f5fbe151d}</Project>
+      <Name>WebApi2</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

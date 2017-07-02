@@ -128,7 +128,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData, AutoRollback]
         public void TestAdd(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             bool hasAdded=_<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             Assert.True(hasAdded);
         }
@@ -140,7 +140,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData]
         public void TestGetEntiyByPK(<#=codeStringGenerator.PKType(entity)#> pkid)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             var dtoEntity=new <#=code.Escape(entity)#>Dto(){<#=codeStringGenerator.PK(entity)#>=pkid};
             var dbResult = _<#=code.Escape(entity)#>BO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
@@ -153,7 +153,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData,AutoRollback]
         public void TestFindAll(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
 		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             var dbResult=_<#=code.Escape(entity)#>BO.FindAll(new PagedList<<#=code.Escape(entity)#>Dto> {_<#=code.Escape(entity)#>Dto});
             Assert.NotNull(dbResult);
@@ -167,7 +167,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData,AutoRollback]
         public void TestFindEnties(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
 		    bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             var dbResult=_<#=code.Escape(entity)#>BO.FindEnties(new PagedList<<#=code.Escape(entity)#>Dto> {_<#=code.Escape(entity)#>Dto});
             Assert.NotNull(dbResult);
@@ -181,7 +181,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-             var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new <#=code.Escape(entity)#>Converter());
 			bool hasAdded = _<#=code.Escape(entity)#>BO.CreateEntiy(_<#=code.Escape(entity)#>Dto);
             var dbResult = _<#=code.Escape(entity)#>BO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
@@ -195,7 +195,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             var dbResult = _<#=code.Escape(entity)#>BO.UpdateEntiyWithGet(_<#=code.Escape(entity)#>Dto);
             Assert.NotNull(dbResult);
         }
@@ -207,7 +207,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             bool isUpdated = _<#=code.Escape(entity)#>BO.UpdateWithAttachEntiy(_<#=code.Escape(entity)#>Dto);
             Assert.True(isUpdated);
         }
@@ -219,7 +219,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             bool isDeleted = _<#=code.Escape(entity)#>BO.DeleteWithAttachEntiy(_<#=code.Escape(entity)#>Dto);
             Assert.True(isDeleted);
         }
@@ -231,7 +231,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(<#=code.Escape(entity)#>Dto _<#=code.Escape(entity)#>Dto)
         {
-            var _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
+            I<#=code.Escape(entity)#>BO _<#=code.Escape(entity)#>BO = new <#=code.Escape(entity)#>BO(new Fake<#=code.Escape(entity)#>Converter());
             bool isDeleted = _<#=code.Escape(entity)#>BO.DeleteEntiy(_<#=code.Escape(entity)#>Dto);
             Assert.True(isDeleted);
         }

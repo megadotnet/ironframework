@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
+using UnitTest.Util;
 using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
@@ -24,9 +26,7 @@ using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using IronFramework.Utility.UI;
-using Ploeh.AutoFixture.Xunit2;
-using UnitTest.Util;
-
+	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
@@ -43,7 +43,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             bool hasAdded=_AddressBO.CreateEntiy(_AddressDto);
             Assert.True(hasAdded);
         }
@@ -55,7 +55,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(Int32 pkid)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             var dtoEntity=new AddressDto(){AddressID=pkid};
             var dbResult = _AddressBO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
@@ -68,7 +68,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindAll(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new AddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new AddressConverter());
 		    bool hasAdded = _AddressBO.CreateEntiy(_AddressDto);
             var dbResult=_AddressBO.FindAll(new PagedList<AddressDto> {_AddressDto});
             Assert.NotNull(dbResult);
@@ -82,7 +82,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEnties(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new AddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new AddressConverter());
 		    bool hasAdded = _AddressBO.CreateEntiy(_AddressDto);
             var dbResult=_AddressBO.FindEnties(new PagedList<AddressDto> {_AddressDto});
             Assert.NotNull(dbResult);
@@ -96,7 +96,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(AddressDto _AddressDto)
         {
-             var _AddressBO = new AddressBO(new AddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new AddressConverter());
 			bool hasAdded = _AddressBO.CreateEntiy(_AddressDto);
             var dbResult = _AddressBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
@@ -110,7 +110,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             var dbResult = _AddressBO.UpdateEntiyWithGet(_AddressDto);
             Assert.NotNull(dbResult);
         }
@@ -122,7 +122,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isUpdated = _AddressBO.UpdateWithAttachEntiy(_AddressDto);
             Assert.True(isUpdated);
         }
@@ -134,7 +134,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isDeleted = _AddressBO.DeleteWithAttachEntiy(_AddressDto);
             Assert.True(isDeleted);
         }
@@ -146,7 +146,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(AddressDto _AddressDto)
         {
-            var _AddressBO = new AddressBO(new FakeAddressConverter());
+            IAddressBO _AddressBO = new AddressBO(new FakeAddressConverter());
             bool isDeleted = _AddressBO.DeleteEntiy(_AddressDto);
             Assert.True(isDeleted);
         }

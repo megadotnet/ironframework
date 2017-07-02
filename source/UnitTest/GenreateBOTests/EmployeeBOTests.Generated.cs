@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
+using UnitTest.Util;
 using System.Threading.Tasks;
 using DataTransferObject;
 using BusinessObject;
@@ -24,9 +26,7 @@ using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using IronFramework.Utility.UI;
-using UnitTest.Util;
-using Ploeh.AutoFixture.Xunit2;
-
+	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
@@ -43,7 +43,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             bool hasAdded=_EmployeeBO.CreateEntiy(_EmployeeDto);
             Assert.True(hasAdded);
         }
@@ -55,7 +55,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(Int32 pkid)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             var dtoEntity=new EmployeeDto(){EmployeeID=pkid};
             var dbResult = _EmployeeBO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
@@ -68,7 +68,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindAll(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new EmployeeConverter());
 		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
             var dbResult=_EmployeeBO.FindAll(new PagedList<EmployeeDto> {_EmployeeDto});
             Assert.NotNull(dbResult);
@@ -82,7 +82,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEnties(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new EmployeeConverter());
 		    bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
             var dbResult=_EmployeeBO.FindEnties(new PagedList<EmployeeDto> {_EmployeeDto});
             Assert.NotNull(dbResult);
@@ -96,7 +96,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(EmployeeDto _EmployeeDto)
         {
-             var _EmployeeBO = new EmployeeBO(new EmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new EmployeeConverter());
 			bool hasAdded = _EmployeeBO.CreateEntiy(_EmployeeDto);
             var dbResult = _EmployeeBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
@@ -110,7 +110,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             var dbResult = _EmployeeBO.UpdateEntiyWithGet(_EmployeeDto);
             Assert.NotNull(dbResult);
         }
@@ -122,7 +122,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             bool isUpdated = _EmployeeBO.UpdateWithAttachEntiy(_EmployeeDto);
             Assert.True(isUpdated);
         }
@@ -134,7 +134,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             bool isDeleted = _EmployeeBO.DeleteWithAttachEntiy(_EmployeeDto);
             Assert.True(isDeleted);
         }
@@ -146,7 +146,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(EmployeeDto _EmployeeDto)
         {
-            var _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
+            IEmployeeBO _EmployeeBO = new EmployeeBO(new FakeEmployeeConverter());
             bool isDeleted = _EmployeeBO.DeleteEntiy(_EmployeeDto);
             Assert.True(isDeleted);
         }

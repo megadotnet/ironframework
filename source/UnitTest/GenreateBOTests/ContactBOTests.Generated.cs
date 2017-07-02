@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using BusinessEntities;
 using Xunit;
 using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
 using UnitTest.Util;
 using System.Threading.Tasks;
 using DataTransferObject;
@@ -25,8 +26,7 @@ using Moq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using IronFramework.Utility.UI;
-using Ploeh.AutoFixture.Xunit2;
-
+	
 namespace UnitTest.GenreateBOTests
 {   
     /// <summary>
@@ -43,7 +43,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestAdd(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             bool hasAdded=_ContactBO.CreateEntiy(_ContactDto);
             Assert.True(hasAdded);
         }
@@ -55,7 +55,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData]
         public void TestGetEntiyByPK(Int32 pkid)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             var dtoEntity=new ContactDto(){ContactID=pkid};
             var dbResult = _ContactBO.GetEntiyByPK(dtoEntity);
             Assert.NotNull(dbResult);
@@ -68,7 +68,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindAll(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new ContactConverter());
+            IContactBO _ContactBO = new ContactBO(new ContactConverter());
 		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
             var dbResult=_ContactBO.FindAll(new PagedList<ContactDto> {_ContactDto});
             Assert.NotNull(dbResult);
@@ -82,7 +82,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEnties(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new ContactConverter());
+            IContactBO _ContactBO = new ContactBO(new ContactConverter());
 		    bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
             var dbResult=_ContactBO.FindEnties(new PagedList<ContactDto> {_ContactDto});
             Assert.NotNull(dbResult);
@@ -96,7 +96,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData,AutoRollback]
         public void TestFindEntiesWithSimplePaging(ContactDto _ContactDto)
         {
-             var _ContactBO = new ContactBO(new ContactConverter());
+            IContactBO _ContactBO = new ContactBO(new ContactConverter());
 			bool hasAdded = _ContactBO.CreateEntiy(_ContactDto);
             var dbResult = _ContactBO.FindEnties(1, 10);
             Assert.NotNull(dbResult);
@@ -110,7 +110,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateEntiyWithGet(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             var dbResult = _ContactBO.UpdateEntiyWithGet(_ContactDto);
             Assert.NotNull(dbResult);
         }
@@ -122,7 +122,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestUpdateWithAttachEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             bool isUpdated = _ContactBO.UpdateWithAttachEntiy(_ContactDto);
             Assert.True(isUpdated);
         }
@@ -134,7 +134,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteWithAttachEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             bool isDeleted = _ContactBO.DeleteWithAttachEntiy(_ContactDto);
             Assert.True(isDeleted);
         }
@@ -146,7 +146,7 @@ namespace UnitTest.GenreateBOTests
         [Theory, AutoData, AutoRollback]
         public void TestDeleteEntiy(ContactDto _ContactDto)
         {
-            var _ContactBO = new ContactBO(new FakeContactConverter());
+            IContactBO _ContactBO = new ContactBO(new FakeContactConverter());
             bool isDeleted = _ContactBO.DeleteEntiy(_ContactDto);
             Assert.True(isDeleted);
         }
