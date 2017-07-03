@@ -258,6 +258,7 @@
     <Compile Include="IronFramework.Utility\TestTypeAdapter.cs" />
     <Compile Include="IronFramework.Utility\TestUnityDependencyResolver.cs" />
     <Compile Include="Util\AutoRollbackAttribute.cs" />
+    <Compile Include="WebAPI\EmployeeControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoService\BoService.csproj">
