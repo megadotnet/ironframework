@@ -1,4 +1,4 @@
-﻿using DotCoreWebAPI.Models2;
+﻿using BusinessEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,13 +79,13 @@ namespace DotCoreWebAPI.Converter
 
         private static void ConvertObjectWithCheckNull(EmployeeDto _EmployeeDto, bool skipNullPropertyValue, Employee efEmployee)
         {
-            efEmployee.EmployeeId = _EmployeeDto.EmployeeID;
+            efEmployee.EmployeeID = _EmployeeDto.EmployeeID;
 
-            if (!skipNullPropertyValue || _EmployeeDto.NationalIDNumber != null) { efEmployee.NationalIdnumber = _EmployeeDto.NationalIDNumber; }
-            efEmployee.ContactId = _EmployeeDto.ContactID;
+            if (!skipNullPropertyValue || _EmployeeDto.NationalIDNumber != null) { efEmployee.NationalIDNumber = _EmployeeDto.NationalIDNumber; }
+            efEmployee.ContactID = _EmployeeDto.ContactID;
 
-            if (!skipNullPropertyValue || _EmployeeDto.LoginID != null) { efEmployee.LoginId = _EmployeeDto.LoginID; }
-            efEmployee.ManagerId = _EmployeeDto.ManagerID;
+            if (!skipNullPropertyValue || _EmployeeDto.LoginID != null) { efEmployee.LoginID = _EmployeeDto.LoginID; }
+            efEmployee.ManagerID = _EmployeeDto.ManagerID;
 
             if (!skipNullPropertyValue || _EmployeeDto.Title != null) { efEmployee.Title = _EmployeeDto.Title; }
             efEmployee.BirthDate = _EmployeeDto.BirthDate;
@@ -98,7 +98,7 @@ namespace DotCoreWebAPI.Converter
             efEmployee.VacationHours = _EmployeeDto.VacationHours;
             efEmployee.SickLeaveHours = _EmployeeDto.SickLeaveHours;
             efEmployee.CurrentFlag = _EmployeeDto.CurrentFlag;
-            efEmployee.Rowguid = _EmployeeDto.rowguid;
+            efEmployee.rowguid = _EmployeeDto.rowguid;
             efEmployee.ModifiedDate = _EmployeeDto.ModifiedDate;
 
         }
@@ -116,11 +116,11 @@ namespace DotCoreWebAPI.Converter
             }
 
             var _EmployeeDto = new EmployeeDto();
-            _EmployeeDto.EmployeeID = _Employee.EmployeeId;
-            _EmployeeDto.NationalIDNumber = _Employee.NationalIdnumber;
-            _EmployeeDto.ContactID = _Employee.ContactId;
-            _EmployeeDto.LoginID = _Employee.LoginId;
-            _EmployeeDto.ManagerID = _Employee.ManagerId;
+            _EmployeeDto.EmployeeID = _Employee.EmployeeID;
+            _EmployeeDto.NationalIDNumber = _Employee.NationalIDNumber;
+            _EmployeeDto.ContactID = _Employee.ContactID;
+            _EmployeeDto.LoginID = _Employee.LoginID;
+            _EmployeeDto.ManagerID = _Employee.ManagerID;
             _EmployeeDto.Title = _Employee.Title;
             _EmployeeDto.BirthDate = _Employee.BirthDate;
             _EmployeeDto.MaritalStatus = _Employee.MaritalStatus;
@@ -130,18 +130,18 @@ namespace DotCoreWebAPI.Converter
             _EmployeeDto.VacationHours = _Employee.VacationHours;
             _EmployeeDto.SickLeaveHours = _Employee.SickLeaveHours;
             _EmployeeDto.CurrentFlag = _Employee.CurrentFlag;
-            _EmployeeDto.rowguid = _Employee.Rowguid;
+            _EmployeeDto.rowguid = _Employee.rowguid;
             _EmployeeDto.ModifiedDate = _Employee.ModifiedDate;
             return _EmployeeDto;
         }
 
         private static void ConvertObject(EmployeeDto _EmployeeDto, Employee efEmployee)
         {
-            efEmployee.EmployeeId = _EmployeeDto.EmployeeID;
-            efEmployee.NationalIdnumber = _EmployeeDto.NationalIDNumber;
-            efEmployee.ContactId = _EmployeeDto.ContactID;
-            efEmployee.LoginId = _EmployeeDto.LoginID;
-            efEmployee.ManagerId = _EmployeeDto.ManagerID;
+            efEmployee.EmployeeID = _EmployeeDto.EmployeeID;
+            efEmployee.NationalIDNumber = _EmployeeDto.NationalIDNumber;
+            efEmployee.ContactID = _EmployeeDto.ContactID;
+            efEmployee.LoginID = _EmployeeDto.LoginID;
+            efEmployee.ManagerID = _EmployeeDto.ManagerID;
             efEmployee.Title = _EmployeeDto.Title;
             efEmployee.BirthDate = _EmployeeDto.BirthDate;
             efEmployee.MaritalStatus = _EmployeeDto.MaritalStatus;
@@ -151,7 +151,7 @@ namespace DotCoreWebAPI.Converter
             efEmployee.VacationHours = _EmployeeDto.VacationHours;
             efEmployee.SickLeaveHours = _EmployeeDto.SickLeaveHours;
             efEmployee.CurrentFlag = _EmployeeDto.CurrentFlag;
-            efEmployee.Rowguid = _EmployeeDto.rowguid;
+            efEmployee.rowguid = _EmployeeDto.rowguid;
             efEmployee.ModifiedDate = _EmployeeDto.ModifiedDate;
         }
 
