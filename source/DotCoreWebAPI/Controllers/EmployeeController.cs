@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DotCoreWebAPI.Models2;
 using Microsoft.EntityFrameworkCore;
 using DotCoreWebAPI.Converter;
-using DataAccessObject;
 
 namespace DotCoreWebAPI.Controllers
 {
@@ -17,7 +17,7 @@ namespace DotCoreWebAPI.Controllers
         /// <summary>
         /// AdventureWorksContext
         /// </summary>
-        private readonly AdventureWorksEntities _context;
+        private readonly AdventureWorksContext _context;
         /// <summary>
         /// EmployeeConverter
         /// </summary>
@@ -27,7 +27,7 @@ namespace DotCoreWebAPI.Controllers
         /// EmployeeController
         /// </summary>
         /// <param name="context"></param>
-        public EmployeeController(AdventureWorksEntities context)
+        public EmployeeController(AdventureWorksContext context)
         {
             _context = context;
         }
@@ -39,7 +39,7 @@ namespace DotCoreWebAPI.Controllers
         [HttpGet]
         public IEnumerable<EmployeeDto> Get()
         {
-            var dbentities = _context.Employees.ToList();
+            var dbentities = _context.Employee.ToList();
             var employeedtos = new List<EmployeeDto>();
             dbentities.ForEach(c => employeedtos.Add(employeeConverter.ConvertEntitiesToDto(c)));
             return employeedtos;
@@ -54,7 +54,7 @@ namespace DotCoreWebAPI.Controllers
         [HttpGet("{id}")]
         public EmployeeDto Get(int id)
         {
-            var dbentities = _context.Employees.Where(e => e.EmployeeID == id);
+            var dbentities = _context.Employee.Where(e => e.EmployeeId == id);
             if (dbentities==null)
             {
                 return null;
