@@ -27,8 +27,7 @@
 	  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />
-    <ProjectReference Include="..\DataAccessObject\DataAccessObject.csproj" />
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Dockerfile">

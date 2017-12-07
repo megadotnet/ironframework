@@ -1,4 +1,5 @@
-﻿using DotCoreWebAPI.Models2;
+﻿using DataTransferObject;
+using DotCoreWebAPI.Models2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
