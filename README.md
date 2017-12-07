@@ -7,8 +7,11 @@ https://badges.gitter.im/megadotnet/IronFramework.svg)](https://gitter.im/IronFr
 ## Introduction
 
 Domain Driven Design(DDD),Layered architecture,Aspect-oriented programming(AOP) rapid development infrastructure
-focus on enterprise solution based on Microsoft .Net Framework. 
+focus on enterprise solution based on Microsoft .Net Framework and .net Core. 
 Combine with Entity Framework, Enterprise Library, WCF, Asp.net MVC
+
+> On the Road:  .Net Core
+
 components implement:
 
   - Layered Architecture
@@ -24,7 +27,7 @@ Technology
 
 1. C# with T4 template
 2. WCF
-3. Net
+3. Net framework and .net Core
 4. Silverlight
 5. Visual Studio 2013/2015/2017
 6. TFS 2013/2015/2017 (option)
