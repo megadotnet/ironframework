@@ -10,6 +10,9 @@ using WebApi2.App_Start;
 
 namespace WebApi2
 {
+    /// <summary>
+    /// WebApiApplication
+    /// </summary>
     public class WebApiApplication : System.Web.HttpApplication
     {
         /// <summary>
@@ -23,7 +26,8 @@ namespace WebApi2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             UnityConfig.RegisterComponents();
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new ApplicationAuthenticationHandler());
+            GlobalConfiguration.Configuration.MessageHandlers.Add(
+               new ApplicationAuthenticationHandler());
         }
     }
 }

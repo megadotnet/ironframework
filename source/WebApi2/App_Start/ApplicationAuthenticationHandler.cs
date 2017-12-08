@@ -63,6 +63,15 @@ namespace WebApi2.App_Start
             // Write your Authentication code here
             IEnumerable<string> monsterApiKeyHeaderValues = null;
 
+            //exinclude swagger
+            if (request.RequestUri.ToString().ToLower().Contains("/swagger"))
+            {
+                if (IsTrustedRequest(request))
+                {
+                    return await base.SendAsync(request, cancellationToken);
+                }
+            }
+
             // Checking the Header values
             if (request.Headers.TryGetValues(HTTP_HEADER_AUTH_KEYNAME, out monsterApiKeyHeaderValues))
             {
@@ -106,6 +115,13 @@ namespace WebApi2.App_Start
             }
 
             return await base.SendAsync(request, cancellationToken);
+        }
+
+        private bool IsTrustedRequest(HttpRequestMessage request)
+        {
+            //concoct the logic you require here to determine if the request is trusted or not
+            // an example could be: if request.IsLocal()
+            return true;
         }
 
         /// <summary>

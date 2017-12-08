@@ -257,7 +257,7 @@ namespace WebApi2
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             UriBuilder uri = new UriBuilder(codeBase);
             string path = Uri.UnescapeDataString(uri.Path);
-            path = Path.Combine(Path.GetDirectoryName(path), "WebApi2.XML");
+            path = Path.Combine(Path.GetDirectoryName(path), "WebApi2.xml");
             return path;
         }
 
