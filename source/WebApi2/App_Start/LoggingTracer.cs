@@ -13,8 +13,18 @@ namespace WebApi2.App_Start
     /// </summary>
     public class LoggingTracer : ITraceWriter
     {
+        /// <summary>
+        /// ILogger
+        /// </summary>
         private static readonly ILogger log = new Logger("LoggingTracer");
 
+        /// <summary>
+        /// Trace
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="category"></param>
+        /// <param name="level"></param>
+        /// <param name="traceAction"></param>
         public void Trace(HttpRequestMessage request, string category, TraceLevel level,
             Action<TraceRecord> traceAction)
         {
@@ -23,6 +33,10 @@ namespace WebApi2.App_Start
             WriteTrace(rec);
         }
 
+        /// <summary>
+        /// WriteTrace
+        /// </summary>
+        /// <param name="rec"></param>
         protected void WriteTrace(TraceRecord rec)
         {
             var message = string.Format("{0};{1};{2}",

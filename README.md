@@ -227,7 +227,12 @@ Web API assumes that authentication happens in the host. For web-hosting, the ho
 
 HMAC (hash-based message authentication code) provides a relatively simple way to authenticate HTTP messages using a secret that is known to both client and server. Unlike  [basic authentication](http://www.piotrwalat.net/basic-http-authentication-in-asp-net-web-api-using-message-handlers/) it does not require transport level encryption (HTTPS), which makes its an appealing choice in certain scenarios. Moreover, it guarantees message integrity (prevents malicious third parties from modifying contents of the message).
 
-On the other hand proper HMAC authentication implementation requires slightly more work than basic HTTP authentication and not all client platforms support it out of the box (most of them support cryptographic algorithms required to implement it though).
+On the other hand proper **HMAC** authentication implementation requires slightly more work than basic HTTP authentication and not all client platforms support it out of the box (most of them support cryptographic algorithms required to implement it though).
+
+##### API Documents
+It has integrated swagger for HTTP API.Swagger is the world’s largest framework of API developer tools for the OpenAPI Specification(OAS), enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
+
+http://localhost:3956/swagger/
 
 ## Presentation layer
 
