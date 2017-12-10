@@ -41,8 +41,10 @@ namespace DataServiceClient
         private static readonly ILogger log = new Logger("RESTAPIWrapperClinet");
 
         /// <summary>
-        /// The client
+        /// The Http Client
         /// </summary>
+        /// <remarks>It should be singleton.</remarks>
+        /// <see cref="https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient"/>
         /// <seealso cref="http://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/"/>
         private readonly HttpClient client = CreateHttpClient();
 

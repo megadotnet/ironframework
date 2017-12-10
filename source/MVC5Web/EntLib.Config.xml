@@ -94,6 +94,7 @@
           <!--remoteDataAPI is sectionName of web.config-->
           <param name="sectionName" value="remoteDataAPI" />
         </constructor>
+         <!--make it as singleton-->
         <lifetime type="singleton" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
