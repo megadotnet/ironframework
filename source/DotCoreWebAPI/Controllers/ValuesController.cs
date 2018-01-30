@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotCoreWebAPI.Controllers
 {
+    /// <summary>
+    /// ValuesController
+    /// </summary>
+    /// <remarks>Default controller from template</remarks>
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
