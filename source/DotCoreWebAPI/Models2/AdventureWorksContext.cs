@@ -7,6 +7,7 @@ namespace DotCoreWebAPI.Models2
     /// <summary>
     /// AdventureWorksContext
     /// </summary>
+    /// <seealso cref="https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/existing-db"/>
     public partial class AdventureWorksContext : DbContext
     {
         /// <summary>

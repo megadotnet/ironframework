@@ -8,9 +8,9 @@ https://badges.gitter.im/megadotnet/IronFramework.svg)](https://gitter.im/IronFr
 
 Domain Driven Design(DDD),Layered architecture,Aspect-oriented programming(AOP) rapid development infrastructure
 focus on enterprise solution based on Microsoft .Net Framework and .net Core. 
-Combine with Entity Framework, Enterprise Library, WCF, Asp.net MVC
+Combine with Entity Framework/Core, Enterprise Library, WCF, Asp.net MVC
 
-> On the Road:  .Net Core
+> On the Road:  .Net Core / ASP.net Core
 
 components implement:
 
@@ -27,22 +27,25 @@ Technology
 
 1. C# with T4 template
 2. WCF
-3. Net framework and .net Core
-4. Silverlight
-5. Visual Studio 2013/2015/2017
-6. TFS 2013/2015/2017 (option)
-7. Web Deployment Server/ IIS 7.5 or later
-8. Windows Server 2012/2016 (option)
-9. SQL Server 2012/2014/2016 Enterprise(option)
+3. Net framework and .Net Core
+4. Asp.net Core
+5. Silverlight
+6. Visual Studio 2013/2015/2017
+7. TFS 2013/2015/2017 (option)
+8. Web Deployment Server/ IIS 7.5 or later
+9. Windows Server 2012/2016 (option)
+10. SQL Server 2012/2014/2016 Enterprise(option)
 
 Components and libraries:
 
-1. ADO.Net Entity framework
-2. Enterprise Library
-3. Newtonsoft.Json for .net
-4. Moq
-5. NLOG
-6. ASP.NET MVC with [MvcScaffolding](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
+1. ADO.Net 
+2. Entity Framework
+3. Entity Framework Core
+4. Enterprise Library
+5. Newtonsoft.Json for .net
+6. Moq
+7. NLOG
+8. ASP.NET MVC with [MvcScaffolding](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
 7. WCF Web API Preview framework
 8. ASP.NET WebAPI
 9. The SQL Server AdventureWorks sample database (option)

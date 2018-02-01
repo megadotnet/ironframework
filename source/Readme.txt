@@ -37,7 +37,6 @@ NuGet Package Manager
 SQL SERVER 2008 R2/2012/2014/2016 
 TestDriven.Net  
 StyleCop   
-AnkhSVN - Subversion Support for Visual Studio 
 Visual Studio 2013 Update 5
 Visual Studio 2015 Update 3 or later
 Visual Studio 2017
