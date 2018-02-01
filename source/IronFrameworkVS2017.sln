@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4E615AA-C130-4F4B-BF11-30113A3D9106}"
 	ProjectSection(SolutionItems) = preProject
@@ -71,9 +71,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServiceClient", "DataSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceClient", "WCFServiceClient\WCFServiceClient.csproj", "{3BC57283-C8C4-4840-A081-35F88830FD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotCoreWebAPI", "DotCoreWebAPI\DotCoreWebAPI.csproj", "{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotCoreWebAPI", "DotCoreWebAPI\DotCoreWebAPI.csproj", "{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{84C85BFA-0997-4E2B-85FC-473F82FE124A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessObjectDotNetCore", "DataAccessObjectDotNetCore\DataAccessObjectDotNetCore.csproj", "{2BEA06B2-B46C-41A0-82CB-C14C47C67197}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,9 +196,11 @@ Global
 		{87FB76B7-9138-4981-AA38-F85BEEAE905B} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
 		{3BC57283-C8C4-4840-A081-35F88830FD00} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
 		{ABBAAD49-5175-45AB-93B8-E62B07F90DEE} = {73C4AB7D-4985-43F9-AA97-0757617511E8}
+		{2BEA06B2-B46C-41A0-82CB-C14C47C67197} = {286A40D1-325A-4B22-BF51-7565F84D4832}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
+		SolutionGuid = {22267630-DB1E-45AA-87BE-DE7E2F1659EE}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
