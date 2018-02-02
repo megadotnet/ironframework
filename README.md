@@ -64,7 +64,7 @@ It is not cover all about Domain Driven Design (DDD). Domain Driven Design is mu
 
 ## Architecture
 
-## Design Principles
+### Design Principles
 
 **De-coupling between Components**
 
@@ -144,6 +144,21 @@ If you do not need the Service layer, UI layer can be directly invoke Business l
 
 The Data Layer (DL) handles the persistence of Business Objects. It offers two providers: ADO.NET and ADO.Net Entities Framework. Today the Entity Framework source code is being released under an open source license (Apache 2.0), and the code repository will be hosted on CodePlex to further increase development transparency.
 
+### Database First With Entity Framework
+Entity Framework provides support for all these development styles and scenarios. We know that Entity Framework operates on the EDM, and lets us create this EDM in three ways in order to cater to the different development styles:
+- Database First: This is the approach that will be used with an existing database schema. In this approach, the EDM will be created from the database schema. This approach is best suited for applications that use an already  existing database.
+
+In a Database First approach, the main beneit that the developers have is that if the 
+database is created, they will spend very little time writing the data access layer. 
+The EDM can be created from the database and then we can change it as per our 
+application needs; our data access layer is ready to use. Here are a few scenarios 
+where the Database First approach is very useful:
+- When we are working with a legacy database.
+- When we are working in a scenario where the database design is being done 
+by another team of DBAs, and once the database is ready, the application 
+development starts.
+- When we are working on a data centric application, that is, the application domain model is the database itself, and it is being changed frequently to cater to new requirements. For instance, when the tables are being updated regularly and new columns are being added to it frequently then we can simply use this approach, and the application code will not break. We simply have to write the code to cater to the newly added columns. 
+
  _IRepository.tt_ template will generate those data access class. By default, data access type provider work with Entity Framework. _AdventureWorks.Context.tt_ template will generate entity framework data access context type. We have modified the default the ADO.NET DbContext Generator template which from Entity framework 5 then added WCF data member attribute. It is can get it from NuGet.
  
 In the Web.config/App.Config file you may indicate which one to use. ADO.NET implements a &#39;data provider factory&#39; which uses an abstract factory pattern and returns database specific singleton factories.You may implement your own data access layer with data repository interface.
@@ -160,21 +175,21 @@ Database model example (snapshot from AdventureWorks.edmx):
 
 
 
-### Repository Class Diagram
+## Repository Class Diagram
 
 
-## Data transfer Object layer
+### Data transfer Object layer
 
 Why DTOs? DTOs are simple objects that should not contain any business logic that would require testing. DTOs are most commonly used by the Services layer in an N-Tier application to transfer data between itself and the UI layer. The main benefit here is that it reduces the amount of data that needs to be sent across the wire in distributed applications. They also make great models in the MVC pattern. The framework support transfer the Entity framework model to View Model.  DTO Object used to the View Model for presentation. The difference between data transfer objects and business objects or data access objects is that a DTO does not have any behavior except for storage and retrieval of its own data (accessors and mutators).
 
-## Business Object layer
+### Business Object layer
 
 Using _AdventureWorks.tt_ T4 template generate entities POCO mode class as business entities. Business object project include business rules and business objects. We put the core business logic in this project.
 
 Business Objects encapsulate business logic in the form of business rules. Business Objects themselves have no knowledge about databases or data persistence, which is handled by the Data access layer.
 
 
-## Service layer
+### Service layer
 
    It is implemented by WCF 4 service. It is include data contract interface and service implement. The WCF Service Layer receives messages from the PL. It interprets the message, unpacks the Data Transfer Objects, and orchestrates and coordinates the interaction between Business Objects and Data Access Objects.
 
@@ -219,7 +234,7 @@ When debug WCF REST service we suggest you set configuration section like this:
 
 We also can use WCF Web API to do unit test with REST service.
 
-### Web API
+### Web API (Http API)
 
 
 #### Authentication
@@ -275,8 +290,8 @@ Case1: Cross cutting with Validation, Logging, Caching
     [CachingCallHandler(0, 10, 0, Order = 3)]
     Employee GetEmployee([RangeValidator(1, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Inclusive)] int pid);
 
-## Common and Utility
-It is include the DTO class of UI and service factory which is warp unity implement DI, AOP feature.
+## Common and Utility Library
+It is include the DTO class of UI and service factory which is warp unity implement DI, AOP features.
 
 ## Unit Test
 
@@ -335,6 +350,19 @@ You will find other t4 template in other project. It is by default generate gene
 
 The IronFramework bases its code generation on **entity data models (edmx)**. Whether or not you are eventually using Entity Framework or another data access technology for interaction with your data sources, you are encouraged to define your data models via edmx. 
 
+-------
+
+DAO                  : IRepository.tt
+
+Busniess Object : IBussinessBase.tt
+
+DTO:                 : DTOGenerator.tt
+
+HTTPAPI Controller   : WebAPIControllerBase.tt
+
+WebController        : ControllerBase.tt
+
+
 ## Deployment
 
 First you need deploy Business object service as host in IIS or single process.
@@ -353,35 +381,38 @@ Example: cmdbuild debug c:\Ironframework-debug-build
 
 ## System Quality Attributes
 
-## Reusability
+### Reusability
 
 It is intended to design The WCF service layer in a way that it is reusable by other applications as well.
 
-## Testability
+### Testability
 
 The amount of effort required to create these tests is directly related to the testability of the underlying software.
 
-## Scalability
+### Scalability
 
 The system should scale to increased numbers of threads to be handled per unit time as well as when new forums are added.
 
-## Maintainability
+### Maintainability
 
 Maintainability is important and the systems would lend itself to easy maintenance including feature additions and bug fixes due to the clear separation of the components into layers.
 
 ## Appendix
 
-## Source Code
+### Source Code
 
   [Asp.net MVC RTM framework](https://aspnet.codeplex.com/releases/view/58781)
 
   [Asp.net Web](http://aspnetwebstack.codeplex.com/)
 
   [Entity Framework](http://entityframework.codeplex.com/)
+  
+  [Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore)
 
   [Enterprise Library](http://entlib.codeplex.com/SourceControl/list/changesets)
+  
 
-## Glossary/Terms
+### Glossary/Terms
 
 | Term | Definition |
 | --- | --- |

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ContactRepository.cs" company="Megadotnet">
+// <copyright file="ContactBO.Generated.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>

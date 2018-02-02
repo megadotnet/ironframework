@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EmployeePayHistoryRepository.cs" company="Megadotnet">
+// <copyright file="EmployeePayHistoryBO.Generated.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>

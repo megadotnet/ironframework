@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AddressRepository.cs" company="Megadotnet">
+// <copyright file="AddressBO.Generated.cs" company="Megadotnet">
 // Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>

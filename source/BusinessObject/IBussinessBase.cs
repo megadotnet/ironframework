@@ -1,8 +1,8 @@
 ﻿
 
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IRepository.cs" company="Megadonet">
-//   Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// <copyright file="IBusniessLogicObject.cs" company="Megadonet">
+//   Copyright (c) 2010-2018 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   a interface of business object repository.
@@ -17,6 +17,7 @@ namespace BusinessObject
 	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
+	using IronFramework.Common.IOC.EntLib.CallHandler;
     using DataTransferObject.Model;
 
     /// <summary>
@@ -147,6 +148,7 @@ namespace BusinessObject
         /// <returns>
         /// The <see cref="bool"/>.
         /// </returns>
+	    [TransactionScopeCallHandler]
         bool UpdateEntiy(T t);
 
         /// <summary>

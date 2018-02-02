@@ -14,8 +14,8 @@ TypeMapper typeMapper = new TypeMapper(code, ef, textTransform.Errors);
 CodeRegion region = new CodeRegion(this);
 var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
 #>// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IRepository.cs" company="Megadonet">
-//   Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// <copyright file="IBusniessLogicObject.cs" company="Megadonet">
+//   Copyright (c) 2010-2018 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   a interface of business object repository.
@@ -30,6 +30,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 	using System.Threading.Tasks;
 
     using IronFramework.Utility.UI;
+	using IronFramework.Common.IOC.EntLib.CallHandler;
     using DataTransferObject.Model;
 
     /// <summary>
@@ -160,6 +161,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
         /// <returns>
         /// The <see cref="bool"/>.
         /// </returns>
+	    [TransactionScopeCallHandler]
         bool UpdateEntiy(T t);
 
         /// <summary>
@@ -209,8 +211,8 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
 	{   
       fileManager.StartNewFile("I"+entity.Name + "BO.Generated.cs"); #>
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="<#=code.Escape(entity)#>Repository.cs" company="Megadotnet">
-// Copyright (c) 2010-2014 Peter Liu.  All rights reserved. 
+// <copyright file="<#=code.Escape(entity)#>BO.Generated.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The <#=code.Escape(entity)#> repository.
@@ -245,7 +247,7 @@ namespace <#= code.VsNamespaceSuggestion() #>
 		fileManager.StartNewFile(entity.Name + "BO.cs");
 		#>// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="<#=code.Escape(entity)#>BO.cs" company="Megadotnet">
-// Copyright (c) 2010-2015 Peter Liu.  All rights reserved. 
+// Copyright (c) 2010-2018 Peter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
 //   The <#=code.Escape(entity)#>Bo
