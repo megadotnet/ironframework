@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceClient", "WCFServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotCoreWebAPI", "DotCoreWebAPI\DotCoreWebAPI.csproj", "{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{84C85BFA-0997-4E2B-85FC-473F82FE124A}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessObjectDotNetCore", "DataAccessObjectDotNetCore\DataAccessObjectDotNetCore.csproj", "{2BEA06B2-B46C-41A0-82CB-C14C47C67197}"
 EndProject
 Global
@@ -161,6 +163,10 @@ Global
 		{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABBAAD49-5175-45AB-93B8-E62B07F90DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C85BFA-0997-4E2B-85FC-473F82FE124A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BEA06B2-B46C-41A0-82CB-C14C47C67197}.Release|Any CPU.ActiveCfg = Release|Any CPU
