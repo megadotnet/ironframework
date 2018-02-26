@@ -248,9 +248,9 @@
       <Project>{05ab9a19-a841-4023-ab49-f0df261b0bf9}</Project>
       <Name>IronFramework.Common.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IronFramework.Common.IOC\IronFramework.Common.IOC.csproj">
+    <ProjectReference Include="..\IronFramework.Common.IOC\IronFramework.Common.IOC.EntLib.csproj">
       <Project>{d6d8e0db-e92b-4946-ab74-716c99f8a45f}</Project>
-      <Name>IronFramework.Common.IOC</Name>
+      <Name>IronFramework.Common.IOC.EntLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\IronFramework.Utility.csproj">
       <Project>{70A400B0-6FE0-4007-AF35-E99835F39922}</Project>

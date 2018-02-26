@@ -135,18 +135,18 @@
     <Compile Include="Web\HttpModule\CompressWhitespaceFilter.cs" />
     <Compile Include="WCF\CyclicReferencesAwareContractBehavior.cs" />
     <Compile Include="ITypeAdapter.cs" />
-    <Compile Include="UI\IPagedList.cs" />
-    <Compile Include="UI\PagedList.cs" />
+    <Compile Include="Model\IPagedList.cs" />
+    <Compile Include="Model\PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="SingletonFactory.cs" />
-    <Compile Include="UI\ITreeNode.cs">
+    <Compile Include="Model\ITreeNode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\TreeExtention.cs">
+    <Compile Include="Extension\TreeExtention.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\TreeItem.cs">
+    <Compile Include="Model\TreeItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\WebFormHelper.cs" />
