@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\IEntity.cs" />
+    <Compile Include="LINQ\LinqJoinObject.cs" />
     <Compile Include="EntityFramework\PredicateBuilder.cs" />
     <Compile Include="EntityFramework\StateHelpers.cs" />
+    <Compile Include="LINQ\EnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
