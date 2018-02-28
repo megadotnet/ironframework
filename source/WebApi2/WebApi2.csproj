@@ -220,9 +220,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\CommonTracingThrottleLogger.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\LogActionWebApiFilter.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="App_Start\LoggingFilterAttribute.cs" />
     <Compile Include="App_Start\LoggingTracer.cs">
       <SubType>Code</SubType>
@@ -342,6 +339,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -393,6 +391,10 @@
     <ProjectReference Include="..\IronFramework.Common.Logging\IronFramework.Common.Logging.csproj">
       <Project>{7e511144-7fa1-47c7-909a-e5331a186809}</Project>
       <Name>IronFramework.Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.WebAPI\IronFramework.Common.WebAPI.csproj">
+      <Project>{ede36347-18e4-4838-9409-f06e93067cd9}</Project>
+      <Name>IronFramework.Common.WebAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServicePoxry\ServiceProxy.csproj">
       <Project>{90ce0470-475d-4d58-98c0-a1d2d86ff266}</Project>

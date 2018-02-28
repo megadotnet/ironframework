@@ -11,7 +11,8 @@
 
 namespace WebApi2.Controllers
 {
-using System;
+    using IronFramework.Common.WebAPI;
+    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -40,6 +41,10 @@ using System.Web.Http.Filters;
     /// <seealso cref="http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api"/>
     public class ValidateModelAttribute : ActionFilterAttribute
     {
+        /// <summary>
+        /// OnActionExecuting
+        /// </summary>
+        /// <param name="actionContext"></param>
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             if (actionContext.ModelState.IsValid == false)
