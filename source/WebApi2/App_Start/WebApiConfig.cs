@@ -16,6 +16,10 @@ namespace WebApi2
     /// </summary>
     public static class WebApiConfig
     {
+        /// <summary>
+        /// Register
+        /// </summary>
+        /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services

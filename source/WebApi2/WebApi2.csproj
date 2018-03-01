@@ -220,7 +220,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\CommonTracingThrottleLogger.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\LoggingFilterAttribute.cs" />
     <Compile Include="App_Start\LoggingTracer.cs">
       <SubType>Code</SubType>
     </Compile>
