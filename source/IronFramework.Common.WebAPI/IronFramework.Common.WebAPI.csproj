@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="LogActionWebApiFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApiProfileActionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IronFramework.Common.Logging\IronFramework.Common.Logging.csproj">

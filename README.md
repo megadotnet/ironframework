@@ -50,6 +50,8 @@ Components and libraries:
 8. ASP.NET WebAPI
 9. The SQL Server AdventureWorks sample database (option)
 10.AutoFixture with xUnit.net
+11.BCrypt.Net
+12.Glimpse
 
 
 ## Design Goals and Non-Goals
