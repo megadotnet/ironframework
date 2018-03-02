@@ -30,6 +30,10 @@ namespace WebApi2.Controllers
     /// <see cref="http://www.tomdupont.net/2015/04/paged-list-for-webapi.html"/>
     public class PagedListActionFilterAttribute : ActionFilterAttribute
     {
+        /// <summary>
+        /// OnActionExecuted
+        /// </summary>
+        /// <param name="actionExecutedContext"></param>
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
             base.OnActionExecuted(actionExecutedContext); 
@@ -56,14 +60,35 @@ namespace WebApi2.Controllers
     /// </summary>
     public static class RequestExtensions
     {
+        /// <summary>
+        /// GetPageSize
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="defaultSize"></param>
+        /// <returns></returns>
         public static int GetPageSize(this HttpRequestMessage requestMessage, int defaultSize = 5)
         {
             return GetIntFromQueryString(requestMessage, "pageSize", defaultSize);
         }
+
+        /// <summary>
+        /// GetPageIndex
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="defaultIndex"></param>
+        /// <returns></returns>
         public static int GetPageIndex(this HttpRequestMessage requestMessage, int defaultIndex = 0)
         {
             return GetIntFromQueryString(requestMessage, "pageIndex", defaultIndex);
         }
+
+        /// <summary>
+        /// GetIntFromQueryString
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="key"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         public static int GetIntFromQueryString(this HttpRequestMessage requestMessage, string key, int defaultValue)
         {
             var pair = requestMessage.GetQueryNameValuePairs().FirstOrDefault(p => p.Key.Equals(key, StringComparison.InvariantCultureIgnoreCase));

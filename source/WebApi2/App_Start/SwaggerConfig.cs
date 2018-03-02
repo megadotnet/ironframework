@@ -7,11 +7,16 @@ using System;
 using System.IO;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
-
 namespace WebApi2
 {
+    /// <summary>
+    /// SwaggerConfig
+    /// </summary>
     public class SwaggerConfig
     {
+        /// <summary>
+        /// Register
+        /// </summary>
         public static void Register()
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
