@@ -27,6 +27,7 @@ namespace DataServiceClient
     using IronFramework.Common.Logging.Logger;
     using IronFramework.Common.Config;
     using System.Security.Cryptography;
+    using IronFramework.Utility.Security;
 
     /// <summary>
     ///     RESTAPIWrapperClinet For DTO transfer with Front-end
@@ -922,7 +923,7 @@ where TResult : new()
 (Hashtable)WebConfigurationManager.GetSection(this.Section);
             string password = (string)remoteDataSource["password"];
 
-            string token = VerifyTransactionSN.ComputeHash(password, message);
+            string token = HashManager.ComputeHash(password, message);
 
             //log.DebugFormat("Client side token {0}", token);
             client.DefaultRequestHeaders.Remove("Authentication");

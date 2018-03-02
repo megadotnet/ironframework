@@ -28,6 +28,7 @@ namespace WebApi2
     using IronFramework.Common.Logging.Logger;
     using Newtonsoft.Json.Converters;
     using System.ComponentModel.DataAnnotations;
+    using IronFramework.Utility.Security;
 
     /// <summary>
     ///     Authenticate Attribute with HMAC
@@ -325,7 +326,7 @@ namespace WebApi2
             }
             log.DebugFormat("Server Side Message:{0}", message);
             // Compute the hash with HMAC
-            var verifiedHash = VerifyTransactionSN.ComputeHash(hashedPassword, message);
+            var verifiedHash =HashManager.ComputeHash(hashedPassword, message);
             log.DebugFormat("Server Side verifiedHash:{0}", verifiedHash);
             if (signature != null && signature.Equals(verifiedHash))
             {

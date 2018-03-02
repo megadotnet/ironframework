@@ -1,9 +1,11 @@
-﻿using System;
+﻿using IronFramework.Common.Logging.Logger;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
 namespace IronFramework.Common.WebAPI
@@ -21,7 +23,7 @@ namespace IronFramework.Common.WebAPI
         /// <summary>
         /// The log
         /// </summary>
-        private static readonly ILogger log = new Logger();
+        private static readonly ILogger log = new Logger(typeof(WebApiProfileActionAttribute));
 
         /// <summary>
         /// OnActionExecuting

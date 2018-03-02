@@ -126,6 +126,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Security\HashManager.cs" />
     <Compile Include="Security\VerifyTransactionSN.cs" />
     <Compile Include="TypeAdapter.cs" />
     <Compile Include="UI\PagedListViewModel.cs" />
