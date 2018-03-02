@@ -173,15 +173,12 @@ namespace WebApi2
             return message;
         }
 
+
         /// <summary>
-        /// The build parameter collection.
+        /// Builds the parameter collection.
         /// </summary>
-        /// <param name="actionContext">
-        /// The action context.
-        /// </param>
-        /// <returns>
-        /// The <see cref="List"/>.
-        /// </returns>
+        /// <param name="actionContext">The action context.</param>
+        /// <returns></returns>
         private static List<KeyValuePair<string, string>> BuildParameterCollection(HttpActionContext actionContext)
         {
             // Use the list of keyvalue pair in order to allow the same key instead of dictionary

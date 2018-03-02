@@ -4,6 +4,9 @@ using System.Web.Mvc;
 
 namespace WebApi2
 {
+    /// <summary>
+    /// FilterConfig
+    /// </summary>
     public class FilterConfig
     {
         /// <summary>
