@@ -15,11 +15,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IronFramework.Utility")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("IronFramework Utility Assembly")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Megadotnet")]
 [assembly: AssemblyProduct("IronFramework.Utility")]
-[assembly: AssemblyCopyright("Copyright © Megadotnet 2010")]
+[assembly: AssemblyCopyright("Copyright © Megadotnet 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
