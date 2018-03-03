@@ -49,10 +49,9 @@ Components and libraries:
 7. WCF Web API Preview framework
 8. ASP.NET WebAPI
 9. The SQL Server AdventureWorks sample database (option)
-10.AutoFixture with xUnit.net
-11.BCrypt.Net
-12.Glimpse
-
+10. AutoFixture with xUnit.net
+11. BCrypt.Net
+12. Glimpse
 
 ## Design Goals and Non-Goals
 

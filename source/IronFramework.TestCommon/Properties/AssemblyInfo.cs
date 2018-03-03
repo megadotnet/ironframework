@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Megadonet")]
 [assembly: AssemblyProduct("IronFramework.TestCommon")]
-[assembly: AssemblyCopyright("Copyright © Megadonet 2015")]
+[assembly: AssemblyCopyright("Copyright © Megadonet 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
