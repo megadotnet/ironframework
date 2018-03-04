@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IronFramework.TestCommon")]
-[assembly: AssemblyDescription("Unit testing common Utils")]
+[assembly: AssemblyDescription("Unit testing common Utils library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Megadonet")]
 [assembly: AssemblyProduct("IronFramework.TestCommon")]
