@@ -21,3 +21,4 @@ packages/
 /source/.vs/IronFrameworkVS2017/v15/Server/sqlite3
 /source/.vs/IronFrameworkVS2015/v15/Server/sqlite3
 /source/Utility/IronFramework.Utility.1.0.0.nupkg
+/source/IronFramework.TestCommon/IronFramework.TestCommon.1.0.0.nupkg
