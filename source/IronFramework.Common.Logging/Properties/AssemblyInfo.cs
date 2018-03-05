@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IronFramework.Common.Logging")]
-[assembly: AssemblyDescription("IronFramework.Common.Logging")]
+[assembly: AssemblyDescription("IronFramework Common Logging infrastructure ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Megadotnet")]
 [assembly: AssemblyProduct("IronFramework.Common.Logging")]
