@@ -114,7 +114,7 @@
       <!--Generate by T4 template-->
       <register  type="BusinessObject.IAddressBO, BusinessObject"
                  mapTo="BusinessObject.AddressBO, BusinessObject">
-        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IAddressBO, BusinessObject]], IronFramework.Common.IOC" />
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IAddressBO, BusinessObject]], IronFramework.Common.IOC.EntLib" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
@@ -130,7 +130,7 @@
 
       <register  type="BusinessObject.IContactBO, BusinessObject"
                  mapTo="BusinessObject.ContactBO, BusinessObject">
-        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], IronFramework.Common.IOC" />
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IContactBO, BusinessObject]], IronFramework.Common.IOC.EntLib" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
@@ -146,7 +146,7 @@
 
       <register  type="BusinessObject.IEmployeeBO, BusinessObject"
                  mapTo="BusinessObject.EmployeeBO, BusinessObject">
-        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], IronFramework.Common.IOC" />
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeeBO, BusinessObject]], IronFramework.Common.IOC.EntLib" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >
@@ -162,7 +162,7 @@
 
       <register  type="BusinessObject.IEmployeePayHistoryBO, BusinessObject"
                  mapTo="BusinessObject.EmployeePayHistoryBO, BusinessObject">
-        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], IronFramework.Common.IOC" />
+        <lifetime type="IronFramework.Common.IOC.EntLib.IoC.HttpContextLifetimeManager`1[[BusinessObject.IEmployeePayHistoryBO, BusinessObject]], IronFramework.Common.IOC.EntLib" />
         <interceptor type="TransparentProxyInterceptor" />
         <policyInjection />
       </register >

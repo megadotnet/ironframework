@@ -102,6 +102,12 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Nest">
       <HintPath>..\packages\NEST.1.4.2\lib\net45\Nest.dll</HintPath>
     </Reference>
@@ -386,6 +392,10 @@
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>
       <Name>DataTransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronFramework.Common.IOC\IronFramework.Common.IOC.EntLib.csproj">
+      <Project>{d6d8e0db-e92b-4946-ab74-716c99f8a45f}</Project>
+      <Name>IronFramework.Common.IOC.EntLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\IronFramework.Common.Logging\IronFramework.Common.Logging.csproj">
       <Project>{7e511144-7fa1-47c7-909a-e5331a186809}</Project>

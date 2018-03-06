@@ -24,7 +24,8 @@ recommend install from NuGet
  Please install it before you set-up environment
 
  Install AdventureWorks database of SQL Server 2005 SP2 
- http://msftdbprodsamples.codeplex.com/releases/view/4004
+ http://msftdbprodsamples.codeplex.com/releases/view/4004 (missing)
+ http://down.51cto.com/data/53146
 
 
 --------------------------------------------
