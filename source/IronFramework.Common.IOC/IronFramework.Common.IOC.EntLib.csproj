@@ -7,8 +7,8 @@
     <ProjectGuid>{D6D8E0DB-E92B-4946-AB74-716C99F8A45F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IronFramework.Common.IOC</RootNamespace>
-    <AssemblyName>IronFramework.Common.IOC</AssemblyName>
+    <RootNamespace>IronFramework.Common.IOC.EntLib</RootNamespace>
+    <AssemblyName>IronFramework.Common.IOC.EntLib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Package.nuspec" />
+    <None Include="PackageNuget.bat" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

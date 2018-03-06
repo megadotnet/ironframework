@@ -1,0 +1,1 @@
+..\.nuget\nuget pack IronFramework.Common.IOC.EntLib.csproj
