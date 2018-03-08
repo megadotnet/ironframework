@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseConfig.cs" />
+    <Compile Include="Core\BaseConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SectionHandler.cs" />
+    <Compile Include="Core\SectionHandler.cs" />
     <Compile Include="SecurityConfig.cs" />
     <Compile Include="ServiceConfig.cs" />
   </ItemGroup>

@@ -15,9 +15,22 @@ namespace IronFramework.Common.Config
     /// ServiceConfig
     /// </summary>
     /// <seealso cref="IronFramework.Common.Config.BaseConfig" />
+   /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///   <configSections>
+    ///      <section name = "ServiceConfig" type="IronFramework.Common.Config.SectionHandler`1[[IronFramework.Common.Config.ServiceConfig, IronFramework.Common.Config]],IronFramework.Common.Config" />
+    ///      </configSections>
+    ///<ServiceConfig>
+    ///  <URI>http://localhost:14488/</URI>
+    ///  <AccessControlURI>http://10.1.100.9:6000</AccessControlURI>
+    ///</ServiceConfig>
+    /// ]]>
+    /// </code>
+    /// </example>
     public class ServiceConfig : BaseConfig
     {
-
+        #region Must Implement
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceConfig"/> class.
         /// </summary>
@@ -36,6 +49,8 @@ namespace IronFramework.Common.Config
         {
             ConfigSectionName = typeof(ServiceConfig).Name;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the mq ip address.
