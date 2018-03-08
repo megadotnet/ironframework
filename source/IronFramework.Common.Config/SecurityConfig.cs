@@ -1,8 +1,21 @@
-﻿namespace IronFramework.Common.Config
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="SecurityConfig.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  SecurityConfig
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
+
+namespace IronFramework.Common.Config
 {
     using System;
 
-    public class SecurityConfig:BaseConfig
+    /// <summary>
+    /// SecurityConfig
+    /// </summary>
+    /// <seealso cref="IronFramework.Common.Config.BaseConfig" />
+    public class SecurityConfig : BaseConfig
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityConfig"/> class.
@@ -13,6 +26,9 @@
           
         }
 
+        /// <summary>
+        /// Initializes the <see cref="SecurityConfig"/> class.
+        /// </summary>
         static SecurityConfig()
         {
             ConfigSectionName = typeof(SecurityConfig).Name;

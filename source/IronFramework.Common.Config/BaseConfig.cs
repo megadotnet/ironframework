@@ -1,11 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BaseConfig.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  BaseConfig
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace IronFramework.Common.Config
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// BaseConfig
     /// </summary>
@@ -15,6 +23,13 @@ namespace IronFramework.Common.Config
         /// The m_section
         /// </summary>
         protected System.Xml.XmlNode m_section;
+
+        /// <summary>
+        /// Gets or sets the name of the configuration section.
+        /// </summary>
+        /// <value>
+        /// The name of the configuration section.
+        /// </value>
         public static string ConfigSectionName { get; set; }
 
         /// <summary>

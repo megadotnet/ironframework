@@ -1,6 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="SectionHandler.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  SectionHandler
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace IronFramework.Common.Config
 {
+    using System;
+
     /// <summary>
     /// SectionHandler
     /// </summary>
