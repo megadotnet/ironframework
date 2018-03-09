@@ -1,15 +1,18 @@
-﻿using IronFramework.Common.Logging.Logger;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http.Controllers;
-using System.Web.Http.Filters;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="LoggingFilterAttribute.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  LoggingFilterAttribute
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace IronFramework.Common.WebAPI
 {
+    using IronFramework.Common.Logging.Logger;
+    using System.Diagnostics;
+    using System.Web.Http.Controllers;
+    using System.Web.Http.Filters;
+
     /// <summary>
     /// WebApiProfileActionAttribute
     /// </summary>
@@ -43,7 +46,7 @@ namespace IronFramework.Common.WebAPI
             this.timer.Stop();
             if (filterContext.Exception == null)
             {
-                log.DebugFormat("webapi方法{2}-{1}执行时间：{0}", this.timer.Elapsed.TotalSeconds
+                log.DebugFormat("webapi method {2}-{1} execute timespan：{0}", this.timer.Elapsed.TotalSeconds
                     , filterContext.ActionContext.ActionDescriptor.ActionName, filterContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName);
             }
         }

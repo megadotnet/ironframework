@@ -1,12 +1,16 @@
-﻿using IronFramework.Common.Logging.Logger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http.Filters;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="LoggingFilterAttribute.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  LoggingFilterAttribute
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace IronFramework.Common.WebAPI
 {
+    using IronFramework.Common.Logging.Logger;
+    using System.Web.Http.Filters;
+
     /// <summary>
     /// LoggingFilterAttribute
     /// </summary>
