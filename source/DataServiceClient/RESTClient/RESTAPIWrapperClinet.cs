@@ -1,11 +1,11 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="RESTAPIWrapperClinet.cs" company="">
-//   
+// <copyright file="RESTAPIWrapperClinet.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
 // </copyright>
 // <summary>
-//   RESTAPIWrapperClinet
+//  RESTAPIWrapperClinet
 // </summary>
-// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------	
 
 namespace DataServiceClient
 {
@@ -16,8 +16,6 @@ namespace DataServiceClient
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
     using System.Web;
-
-    using System.Text;
     using IronFramework.Utility;
     using System.ComponentModel.DataAnnotations;
     using Newtonsoft.Json;
@@ -26,7 +24,6 @@ namespace DataServiceClient
     using System.Web.Configuration;
     using IronFramework.Common.Logging.Logger;
     using IronFramework.Common.Config;
-    using System.Security.Cryptography;
     using IronFramework.Utility.Security;
 
     /// <summary>

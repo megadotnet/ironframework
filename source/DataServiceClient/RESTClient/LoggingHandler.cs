@@ -1,14 +1,22 @@
-﻿using IronFramework.Common.Logging.Logger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="LoggingHandler.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  LoggingHandler
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace DataServiceClient
 {
+    using IronFramework.Common.Logging.Logger;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using System.Web;
+
     /// <summary>
     /// LoggingHandler
     /// </summary>
