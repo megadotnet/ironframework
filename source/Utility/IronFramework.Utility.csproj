@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exception\ExceptionHelper.cs" />
     <Compile Include="Security\HashManager.cs" />
     <Compile Include="Security\VerifyTransactionSN.cs" />
     <Compile Include="TypeAdapter.cs" />
