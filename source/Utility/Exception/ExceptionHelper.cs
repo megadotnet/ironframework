@@ -8,15 +8,12 @@
 //  </summary>
 //  --------------------------------------------------------------------------------------------------------------------
 #endregion
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace IronFramework.Utility.Exception
 {
+    using System;
+    using System.Diagnostics;
+    using Exception = System.Exception;
+
     /// <summary>
     /// The exception helper.
     /// </summary>
@@ -31,7 +28,7 @@ namespace IronFramework.Utility.Exception
         /// <param name="log">
         /// The log.
         /// </param>
-        public static void TryCatchGeneralExceptionWithLoggerWrapper(Action action, ILogger log)
+        public static void TryCatchGeneralExceptionWithLoggerWrapper(Action action, Trace log)
         {
             TryCatchGeneralExceptionWithLoggerWrapper(action, log, false);
         }
@@ -42,7 +39,7 @@ namespace IronFramework.Utility.Exception
         /// <param name="action">The action.</param>
         /// <param name="log">The log.</param>
         /// <param name="needThrowIt">if set to <c>true</c> [need throw it].</param>
-        public static void TryCatchGeneralExceptionWithLoggerWrapper(Action action, ILogger log, bool needThrowIt)
+        public static void TryCatchGeneralExceptionWithLoggerWrapper(Action action, Trace log, bool needThrowIt)
         {
             try
             {
@@ -50,7 +47,8 @@ namespace IronFramework.Utility.Exception
             }
             catch (Exception ex)
             {
-                log.Error(ex);
+                
+                Trace.Write(ex);
                 if (needThrowIt)
                     throw;
             }
