@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnitTest</RootNamespace>
     <AssemblyName>UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile />
@@ -255,6 +255,16 @@
     <Compile Include="IronFramework.Utility\TestTreeItem.cs" />
     <Compile Include="IronFramework.Utility\TestTypeAdapter.cs" />
     <Compile Include="IronFramework.Utility\TestUnityDependencyResolver.cs" />
+    <Content Include="Unity.ConfigForWeb.XML">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Unity.ConfigForWeb.tt</DependentUpon>
+    </Content>
+    <Content Include="Unity.XML">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Unity.tt</DependentUpon>
+    </Content>
     <Compile Include="Util\AutoRollbackAttribute.cs" />
     <Compile Include="WebAPI\EmployeeControllerTests.cs" />
   </ItemGroup>
@@ -324,11 +334,11 @@
     <None Include="Properties\DataSources\BusinessEntiies.Employee.datasource" />
     <None Include="Unity.ConfigForWeb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Unity.ConfigForWeb.XML</LastGenOutput>
+      <LastGenOutput>Unity.ConfigForWeb.cs</LastGenOutput>
     </None>
     <None Include="Unity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Unity.XML</LastGenOutput>
+      <LastGenOutput>Unity.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -337,16 +347,6 @@
     </Content>
     <Content Include="EntLib.Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Unity.ConfigForWeb.XML">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Unity.ConfigForWeb.tt</DependentUpon>
-    </Content>
-    <Content Include="Unity.XML">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Unity.tt</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
