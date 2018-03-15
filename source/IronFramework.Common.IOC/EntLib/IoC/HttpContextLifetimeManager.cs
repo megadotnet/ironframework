@@ -17,6 +17,7 @@ namespace IronFramework.Common.IOC.EntLib.IoC
     /// The http context lifetime manager of Unity
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
+    /// <see cref="https://github.com/unitycontainer/aspnet-mvc/blob/master/src/PerRequestLifetimeManager.cs"/>
     public class HttpContextLifetimeManager<T> : LifetimeManager, IDisposable
     {
         #region Public Methods

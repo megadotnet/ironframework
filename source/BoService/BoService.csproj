@@ -159,9 +159,9 @@
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>
       <Name>BusinessEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
-      <Project>{B7BAD4BB-923B-44D8-B908-7C0D257FA78B}</Project>
-      <Name>BusinessObject</Name>
+    <ProjectReference Include="..\BusinessObject.Unity3.WCF\BusinessObject.Unity3.WCF.csproj">
+      <Project>{b3db5f98-097c-49e8-a16d-2ce622ab4fee}</Project>
+      <Name>BusinessObject.Unity3.WCF</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{8a550fc8-2ce5-4774-a565-b38899352366}</Project>

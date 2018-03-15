@@ -137,13 +137,8 @@
     <Compile Include="ContactBO.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ContactBusinessObject.cs" />
     <Compile Include="EmployeeBO.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeBusinessObject.cs" />
-    <Compile Include="EmployeeBusnessObject.Generated.cs">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="EmployeePayHistoryBO.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
@@ -164,11 +159,9 @@
     <Compile Include="IContactBO.Generated.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="IContactBusinessObject.cs" />
     <Compile Include="IEmployeeBO.Generated.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="IEmployeeBusinessObject.cs" />
     <Compile Include="IEmployeePayHistoryBO.Generated.cs">
       <DependentUpon>IBussinessBase.tt</DependentUpon>
     </Compile>
