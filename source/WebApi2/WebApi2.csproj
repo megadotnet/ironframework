@@ -92,6 +92,12 @@
     <Reference Include="Glimpse.Mvc5">
       <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
     </Reference>
+    <Reference Include="IronFramework.Common.Config.Standard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronFramework.Common.Config.Standard.1.0.0\lib\netstandard2.0\IronFramework.Common.Config.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="IronFramework.Common.Logging.Standard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronFramework.Common.Logging.Standard.1.0.0\lib\netstandard2.0\IronFramework.Common.Logging.Standard.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -128,6 +134,9 @@
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
@@ -398,10 +407,6 @@
     <ProjectReference Include="..\IronFramework.Common.IOC\IronFramework.Common.IOC.EntLib.csproj">
       <Project>{d6d8e0db-e92b-4946-ab74-716c99f8a45f}</Project>
       <Name>IronFramework.Common.IOC.EntLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IronFramework.Common.Logging\IronFramework.Common.Logging.csproj">
-      <Project>{7e511144-7fa1-47c7-909a-e5331a186809}</Project>
-      <Name>IronFramework.Common.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\IronFramework.Common.WebAPI\IronFramework.Common.WebAPI.csproj">
       <Project>{ede36347-18e4-4838-9409-f06e93067cd9}</Project>
