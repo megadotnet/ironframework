@@ -67,8 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception\ExceptionHelper.cs" />
+    <Compile Include="Helper\AopHelper.cs" />
+    <Compile Include="Helper\MailHelper.cs" />
+    <Compile Include="Helper\UtilTools.cs" />
     <Compile Include="Security\HashManager.cs" />
     <Compile Include="Security\VerifyTransactionSN.cs" />
+    <Compile Include="Test\RuntimeStatTest.cs" />
     <Compile Include="TypeAdapter.cs" />
     <Compile Include="UI\PagedListViewModel.cs" />
     <Compile Include="UtilityExtention.cs" />
