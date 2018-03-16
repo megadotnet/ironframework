@@ -202,7 +202,8 @@ Windows Communication Foundation comes with a rich set of security features such
 #### Installing the certificate and setup
 Download the Pluralsight SelfCert from the [link](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net) given at the beginning of the article. Run the tool as Administrator; 
 
-1.Generate certificate with name: MyWcfSite 
+1.Generate certificate with name: localhost 
+  or use [IIS Express ssl](https://www.codeproject.com/Tips/723357/Enabling-SSL-with-IIS-Express-in-Visual-Studio)
 
 2.Then you should update proxy project(ServiceProxy).
 
