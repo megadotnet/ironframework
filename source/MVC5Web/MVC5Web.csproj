@@ -323,9 +323,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BoService\BoService.csproj">
+    <ProjectReference Include="..\BoService\BoService.WCF.csproj">
       <Project>{bf154a8b-0142-4570-b840-5974e88e2df7}</Project>
-      <Name>BoService</Name>
+      <Name>BoService.WCF</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataServiceClient\DataServiceClient.csproj">
       <Project>{87fb76b7-9138-4981-aa38-f85beeae905b}</Project>

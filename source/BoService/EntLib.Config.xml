@@ -84,10 +84,10 @@
   </exceptionHandling>
   <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
     <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
-    <alias alias="IEmployeeBusinessObject" type="BusinessObject.IEmployeeBusinessObject, BusinessObject" />
-    <alias alias="EmployeeBusinessObject" type="BusinessObject.EmployeeBusinessObject, BusinessObject" />
-    <alias alias="IContactBusinessObject" type="BusinessObject.IContactBusinessObject, BusinessObject" />
-    <alias alias="ContactBusinessObject" type="BusinessObject.ContactBusinessObject, BusinessObject" />
+    <alias alias="IEmployeeBusinessObject" type="BusinessObject.IEmployeeBusinessObject, BusinessObject.Unity3.WCF" />
+    <alias alias="EmployeeBusinessObject" type="BusinessObject.EmployeeBusinessObject, BusinessObject.Unity3.WCF" />
+    <alias alias="IContactBusinessObject" type="BusinessObject.IContactBusinessObject, BusinessObject.Unity3.WCF" />
+    <alias alias="ContactBusinessObject" type="BusinessObject.ContactBusinessObject, BusinessObject.Unity3.WCF" />
 
     <container name="DefContainer">
       <extension type="Interception" />

@@ -268,9 +268,9 @@
     <Compile Include="WebAPI\EmployeeControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BoService\BoService.csproj">
+    <ProjectReference Include="..\BoService\BoService.WCF.csproj">
       <Project>{BF154A8B-0142-4570-B840-5974E88E2DF7}</Project>
-      <Name>BoService</Name>
+      <Name>BoService.WCF</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
       <Project>{72aed1a2-1b70-4ed9-9f97-506a7ea9eb51}</Project>

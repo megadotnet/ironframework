@@ -8,47 +8,47 @@
     <container name="DefContainer">
       <extension type="Interception" />
       <!--EF features-->
-        <register  type="DataAccessObject.IUnitOfWork, DataAccessObject"
-                mapTo="DataAccessObject.EFUnitOfWork, DataAccessObject">
+        <register  type="DataAccessObject.IUnitOfWork, DataAccessObject.Unity3"
+                mapTo="DataAccessObject.EFUnitOfWork, DataAccessObject.Unity3">
         <interceptor type="InterfaceInterceptor"/>
       </register >
       
-      <register  type="DataAccessObject.Repositories.IStoredProcedureFunctionsDAO, DataAccessObject"
-          mapTo="DataAccessObject.Repositories.StoredProcedureFunctionsDAO, DataAccessObject">
+      <register  type="DataAccessObject.Repositories.IStoredProcedureFunctionsDAO, DataAccessObject.Unity3"
+          mapTo="DataAccessObject.Repositories.StoredProcedureFunctionsDAO, DataAccessObject.Unity3">
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
       <register  type="System.Data.Entity.DbContext, EntityFramework"
-    mapTo="DataAccessObject.AdventureWorksEntities, DataAccessObject">
+    mapTo="DataAccessObject.AdventureWorksEntities, DataAccessObject.Unity3">
 
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
-      <register  type="DataAccessObject.IObjectContext, DataAccessObject"
-    mapTo="DataAccessObject.ObjectContextAdapter, DataAccessObject">
+      <register  type="DataAccessObject.IObjectContext, DataAccessObject.Unity3"
+    mapTo="DataAccessObject.ObjectContextAdapter, DataAccessObject.Unity3">
         <interceptor type="InterfaceInterceptor"/>
       </register >
 
-     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject" 
-                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject">
+     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject.Unity3" 
+                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Address,BusinessEntities]], DataAccessObject.Unity3">
          <!--interceptor type="InterfaceInterceptor"/>
          <interceptionBehavior type="Messag.Utility.EntLib.Interceptor.LoggingInterceptor, Message.Utility"/ -->
       </register >
 
-     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Contact,BusinessEntities]], DataAccessObject" 
-                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Contact,BusinessEntities]], DataAccessObject">
+     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Contact,BusinessEntities]], DataAccessObject.Unity3" 
+                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Contact,BusinessEntities]], DataAccessObject.Unity3">
          <!--interceptor type="InterfaceInterceptor"/>
          <interceptionBehavior type="Messag.Utility.EntLib.Interceptor.LoggingInterceptor, Message.Utility"/ -->
       </register >
 
-     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Employee,BusinessEntities]], DataAccessObject" 
-                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Employee,BusinessEntities]], DataAccessObject">
+     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.Employee,BusinessEntities]], DataAccessObject.Unity3" 
+                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.Employee,BusinessEntities]], DataAccessObject.Unity3">
          <!--interceptor type="InterfaceInterceptor"/>
          <interceptionBehavior type="Messag.Utility.EntLib.Interceptor.LoggingInterceptor, Message.Utility"/ -->
       </register >
 
-     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.EmployeePayHistory,BusinessEntities]], DataAccessObject" 
-                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.EmployeePayHistory,BusinessEntities]], DataAccessObject">
+     <register  type="DataAccessObject.IRepository`1[[BusinessEntities.EmployeePayHistory,BusinessEntities]], DataAccessObject.Unity3" 
+                  mapTo="DataAccessObject.EFRepository`1[[BusinessEntities.EmployeePayHistory,BusinessEntities]], DataAccessObject.Unity3">
          <!--interceptor type="InterfaceInterceptor"/>
          <interceptionBehavior type="Messag.Utility.EntLib.Interceptor.LoggingInterceptor, Message.Utility"/ -->
       </register >
