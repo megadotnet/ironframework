@@ -15,6 +15,9 @@ namespace UnitTest.WebAPI
     /// </summary>
     public class EmployeeControllerTests
     {
+        /// <summary>
+        /// Tests the get EmployeeController
+        /// </summary>
         [Fact]
         public void TestGet()
         {
