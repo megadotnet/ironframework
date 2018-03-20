@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntLib\CallHandler\CachingCallHandlerAttribute.cs" />
+    <Compile Include="EntLib\CallHandler\ExceptionLoggerAttribute.cs" />
+    <Compile Include="EntLib\CallHandler\ExceptionLoggerCallHandler.cs" />
     <Compile Include="EntLib\CallHandler\TransactionScopeCallHandler.cs" />
     <Compile Include="EntLib\CallHandler\TransactionScopeCallHandlerAttribute.cs" />
     <Compile Include="EntLib\Configuration\FileConfigurationSource.cs" />
