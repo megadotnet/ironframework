@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\CallHandler\CachingCallHandlerAttribute.cs" Link="EntLib6\CachingCallHandlerAttribute.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\CallHandler\ExceptionLoggerAttribute.cs" Link="EntLib6\ExceptionLoggerAttribute.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\CallHandler\ExceptionLoggerCallHandler.cs" Link="EntLib6\ExceptionLoggerCallHandler.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\CallHandler\TransactionScopeCallHandler.cs" Link="EntLib6\TransactionScopeCallHandler.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\CallHandler\TransactionScopeCallHandlerAttribute.cs" Link="EntLib6\TransactionScopeCallHandlerAttribute.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Configuration\FileConfigurationSource.cs" Link="EntLib6\FileConfigurationSource.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Configuration\FileConfigurationSourceElement.cs" Link="EntLib6\FileConfigurationSourceElement.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Interceptor\CachingBehavior.cs" Link="EntLib6\CachingBehavior.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Interceptor\ExceptionLoggingBehavior.cs" Link="EntLib6\ExceptionLoggingBehavior.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Interceptor\LoggingInterceptor.cs" Link="EntLib6\LoggingInterceptor.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\EntLib\Interceptor\PerformanceInterceptor.cs" Link="EntLib6\PerformanceInterceptor.cs" />
+    <Compile Include="..\IronFramework.Common.IOC\ServiceFactory.cs" Link="ServiceFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntLib6\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator.NetCore" Version="1.3.0" />
+    <PackageReference Include="EnterpriseLibrary.Common.NetCore" Version="6.0.1310" />
+    <PackageReference Include="EnterpriseLibrary.ExceptionHandling.NetCore" Version="6.0.1310" />
+    <PackageReference Include="EnterpriseLibrary.Logging.NetCore" Version="6.0.1310" />
+    <PackageReference Include="EnterpriseLibrary.PolicyInjection.NetCore" Version="6.0.1310" />
+    <PackageReference Include="IronFramework.Common.Logging.Standard" Version="1.0.0" />
+    <PackageReference Include="IronFramework.Utility" Version="1.0.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0-preview1-26216-02" />
+    <PackageReference Include="Unity.Interception.NetCore" Version="4.0.2" />
+  </ItemGroup>
+
+</Project>
