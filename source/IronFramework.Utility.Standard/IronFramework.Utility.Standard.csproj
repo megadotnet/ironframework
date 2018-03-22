@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Utility\Exception\ExceptionHelper.cs" Link="Extend\ExceptionHelper.cs" />
+    <Compile Include="..\Utility\Extension\TreeExtention.cs" Link="Extend\TreeExtention.cs" />
+    <Compile Include="..\Utility\Helper\AopHelper.cs" Link="Extend\AopHelper.cs" />
+    <Compile Include="..\Utility\Helper\MailHelper.cs" Link="Extend\MailHelper.cs" />
+    <Compile Include="..\Utility\Model\IPagedList.cs" Link="Extend\IPagedList.cs" />
+    <Compile Include="..\Utility\Model\ITreeNode.cs" Link="Extend\ITreeNode.cs" />
+    <Compile Include="..\Utility\Model\PagedList.cs" Link="Extend\PagedList.cs" />
+    <Compile Include="..\Utility\Model\TreeItem.cs" Link="Extend\TreeItem.cs" />
+    <Compile Include="..\Utility\Security\HashManager.cs" Link="Extend\HashManager.cs" />
+    <Compile Include="..\Utility\Singleton.cs" Link="Extend\Singleton.cs" />
+    <Compile Include="..\Utility\SingletonFactory.cs" Link="Extend\SingletonFactory.cs" />
+    <Compile Include="..\Utility\UI\PagedListViewModel.cs" Link="Extend\PagedListViewModel.cs" />
+    <Compile Include="..\Utility\UtilityExtention.cs" Link="Extend\UtilityExtention.cs" />
+    <Compile Include="..\Utility\Web\HttpModule\CompressOptions.cs" Link="Extend\CompressOptions.cs" />
+    <Compile Include="..\Utility\Web\HttpModule\CompressWhitespaceFilter.cs" Link="Extend\CompressWhitespaceFilter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extend\" />
+  </ItemGroup>
+
+</Project>
