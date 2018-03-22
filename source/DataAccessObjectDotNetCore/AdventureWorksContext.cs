@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using BusinessEntities;
 
 namespace DotCoreWebAPI.Models2
 {
@@ -24,7 +23,7 @@ namespace DotCoreWebAPI.Models2
 
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeePayHistory> EmployeePayHistory { get; set; }
-       
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,18 +31,18 @@ namespace DotCoreWebAPI.Models2
             {
                 entity.ToTable("Address", "Person");
 
-                entity.HasIndex(e => e.rowguid)
+                entity.HasIndex(e => e.Rowguid)
                     .HasName("AK_Address_rowguid")
                     .IsUnique();
 
-                entity.HasIndex(e => e.StateProvinceID)
+                entity.HasIndex(e => e.StateProvinceId)
                     .HasName("IX_Address_StateProvinceID");
 
-                entity.HasIndex(e => new { e.AddressLine1, e.AddressLine2, e.City, e.StateProvinceID, e.PostalCode })
+                entity.HasIndex(e => new { e.AddressLine1, e.AddressLine2, e.City, e.StateProvinceId, e.PostalCode })
                     .HasName("IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode")
                     .IsUnique();
 
-                entity.Property(e => e.AddressID).HasColumnName("AddressID");
+                entity.Property(e => e.AddressId).HasColumnName("AddressID");
 
                 entity.Property(e => e.AddressLine1)
                     .IsRequired()
@@ -65,17 +64,17 @@ namespace DotCoreWebAPI.Models2
                     .IsRequired()
                     .HasMaxLength(15);
 
-                entity.Property(e => e.rowguid)
+                entity.Property(e => e.Rowguid)
                     .HasColumnName("rowguid")
                     .HasDefaultValueSql("newid()");
 
-                entity.Property(e => e.StateProvinceID).HasColumnName("StateProvinceID");
+                entity.Property(e => e.StateProvinceId).HasColumnName("StateProvinceID");
 
-                entity.Property(d => d.StateProvinceID)
+                entity.Property(d => d.StateProvinceId)
                  .HasColumnType("StateProvinceId");
             });
 
-          
+
 
             modelBuilder.Entity<Contact>(entity =>
             {
@@ -87,11 +86,11 @@ namespace DotCoreWebAPI.Models2
                 entity.HasIndex(e => e.EmailAddress)
                     .HasName("IX_Contact_EmailAddress");
 
-                entity.HasIndex(e => e.rowguid)
+                entity.HasIndex(e => e.Rowguid)
                     .HasName("AK_Contact_rowguid")
                     .IsUnique();
 
-                entity.Property(e => e.ContactID).HasColumnName("ContactID");
+                entity.Property(e => e.ContactId).HasColumnName("ContactID");
 
                 entity.Property(e => e.AdditionalContactInfo).HasColumnType("xml");
 
@@ -127,7 +126,7 @@ namespace DotCoreWebAPI.Models2
 
                 entity.Property(e => e.Phone).HasColumnType("Phone");
 
-                entity.Property(e => e.rowguid)
+                entity.Property(e => e.Rowguid)
                     .HasColumnName("rowguid")
                     .HasDefaultValueSql("newid()");
 
@@ -136,31 +135,31 @@ namespace DotCoreWebAPI.Models2
                 entity.Property(e => e.Title).HasMaxLength(8);
             });
 
-       
+
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.ToTable("Employee", "HumanResources");
 
-                entity.HasIndex(e => e.LoginID)
+                entity.HasIndex(e => e.LoginId)
                     .HasName("AK_Employee_LoginID")
                     .IsUnique();
 
-                entity.HasIndex(e => e.ManagerID)
+                entity.HasIndex(e => e.ManagerId)
                     .HasName("IX_Employee_ManagerID");
 
-                entity.HasIndex(e => e.NationalIDNumber)
+                entity.HasIndex(e => e.NationalIdnumber)
                     .HasName("AK_Employee_NationalIDNumber")
                     .IsUnique();
 
-                entity.HasIndex(e => e.rowguid)
+                entity.HasIndex(e => e.Rowguid)
                     .HasName("AK_Employee_rowguid")
                     .IsUnique();
 
-                entity.Property(e => e.EmployeeID).HasColumnName("EmployeeID");
+                entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
                 entity.Property(e => e.BirthDate).HasColumnType("datetime");
 
-                entity.Property(e => e.ContactID).HasColumnName("ContactID");
+                entity.Property(e => e.ContactId).HasColumnName("ContactID");
 
                 entity.Property(e => e.CurrentFlag)
                     .HasColumnType("Flag")
@@ -172,12 +171,12 @@ namespace DotCoreWebAPI.Models2
 
                 entity.Property(e => e.HireDate).HasColumnType("datetime");
 
-                entity.Property(e => e.LoginID)
+                entity.Property(e => e.LoginId)
                     .IsRequired()
                     .HasColumnName("LoginID")
                     .HasMaxLength(256);
 
-                entity.Property(e => e.ManagerID).HasColumnName("ManagerID");
+                entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
 
                 entity.Property(e => e.MaritalStatus)
                     .IsRequired()
@@ -187,12 +186,12 @@ namespace DotCoreWebAPI.Models2
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("getdate()");
 
-                entity.Property(e => e.NationalIDNumber)
+                entity.Property(e => e.NationalIdnumber)
                     .IsRequired()
                     .HasColumnName("NationalIDNumber")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.rowguid)
+                entity.Property(e => e.Rowguid)
                     .HasColumnName("rowguid")
                     .HasDefaultValueSql("newid()");
 
@@ -209,25 +208,25 @@ namespace DotCoreWebAPI.Models2
                 entity.Property(e => e.VacationHours).HasDefaultValueSql("0");
 
                 entity.HasOne(d => d.Contact)
-                    .WithMany(p => p.Employees)
-                    .HasForeignKey(d => d.ContactID)
+                    .WithMany(p => p.Employee)
+                    .HasForeignKey(d => d.ContactId)
                     .OnDelete(DeleteBehavior.Restrict);
 
-                //entity.HasOne(d => d.Employee1)
-                //    .WithMany(p => p.Employee2)
-                //    .HasForeignKey(d => d.ManagerId);
+                entity.HasOne(d => d.Manager)
+                    .WithMany(p => p.InverseManager)
+                    .HasForeignKey(d => d.ManagerId);
             });
 
-         
+
 
             modelBuilder.Entity<EmployeePayHistory>(entity =>
             {
-                entity.HasKey(e => new { e.EmployeeID, e.RateChangeDate })
+                entity.HasKey(e => new { e.EmployeeId, e.RateChangeDate })
                     .HasName("PK_EmployeePayHistory_EmployeeID_RateChangeDate");
 
                 entity.ToTable("EmployeePayHistory", "HumanResources");
 
-                entity.Property(e => e.EmployeeID).HasColumnName("EmployeeID");
+                entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
                 entity.Property(e => e.RateChangeDate).HasColumnType("datetime");
 
@@ -238,13 +237,13 @@ namespace DotCoreWebAPI.Models2
                 entity.Property(e => e.Rate).HasColumnType("money");
 
                 entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.EmployeePayHistories)
-                    .HasForeignKey(d => d.EmployeeID)
+                    .WithMany(p => p.EmployeePayHistory)
+                    .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.Restrict);
             });
 
-           
-            
+
+
         }
     }
 }

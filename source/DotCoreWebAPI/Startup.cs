@@ -14,6 +14,9 @@
     using DotCoreWebAPI.Models2;
     using Swashbuckle.AspNetCore.Swagger;
 
+    /// <summary>
+    /// Startup
+    /// </summary>
     public class Startup
     {
         /// <summary>
@@ -30,6 +33,12 @@
             Configuration = builder.Build();
         }
 
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
