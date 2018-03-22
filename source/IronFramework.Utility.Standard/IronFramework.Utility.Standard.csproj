@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>IronFramework.Utility.Standard</Description>
+    <Copyright>Megadotnet</Copyright>
+    <PackageProjectUrl>https://github.com/megadotnet/ironframework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/megadotnet/ironframework</RepositoryUrl>
+    <PackageReleaseNotes>IronFramework.Utility for .net 2.0 Standard version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
