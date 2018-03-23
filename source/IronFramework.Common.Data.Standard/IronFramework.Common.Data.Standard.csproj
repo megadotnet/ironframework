@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/megadotnet/ironframework</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/megadotnet/ironframework</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/megadotnet/ironframework</RepositoryUrl>
+    <Description>IronFramework.Common.Data.Standard</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\IronFramework.Common.Data\EntityFramework\IEntity.cs" Link="IEntity.cs" />
+    <Compile Include="..\IronFramework.Common.Data\EntityFramework\PredicateBuilder.cs" Link="PredicateBuilder.cs" />
+    <Compile Include="..\IronFramework.Common.Data\LINQ\EnumerableExtensions.cs" Link="EnumerableExtensions.cs" />
+    <Compile Include="..\IronFramework.Common.Data\LINQ\LinqJoinObject.cs" Link="LinqJoinObject.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+  </ItemGroup>
+
+</Project>
