@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DotCoreWebAPI.Models2;
-using Microsoft.EntityFrameworkCore;
 using DotCoreWebAPI.Converter;
 using DataTransferObject;
 
@@ -22,7 +20,7 @@ namespace DotCoreWebAPI.Controllers
         /// <summary>
         /// EmployeeConverter
         /// </summary>
-        private readonly EmployeeConverter employeeConverter = Singleton<EmployeeConverter>.Current as EmployeeConverter;
+        private readonly EmployeeConverter employeeConverter = IronFramework.Utility.Singleton.GetInstance<EmployeeConverter>() as EmployeeConverter;
 
         /// <summary>
         /// EmployeeController
