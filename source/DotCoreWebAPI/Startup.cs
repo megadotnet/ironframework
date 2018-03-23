@@ -13,6 +13,10 @@
     using Microsoft.EntityFrameworkCore;
     using Swashbuckle.AspNetCore.Swagger;
     using DataAccessObjectDotNetCore;
+    using BusinessObjectStandard.Service;
+    using IronFramework.Common.Data.Abstractions;
+    using IronFramework.Common.Data.Implementation.EF;
+
 
     /// <summary>
     /// Startup
@@ -48,6 +52,11 @@
             //https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-entity-framework-core-2-0/
             services.AddDbContextPool<AdventureWorksContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Registering services
+            services.AddTransient<DbContext, AdventureWorksContext>();
+            services.AddTransient<IRepository<Employee>, Repository<Employee>>();
+            services.AddScoped<Service<Employee>, EmployeeService>();
 
             // Add framework services.
             services.AddMvc();

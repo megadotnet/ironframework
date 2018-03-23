@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using DotCoreWebAPI.Converter;
 using DataTransferObject;
 using DataAccessObjectDotNetCore;
+using BusinessObjectStandard.Service;
 
 namespace DotCoreWebAPI.Controllers
 {
@@ -16,7 +17,7 @@ namespace DotCoreWebAPI.Controllers
         /// <summary>
         /// AdventureWorksContext
         /// </summary>
-        private readonly AdventureWorksContext _context;
+        private readonly Service<Employee> _context;
         /// <summary>
         /// EmployeeConverter
         /// </summary>
@@ -26,9 +27,9 @@ namespace DotCoreWebAPI.Controllers
         /// EmployeeController
         /// </summary>
         /// <param name="context"></param>
-        public EmployeeController(AdventureWorksContext context)
+        public EmployeeController(Service<Employee> service)
         {
-            _context = context;
+            _context = service;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace DotCoreWebAPI.Controllers
         [HttpGet]
         public IEnumerable<EmployeeDto> Get()
         {
-            var dbentities = _context.Employee.ToList();
+            var dbentities = _context.Queryable().ToList();
             var employeedtos = new List<EmployeeDto>();
             dbentities.ForEach(c => employeedtos.Add(employeeConverter.ConvertEntitiesToDto(c)));
             return employeedtos;
@@ -50,16 +51,16 @@ namespace DotCoreWebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>EmployeeDto</returns>
-        [HttpGet("{id}")]
-        public EmployeeDto Get(int id)
-        {
-            var dbentities = _context.Employee.Where(e => e.EmployeeId == id);
-            if (dbentities==null)
-            {
-                return null;
-            }
-            return employeeConverter.ConvertEntitiesToDto(dbentities.FirstOrDefault());
-        }
+        //[HttpGet("{id}")]
+        //public EmployeeDto Get(int id)
+        //{
+        //    var dbentities = _context.Employee.Where(e => e.EmployeeId == id);
+        //    if (dbentities==null)
+        //    {
+        //        return null;
+        //    }
+        //    return employeeConverter.ConvertEntitiesToDto(dbentities.FirstOrDefault());
+        //}
 
     }
 }

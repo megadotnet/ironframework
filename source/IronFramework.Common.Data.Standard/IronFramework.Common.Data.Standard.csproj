@@ -6,6 +6,15 @@
     <PackageLicenseUrl>https://github.com/megadotnet/ironframework</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/megadotnet/ironframework</RepositoryUrl>
     <Description>IronFramework.Common.Data.Standard</Description>
+    <PackageReleaseNotes>IronFramework.Common.Data for .net Standard 2.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +26,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Implementation\" />
   </ItemGroup>
 
 </Project>

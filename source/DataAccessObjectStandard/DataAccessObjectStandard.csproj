@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DataAccessObjectDotNetCore\Address.cs" Link="Address.cs" />
+    <Compile Include="..\DataAccessObjectDotNetCore\AdventureWorksContext.cs" Link="AdventureWorksContext.cs" />
+    <Compile Include="..\DataAccessObjectDotNetCore\Contact.cs" Link="Contact.cs" />
+    <Compile Include="..\DataAccessObjectDotNetCore\Employee.cs" Link="Employee.cs" />
+    <Compile Include="..\DataAccessObjectDotNetCore\EmployeePayHistory.cs" Link="EmployeePayHistory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+</Project>
