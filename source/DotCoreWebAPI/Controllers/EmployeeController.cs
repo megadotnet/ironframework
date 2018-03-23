@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using DotCoreWebAPI.Models2;
 using DotCoreWebAPI.Converter;
 using DataTransferObject;
+using DataAccessObjectDotNetCore;
 
 namespace DotCoreWebAPI.Controllers
 {

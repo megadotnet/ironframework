@@ -11,8 +11,8 @@
     using Microsoft.Extensions.Logging;
     using static DotCoreWebAPI.Program;
     using Microsoft.EntityFrameworkCore;
-    using DotCoreWebAPI.Models2;
     using Swashbuckle.AspNetCore.Swagger;
+    using DataAccessObjectDotNetCore;
 
     /// <summary>
     /// Startup

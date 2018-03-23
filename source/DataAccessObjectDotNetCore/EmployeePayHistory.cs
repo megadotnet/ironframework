@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DotCoreWebAPI.Models2
+namespace DataAccessObjectDotNetCore
 {
     public partial class EmployeePayHistory
     {

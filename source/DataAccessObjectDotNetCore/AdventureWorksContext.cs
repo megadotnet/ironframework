@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DotCoreWebAPI.Models2
+namespace DataAccessObjectDotNetCore
 {
     /// <summary>
     /// AdventureWorksContext
