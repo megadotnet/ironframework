@@ -17,7 +17,7 @@ namespace DotCoreWebAPI.Controllers
         /// <summary>
         /// AdventureWorksContext
         /// </summary>
-        private readonly Service<Employee> _context;
+        private readonly IEmployeeService _context;
         /// <summary>
         /// EmployeeConverter
         /// </summary>
@@ -27,7 +27,7 @@ namespace DotCoreWebAPI.Controllers
         /// EmployeeController
         /// </summary>
         /// <param name="context"></param>
-        public EmployeeController(Service<Employee> service)
+        public EmployeeController(IEmployeeService service)
         {
             _context = service;
         }
@@ -39,7 +39,7 @@ namespace DotCoreWebAPI.Controllers
         [HttpGet]
         public IEnumerable<EmployeeDto> Get()
         {
-            var dbentities = _context.Queryable().ToList();
+            var dbentities = (_context as Service<Employee>).Queryable().ToList();
             var employeedtos = new List<EmployeeDto>();
             dbentities.ForEach(c => employeedtos.Add(employeeConverter.ConvertEntitiesToDto(c)));
             return employeedtos;

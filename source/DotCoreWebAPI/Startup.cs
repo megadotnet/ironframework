@@ -54,9 +54,9 @@
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Registering services
-            services.AddTransient<DbContext, AdventureWorksContext>();
-            services.AddTransient<IRepository<Employee>, Repository<Employee>>();
-            services.AddScoped<Service<Employee>, EmployeeService>();
+            services.AddScoped<DbContext, AdventureWorksContext>();
+            services.AddScoped<IRepository<Employee>, Repository<Employee>>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
 
             // Add framework services.
             services.AddMvc();

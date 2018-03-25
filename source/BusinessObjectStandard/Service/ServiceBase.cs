@@ -10,7 +10,12 @@ using System.Threading.Tasks;
 
 namespace BusinessObjectStandard.Service
 {
-    public abstract class Service<TEntity> where TEntity : class
+
+    /// <summary>
+    /// Service<TEntity>
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    public abstract class Service<TEntity> : IService<TEntity> where TEntity : class
     {
         protected readonly IRepository<TEntity> Repository;
 
