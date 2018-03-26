@@ -13,6 +13,10 @@ namespace BusinessObjectStandard.Service
     /// <seealso cref="BusinessObjectStandard.Service.IEmployeeService" />
     public class EmployeeService : Service<Employee>, IEmployeeService
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeService"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
         public EmployeeService(IRepository<Employee> repository) : base(repository)
         {
         }
