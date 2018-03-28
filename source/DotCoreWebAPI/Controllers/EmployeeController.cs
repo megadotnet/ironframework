@@ -1,13 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using DotCoreWebAPI.Converter;
-using DataTransferObject;
-using DataAccessObjectDotNetCore;
-using BusinessObjectStandard.Service;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EmployeeController.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  EmployeeController
+//  usage  "Scaffold-DbContext "Data Source=.;Initial Catalog=AdventureWorks;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model"
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 
 namespace DotCoreWebAPI.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using DotCoreWebAPI.Converter;
+    using DataTransferObject;
+    using DataAccessObjectDotNetCore;
+    using BusinessObjectStandard.Service;
+
     /// <summary>
     /// EmployeeController
     /// </summary>
