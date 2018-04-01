@@ -4,6 +4,7 @@
 //
 //    Manual changes to this file may cause unexpected behavior in your application.
 //    Manual changes to this file will be overwritten if the code is regenerated.
+//   usage  "Scaffold-DbContext "Data Source=.;Initial Catalog=AdventureWorks;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model"
 // </auto-generated>
 //------------------------------------------------------------------------------
 namespace DataAccessObjectDotNetCore

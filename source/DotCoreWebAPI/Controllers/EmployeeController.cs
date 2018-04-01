@@ -17,6 +17,7 @@ namespace DotCoreWebAPI.Controllers
     using DataTransferObject;
     using DataAccessObjectDotNetCore;
     using BusinessObjectStandard.Service;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// EmployeeController
@@ -61,16 +62,16 @@ namespace DotCoreWebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>EmployeeDto</returns>
-        //[HttpGet("{id}")]
-        //public EmployeeDto Get(int id)
-        //{
-        //    var dbentities = _context.Employee.Where(e => e.EmployeeId == id);
-        //    if (dbentities==null)
-        //    {
-        //        return null;
-        //    }
-        //    return employeeConverter.ConvertEntitiesToDto(dbentities.FirstOrDefault());
-        //}
+        [HttpGet("{id}")]
+        public async Task<EmployeeDto> Get(int id)
+        {
+            var dbentities =await (_context as Service<Employee>).FindAsync(id);
+            if (dbentities == null)
+            {
+                return null;
+            }
+            return employeeConverter.ConvertEntitiesToDto(dbentities);
+        }
 
     }
 }
