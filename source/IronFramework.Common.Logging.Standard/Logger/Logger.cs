@@ -1,11 +1,10 @@
 ﻿#region FileHeader
-
 // --------------------------------------------------------------------------------------------------------------------
-//  <copyright file="Logger.cs" company="RuiLi AirLine">
-//    RuiLi AirLine @ 2014
+//  <copyright file="Logger.cs" company="Megadotnet">
+//    Megadotnet @ 2014 -2018
 //  </copyright>
 //  <summary>
-//    Logger.cs  2014 08 21 14:58
+//    Logger.cs 
 //  </summary>
 //  --------------------------------------------------------------------------------------------------------------------
 #endregion
@@ -17,7 +16,7 @@ namespace IronFramework.Common.Logging.Logger
     using global::Common.Logging;
 
     /// <summary>
-    /// The logger.
+    /// The logger wrapper common.log
     /// </summary>
     public class Logger : ILogger
     {
@@ -531,7 +530,6 @@ namespace IronFramework.Common.Logging.Logger
         public void Error(object message)
         {
             this._log.Error(message);
-            //MailHelper.SendMail(MailConfig.FromMail, MailConfig.DefaultTo, MailConfig.Password, "Error Logging from MessageCenter", message.ToString());
         }
 
         /// <summary>

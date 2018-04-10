@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageLicenseUrl>https://github.com/megadotnet/ironframework</PackageLicenseUrl>
+    <Description>IronFramework.Common.Logging.NLog.Standard</Description>
+    <PackageReleaseNotes>IronFramework.Common.Logging.NLog.Standard</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IronFramework.Common.Logging.Standard" Version="1.0.0" />
+    <PackageReference Include="NLog" Version="4.5.2" />
+  </ItemGroup>
+
+</Project>

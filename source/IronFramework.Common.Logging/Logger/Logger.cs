@@ -1,11 +1,10 @@
 ﻿#region FileHeader
-
 // --------------------------------------------------------------------------------------------------------------------
-//  <copyright file="Logger.cs" company="RuiLi AirLine">
-//    RuiLi AirLine @ 2014
+//  <copyright file="Logger.cs" company="Megadotnet">
+//    Megadotnet @ 2014 -2018
 //  </copyright>
 //  <summary>
-//    Logger.cs  2014 08 21 14:58
+//    Logger.cs 
 //  </summary>
 //  --------------------------------------------------------------------------------------------------------------------
 #endregion
