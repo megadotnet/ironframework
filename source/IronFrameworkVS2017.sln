@@ -97,7 +97,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObjectStandard", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessObjectStandard", "DataAccessObjectStandard\DataAccessObjectStandard.csproj", "{A2D0A3C7-D792-4029-AD2F-8F4746662521}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Common.Logging.NLog.Standard", "IronFramework.Common.Logging.NLog.Standard\IronFramework.Common.Logging.NLog.Standard.csproj", "{E145AD99-8FE0-473C-A1E4-0D8F736CE56B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Common.Logging.NLog.Standard", "IronFramework.Common.Logging.NLog.Standard\IronFramework.Common.Logging.NLog.Standard.csproj", "{E145AD99-8FE0-473C-A1E4-0D8F736CE56B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.NLog.StandardConsoleTests", "Common.Logging.NLog.StandardConsoleTests\Common.Logging.NLog.StandardConsoleTests.csproj", "{86F9146C-FBEC-4311-9BA5-985493B78036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -233,6 +235,10 @@ Global
 		{E145AD99-8FE0-473C-A1E4-0D8F736CE56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E145AD99-8FE0-473C-A1E4-0D8F736CE56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E145AD99-8FE0-473C-A1E4-0D8F736CE56B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F9146C-FBEC-4311-9BA5-985493B78036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F9146C-FBEC-4311-9BA5-985493B78036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F9146C-FBEC-4311-9BA5-985493B78036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F9146C-FBEC-4311-9BA5-985493B78036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -270,10 +276,11 @@ Global
 		{0B52F9CF-2DAA-4010-9BAD-442E1CA0AF27} = {2F0B887B-EACB-438D-B2FB-1F46B4940D06}
 		{A2D0A3C7-D792-4029-AD2F-8F4746662521} = {2F0B887B-EACB-438D-B2FB-1F46B4940D06}
 		{E145AD99-8FE0-473C-A1E4-0D8F736CE56B} = {5969F89E-CAB4-4B01-A13B-0EEA49CA6B79}
+		{86F9146C-FBEC-4311-9BA5-985493B78036} = {BE104F43-18A5-4592-A830-C861ACB0BBDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {22267630-DB1E-45AA-87BE-DE7E2F1659EE}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.Integration.WCF.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.PolicyInjection.6.0.1304.0\lib\NET45
+		SolutionGuid = {22267630-DB1E-45AA-87BE-DE7E2F1659EE}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
