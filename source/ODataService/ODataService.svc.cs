@@ -1,9 +1,10 @@
-using DataAccessObject;
+
 //------------------------------------------------------------------------------
 // <copyright file="WebDataService.svc.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
+using DataAccessObject;
 using System;
 using System.Collections.Generic;
 using System.Data.Services;
