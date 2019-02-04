@@ -35,6 +35,7 @@ Technology
 8. Web Deployment Server/ IIS 7.5 or later
 9. Windows Server 2012/2016 (option)
 10. SQL Server 2012/2014/2016 Enterprise(option)
+11. OData
 
 Components and libraries:
 
